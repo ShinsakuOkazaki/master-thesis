@@ -14,7 +14,7 @@ use serde::Deserialize;
 use std::error::Error;
 
 fn main()  {
-    let file_path = String::from("../random_raw_num.csv");
+    let file_path = String::from("random_raw_num.csv");
     let v = get_vector_csv(&file_path).unwrap();
     let matrix = Array::from_shape_vec((1000, 10), v).unwrap();;
 

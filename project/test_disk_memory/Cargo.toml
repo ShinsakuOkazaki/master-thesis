@@ -1,5 +1,5 @@
 [package]
-name = "test_dist_memory"
+name = "test_disk_memory"
 version = "0.1.0"
 authors = ["sinsakuokazaki <golisaku4639@gmail.com>"]
 edition = "2018"

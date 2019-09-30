@@ -30,6 +30,7 @@ fn main()  {
     model.fit(&x_train, &y_train);
     let prediction = model.predict(&x_test);
     let w = model.w();
+    println!("{:?}", prediction);
 
 }
 

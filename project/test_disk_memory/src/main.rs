@@ -10,21 +10,24 @@ use ndarray::stack;
 use ndarray_linalg::Solve;
 use csv::ReaderBuilder;
 use serde::Deserialize;
-
+use std::env;
 use std::error::Error;
+use std::convert::From;
+
+
+
 
 fn main()  {
     let file_path = String::from("random_raw_num.csv");
-    let v = get_vector_csv(&file_path).unwrap();
-    let matrix = Array::from_shape_vec((1000, 10), v).unwrap();;
-
-    let x = matrix.slice(s![.., 0..8]);
-    let y = matrix.slice(s![.., 9]);
-
-    let x_train = x.slice(s![0..900, ..]).to_owned();
-    let y_train = y.slice(s![0..900]).to_owned();
-    let x_test = x.slice(s![900..1000, ..]).to_owned();
-    let y_test = y.slice(s![900..1000]).to_owned();
+    let ret = get_vector_csv(&file_path).unwrap();
+    let (v, d)= ret;
+    let matrix = Array::from_shape_vec((d[0], d[1]), v).unwrap();;
+    let x = matrix.slice(s![.., 0..d[1]-2]);
+    let y = matrix.slice(s![.., d[1]-1]);
+    let x_train = x.slice(s![0..d[0]/10*9, ..]).to_owned();
+    let y_train = y.slice(s![0..d[0]/10*9]).to_owned();
+    let x_test = x.slice(s![d[0]/10*9..d[0], ..]).to_owned();
+    let y_test = y.slice(s![d[0]/10*9..d[0]]).to_owned();
 
     let mut model = LinearRegression::new();
     model.fit(&x_train, &y_train);
@@ -34,9 +37,11 @@ fn main()  {
 
 }
 
+
+
 // function to get a vector from csv file. Every row is combined into one long vector
 // and later it will be reshaped.
-fn get_vector_csv(file :&String) -> Result<Vec<f32>, Box<dyn Error>> {
+fn get_vector_csv(file :&String) -> Result<(Vec<f32>, [usize;2]), Box<dyn Error>> {
     
     // Configulate file reader and load from csv file in binary
     let mut rdr = ReaderBuilder::new()
@@ -48,16 +53,22 @@ fn get_vector_csv(file :&String) -> Result<Vec<f32>, Box<dyn Error>> {
 
     // append rows to x until iterator returns None
     let mut x = Vec::new();
+    let mut dimention: [usize; 2] = [0, 0];
     loop {
         if let Some(result) = iter.next() {
+            dimention[0] += 1;
             let row: Row = result?;
             let mut record = row.values;
+            if dimention[0] == 1 {
+                dimention[1] = record.len();
+            }
             x.append(&mut record);
         } else {
             break;
         }
     }  
-    return Ok(x);
+    let ret_val = (x, dimention);
+    return Ok(ret_val);
 }
 
 
@@ -102,8 +113,7 @@ impl LinearRegression {
         let a = xtil.t().dot(&xtil);
         let b = xtil.t().dot(y);
         // solve linear equation
-        let w = a.solve_into(b).unwrap();
-        self.w =  w.clone();
+        self.w = a.solve_into(b).unwrap();
     }
 
     
@@ -115,3 +125,5 @@ impl LinearRegression {
         prediction
     }
 }
+
+

@@ -28,12 +28,11 @@ fn main()  {
     let y_train = y.slice(s![0..d[0]/10*9]).to_owned();
     let x_test = x.slice(s![d[0]/10*9..d[0], ..]).to_owned();
     let y_test = y.slice(s![d[0]/10*9..d[0]]).to_owned();
-
     let mut model = LinearRegression::new();
     model.fit(&x_train, &y_train);
     let prediction = model.predict(&x_test);
     let w = model.w();
-    println!("{:?}", prediction);
+    //println!("{:?}", prediction);
 
 }
 

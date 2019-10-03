@@ -22,13 +22,13 @@ pub struct Row {
     values: Vec<f32>,
 }
 
-// path row number and column number on command line arguments ex: cargo run 1000 10
+// path row number and column number on command line arguments ex: cargo run filename 1000 10
 fn main() -> Result<(), Box<Error>>  {
     let args: Vec<String> = env::args().collect();
-    let row_num = args[1].parse::<i32>()?;
-    let col_num = args[2].parse::<usize>()?;
+    let row_num = args[2].parse::<i32>()?;
+    let col_num = args[3].parse::<usize>()?;
     let rng = thread_rng();
-    let mut wtr = Writer::from_path("random_raw_num.csv")?;
+    let mut wtr = Writer::from_path(&args[1])?;
     for _i in 0..row_num {
         let x: Vec<f32> = rng.sample_iter(&Standard).take(col_num).collect();
         wtr.serialize(&x)?;

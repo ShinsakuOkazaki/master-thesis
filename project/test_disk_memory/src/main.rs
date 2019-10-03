@@ -16,13 +16,13 @@ use std::convert::From;
 use csv::Writer;
 
 
-// run like (time cargo yrun input1.csv output1.csv) 2>&1 | tee log1.txt
+// run like (time cargo run input1.csv output1.csv) 2>&1 | tee log1.txt
 fn main() -> Result<(), Box<dyn Error>>  {
     let args: Vec<String> = env::args().collect();
     let file_path = String::from(&args[1]);
     let ret = get_vector_csv(&file_path).unwrap();
     let (v, d)= ret;
-    let matrix = Array::from_shape_vec((d[0], d[1]), v).unwrap();;
+    let matrix = Array::from_shape_vec((d[0], d[1]), v).unwrap();
     let x = matrix.slice(s![.., 0..d[1]-2]);
     let y = matrix.slice(s![.., d[1]-1]);
     let x_train = x.slice(s![0..d[0]/10*9, ..]).to_owned();
@@ -36,7 +36,8 @@ fn main() -> Result<(), Box<dyn Error>>  {
     let mut wtr = Writer::from_path(&args[2])?;
     wtr.serialize(&w.to_vec())?;
     wtr.flush()?;
-    println!("{:?}",w);
+    println!("{:?}"&d)
+    println!("{:?}",&w);
     Ok(())
 }
 

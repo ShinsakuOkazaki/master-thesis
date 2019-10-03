@@ -13,11 +13,12 @@ use serde::Deserialize;
 use std::env;
 use std::error::Error;
 use std::convert::From;
+use csv::Writer;
 
 
 
-
-fn main()  {
+fn main() -> Result<(), Box<dyn Error>>  {
+    let args: Vec<String> = env::args().collect();
     let file_path = String::from("random_raw_num.csv");
     let ret = get_vector_csv(&file_path).unwrap();
     let (v, d)= ret;
@@ -30,10 +31,13 @@ fn main()  {
     let y_test = y.slice(s![d[0]/10*9..d[0]]).to_owned();
     let mut model = LinearRegression::new();
     model.fit(&x_train, &y_train);
-    let prediction = model.predict(&x_test);
+    //let prediction = model.predict(&x_test);
     let w = model.w();
-    //println!("{:?}", prediction);
-
+    let mut wtr = Writer::from_path(&args[1])?;
+    wtr.serialize(&w.to_vec())?;
+    wtr.flush()?;
+    println!("{:?}",w);
+    Ok(())
 }
 
 

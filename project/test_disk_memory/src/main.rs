@@ -36,8 +36,8 @@ fn main() -> Result<(), Box<dyn Error>>  {
     let mut wtr = Writer::from_path(&args[2])?;
     wtr.serialize(&w.to_vec())?;
     wtr.flush()?;
-    println!("{:?}"&d)
-    println!("{:?}",&w);
+    println!("{:?}",d);
+    println!("{:?}",w);
     Ok(())
 }
 

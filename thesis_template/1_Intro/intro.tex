@@ -2,69 +2,39 @@
 \label{chapter:Introduction}
 \thispagestyle{myheadings}
 
-\section{A few remarks before you start}
+\section{Problem Description}
 \label{sec:history}
 
-Please read the short pointers below and on the subsequent pages; this will help
-you avoid frustrations when submitting the final dissertation to the library.
+Many of popular open source cluster computing frameworks for large scale data analysis, 
+such as Hadoop and Spark, allow programmers to define objects in a host languages, such as Java.
+The objects are then managed in RAM by the language and its runtime, Java Virtual Machine 
+in the case of Java and Scala. Storing objects in memory enables machine to process iterative computation. 
+One of the fundamental tasks for recent big data analysis is analysis using Machine Learning Algorithms, 
+which require iterative process. As the amount of data increases, memory is required to keep many objects. 
+Therefore, memory management plays a critical role in this task. 
 
-Your thesis should have 1.5in left and top margins, and 1in right and bottom
-margins. Getting this right is tricky since it may depend on your particular
-Latex installation. Most likely you will need to adjust some of the dimensions
-set up at the beginning of "bu\_ece\_thesis.sty" in this folder. Basically,
-every installation should have the base margin of 1in at the left and top, but
-this is not always the case. For example, the TexStudio/MiKTeX installation this
-document was set up on, has the default top margin of 0.3125in and so an
-additional margin of 0.6875in was added via $\backslash${topmargin}. In order to
-adjust these dimensions, you may want to follow these steps:
+Memory management in Java and Scala is performed by garbage collection. 
+The garbage collection brings a significant advantage for programmers by removing responsibility
+for planning memory management by themselves. Instead, JVM monitors the state of memory and performs garbage
+collection at certain points. However, these monitoring and auto-execution of garbage collection cost additional 
+computation and might consume computation resources which should be used for data processing. This can significantly decrease performance of the computation. 
 
-\begin{itemize}
-	\item compile the document into PDF,
-	\item open the document in Acroread, set it to full-page viewing and
-		magnification to 100\%
-	\item navigate to a "full" page with the text extending from the very
-		top to the very bottom and full-width left to right,
-	\item measure the margins and adjust accordingly,
-	\item if you are planning to print a hardcopy, you need to make sure
-		to select "Page scaling" to "None" in Acrobat.
-\end{itemize}
+In contrast, memory management in system language, such as C++, relies on programmers’ decision for when to allocate and deallocate memory. 
+The functions, malloc/free consume most of the memory management. Proper implementation of system language for big data processing can be overperform the implementation in host language.
+Nevertheless, implementing C++ performing proper memory management and guaranteeing security can be unproductive and complicated. 
 
-Another issue that BU librarians may complain and you are likely to encounter
-are long URLs or other unbreakable text. In case of long URL addresses, you
-should use the URL package; please see suitable documentation on-line.
+Considering the issue of memory management, we introduce solution based on unique memory management methods implemented in Rust, ownership and borrowing.
+This unique concepts in Rust secure codes and perform memory management without monitoring memory or calling functions. We introduce implementations of
+machine learning algorithms in both Java and Rust to assess performances of each memory management system for iterative big data processing tasks.
 
-However, if you encounter a long unbreakable word (e.g., foreign) the URL
-package does not help. Have a look at the example extending into the page
-margin:
+\section{Memory Management}
+\label{sec:history}
 
-\bigskip
-
-{\it Consider the following Java-JDT plugin name in German: "`Plugin-Entwicklungsumgebung"'.}
-
-\bigskip
-
-Clearly, this is a problem, and BU librarians will complain. One way of fixing
-this issue is to enclose the offending paragraph in {\tt
-	$\backslash$begin\{sloppypar\}} and {\tt $\backslash$end\{sloppypar\}},
-resulting in the following outcome:
-
-\bigskip
-
-\begin{sloppypar}
-	{\it Consider the following Java-JDT plugin name in German:
-		"`Plugin-Entwicklungsumgebung"'.}
-\end{sloppypar}
-
-\bigskip
-
-Indeed, although the paragraph spacing becomes sloppy, at least you can hand in
-the thesis!
-
-
-LaTeX has a steep learning curve. You can use the original book by Lamport to
-learn more \cite{lamport1985:latex}, but there are many on-line resources with
-excellent instructions and examples. Just Google a LaTeX topic you would like to
-explore.
-
-As far as editing and compilation of LaTeX sources, if you have not found one
-yet, TexStudio seems to be quite popular.
+Each value in Rust has a variable called its owner. This owner has information about the value, such as location in memory, 
+length and capacity of the value. This owner can live on the scope associated with its life time. When the owner goes out of it’s scope, 
+the value will be dropped. When a value already assigned to a variable is assigned to another variable, if the value is allocated 
+on heap its information is copied to the new owner and drop the old owner disabling old variable. Similar thing happens when we pass variable to parameter of function. 
+After passing a variable to a parameter, all the information is copied to new owner through the parameter and old owner is no longer available. 
+The new owner can only live in the function and the object will be dropped. In this case, we have no longer access to the object after the function. 
+To avoid this, Rust has a concept called borrowing. We can set reference for the parameter of function and use the reference for operation within function and drop the reference, 
+but not the ownership. 

@@ -164,7 +164,6 @@ INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/1_Intro/intro.tex
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/1_Intro/intro.tex
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 OUTPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_Body/body.aux
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_Body/body.tex
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_Body/body.tex
@@ -218,5 +217,4 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

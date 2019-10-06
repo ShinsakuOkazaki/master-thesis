@@ -27,7 +27,8 @@ Considering the issue of memory management, we introduce solution based on uniqu
 This unique concepts in Rust secure codes and perform memory management without monitoring memory or calling functions. We introduce implementations of
 machine learning algorithms in both Java and Rust to assess performances of each memory management system for iterative big data processing tasks.
 
-\section{Memory Management}
+
+\section{Memory Management in Rust}
 \label{sec:history}
 
 Each value in Rust has a variable called its owner. This owner has information about the value, such as location in memory, 
@@ -38,3 +39,16 @@ After passing a variable to a parameter, all the information is copied to new ow
 The new owner can only live in the function and the object will be dropped. In this case, we have no longer access to the object after the function. 
 To avoid this, Rust has a concept called borrowing. We can set reference for the parameter of function and use the reference for operation within function and drop the reference, 
 but not the ownership. 
+
+
+\section{Spark and RDD Catching}
+\label{sec:history}
+
+Spark is one of the most used big data computing framework. Spark uses Resilient Distributed Datasets (RDDs) which implement in-memory data structures 
+used to cache intermediate data across a set of nodes. This enables multiple rounds of computation on the same data, which is required for machine learning 
+and graph analytics iteratively process the data. 
+
+In RDD caching, there are different stages of caching, such as MEMOR\_YONLY and DISK\_ONLY. 
+Currently, for very large data sets, we need to pay attention to garbage collection (GC) and OS page swapping overhead, 
+because these could degrades execution time significantly. Therefore, DISK\_ONLY RDD caching can be better configuration in this case. 
+However, writing and reading intermediate data among desk and memory could have bad effects for execution time, due to need of serialization and deserialization. 

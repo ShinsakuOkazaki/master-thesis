@@ -222,7 +222,7 @@
 \def\maketitle{\begin{titlepage}
 \pagenumbering{roman}
 \large
-\BU\\\COE\par\vfill
+\BU\\\MET\par\vfill
 \ifcase\degree\or Thesis \or Dissertation \or Dissertation \fi\par\vfill
 \MakeUppercase{{\bf \@title}}\par\vfill
 by\par\vfill
@@ -291,7 +291,7 @@ Approved by\\[2em]
 %  (Order No. \hspace{1.0in})\\[1em] \fi
 \MakeUppercase{{\bf \@author}}\\[1em]
 \ifcase\degree\or\or
-\Bu,\ \Coe, \@degreeyear
+\Bu,\ \Met, \@degreeyear
 \par
 
 % Major Professor: \@majorprofname, \@majorproftitle
@@ -347,7 +347,7 @@ Approved by\\[2em]
 \par
 \vspace{\baselineskip}
 \or
-\Bu,\ \Coe, \@degreeyear
+\Bu,\ \Met, \@degreeyear
 \par
 
 % Major Professor: \@majorprofname, \@majorproftitle
@@ -515,3 +515,5 @@ minus
 \def\Bu{Boston University}
 \def\COE{COLLEGE OF ENGINEERING}
 \def\Coe{College of Engineering}
+\def\MET{METROPOLITAN COLLEGE}
+\def\Met{Metropolitan College}

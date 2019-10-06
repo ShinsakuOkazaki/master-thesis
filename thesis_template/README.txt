@@ -20,7 +20,7 @@ This template can be easily adapted for:
 
 - Master's Thesis (default is PhD dissertation): check the setup at the top of 0_Prelim/prelim.tex file
 
-- Non-Engineering students: check \COE and \Coe definitions at the bottom of bu_ece_thesis.sty file.
+- Non-Engineering students: check \MET and \Met definitions at the bottom of bu_ece_thesis.sty file.
 
 Although the package has been tested using TeTex and MiKTeX, please note that the default setup in your particular incarnation of Latex may differ, and, therefore, dimensions, margins, etc. may not conform to BU thesis requirements. You can easily manipulate the following to meet BU thesis requirements:
 

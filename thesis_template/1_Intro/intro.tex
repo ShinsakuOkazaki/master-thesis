@@ -52,3 +52,18 @@ In RDD caching, there are different stages of caching, such as MEMOR\_YONLY and 
 Currently, for very large data sets, we need to pay attention to garbage collection (GC) and OS page swapping overhead, 
 because these could degrades execution time significantly. Therefore, DISK\_ONLY RDD caching can be better configuration in this case. 
 However, writing and reading intermediate data among desk and memory could have bad effects for execution time, due to need of serialization and deserialization. 
+
+\section{BLAS LAPACK}
+\label{sec:history}
+
+Basic Linear Algebra System (BLAS) is a linear algebra library written in Fortran. This library includes basic linear algebra functionality such as matrix addition 
+and dot product. LAPACK is developed on BLAS and has advanced functionality such as LU decomposition and Singular Value Decomposition (SVD). These library optimize 
+hardware use for linear algebra operation so they are hardware dependant.
+
+Linear algebra library used for Spark is netlib-java, which is a Java wrapper library for Netlib, C API of BLAS and LAPACK. The reason why the developers addressed 
+to use this package is that the BLAS and LAPACK are already bug free and implementing linear algebra library from scratch can usually buggy. 
+
+However, the main advantage of use of BLAS and LAPACK is system optimized implementation. So if we implement original Fortran linear algebra library, 
+it cannot perform as well as BLAS and LAPACK. And the performance would not be such different from one of implementation in Java or Rust.  If we want to test only memory management between Rust and Java,
+ it can be enough implementation of linear algebra operation from  pure Java and Rust sacrificing the best performance taking advantage of system optimization. My concern is implementing linear algebra operation
+  from scratch can be buggy and cause a lot of problems when we test on machine learning algorithms.

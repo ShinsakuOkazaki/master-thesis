@@ -1,22 +1,4 @@
 % ABSTRACT
 
-Many of popular open source cluster computing frameworks for large scale data analysis, such as Hadoop and Spark, 
-allow programmers to define objects in a host languages, such as Java. The objects are then managed in RAM 
-by the language and its runtime, Java Virtual Machine in the case of Java and Scala. Storing objects 
-in memory enables machine to process iterative computation. One of the fundamental tasks for recent big data analysis 
-is analysis using Machine Learning Algorithms, which require iterative process. As the amount of data increases, memory is required to keep many objects. 
-Therefore, memory management plays a critical role in this task. 
 
-Memory management in Java and Scala is performed by garbage collection. The garbage collection brings a significant advantage 
-for programmers by removing responsibility for planning memory management by themselves. Instead, JVM monitors the state of memory 
-and performs garbage collection at certain points. However, these monitoring and auto-execution of garbage collection cost additional computation 
-and might consume computation resources which should be used for data processing. This can significantly decrease performance of the computation. 
-
-In contrast, memory management in system language, such as C++, relies on programmers’ decision for when to allocate and deallocate memory. 
-The functions, malloc/free consume most of the memory management. Proper implementation of system language for big data processing can be overperform the implementation in host language. 
-Nevertheless, implementing C++ performing proper memory management and guaranteeing security can be unproductive and complicated. 
-
-Considering the issue of memory management, we introduce solution based on unique memory management methods implemented in Rust, ownership and borrowing. 
-This unique concepts in Rust secure codes and perform memory management without monitoring memory or calling functions. 
-We introduce implementations of machine learning algorithms in both Java and Rust to assess performances of each memory management system for iterative big data processing tasks.
 

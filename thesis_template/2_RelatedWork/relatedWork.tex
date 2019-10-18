@@ -2,6 +2,8 @@
 \label{chapter:relatedwork}
 \thispagestyle{myheadings}
 
+\graphicspath{{2_RelatedWork/Figures/}}
+
 \section{Memory Management in Rust}
 \label{sec:history}
 
@@ -39,19 +41,63 @@ LINPACK and EISPACK are inefficient because their memory access patterns disrega
 LAPACK addresses this problem by recognizing the algorithms to use block matrix operations, such as matrix multiplication, in the innermost loops. These block operations can be optimized for each architecture to account for the memory hierarchy, 
 and so provide a portable way to achieve high efficiency on diverse modern machines. However, LAPACK requires that highly optimized block matrix operations be already implemented on each machine. 
 
+ARPACK is also a collection of linear algebra subroutines which is designed to compute a few eigenvalues and corresponding eigenvectors from large scale matrix. 
+ARPACK is based upon an algorithmic variant of the Arnoldi process called the Implicitly Restarted Arnoldi Method (IRAM). 
+When the matrix is symmetric it reduces to a variant of the Lanczos process called the Implicitly Restarted Lanczos Method(IRLM). The Arnoldi process only interacts with the matrix via matrix-vector multiplies. 
+Therefore, this method can be applied to distributed matrix operations required in big data analysis.
+
+
 The original BLAS and LAPACK are written in Fortran90. Linear algebra library used for Spark is netlib-java, which is a Java wrapper library for Netlib, C API of BLAS and LAPACK. 
 The reason why the developers addressed to use this package is that the BLAS and LAPACK are already bug free and implementing linear algebra library from scratch can usually buggy. 
 
 However, the main advantage of use of BLAS and LAPACK is system optimized implementation. So if we implement original Fortran linear algebra library, it cannot perform as well as BLAS and LAPACK. 
 And the performance would not be such different from one of implementation in Java or Rust.  If we want to test only memory management between Rust and Java, 
 it can be enough implementation of linear algebra operation from  pure Java and Rust sacrificing the best performance taking advantage of system optimization. 
-My concern is implementing linear algebra operation from scratch can be buggy and cause a lot of problems when we test on machine learning algorithms.
+
+
+\section{Netlib-Java}
+\label{sec:history}
+
+Netlib-java is a Java wrapper of BLAS, LAPACK, and ARPACK. Netlib-java choose  implementation of linear algebra depending on installation of the libraries. 
+First, if we have installed machine optimised system libraries, such as Intel MKL and OpenBLAS, netlib-java will use these as the implementation to use. 
+Next, it try to load netlib references which netlib-java use CBLAS and LAPCKE interface to perform BLAS and LAPACK native call. 
+The last option is to use f2j which is intended to translate the BLAS and LAPACK libraries from their Fortran77 reference source code to Java class files, 
+instead of calling native libraries by using Java Native Interface (JNI). 
+
+We can use JNI to call native libraries from Java. The JNI is a native programming interface which allows Java code that runs inside a Java Virtual Machine (VM) 
+to interoperate with applications and libraries written in other programming languages. 
+
+\section{Create Java interface of CBLAS with JNI}
+\label{sec:history}
+\begin{enumerate}
+    \item Download BLAS and build using make file. In the figure2.1, the built file is libblas.a and the header file is blas.h.
+    \item Download CBLAS and build using make file (I am not sure whether we should build archive file or shared library). In figure, the build file would be libcblas.a or libcblas.dylib and header file is cblas.h.
+    \item Create java file which will be the Java interface of CBLAS.
+    \item Compile java file with -h header flag to create class file (CBLASJ.class) and header file (CBLASJ.h).
+    \begin{lstlisting}[language=bash]
+        $ javac -h . CBLASJ.java
+    \end{lstlisting}
+    \item Create C file (CBLASJ.c) which will bind Java interface and CBLAS library. And compile it with JNI to create object file (CBLASJ.o).
+    \begin{lstlisting}[language=bash]
+        $ gcc -c -fPIC -I${JAVA_HOME}/include -I${JAVA_HOME}/include/darwin CBLASJ.c
+    \end{lstlisting}
+    \item Compile shared library linking library (libcblas.a or libcblas.dylib) object file (CBLASJ.o).
+    \begin{lstlisting}[language=bash]
+        $ gcc -o libcblas.dylib (or libcblas.a) CBLASJ.o 
+    \end{lstlisting}
+\end{enumerate}
+
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{cblas_with_jni.eps}
+    \caption{Integration of Native Methods }
+    \label{fig:Sampling}
+\end{figure}
 
 
 
 \section{Matrix Computation and Optimization in Apache Spark}
 \label{sec:history}
-
 
 Matrix operation is a fundamental part of machine learning. Apache Spark provides implementation for distributed and local matrix operation. 
 To translate single-node algorithms to run on a distributed cluster, Spark addresses separating matrix operations from vector operations and run matrix operations on the cluster, 

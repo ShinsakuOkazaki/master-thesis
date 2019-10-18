@@ -74,17 +74,17 @@ to interoperate with applications and libraries written in other programming lan
     \item Download CBLAS and build using make file (I am not sure whether we should build archive file or shared library). In figure, the build file would be libcblas.a or libcblas.dylib and header file is cblas.h.
     \item Create java file which will be the Java interface of CBLAS.
     \item Compile java file with -h header flag to create class file (CBLASJ.class) and header file (CBLASJ.h).
-    \begin{lstlisting}[language=bash]
-        $ javac -h . CBLASJ.java
-    \end{lstlisting}
+\begin{lstlisting}[language=bash]
+    $ javac -h . CBLASJ.java
+\end{lstlisting}
     \item Create C file (CBLASJ.c) which will bind Java interface and CBLAS library. And compile it with JNI to create object file (CBLASJ.o).
-    \begin{lstlisting}[language=bash]
-        $ gcc -c -fPIC -I${JAVA_HOME}/include -I${JAVA_HOME}/include/darwin CBLASJ.c
-    \end{lstlisting}
+\begin{lstlisting}[language=bash]
+    $ gcc -c -fPIC -I${JAVA_HOME}/include -I${JAVA_HOME}/include/darwin CBLASJ.c
+\end{lstlisting}
     \item Compile shared library linking library (libcblas.a or libcblas.dylib) object file (CBLASJ.o).
-    \begin{lstlisting}[language=bash]
-        $ gcc -o libcblas.dylib (or libcblas.a) CBLASJ.o 
-    \end{lstlisting}
+\begin{lstlisting}[language=bash]
+    $ gcc -o libcblas.dylib (or libcblas.a) CBLASJ.o 
+\end{lstlisting}
 \end{enumerate}
 
 \begin{figure}[htb]

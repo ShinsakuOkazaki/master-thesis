@@ -14,7 +14,8 @@ if __name__ == "__main__":
 
     f = open("run.sh", "a")
     for i in range(start_num, end_num + 1):
-        s = "cargo run ../data/input" + str(i) + ".csv " + str(i * 1000) + " " + str(100) + "\n"
+        s = "cargo run ../data/input" + str(i) + ".csv " + str(i * 1000) + " "\
+        + str(i * 1000) + "\n"
         print(s)
         f.write(s)
     

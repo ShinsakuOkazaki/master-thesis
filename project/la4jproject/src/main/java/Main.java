@@ -9,7 +9,7 @@ import org.la4j.matrix.dense.Basic2DMatrix;
 public class Main {
   public static void main(String[] args) {
 
-    String file = "/Users/sinsakuokazaki/master-thesis/project/data/";
+    String file = "../data/";
 
     //
     long loadStart = System.currentTimeMillis();

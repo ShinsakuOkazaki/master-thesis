@@ -124,3 +124,54 @@ These have different implementation and they perform differently for the type of
 In Sark, OpenBlas is the default method of choice. BLAS interface is made specifically for dense linear algebra. 
 Then, there are few libraries that efficiently handle sparse matrix operations.
 
+
+\section{Memory Management of Java}
+\label{sec:history}
+
+Garbage Collection (GC) is a Java memory management method performed by JVM. 
+GC tracks the state of objects on Java heap and triggers removal of unreferenced objects from memory. 
+
+The Java heap structure is shown in Figure. It can be separated into three main parts where store objects for each corresponding generation: 
+permanent generation, young generation, and old generation. The region for permanent generation stores metadata required by JVM to describe 
+class and method used in application which will be permanently lived on the region of memory. 
+
+The young generation of Java heap contains new objects allocated and aged. When the young generation fills up, this triggers minor GC. 
+All of unreferenced objects will be removed from Java heap and remained objects will be aged and eventually promoted to the old generation.
+
+The old generation is used to store long survived objects. Typically, a threshold is set for young generation object and when the age is met, 
+the object will be moved to the old generation. Eventually, the old generation object also needs to be removed when the object is unreferenced. 
+This is called major GC. The process of generational GC is shown in Figure.
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{java_heap.eps}
+    \caption{Java Heap Structure}
+    \label{fig:Sampling}
+\end{figure}
+
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{java_gc.eps}
+    \caption{Java Garbage Collection}
+    \label{fig:Sampling}
+\end{figure}
+
+
+
+\section{Memory Management of each Linear Algebra Library}
+\label{sec:history}
+
+The pure Java linear algebra library, such as La4j, EJML, and Apache Common Math, 
+use normal GC performed by JVM to manage memory. This is because the implementation of these libraries are in purely Java.
+
+Netlib-java, Jblas or other simple Java wrapper of BLAS, LAPACK, and ARPACK with Java Native Interface (JNI) use normal GC as well. 
+This is because the native code deals with Java array by obtaining a reference to it. After the operation, 
+the native method releases the reference to the Java array with or without returning new Java array or Java primitive type object. 
+
+ND4J has two types of  its own memory management methods, GC to pointer of off-heap NDArray, and MemoryWorkspaces. 
+ND4J used off-heap memory to store NDArrats, to provide better performance while working with NDArrays from vative code such as BLAS and CUDA libraries. 
+Off-heap means that the memory is allocated outside of the Java heap so that it is not managed by the JVM’s GC. NDArray itself is not tracked by JVM, 
+but its pointer is. The Java heap stores pointer to NDArray on off-heap. When a pointer is dereferenced, this pointer can be a target of JVM’s GC and when it is collected, 
+the corresponding NDArray will be deallocated. When using MemoryWorkspaces, NDArray lives only within specific workspace scope. 
+When NDArray leaves the workspace scope, the memory is deallocated unless explicitly calling method to copy the NDArray out of the scope.
+
+

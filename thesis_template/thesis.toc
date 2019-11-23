@@ -1,0 +1,18 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}% 
+\contentsline {section}{\numberline {1.1}Problem Description}{1}% 
+\contentsline {chapter}{\numberline {2}Related Work}{2}% 
+\contentsline {section}{\numberline {2.1}Memory Management in Rust}{2}% 
+\contentsline {section}{\numberline {2.2}Spark and RDD Catching}{2}% 
+\contentsline {section}{\numberline {2.3}BLAS LAPACK}{3}% 
+\contentsline {section}{\numberline {2.4}Netlib-Java}{4}% 
+\contentsline {section}{\numberline {2.5}Create Java interface of CBLAS with JNI}{4}% 
+\contentsline {section}{\numberline {2.6}Matrix Computation and Optimization in Apache Spark}{5}% 
+\contentsline {section}{\numberline {2.7}Memory Management of Java}{6}% 
+\contentsline {section}{\numberline {2.8}Memory Management of each Linear Algebra Library}{7}% 
+\contentsline {chapter}{\numberline {3}Body of my thesis}{9}% 
+\contentsline {section}{\numberline {3.1}Some results}{9}% 
+\contentsline {chapter}{\numberline {4}Conclusions}{11}% 
+\contentsline {section}{\numberline {4.1}Summary of the thesis}{11}% 
+\contentsline {chapter}{\numberline {A}Proof of xyz}{12}% 
+\contentsline {chapter}{References}{13}% 
+\contentsline {chapter}{Curriculum Vitae}{14}% 

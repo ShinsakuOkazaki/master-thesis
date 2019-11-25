@@ -175,3 +175,28 @@ the corresponding NDArray will be deallocated. When using MemoryWorkspaces, NDAr
 When NDArray leaves the workspace scope, the memory is deallocated unless explicitly calling method to copy the NDArray out of the scope.
 
 
+
+\section{Experiment of Memory Allocation}
+\label{sec:history}
+This experiment is to test how static and dynamic memory allocation of Java and Rust behave. For the assessment, Element addition to ArrayList in the case of Java and Vector in the case of Rust 
+is emploied here. These data stractures are resizable and we have control to set initial size. There are two parameters; initial size and final size of ArrayList of Vector after additions of element. 
+We are interested in the impact to memory allocation by initial allocation and expantion to runtime.
+
+First, an ArrayList and an Vector are created with specified initial size. Then, in a loop, a element is added for each iteration until the size of the ArrayList or Vector get the specified final size. 
+When each data structure has a different resizing strategy. When an ArrayList hits current limit of its size and expands the limit, it doubles the current size.  
+While Vector does not have specific strategy for its resizing, the expantions of size of both ArrayList and Vector might affect the digradation of runtime performance.
+
+To perform benchmarks, we use Java Microbenchamrk Hardness (JMH) for Java and Criterion for Rust. The benchmark time is calculated mean from several iterarions. 
+We warm up before the execution. The results are shown in Figures 
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{java_arraylist.eps}
+    \caption{Memory allocation of ArrayList}
+    \label{fig:Sampling}
+\end{figure}
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{rust_vector.eps}
+    \caption{Memory allocation of ArrayList}
+    \label{fig:Sampling}
+\end{figure}

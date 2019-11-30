@@ -6,14 +6,16 @@ mvn clean compile assembly:single
 for size in 1 2 3 4
 do
 
+  echo "datastructure#initialization#size#inittime#addtime#totaltime" > loging.log
+  rm -rf loging.log
 
 	for counter in 1 2 3 4 5
 	do
-		rm -rf loging.log
+
 
 
     # write the first line
-    echo "datastructure#initialization#size#inittime#addtime#totaltime" > loging.log
+
 
     for initialization in true flase
     do
@@ -22,8 +24,10 @@ do
 
 	    time taskset -c 0 java -Xms1g -Xmx5g   -cp  ./target/java-memory-alloc-manual-1.0-SNAPSHOT-jar-with-dependencies.jar  allocation/ElementsAddition   $size $initialization
 
+
     done
-	  cat loging.log  >  result/resultJavaAlloc_"$size"_"$counter".txt
+
+    cat loging.log  >>  result/resultJavaAlloc_"$size".txt
 	done
 
 done

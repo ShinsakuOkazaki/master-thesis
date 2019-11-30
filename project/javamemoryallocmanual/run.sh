@@ -20,7 +20,7 @@ do
 
 	    echo "Adding $size elements with initialization $initialization in Run number  $counter "
 
-	    time taskset -c 0 java -Xms15g -Xmx30g   -cp  ./target/java-memory-alloc-manual-1.0-SNAPSHOT-jar-with-dependencies.jar  allocation/ElementsAddition   $size $initialization
+	    time taskset -c 0 java -Xms1g -Xmx5g   -cp  ./target/java-memory-alloc-manual-1.0-SNAPSHOT-jar-with-dependencies.jar  allocation/ElementsAddition   $size $initialization
 
     done
 	  cat loging.log  >  result/resultJavaAlloc_"$size"_"$counter".txt

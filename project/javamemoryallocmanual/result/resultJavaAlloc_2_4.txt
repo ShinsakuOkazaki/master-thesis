@@ -1,0 +1,3 @@
+datastructure#initialization#size#inittime#addtime#totaltime
+[JavaArrayList]#true#100#44333#20614#65313
+[JavaArrayList]#false#100#42718#45527#88607

@@ -18,7 +18,7 @@ do
     # write the first line
 
 
-    for initialization in true flase
+    for initialization in true false
     do
 
 	    echo "Adding $size elements with initialization $initialization in Run number  $counter "

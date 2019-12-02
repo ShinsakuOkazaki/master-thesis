@@ -1,4 +1,5 @@
 datastructure#initialization#size#inittime#addtime#totaltime
+<<<<<<< HEAD
 [RustVector]#true#10#727#1636#8543
 [RustVector]#false#10#253#4350#9455
 [RustVector]#true#10#868#1748#9399
@@ -9,3 +10,10 @@ datastructure#initialization#size#inittime#addtime#totaltime
 [RustVector]#false#10#241#4377#9521
 [RustVector]#true#10#721#1546#7801
 [RustVector]#false#10#279#5118#10191
+=======
+[RustVector]#true#10#2681#2920#6320
+[RustVector]#true#10#2206#2137#4971
+[RustVector]#true#10#2282#2265#5301
+[RustVector]#true#10#2149#2097#4561
+[RustVector]#true#10#2251#2043#4723
+>>>>>>> 4b6451eb635764807657b5a4fddd8d74d53a17b0

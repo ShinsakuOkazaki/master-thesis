@@ -1,19 +1,11 @@
 datastructure#initialization#size#inittime#addtime#totaltime
-<<<<<<< HEAD
-[RustVector]#true#10#727#1636#8543
-[RustVector]#false#10#253#4350#9455
-[RustVector]#true#10#868#1748#9399
-[RustVector]#false#10#329#6349#13036
-[RustVector]#true#10#664#1644#8289
-[RustVector]#false#10#216#4148#9001
-[RustVector]#true#10#763#1683#8971
-[RustVector]#false#10#241#4377#9521
-[RustVector]#true#10#721#1546#7801
-[RustVector]#false#10#279#5118#10191
-=======
-[RustVector]#true#10#2681#2920#6320
-[RustVector]#true#10#2206#2137#4971
-[RustVector]#true#10#2282#2265#5301
-[RustVector]#true#10#2149#2097#4561
-[RustVector]#true#10#2251#2043#4723
->>>>>>> 4b6451eb635764807657b5a4fddd8d74d53a17b0
+[RustVector]#true#10#1475#25063#27300
+[RustVector]#false#10#238#7646#8105
+[RustVector]#true#10#1286#1793#3355
+[RustVector]#false#10#540#6875#7872
+[RustVector]#true#10#1184#2003#3691
+[RustVector]#false#10#253#6835#7373
+[RustVector]#true#10#1203#2101#3747
+[RustVector]#false#10#423#7469#8404
+[RustVector]#true#10#1351#2029#3971
+[RustVector]#false#10#247#7487#8263

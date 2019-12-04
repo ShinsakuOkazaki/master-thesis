@@ -24,9 +24,9 @@ do
         echo "Adding $size elements with initialization $initialization in Run number  $counter "
 
         # Server experiment
-        # time taskset -c 0 cargo run $size $initialization
+        time taskset -c 0 cargo run $size $initialization
         # Loacal experiment
-        time cargo run $size $initialization
+        # time cargo run $size $initialization
     done
 
 

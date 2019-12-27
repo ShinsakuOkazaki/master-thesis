@@ -2,9 +2,7 @@ package allocation;
 
 import org.apache.log4j.PropertyConfigurator;
 
-
-public class StringAddition {
-
+public class ElementAddition {
     public static void main(String[] args) {
 
         int size = Integer.parseInt(args[0]);
@@ -14,8 +12,6 @@ public class StringAddition {
         System.gc();
 
         runExperiments(size, initialization);
-
-
     }
 
     public static void runExperiments(int size, boolean initialization) {

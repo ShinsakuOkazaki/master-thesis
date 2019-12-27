@@ -3,8 +3,8 @@ package allocation;
 import org.apache.log4j.PropertyConfigurator;
 
 
-public class StringAddition {
 
+public class CharArrAddition {
     public static void main(String[] args) {
 
         int size = Integer.parseInt(args[0]);

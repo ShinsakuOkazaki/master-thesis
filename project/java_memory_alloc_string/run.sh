@@ -24,7 +24,7 @@ do
 	    echo "Adding $size elements with initialization $initialization in Run number  $counter "
 
       # Server experiment
-	    # time taskset -c 0 java -Xms1g -Xmx5g   -cp  ./target/java_memory_alloc_string-1.0-SNAPSHOT-jar-with-dependencies.jar  allocation/StringAddition   $size $initialization
+	    time taskset -c 0 java -Xms1g -Xmx5g   -cp  ./target/java_memory_alloc_string-1.0-SNAPSHOT-jar-with-dependencies.jar  allocation/StringAddition   $size $initialization
 
 	    # Loacal experiment
 	    # time java -Xms1g -Xmx5g   -cp  ./target/java_memory_alloc_string-1.0-SNAPSHOT-jar-with-dependencies.jar  allocation/StringAddition   $size $initialization

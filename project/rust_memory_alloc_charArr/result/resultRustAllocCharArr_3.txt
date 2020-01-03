@@ -1,0 +1,11 @@
+datastructure#initialization#size#inittime#addtime#totaltime
+[CharArray]#true#1000#4034#194871#324747
+[CharArray]#false#1000#416#191481#315837
+[CharArray]#true#1000#3833#195859#333377
+[CharArray]#false#1000#368#199662#324012
+[CharArray]#true#1000#3843#190349#320425
+[CharArray]#false#1000#260#193227#316818
+[CharArray]#true#1000#3637#187455#312544
+[CharArray]#false#1000#340#200367#323956
+[CharArray]#true#1000#4231#185525#311343
+[CharArray]#false#1000#487#192009#315682

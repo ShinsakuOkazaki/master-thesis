@@ -1,0 +1,11 @@
+datastructure#initialization#size#inittime#addtime#totaltime
+[JavaArrayList]#true#1000#23669#8740692#8764757
+[JavaArrayList]#false#1000#22851#8602581#8625948
+[JavaArrayList]#true#1000#21269#8689324#8710944
+[JavaArrayList]#false#1000#22310#8587201#8609832
+[JavaArrayList]#true#1000#30779#8840268#8871417
+[JavaArrayList]#false#1000#22420#8584798#8607540
+[JavaArrayList]#true#1000#22446#8539655#8562463
+[JavaArrayList]#false#1000#21580#8254635#8276569
+[JavaArrayList]#true#1000#24035#8619488#8643933
+[JavaArrayList]#false#1000#23874#8896045#8920311

@@ -31,5 +31,5 @@ do
 
 
 	done
-  cat loging.log  >  result/resultRustAlloc_charArr_"$size".txt
+  cat loging.log  >  result/resultRustAllocObject_"$size".txt
 done

@@ -205,9 +205,6 @@ This characteristic can be seen in the case of Vector in Rust. Vector with initi
 but one with initial size 1000 and final size 999 performs 2723 ns. When the Vector reachs its capacity, it allocates a larger buffer and copies the present elements to it.
 This cost results in the degradation of the average excution time.
 
-
-
-
 \begin{figure}[htb]
     \includegraphics[width=15cm]{java_arraylist.eps}
     \caption{Memory allocation of ArrayList in Java}
@@ -237,10 +234,13 @@ Assamption is that there would be different behavior between element additions o
 Customer object has three fields. These fields are total order, weight of order, and zip code whose types are integer (i32 in rust), double (f32 in rust), and string respectively.
 Figure 2-6 and 2-7 are representations of customer objects in Java and Rust.
 
-Figure 2-8 and 2-9 represent the result of the experiments. For both data structures, integer elements addition shows the fastest runtime among all object types. 
+Figure 2-10, 2-11, 2-12, and 2-13 represent the result of the experiments. For both data structures, integer elements addition shows the fastest runtime among all object types. 
 This is because the compilers know each integer need 4 bytes to be stored in memory so that the space for memory that should be allocated is easily inspected. 
+For the same reason, the initialization of data structures whose elements are integers alaways improves runtim performance.
+
 The elements addition of strings and array of character behave similally among each languages. These two types of elements addition perform the similar speed and significantly slower than integer addition. 
-Customer object addition is the slowest in Java and seems to have little impact of initialization of size of ArrayList. However, in Rust the addition of Customer object is the second fastest among all element typs.
+Customer object addition is the slowest in Java. However, in Rust the addition of Customer object is the second fastest among all element typs.
+The impacts of initialization of Java ArrayList vary among elemet types. On the other hand, the initailization Rust Vector always improves runtime performance for any of 4 types of elements addition.
 
 
 \begin{figure}[htb]
@@ -276,5 +276,18 @@ Customer object addition is the slowest in Java and seems to have little impact 
 \begin{figure}[htb]
     \includegraphics[width=15cm]{rust_vector_log.eps}
     \caption{Memory allocation of Rust Vector}
+    \label{fig:Sampling}
+\end{figure}
+
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{java_arraylist_difference.eps}
+    \caption{Difference of Memory allocation of Java ArrayList between Non-initialization and Initialization}
+    \label{fig:Sampling}
+\end{figure}
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{rust_arraylist_difference.eps}
+    \caption{Difference of Memory allocation of Rust Vector between Non-initialization and Initialization}
     \label{fig:Sampling}
 \end{figure}

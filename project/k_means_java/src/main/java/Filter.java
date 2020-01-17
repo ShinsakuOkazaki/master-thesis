@@ -1,4 +1,4 @@
-package PACKAGE_NAME;
-
 public interface Filter {
+    boolean get();
+    void set();
 }

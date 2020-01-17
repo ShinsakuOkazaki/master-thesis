@@ -1,13 +1,13 @@
-public class Filter {
+public class FilterMatrix {
     int numRows;
     int numColumns;
     boolean[] data;
-    public Filter(int numRows, int numColumns) {
+    public FilterMatrix(int numRows, int numColumns) {
         this.numRows = numRows;
         this.numColumns = numColumns;
         this.data = new boolean[numRows * numColumns];
     }
-    public Filter(boolean[][] arr) {
+    public FilterMatrix(boolean[][] arr) {
         this.numRows = arr[0].length;
         this.numColumns = arr.length;
         boolean[] data = new boolean[numRows * numColumns];

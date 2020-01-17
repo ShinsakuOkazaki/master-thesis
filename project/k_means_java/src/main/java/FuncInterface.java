@@ -1,4 +1,3 @@
-package PACKAGE_NAME;
-
 public interface FuncInterface {
+    boolean condition(int a, int b);
 }

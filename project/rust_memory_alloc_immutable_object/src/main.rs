@@ -18,6 +18,16 @@ fn main() {
 
 }
 
+fn vector_addition(size: usize) {
+    match size {
+        1 => add_to_vector(10), 
+        2 => add_to_vector(100), 
+        3 => add_to_vector(1000), 
+        4 => add_to_vector(10000), 
+        _ => println!("Invalid input!"),
+    }
+}
+
 fn add_to_imutable(size: usize) {
     
     println!("size: {}", size);

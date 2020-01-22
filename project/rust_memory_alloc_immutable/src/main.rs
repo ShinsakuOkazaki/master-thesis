@@ -204,6 +204,9 @@ fn add_object(size: usize) {
     file.write_all(output.as_bytes()).expect("Fail to write file.");    
 }
 
+
+
+
 pub struct Customer {
     total_order: i32,
     weight_order: f32,
@@ -219,3 +222,4 @@ impl Customer {
         }
     }
 }
+

@@ -1,0 +1,6 @@
+datastructure#method#type#size#inittime#addtime#totaltime
+[RustVector]#"clone"#"String"#10000#7092#1000309#64194934
+[RustVector]#"clone"#"String"#10000#4891#999365#64390432
+[RustVector]#"clone"#"String"#10000#7434#997361#64473102
+[RustVector]#"clone"#"String"#10000#10286#995753#64283680
+[RustVector]#"clone"#"String"#10000#5418#998433#64378558

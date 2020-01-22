@@ -5,13 +5,14 @@ cargo build --release
 
 for size in 1000 10000 100000 1000000
 do
+    rm -rf loging.log
+    echo "datastructure#method#type#size#inittime#addtime#totaltime" > loging.log
+
     for method in 1 2 3
     do
         for eltype in 1 2
         do
-            rm -rf loging.log
-            echo "datastructure#method#type#size#inittime#addtime#totaltime" > loging.log
-
+            
             for counter in 1 2 3 4 5
             do
 

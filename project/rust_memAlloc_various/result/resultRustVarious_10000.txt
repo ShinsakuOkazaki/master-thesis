@@ -1,6 +1,6 @@
 datastructure#method#type#size#inittime#addtime#totaltime
-[RustVector]#"clone"#"String"#10000#7092#1000309#64194934
-[RustVector]#"clone"#"String"#10000#4891#999365#64390432
-[RustVector]#"clone"#"String"#10000#7434#997361#64473102
-[RustVector]#"clone"#"String"#10000#10286#995753#64283680
-[RustVector]#"clone"#"String"#10000#5418#998433#64378558
+[RustVector]#"clone"#"String"#10000#11902#1093567#74056532
+[RustVector]#"clone"#"String"#10000#6316#1094363#74506337
+[RustVector]#"clone"#"String"#10000#6813#1084585#74335974
+[RustVector]#"clone"#"String"#10000#6364#1108024#74727122
+[RustVector]#"clone"#"String"#10000#6389#1083917#74247964

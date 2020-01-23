@@ -27,25 +27,27 @@ fn add_elements(size: usize, method: i32) {
     let mut distination = Vec::with_capacity(size);
     let elapsed_init = start_init.elapsed().as_nanos();
 
-    let mut source = Vec::with_capacity(size);
-    for i in 0..size {
-        source.push(i as i32);
-    }
     
-    // Make condition when clone is used and otherwise.
-    let elapsed_add = unsafe {if method == 3 {
-        let start_add = Instant::now();
-        distination = source.clone();
-        start_add.elapsed().as_nanos()
-    } else {
-        select_experiment(method, &mut distination, &mut source, size)
-    }};
+    let mut source = Vec::with_capacity(size);
+    for _i in 0..size {
+        let rand_string: String = thread_rng()
+                            .sample_iter(&Alphanumeric)
+                            .take(10)
+                            .collect();
+        source.push(rand_string);    
+    }
 
+    // Make condition when clone is used and otherwise.
+    let elapsed_add = unsafe {select_experiment(method, &mut distination, &mut source, size)};
     
     
     let elapsed_total = start_init.elapsed().as_nanos();
 
-    println!("{:?}", distination[5]);
+    println!("Before source {:?}", source[5]);
+    println!("Before distination {:?}", distination[5]);
+    distination[5].push_str("shin");
+    println!("After source{:?}", source[5]);
+    println!("After distination {:?}", distination[5]);
 
     let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}\n", size, elapsed_init, elapsed_add, elapsed_total);
 
@@ -68,7 +70,7 @@ unsafe fn memory_copy<T>(dst: &mut Vec<T>, src: &mut Vec<T>, size: usize) -> u12
     // Get immutable pointer to source.
     let src_ptr = src.as_ptr();
     // Set source length to 0.
-    src.set_len(0);
+    //src.set_len(0);
     // Copy source to distination.
     ptr::copy(src_ptr, dst_ptr, size);
     // Set size of distionation.
@@ -89,4 +91,3 @@ fn one_by_one<T>(dst: &mut Vec<T>, src: &mut Vec<T>, size: usize) -> u128 {
     let elapsed_add = start_add.elapsed().as_nanos();
     return elapsed_add;
 }
-

@@ -49,6 +49,10 @@ fn add_string(size: usize, method: i32, eltype: i32) {
         let start_add = Instant::now();
         distination = source.clone();
         start_add.elapsed().as_nanos()
+    }else if method == 4 {
+        let start_add = Instant::now();
+        distination.clone_from(&source);
+        start_add.elapsed().as_nanos() 
     } else {
         select_experiment(method, &mut distination, &mut source, size)
     }};
@@ -79,7 +83,11 @@ fn add_integer(size: usize, method: i32, eltype: i32) {
     let elapsed_add = unsafe {if method == 3 {
         let start_add = Instant::now();
         distination = source.clone();
-        start_add.elapsed().as_nanos()
+        start_add.elapsed().as_nanos() 
+    } else if method == 4 {
+        let start_add = Instant::now();
+        distination.clone_from(&source);
+        start_add.elapsed().as_nanos() 
     } else {
         select_experiment(method, &mut distination, &mut source, size)
     }};
@@ -148,6 +156,7 @@ fn get_methodName(method: i32) -> String {
         1 => String::from("memcpy"),
         2 => String::from("onebyone"),
         3 => String::from("clone"),
+        4 => String::from("clone_from"),
         _ => String::from(""), 
     }
 }

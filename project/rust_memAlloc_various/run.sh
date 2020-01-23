@@ -8,7 +8,7 @@ do
     rm -rf loging.log
     echo "datastructure#method#type#size#inittime#addtime#totaltime" > loging.log
 
-    for method in 1 2 3
+    for method in 1 2 3 4
     do
         for eltype in 1 2
         do

@@ -24,9 +24,9 @@ do
                 echo "Adding $size elements in Run number  $counter "
 
                 # Server experiment
-                # time taskset -c 0 cargo run $size $method $eltype
+                time taskset -c 0 cargo run $size $method $eltype
                 # Loacal experiment
-                time cargo run $size $method $eltype
+                # time cargo run $size $method $eltype
             done
         done
     done

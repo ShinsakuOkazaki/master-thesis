@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  14 JAN 2020 13:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  23 JAN 2020 15:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -251,72 +251,7 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@pps=\count121
 \c@@ppsavesec=\count122
 \c@@ppsaveapp=\count123
-) (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.aux (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/prelim.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/1_Intro/intro.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.aux
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.aux
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-) (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.aux))
+) (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.aux)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
@@ -372,36 +307,39 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 
 ] (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/abs.tex) [6
 
-] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 2.
- (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 2.
- (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+]
+No file thesis.toc.
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
- [7
-
-
-] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.lot)
-\tf@lot=\write5
-\openout5 = `thesis.lot'.
-
- [8
-
-
-] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.lof)
-\tf@lof=\write6
-\openout6 = `thesis.lof'.
-
- [9
+[7
 
 
 ]
+No file thesis.lot.
+\tf@lot=\write5
+\openout5 = `thesis.lot'.
+
+[8
+
+
+]
+No file thesis.lof.
+\tf@lof=\write6
+\openout6 = `thesis.lof'.
+
+[9
+
+
+]
+LaTeX Font Info:    Try loading font information for U+msa on input line 132.
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 132.
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 Overfull \hbox (33.33734pt too wide) in paragraph at lines 132--143
  [] 
  []
@@ -577,7 +515,30 @@ File: 2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf Graph
 <use 2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf  used on input line 290.
 (pdftex.def)             Requested size: 426.79134pt x 355.65341pt.
-) [10] [11 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist-eps-converted-to.pdf>] [12 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf>] [13 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_log-eps-converted-to.pdf>] [14 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector_log-eps-converted-to.pdf>] [15 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_difference-eps-converted-to.pdf>] [16 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf>]
+
+/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:299: Missing $ inserted.
+<inserted text> 
+                $
+l.299 Another is copy_
+                      nonoverlapping function which copies values from sourc...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+)
+/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.tex:76: Missing $ inserted.
+<inserted text> 
+                $
+l.76 \include{2_RelatedWork/RelatedWork}
+                                        
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (873.82253pt too wide) in paragraph at lines 298--76
+\OT1/cmr/m/n/10 is per-forms bit-wise deep copy. An-other is copy$[]\OML/cmm/m/it/10 onoverlappingfunctionwhichcopiesvaluesfromsourcetodistinationmemoryregion:Theotherispushingelementsofsourcetodistinationvectoronebyone:Insertionsofelementswith\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 sizeareconducted; \OT1/cmr/m/n/10 1000\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 10000\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 100000\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1000000\OML/cmm/m/it/10 and; theirruntimeforeach$ 
+ []
+
+[10] [11 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist-eps-converted-to.pdf>] [12 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf>] [13 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_log-eps-converted-to.pdf>] [14 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector_log-eps-converted-to.pdf>] [15 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_difference-eps-converted-to.pdf>] [16 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf>]
 \openout2 = `3_Body/body.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.tex
@@ -591,7 +552,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/figure_sampling_view1.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view1.eps>
 (epstopdf)             \includegraphics on input line 17.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf, id=376, 400.49625pt x 396.48125pt>
+<3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf, id=378, 400.49625pt x 396.48125pt>
 File: 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf  used on input line 17.
@@ -605,17 +566,30 @@ Package epstopdf Info: Source file: <3_Body/Figures/figure_sampling_view2.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view2.eps>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf, id=377, 400.49625pt x 396.48125pt>
+<3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf, id=379, 400.49625pt x 396.48125pt>
 File: 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf  used on input line 22.
 (pdftex.def)             Requested size: 199.16928pt x 197.17535pt.
+
+LaTeX Warning: Citation `lamport1985:latex' on page 17 undefined on input line 31.
+
+
+LaTeX Warning: Citation `Debr01' on page 17 undefined on input line 31.
+
 [17
 
 
 
 
- </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>]) [18
+ </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>]
+
+LaTeX Warning: Reference `fig:Sampling' on page 18 undefined on input line 39.
+
+
+LaTeX Warning: Reference `fig:Sampling' on page 18 undefined on input line 39.
+
+) [18
 
 ]
 \openout2 = `4_Conclusion/conclusion.aux'.
@@ -637,33 +611,35 @@ Appendix A.
 
 
 
-] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl) [21
-
-
 ]
+No file thesis.bbl.
 \openout2 = `0_Prelim/cv.aux'.
 
- (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [22
+(/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [21
+
 
 
 ] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.aux (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/prelim.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/1_Intro/intro.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.aux))
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 6209 strings out of 492616
- 94665 string characters out of 6129482
- 344802 words of memory out of 5000000
- 9936 multiletter control sequences out of 15000+600000
- 8415 words of font info for 32 fonts, out of 8000000 for 9000
+ 6176 strings out of 492616
+ 92973 string characters out of 6129482
+ 341980 words of memory out of 5000000
+ 9926 multiletter control sequences out of 15000+600000
+ 8066 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,10n,53p,433b,1191s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (32 pages, 409311 bytes).
+ 42i,10n,53p,566b,1191s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (31 pages, 406815 bytes).
 PDF statistics:
- 438 PDF objects out of 1000 (max. 8388607)
- 160 compressed objects within 2 object streams
+ 435 PDF objects out of 1000 (max. 8388607)
+ 158 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

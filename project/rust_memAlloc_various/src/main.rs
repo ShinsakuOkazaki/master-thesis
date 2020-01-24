@@ -86,7 +86,7 @@ fn add_integer(size: usize, method: i32, eltype: i32) {
 }
 
 fn write_to_file(method: i32, eltype: i32, size: usize, elapsed_init: u128, elapsed_add: u128, elapsed_access: u128,  elapsed_total: u128) {
-    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}#{:?}\n", get_methodName(method), get_elementType(eltype), size, elapsed_init, elapsed_add, elapsed_total);
+    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}#{:?}#{:?}\n", get_methodName(method), get_elementType(eltype), size, elapsed_init, elapsed_add, elapsed_access, elapsed_total);
     println!("{}",output);
     let mut file = OpenOptions::new()
         .append(true)

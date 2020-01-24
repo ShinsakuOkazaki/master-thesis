@@ -2,7 +2,6 @@
 
 cargo clean
 cargo build --release
-rm nohup.out
 for size in 1000000 1500000 10000000 15000000
 do
     rm -rf loging.log
@@ -27,7 +26,7 @@ do
                     # Server experiment
                     # time taskset -c 0 cargo run $size $method $eltype $mutability
                     # Loacal experiment
-                    nohup time cargo run $size $method $eltype $mutability
+                    time cargo run $size $method $eltype $mutability
                 done
             done
         done

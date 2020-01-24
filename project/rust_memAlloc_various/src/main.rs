@@ -17,18 +17,35 @@ fn main() {
     let size: usize = args[1].parse().unwrap();
     let method: i32 = args[2].parse().unwrap();
     let eltype: i32 = args[3].parse().unwrap();
-    add_element(size, method, eltype);
+    let mutability: bool = args[4].parse().unwrap();
+    add_element(size, method, eltype, mutability);
 }
 
-fn add_element(size:usize, method: i32, eltype: i32) {
-    match eltype {
-        1 => add_integer(size, method, eltype),
-        2 => add_string(size, method, eltype),
+fn add_element(size:usize, method: i32, eltype: i32, mutability: bool) {
+    match mutability {
+        true => mutable_access(size, method, eltype),
+        false => immutable_access(size, method, eltype),
         _ => println!("Wrong type")
     }
 }
 
-fn add_string(size: usize, method: i32, eltype: i32) {
+fn mutable_access(size:usize, method: i32, eltype: i32) {
+    match eltype {
+        1 => add_integer_mutable_access(size, method, eltype, true),
+        2 => add_string_mutable_access(size, method, eltype, true),
+        _ => println!("Wrong type")
+    }
+}
+
+fn immutable_access(size:usize, method: i32, eltype: i32) {
+    match eltype {
+        1 => add_integer_immutable_access(size, method, eltype, false),
+        2 => add_string_immutable_access(size, method, eltype, false),
+        _ => println!("Wrong type")
+    }
+}
+
+fn add_string_immutable_access(size: usize, method: i32, eltype: i32, mutability: bool) {
     println!("size: {}", size);
 
     let start_init = Instant::now();
@@ -36,29 +53,65 @@ fn add_string(size: usize, method: i32, eltype: i32) {
     let mut distination = Vec::with_capacity(size);
     let elapsed_init = start_init.elapsed().as_nanos();
 
-    let dist = Uniform::from(3..7);
-    let mut source = Vec::with_capacity(size);
-    for _i in 0..size {
-        let rand_string: String = thread_rng()
-                            .sample_iter(&Alphanumeric)
-                            .take(dist.sample(&mut thread_rng()))
-                            .collect();
-        source.push(rand_string);    
-    }
+    let mut source = get_vector_string(size);
 
     // Make condition when clone is used and otherwise.
     let elapsed_add = do_clone_from(&mut distination, &mut source);
 
     let immutable = distination;
 
-    let elapsed_access = access_string_test(&immutable, &source);
+    let elapsed_access = access_string_test_immutable(&immutable, &source);
     
     let elapsed_total = start_init.elapsed().as_nanos();
 
-    write_to_file(method, eltype, size, elapsed_init, elapsed_add, elapsed_access,elapsed_total);
+    write_to_file(method, eltype, mutability, size , elapsed_init, elapsed_add, elapsed_access, elapsed_total);
 }
 
-fn add_integer(size: usize, method: i32, eltype: i32) {
+fn add_string_mutable_access(size: usize, method: i32, eltype: i32, mutability: bool) {
+    println!("size: {}", size);
+
+    let start_init = Instant::now();
+    // We need to make sure that vector has enough size to copy source vector.
+    let mut distination = Vec::with_capacity(size);
+    let elapsed_init = start_init.elapsed().as_nanos();
+
+    let mut source = get_vector_string(size);
+
+    // Make condition when clone is used and otherwise.
+    let elapsed_add = do_clone_from(&mut distination, &mut source);
+
+    let elapsed_access = access_string_test_mutable(&mut distination, &source);
+    
+    let elapsed_total = start_init.elapsed().as_nanos();
+
+    write_to_file(method, eltype, mutability, size , elapsed_init, elapsed_add, elapsed_access, elapsed_total);
+}
+
+fn add_integer_immutable_access(size: usize, method: i32, eltype: i32, mutability: bool) {
+    println!("size: {}", size);
+
+    let start_init = Instant::now();
+    // We need to make sure that vector has enough size to copy source vector.
+    let mut distination = Vec::with_capacity(size);
+    let elapsed_init = start_init.elapsed().as_nanos();
+
+    let mut source = get_vector_integer(size);
+    
+    // Make condition when clone is used and otherwise.
+    let elapsed_add = unsafe {
+        select_experiment(method, &mut distination, &mut source, size)
+    };
+
+    let immutable = distination;
+
+    let elapsed_access = access_integer_test_immutable(&immutable, &source);
+    
+    let elapsed_total = start_init.elapsed().as_nanos();
+
+    write_to_file(method, eltype, mutability, size , elapsed_init, elapsed_add, elapsed_access, elapsed_total);
+}
+
+fn add_integer_mutable_access(size: usize, method: i32, eltype: i32, mutability: bool) {
     println!("size: {}", size);
 
     let start_init = Instant::now();
@@ -76,17 +129,38 @@ fn add_integer(size: usize, method: i32, eltype: i32) {
         select_experiment(method, &mut distination, &mut source, size)
     };
 
-    let immutable = distination;
-
-    let elapsed_access = access_integer_test(&immutable, &source);
+    let elapsed_access = access_integer_test_mutable(&mut distination, &source);
     
     let elapsed_total = start_init.elapsed().as_nanos();
 
-    write_to_file(method, eltype, size, elapsed_init, elapsed_add, elapsed_access, elapsed_total);
+    write_to_file(method, eltype, mutability, size , elapsed_init, elapsed_add, elapsed_access, elapsed_total);
 }
 
-fn write_to_file(method: i32, eltype: i32, size: usize, elapsed_init: u128, elapsed_add: u128, elapsed_access: u128,  elapsed_total: u128) {
-    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}#{:?}#{:?}\n", get_methodName(method), get_elementType(eltype), size, elapsed_init, elapsed_add, elapsed_access, elapsed_total);
+fn get_vector_string(size: usize) -> Vec<String>{
+    let dist = Uniform::from(3..7);
+    let mut source = Vec::with_capacity(size);
+    for _i in 0..size {
+        let rand_string: String = thread_rng()
+                            .sample_iter(&Alphanumeric)
+                            .take(dist.sample(&mut thread_rng()))
+                            .collect();
+        source.push(rand_string);    
+    }
+    return source;
+}
+
+fn get_vector_integer(size: usize) -> Vec<i32> {
+    let mut source = Vec::with_capacity(size);
+    for i in 0..size {
+        source.push(i as i32);
+    }
+    return source;
+}
+
+fn write_to_file(method: i32, eltype: i32, mutability: bool, size: usize, elapsed_init: u128, elapsed_add: u128, elapsed_access: u128,  elapsed_total: u128) {
+    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}#{:?}#{:?}#{:?}\n", 
+                        get_methodName(method), get_elementType(eltype), get_mutability(mutability), 
+                        size, elapsed_init, elapsed_add, elapsed_access, elapsed_total);
     println!("{}",output);
     let mut file = OpenOptions::new()
         .append(true)
@@ -97,12 +171,12 @@ fn write_to_file(method: i32, eltype: i32, size: usize, elapsed_init: u128, elap
     file.write_all(output.as_bytes()).expect("Fail to write file.");
 }
 
-fn access_integer_test(immutable :&Vec<i32>, source: &Vec<i32>) -> u128 {
+fn access_integer_test_mutable(distination :&mut Vec<i32>, source: &Vec<i32>) -> u128 {
     let start_access = Instant::now();
-    let len = immutable.len();
+    let len = distination.len();
     let mut sum: i64 = 0;
     for i in 0..len {
-        sum += (immutable[i] as i64);
+        sum += (distination[i] as i64);
     }
     let elapsed_access = start_access.elapsed().as_nanos();
 
@@ -115,12 +189,48 @@ fn access_integer_test(immutable :&Vec<i32>, source: &Vec<i32>) -> u128 {
     return elapsed_access;
 }
 
-fn access_string_test(immutable :&Vec<String>, source: &Vec<String>) -> u128 {
+fn access_integer_test_immutable(distination :&Vec<i32>, source: &Vec<i32>) -> u128 {
     let start_access = Instant::now();
-    let len = immutable.len();
+    let len = distination.len();
     let mut sum: i64 = 0;
     for i in 0..len {
-        sum += (immutable[i].len() as i64);
+        sum += (distination[i] as i64);
+    }
+    let elapsed_access = start_access.elapsed().as_nanos();
+
+    let mut true_sum: i64 = 0;
+    for i in 0..len {
+        true_sum += (i as i64);
+    }
+    let correct = (sum == true_sum);
+    println!("{}", correct);
+    return elapsed_access;
+}
+
+fn access_string_test_mutable(distination :&mut Vec<String>, source: &Vec<String>) -> u128 {
+    let start_access = Instant::now();
+    let len = distination.len();
+    let mut sum: i64 = 0;
+    for i in 0..len {
+        sum += (distination[i].len() as i64);
+    }
+    let elapsed_access = start_access.elapsed().as_nanos();
+    let mut true_sum: i64 = 0;
+    for i in 0..len {
+        true_sum += (source[i].len() as i64);
+    }
+
+    let correct = (sum == true_sum);
+    println!("{}", correct);
+    return elapsed_access;
+}
+
+fn access_string_test_immutable(distination :&Vec<String>, source: &Vec<String>) -> u128 {
+    let start_access = Instant::now();
+    let len = distination.len();
+    let mut sum: i64 = 0;
+    for i in 0..len {
+        sum += (distination[i].len() as i64);
     }
     let elapsed_access = start_access.elapsed().as_nanos();
     let mut true_sum: i64 = 0;
@@ -199,6 +309,14 @@ fn get_elementType(eltype: i32) -> String {
     match eltype {
         1 => String::from("Integer"),
         2 => String::from("String"),
+        _ => String::from(""),
+    }
+}
+
+fn get_mutability(mutability: bool) -> String {
+    match mutability {
+        true => String::from("mutable"),
+        false => String::from("immutable"),
         _ => String::from(""),
     }
 }

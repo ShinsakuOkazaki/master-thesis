@@ -8,6 +8,7 @@ use std::mem;
 
 use rand::{thread_rng, Rng};
 use rand::distributions::Alphanumeric;
+use rand::distributions::{Distribution, Uniform};
 
 fn main() {
 
@@ -35,35 +36,26 @@ fn add_string(size: usize, method: i32, eltype: i32) {
     let mut distination = Vec::with_capacity(size);
     let elapsed_init = start_init.elapsed().as_nanos();
 
+    let dist = Uniform::from(3..7);
     let mut source = Vec::with_capacity(size);
     for _i in 0..size {
         let rand_string: String = thread_rng()
                             .sample_iter(&Alphanumeric)
-                            .take(10)
+                            .take(dist.sample(&mut thread_rng()))
                             .collect();
         source.push(rand_string);    
     }
 
     // Make condition when clone is used and otherwise.
-    let elapsed_add = unsafe {if method == 3 {
-        let start_add = Instant::now();
-        distination = source.clone();
-        start_add.elapsed().as_nanos()
-    }else if method == 4 {
-        let start_add = Instant::now();
-        distination.clone_from(&source);
-        start_add.elapsed().as_nanos() 
-    } else {
-        select_experiment(method, &mut distination, &mut source, size)
-    }};
+    let elapsed_add = do_clone_from(&mut distination, &mut source);
 
-    
+    let immutable = distination;
+
+    let elapsed_access = access_string_test(&immutable, &source);
     
     let elapsed_total = start_init.elapsed().as_nanos();
 
-    println!("{:?}", distination[5]);
-
-    write_to_file(method, eltype, size, elapsed_init, elapsed_add, elapsed_total);
+    write_to_file(method, eltype, size, elapsed_init, elapsed_add, elapsed_access,elapsed_total);
 }
 
 fn add_integer(size: usize, method: i32, eltype: i32) {
@@ -80,28 +72,20 @@ fn add_integer(size: usize, method: i32, eltype: i32) {
     }
     
     // Make condition when clone is used and otherwise.
-    let elapsed_add = unsafe {if method == 3 {
-        let start_add = Instant::now();
-        distination = source.clone();
-        start_add.elapsed().as_nanos() 
-    } else if method == 4 {
-        let start_add = Instant::now();
-        distination.clone_from(&source);
-        start_add.elapsed().as_nanos() 
-    } else {
+    let elapsed_add = unsafe {
         select_experiment(method, &mut distination, &mut source, size)
-    }};
+    };
 
-    
+    let immutable = distination;
+
+    let elapsed_access = access_integer_test(&immutable, &source);
     
     let elapsed_total = start_init.elapsed().as_nanos();
 
-    println!("{:?}", distination[5]);
-
-    write_to_file(method, eltype, size, elapsed_init, elapsed_add, elapsed_total);
+    write_to_file(method, eltype, size, elapsed_init, elapsed_add, elapsed_access, elapsed_total);
 }
 
-fn write_to_file(method: i32, eltype: i32, size: usize, elapsed_init: u128, elapsed_add: u128, elapsed_total: u128) {
+fn write_to_file(method: i32, eltype: i32, size: usize, elapsed_init: u128, elapsed_add: u128, elapsed_access: u128,  elapsed_total: u128) {
     let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}#{:?}\n", get_methodName(method), get_elementType(eltype), size, elapsed_init, elapsed_add, elapsed_total);
     println!("{}",output);
     let mut file = OpenOptions::new()
@@ -113,10 +97,48 @@ fn write_to_file(method: i32, eltype: i32, size: usize, elapsed_init: u128, elap
     file.write_all(output.as_bytes()).expect("Fail to write file.");
 }
 
-unsafe fn select_experiment<T>(method: i32, dst: &mut Vec<T>, src: &mut Vec<T>, size: usize) -> u128 {
+fn access_integer_test(immutable :&Vec<i32>, source: &Vec<i32>) -> u128 {
+    let start_access = Instant::now();
+    let len = immutable.len();
+    let mut sum: i64 = 0;
+    for i in 0..len {
+        sum += (immutable[i] as i64);
+    }
+    let elapsed_access = start_access.elapsed().as_nanos();
+
+    let mut true_sum: i64 = 0;
+    for i in 0..len {
+        true_sum += (i as i64);
+    }
+    let correct = (sum == true_sum);
+    println!("{}", correct);
+    return elapsed_access;
+}
+
+fn access_string_test(immutable :&Vec<String>, source: &Vec<String>) -> u128 {
+    let start_access = Instant::now();
+    let len = immutable.len();
+    let mut sum: i64 = 0;
+    for i in 0..len {
+        sum += (immutable[i].len() as i64);
+    }
+    let elapsed_access = start_access.elapsed().as_nanos();
+    let mut true_sum: i64 = 0;
+    for i in 0..len {
+        true_sum += (source[i].len() as i64);
+    }
+
+    let correct = (sum == true_sum);
+    println!("{}", correct);
+    return elapsed_access;
+}
+
+unsafe fn select_experiment<T: Eq + Ord + Clone>(method: i32, dst: &mut Vec<T>, src: &mut Vec<T>, size: usize) -> u128 {
     match method {
         1 => memory_copy(dst, src, size),
         2 => one_by_one(dst, src, size),
+        3 => do_clone(dst, src),
+        4 => do_clone_from(dst, src),
         _ => 0,
     }
 }
@@ -149,6 +171,18 @@ fn one_by_one<T>(dst: &mut Vec<T>, src: &mut Vec<T>, size: usize) -> u128 {
 
     let elapsed_add = start_add.elapsed().as_nanos();
     return elapsed_add;
+}
+
+fn do_clone<T: Eq + Ord + Clone>(dst: &mut Vec<T>, src: &mut Vec<T>) -> u128 {
+    let start_add = Instant::now();
+    *dst = (*src).clone();
+    start_add.elapsed().as_nanos() 
+}
+
+fn do_clone_from<T: Eq + Ord + Clone>(dst: &mut Vec<T>, src: &mut Vec<T>) -> u128 {
+    let start_add = Instant::now();
+    (*dst).clone_from(src);
+    start_add.elapsed().as_nanos()
 }
 
 fn get_methodName(method: i32) -> String {

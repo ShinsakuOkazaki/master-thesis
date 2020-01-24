@@ -3,10 +3,10 @@
 cargo clean
 cargo build --release
 
-for size in 1000 10000 100000 1000000
+for size in 1000000 1500000 10000000 15000000
 do
     rm -rf loging.log
-    echo "datastructure#method#type#size#inittime#addtime#totaltime" > loging.log
+    echo "datastructure#method#type#size#inittime#addtime#accesstime#totaltime" > loging.log
 
     for method in 1 2 3 4
     do

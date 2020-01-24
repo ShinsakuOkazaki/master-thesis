@@ -11,10 +11,10 @@
 \contentsline {section}{\numberline {2.8}Memory Management of each Linear Algebra Library}{7}% 
 \contentsline {section}{\numberline {2.9}Experiment of Memory Allocation}{7}% 
 \contentsline {section}{\numberline {2.10}Experiment of Memory Allocation for Different Element Type.}{9}% 
+\contentsline {section}{\numberline {2.11}Elements Copy and Insertion into Size-initialized Vector in Rust}{10}% 
 \contentsline {chapter}{\numberline {3}Body of my thesis}{17}% 
 \contentsline {section}{\numberline {3.1}Some results}{17}% 
 \contentsline {chapter}{\numberline {4}Conclusions}{19}% 
 \contentsline {section}{\numberline {4.1}Summary of the thesis}{19}% 
 \contentsline {chapter}{\numberline {A}Proof of xyz}{20}% 
-\contentsline {chapter}{References}{21}% 
-\contentsline {chapter}{Curriculum Vitae}{22}% 
+\contentsline {chapter}{Curriculum Vitae}{21}% 

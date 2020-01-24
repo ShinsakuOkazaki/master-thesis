@@ -291,3 +291,11 @@ The impacts of initialization of Java ArrayList vary among elemet types. On the 
     \caption{Difference of Memory allocation of Rust Vector between Non-initialization and Initialization}
     \label{fig:Sampling}
 \end{figure}
+
+
+\section{Elements Copy and Insertion into Size-initialized Vector in Rust}
+\label{sec:history}
+In this experiment, three methods to insert elements into vector in Rust. One is clone method which is performs bitwise deep copy.
+Another is copy_nonoverlapping function which copies values from source to distination memory region. 
+The other is pushing elements of source to distination vector one by one. Insertions of elements with 4 size are conducted, 1000, 10000, 100000, 1000000 and, 
+their runtime for each 

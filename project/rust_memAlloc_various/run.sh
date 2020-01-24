@@ -2,31 +2,33 @@
 
 cargo clean
 cargo build --release
-
+rm nohup.out
 for size in 1000000 1500000 10000000 15000000
 do
     rm -rf loging.log
-    echo "datastructure#method#type#size#inittime#addtime#accesstime#totaltime" > loging.log
+    echo "datastructure#method#type#mutability#size#inittime#addtime#accesstime#totaltime" > loging.log
 
     for method in 1 2 3 4
     do
         for eltype in 1 2
         do
-            
-            for counter in 1 2 3 4 5
+            for mutability in true false
             do
+                for counter in 1 2 3 4 5
+                do
 
 
 
-            # write the first line
+                # write the first line
 
 
-                echo "Adding $size elements in Run number  $counter "
+                    echo "Adding $size elements in Run number  $counter "
 
-                # Server experiment
-                time taskset -c 0 cargo run $size $method $eltype
-                # Loacal experiment
-                # time cargo run $size $method $eltype
+                    # Server experiment
+                    time taskset -c 0 cargo run $size $method $eltype $mutability
+                    # Loacal experiment
+                    #time cargo run $size $method $eltype $mutability
+                done
             done
         done
     done

@@ -28,14 +28,9 @@ fn add_elements(size: usize, method: i32) {
     let mut distination = Vec::with_capacity(size);
     let elapsed_init = start_init.elapsed().as_nanos();
 
-    let dist = Uniform::from(3..7);
     let mut source = Vec::with_capacity(size);
-    for _i in 0..size {
-        let rand_string: String = thread_rng()
-                            .sample_iter(&Alphanumeric)
-                            .take(dist.sample(&mut thread_rng()))
-                            .collect();
-        source.push(rand_string);    
+    for mut i in 0..size {
+        source.push(i as i32);
     }
 
     // Make condition when clone is used and otherwise.
@@ -43,7 +38,7 @@ fn add_elements(size: usize, method: i32) {
 
     let immutable = distination;
 
-    let elapsed_access = access_string_test(&immutable, &source);
+    let elapsed_access = access_integer_test(&immutable, &source);
     
     let elapsed_total = start_init.elapsed().as_nanos();
     

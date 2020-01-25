@@ -263,7 +263,7 @@ unsafe fn memory_copy<T>(dst: &mut Vec<T>, src: &mut Vec<T>, size: usize) -> u12
     // Copy source to distination.
     ptr::copy_nonoverlapping(src_ptr, dst_ptr, size);
     // Set size of distionation.
-    dst.set_len(size);
+    //dst.set_len(size);
 
     let elapsed_add = start_add.elapsed().as_nanos();
     return elapsed_add;

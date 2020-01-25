@@ -1,31 +1,34 @@
 extern crate rand;
 extern crate bytes;
-use std::env;
-use std::time::Instant;
+//use std::time::Instant;
 use std::io::prelude::*;
-use std::ptr;
-use std::mem;
+use std::io::BufReader;
 use std::fs::File;
 use rand::{thread_rng, Rng};
 use rand::distributions::Alphanumeric;
 use rand::distributions::{Distribution, Uniform};
-use bytes::{Bytes, BytesMut, Buf, BufMut};
+//use bytes::{Bytes, BytesMut, Buf, BufMut};
 
-fn main() {
-
-    //let args: Vec<String> = env::args().collect();
-    //let size: usize = args[1].parse().unwrap();
-    let string = get_random_string();
-    let byte_slice = string.as_bytes();
-    write_bytes_tofile();
-}
-
-fn write_bytes_tofile(byte_slice: &[u8]) std::io::Result<()> {
-    let mut file = File::create("buffer.txt")?;
-    file.write(byte_slice)?;
+fn main() -> std::io::Result<()> {
+    let stdin = std::io::stdin();
+    let mut stdin = stdin.lock();
+    let in_string = get_random_string();
+    let in_buf = in_string.as_bytes();
+    {
+        let mut file = File::create("buffer.txt")?;
+        file.write(in_buf)?;
+    }
+    let file = File::open("buffer.txt")?;
+    let mut reader = BufReader::new(file);
+    let out_buf = reader.fill_buf()?;
+    let length = out_buf.len();
+    stdin.consume(length);
+    assert_eq!(in_buf, out_buf);
+    let out_string = String::from_utf8_lossy(out_buf);
+    assert_eq!(in_string, out_string);
+    println!("in_string: {}, out_string: {}", in_string, out_string);
     Ok(())
 }
-
 
 fn get_random_string() -> String {
     let dist = Uniform::from(3..7);

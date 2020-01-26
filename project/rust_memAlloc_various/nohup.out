@@ -3565,3 +3565,3424 @@ size: 15000000, method: clone_from, type: String, mutability: immutable
 real	1m22.732s
 user	1m21.856s
 sys	0m0.820s
+   Compiling libc v0.2.66
+   Compiling getrandom v0.1.14
+   Compiling cfg-if v0.1.10
+   Compiling ppv-lite86 v0.2.6
+   Compiling c2-chacha v0.2.3
+   Compiling rand_core v0.5.1
+   Compiling rand_chacha v0.2.1
+   Compiling rand v0.7.3
+   Compiling rust_memAlloc_various v0.1.0 (/home/goli4goli6/research/master-thesis/project/rust_memAlloc_various)
+warning: unused import: `std::mem`
+ --> src/main.rs:7:5
+  |
+7 | use std::mem;
+  |     ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:191:16
+    |
+191 |         sum += (distination[i] as i64);
+    |                ^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+    |
+    = note: `#[warn(unused_parens)]` on by default
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:199:19
+    |
+199 |     let correct = (sum == true_sum);
+    |                   ^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:208:16
+    |
+208 |         sum += (distination[i] as i64);
+    |                ^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:216:19
+    |
+216 |     let correct = (sum == true_sum);
+    |                   ^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:225:16
+    |
+225 |         sum += (distination[i].len() as i64);
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:230:21
+    |
+230 |         true_sum += (source[i].len() as i64);
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:233:19
+    |
+233 |     let correct = (sum == true_sum);
+    |                   ^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:242:16
+    |
+242 |         sum += (distination[i].len() as i64);
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:247:21
+    |
+247 |         true_sum += (source[i].len() as i64);
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:250:19
+    |
+250 |     let correct = (sum == true_sum);
+    |                   ^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unreachable pattern
+  --> src/main.rs:28:9
+   |
+28 |         _ => println!("Wrong type")
+   |         ^
+   |
+   = note: `#[warn(unreachable_patterns)]` on by default
+
+warning: unreachable pattern
+   --> src/main.rs:319:9
+    |
+319 |         _ => String::from(""),
+    |         ^
+
+warning: crate `rust_memAlloc_various` should have a snake case name
+  |
+  = note: `#[warn(non_snake_case)]` on by default
+  = help: convert the identifier to snake case: `rust_mem_alloc_various`
+
+warning: function `get_methodName` should have a snake case name
+   --> src/main.rs:297:4
+    |
+297 | fn get_methodName(method: i32) -> String {
+    |    ^^^^^^^^^^^^^^ help: convert the identifier to snake case: `get_method_name`
+
+warning: function `get_elementType` should have a snake case name
+   --> src/main.rs:307:4
+    |
+307 | fn get_elementType(eltype: i32) -> String {
+    |    ^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `get_element_type`
+
+    Finished release [optimized] target(s) in 23.49s
+Adding 1000000 elements in Run number  1 
+   Compiling libc v0.2.66
+   Compiling getrandom v0.1.14
+   Compiling cfg-if v0.1.10
+   Compiling ppv-lite86 v0.2.6
+   Compiling c2-chacha v0.2.3
+   Compiling rand_core v0.5.1
+   Compiling rand_chacha v0.2.1
+   Compiling rand v0.7.3
+   Compiling rust_memAlloc_various v0.1.0 (/home/goli4goli6/research/master-thesis/project/rust_memAlloc_various)
+warning: unused import: `std::mem`
+ --> src/main.rs:7:5
+  |
+7 | use std::mem;
+  |     ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:191:16
+    |
+191 |         sum += (distination[i] as i64);
+    |                ^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+    |
+    = note: `#[warn(unused_parens)]` on by default
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:199:19
+    |
+199 |     let correct = (sum == true_sum);
+    |                   ^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:208:16
+    |
+208 |         sum += (distination[i] as i64);
+    |                ^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:216:19
+    |
+216 |     let correct = (sum == true_sum);
+    |                   ^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:225:16
+    |
+225 |         sum += (distination[i].len() as i64);
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:230:21
+    |
+230 |         true_sum += (source[i].len() as i64);
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:233:19
+    |
+233 |     let correct = (sum == true_sum);
+    |                   ^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:242:16
+    |
+242 |         sum += (distination[i].len() as i64);
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:247:21
+    |
+247 |         true_sum += (source[i].len() as i64);
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unnecessary parentheses around assigned value
+   --> src/main.rs:250:19
+    |
+250 |     let correct = (sum == true_sum);
+    |                   ^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: unreachable pattern
+  --> src/main.rs:28:9
+   |
+28 |         _ => println!("Wrong type")
+   |         ^
+   |
+   = note: `#[warn(unreachable_patterns)]` on by default
+
+warning: unreachable pattern
+   --> src/main.rs:319:9
+    |
+319 |         _ => String::from(""),
+    |         ^
+
+warning: crate `rust_memAlloc_various` should have a snake case name
+  |
+  = note: `#[warn(non_snake_case)]` on by default
+  = help: convert the identifier to snake case: `rust_mem_alloc_various`
+
+warning: function `get_methodName` should have a snake case name
+   --> src/main.rs:297:4
+    |
+297 | fn get_methodName(method: i32) -> String {
+    |    ^^^^^^^^^^^^^^ help: convert the identifier to snake case: `get_method_name`
+
+warning: function `get_elementType` should have a snake case name
+   --> src/main.rs:307:4
+    |
+307 | fn get_elementType(eltype: i32) -> String {
+    |    ^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `get_element_type`
+
+    Finished dev [unoptimized + debuginfo] target(s) in 8.65s
+     Running `target/debug/rust_memAlloc_various 1000000 1 1 true`
+size: 1000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#1000000#7586#2495827#602#89676304#true
+
+
+real	0m8.757s
+user	0m8.088s
+sys	0m0.516s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 1 true`
+size: 1000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#1000000#5930#2514235#345#90053154#true
+
+
+real	0m0.124s
+user	0m0.092s
+sys	0m0.020s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 1 true`
+size: 1000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#1000000#6177#2513608#524#89196082#true
+
+
+real	0m0.123s
+user	0m0.096s
+sys	0m0.016s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 1 true`
+size: 1000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#1000000#5908#2509259#656#89043315#true
+
+
+real	0m0.122s
+user	0m0.104s
+sys	0m0.004s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 1 true`
+size: 1000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#1000000#6168#2548977#353#89428565#true
+
+
+real	0m0.123s
+user	0m0.108s
+sys	0m0.008s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 1 false`
+size: 1000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#1000000#6300#2565845#760#755509034#true
+
+
+real	0m0.790s
+user	0m0.768s
+sys	0m0.008s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 1 false`
+size: 1000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#1000000#6521#2522021#698#757901512#true
+
+
+real	0m0.791s
+user	0m0.776s
+sys	0m0.004s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 1 false`
+size: 1000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#1000000#5960#2520717#898#751059825#true
+
+
+real	0m0.785s
+user	0m0.768s
+sys	0m0.004s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 1 false`
+size: 1000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#1000000#6056#2525896#697#756008515#true
+
+
+real	0m0.789s
+user	0m0.768s
+sys	0m0.008s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 1 false`
+size: 1000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#1000000#6320#2499763#496#754891409#true
+
+
+real	0m0.788s
+user	0m0.776s
+sys	0m0.000s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 2 true`
+size: 1000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#1000000#6319#113930263#96599482#5232995039#true
+
+
+real	0m5.484s
+user	0m5.404s
+sys	0m0.064s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 2 true`
+size: 1000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#1000000#6226#105899728#96256763#5227305934#true
+
+
+real	0m5.478s
+user	0m5.384s
+sys	0m0.076s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 2 true`
+size: 1000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#1000000#5811#104743868#97943200#5259916405#true
+
+
+real	0m5.510s
+user	0m5.460s
+sys	0m0.036s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 2 true`
+size: 1000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#1000000#6068#105021640#95797133#5248256824#true
+
+
+real	0m5.498s
+user	0m5.436s
+sys	0m0.048s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 2 true`
+size: 1000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#1000000#6723#106574326#96032904#5298694814#true
+
+
+real	0m5.556s
+user	0m5.492s
+sys	0m0.048s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 2 false`
+size: 1000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#1000000#6472#105519920#97718918#5290213501#true
+
+
+real	0m5.542s
+user	0m5.428s
+sys	0m0.072s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 2 false`
+size: 1000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#1000000#5747#112156551#96212368#5311706752#true
+
+
+real	0m5.565s
+user	0m5.496s
+sys	0m0.056s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 2 false`
+size: 1000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#1000000#5893#104887576#95617913#5225096057#true
+
+
+real	0m5.475s
+user	0m5.400s
+sys	0m0.060s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 2 false`
+size: 1000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#1000000#5749#105084513#96097284#5259106437#true
+
+
+real	0m5.510s
+user	0m5.436s
+sys	0m0.060s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 1 2 false`
+size: 1000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#1000000#6101#110441086#97415590#5277573457#true
+
+
+real	0m5.527s
+user	0m5.468s
+sys	0m0.044s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 1 true`
+size: 1000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#1000000#7047#129225147#88944815#396418047#true
+
+
+real	0m0.430s
+user	0m0.408s
+sys	0m0.008s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 1 true`
+size: 1000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#1000000#6691#120030418#89456893#385620748#true
+
+
+real	0m0.419s
+user	0m0.400s
+sys	0m0.008s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 1 true`
+size: 1000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#1000000#6343#120165833#89483698#386776952#true
+
+
+real	0m0.421s
+user	0m0.404s
+sys	0m0.004s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 1 true`
+size: 1000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#1000000#6951#120246049#89861811#385555910#true
+
+
+real	0m0.420s
+user	0m0.396s
+sys	0m0.012s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 1 true`
+size: 1000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#1000000#5872#134197523#88917872#399013203#true
+
+
+real	0m0.433s
+user	0m0.412s
+sys	0m0.008s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 1 false`
+size: 1000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#1000000#6390#120128123#88398348#1054140025#true
+
+
+real	0m1.089s
+user	0m1.064s
+sys	0m0.012s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 1 false`
+size: 1000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#1000000#6299#124864314#88432951#1059611467#true
+
+
+real	0m1.094s
+user	0m1.064s
+sys	0m0.016s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 1 false`
+size: 1000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#1000000#6274#120063082#88450308#1048630575#true
+
+
+real	0m1.084s
+user	0m1.052s
+sys	0m0.016s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 1 false`
+size: 1000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#1000000#6165#120012644#88721368#1050098549#true
+
+
+real	0m1.084s
+user	0m1.060s
+sys	0m0.012s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 1 false`
+size: 1000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#1000000#5814#120598158#88830203#1052084271#true
+
+
+real	0m1.086s
+user	0m1.072s
+sys	0m0.000s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 2 true`
+size: 1000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#1000000#6122#105472739#95658796#5221928465#true
+
+
+real	0m5.471s
+user	0m5.404s
+sys	0m0.052s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 2 true`
+size: 1000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#1000000#6381#104324434#95621284#5202105298#true
+
+
+real	0m5.455s
+user	0m5.396s
+sys	0m0.044s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 2 true`
+size: 1000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#1000000#5583#104976176#96733247#5226179618#true
+
+
+real	0m5.479s
+user	0m5.420s
+sys	0m0.044s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 2 true`
+size: 1000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#1000000#5359#105796946#96451195#5236480355#true
+
+
+real	0m5.489s
+user	0m5.400s
+sys	0m0.076s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 2 true`
+size: 1000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#1000000#5496#105431609#96663052#5228091027#true
+
+
+real	0m5.478s
+user	0m5.424s
+sys	0m0.040s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 2 false`
+size: 1000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#1000000#5882#104347686#95360651#5218412945#true
+
+
+real	0m5.470s
+user	0m5.412s
+sys	0m0.044s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 2 false`
+size: 1000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#1000000#5918#104985458#96126469#5221956319#true
+
+
+real	0m5.472s
+user	0m5.424s
+sys	0m0.036s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 2 false`
+size: 1000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#1000000#5404#104435397#95445539#5228419111#true
+
+
+real	0m5.479s
+user	0m5.408s
+sys	0m0.056s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 2 false`
+size: 1000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#1000000#5843#104930202#95593903#5248184875#true
+
+
+real	0m5.498s
+user	0m5.384s
+sys	0m0.084s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 2 2 false`
+size: 1000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#1000000#5530#104002563#95592319#5259337355#true
+
+
+real	0m5.513s
+user	0m5.404s
+sys	0m0.076s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 1 true`
+size: 1000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#1000000#6288#2581374#89591289#267951965#true
+
+
+real	0m0.301s
+user	0m0.288s
+sys	0m0.000s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 1 true`
+size: 1000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#1000000#5690#2558416#89278569#267204251#true
+
+
+real	0m0.300s
+user	0m0.272s
+sys	0m0.016s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 1 true`
+size: 1000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#1000000#5959#2579778#88965578#267742432#true
+
+
+real	0m0.301s
+user	0m0.276s
+sys	0m0.012s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 1 true`
+size: 1000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#1000000#5660#2576374#89208802#268804393#true
+
+
+real	0m0.302s
+user	0m0.288s
+sys	0m0.000s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 1 true`
+size: 1000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#1000000#5490#2597466#88917961#266827237#true
+
+
+real	0m0.300s
+user	0m0.272s
+sys	0m0.016s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 1 false`
+size: 1000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#1000000#5508#2600886#88718378#931292169#true
+
+
+real	0m0.965s
+user	0m0.936s
+sys	0m0.016s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 1 false`
+size: 1000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#1000000#5990#2658131#88706481#931402353#true
+
+
+real	0m0.965s
+user	0m0.944s
+sys	0m0.008s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 1 false`
+size: 1000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#1000000#6021#2593051#88904118#930694115#true
+
+
+real	0m0.964s
+user	0m0.948s
+sys	0m0.004s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 1 false`
+size: 1000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#1000000#5642#2629441#89208876#931820445#true
+
+
+real	0m0.965s
+user	0m0.940s
+sys	0m0.012s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 1 false`
+size: 1000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#1000000#5932#2758149#89385065#932111874#true
+
+
+real	0m0.965s
+user	0m0.936s
+sys	0m0.016s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 2 true`
+size: 1000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#1000000#5039#104910777#95667991#5217124206#true
+
+
+real	0m5.466s
+user	0m5.380s
+sys	0m0.072s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 2 true`
+size: 1000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#1000000#5315#104788469#95946157#5214872648#true
+
+
+real	0m5.465s
+user	0m5.396s
+sys	0m0.056s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 2 true`
+size: 1000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#1000000#5563#104096372#96161734#5227557869#true
+
+
+real	0m5.478s
+user	0m5.420s
+sys	0m0.044s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 2 true`
+size: 1000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#1000000#5711#104356956#95779932#5238145893#true
+
+
+real	0m5.490s
+user	0m5.444s
+sys	0m0.032s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 2 true`
+size: 1000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#1000000#5711#104543864#96530319#5219265757#true
+
+
+real	0m5.471s
+user	0m5.372s
+sys	0m0.084s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 2 false`
+size: 1000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#1000000#6278#105153588#95803524#5232129204#true
+
+
+real	0m5.485s
+user	0m5.412s
+sys	0m0.052s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 2 false`
+size: 1000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#1000000#5425#104706425#95929867#5219410528#true
+
+
+real	0m5.469s
+user	0m5.412s
+sys	0m0.044s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 2 false`
+size: 1000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#1000000#5979#104650549#95389704#5223588948#true
+
+
+real	0m5.480s
+user	0m5.424s
+sys	0m0.040s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 2 false`
+size: 1000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#1000000#5545#104693137#95610327#5238648566#true
+
+
+real	0m5.493s
+user	0m5.420s
+sys	0m0.060s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 3 2 false`
+size: 1000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#1000000#5912#104296689#95588545#5236974189#true
+
+
+real	0m5.488s
+user	0m5.424s
+sys	0m0.048s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 1 true`
+size: 1000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#1000000#6453#2538692#88920097#268076891#true
+
+
+real	0m0.302s
+user	0m0.280s
+sys	0m0.008s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 1 true`
+size: 1000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#1000000#5591#2486745#88887382#267525211#true
+
+
+real	0m0.301s
+user	0m0.284s
+sys	0m0.008s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 1 true`
+size: 1000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#1000000#6369#2521989#89006381#267620471#true
+
+
+real	0m0.301s
+user	0m0.276s
+sys	0m0.012s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 1 true`
+size: 1000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#1000000#5836#2536506#89327307#268134468#true
+
+
+real	0m0.301s
+user	0m0.284s
+sys	0m0.004s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 1 true`
+size: 1000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#1000000#6115#2494700#89102503#267138036#true
+
+
+real	0m0.300s
+user	0m0.284s
+sys	0m0.004s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 1 false`
+size: 1000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#1000000#5505#2554752#88585932#932960103#true
+
+
+real	0m0.966s
+user	0m0.944s
+sys	0m0.008s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 1 false`
+size: 1000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#1000000#5827#2537334#88894194#933191888#true
+
+
+real	0m0.966s
+user	0m0.944s
+sys	0m0.008s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 1 false`
+size: 1000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#1000000#6400#2531985#89099826#932333887#true
+
+
+real	0m0.966s
+user	0m0.940s
+sys	0m0.012s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 1 false`
+size: 1000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#1000000#5771#2505619#88332330#930402516#true
+
+
+real	0m0.964s
+user	0m0.944s
+sys	0m0.008s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 1 false`
+size: 1000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#1000000#6246#2546945#89114004#931425598#true
+
+
+real	0m0.965s
+user	0m0.940s
+sys	0m0.012s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 2 true`
+size: 1000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#1000000#6177#104617631#95492216#5222809254#true
+
+
+real	0m5.472s
+user	0m5.396s
+sys	0m0.064s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 2 true`
+size: 1000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#1000000#13204#104185327#96731745#5225838768#true
+
+
+real	0m5.476s
+user	0m5.400s
+sys	0m0.064s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 2 true`
+size: 1000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#1000000#5537#104697096#95740464#5243627967#true
+
+
+real	0m5.495s
+user	0m5.412s
+sys	0m0.052s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 2 true`
+size: 1000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#1000000#6021#104425017#96896343#5235217133#true
+
+
+real	0m5.485s
+user	0m5.396s
+sys	0m0.076s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 2 true`
+size: 1000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#1000000#6130#105833961#96045394#5240800915#true
+
+
+real	0m5.491s
+user	0m5.392s
+sys	0m0.084s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 2 false`
+size: 1000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#1000000#6127#105761553#96723238#5268094451#true
+
+
+real	0m5.521s
+user	0m5.472s
+sys	0m0.036s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 2 false`
+size: 1000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#1000000#5906#104484404#95876217#5225924612#true
+
+
+real	0m5.478s
+user	0m5.404s
+sys	0m0.060s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 2 false`
+size: 1000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#1000000#5928#106853495#96535417#5298063816#true
+
+
+real	0m5.548s
+user	0m5.480s
+sys	0m0.048s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 2 false`
+size: 1000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#1000000#6219#104931320#95959853#5254946812#true
+
+
+real	0m5.505s
+user	0m5.456s
+sys	0m0.036s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1000000 4 2 false`
+size: 1000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#1000000#5764#106651423#96416922#5276708876#true
+
+
+real	0m5.527s
+user	0m5.432s
+sys	0m0.080s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 1 true`
+size: 1500000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#1500000#6172#3774513#554#135724718#true
+
+
+real	0m0.169s
+user	0m0.152s
+sys	0m0.004s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 1 true`
+size: 1500000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#1500000#6149#3739220#972#133661294#true
+
+
+real	0m0.167s
+user	0m0.140s
+sys	0m0.016s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 1 true`
+size: 1500000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#1500000#6642#3800424#719#134002776#true
+
+
+real	0m0.168s
+user	0m0.152s
+sys	0m0.004s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 1 true`
+size: 1500000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#1500000#6650#3772591#999#134642051#true
+
+
+real	0m0.169s
+user	0m0.140s
+sys	0m0.016s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 1 true`
+size: 1500000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#1500000#6201#3985110#567#142771448#true
+
+
+real	0m0.178s
+user	0m0.160s
+sys	0m0.004s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 1 false`
+size: 1500000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#1500000#5911#3797189#979#1132983478#true
+
+
+real	0m1.169s
+user	0m1.152s
+sys	0m0.004s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 1 false`
+size: 1500000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#1500000#6305#3959828#817#1134946275#true
+
+
+real	0m1.170s
+user	0m1.148s
+sys	0m0.008s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 1 false`
+size: 1500000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#1500000#6833#3807070#460#1138985581#true
+
+
+real	0m1.173s
+user	0m1.156s
+sys	0m0.008s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 1 false`
+size: 1500000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#1500000#6240#3784827#756#1136271301#true
+
+
+real	0m1.171s
+user	0m1.144s
+sys	0m0.012s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 1 false`
+size: 1500000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#1500000#5896#3815423#527#1148338325#true
+
+
+real	0m1.183s
+user	0m1.160s
+sys	0m0.012s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 2 true`
+size: 1500000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#1500000#5625#170383480#144088425#7880994033#true
+
+
+real	0m8.240s
+user	0m8.140s
+sys	0m0.084s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 2 true`
+size: 1500000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#1500000#7282#158642869#145333716#7891841494#true
+
+
+real	0m8.258s
+user	0m8.172s
+sys	0m0.072s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 2 true`
+size: 1500000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#1500000#5926#156929272#143206608#7923521850#true
+
+
+real	0m8.283s
+user	0m8.204s
+sys	0m0.060s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 2 true`
+size: 1500000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#1500000#5778#156705199#144135423#7977984244#true
+
+
+real	0m8.338s
+user	0m8.244s
+sys	0m0.076s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 2 true`
+size: 1500000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#1500000#5933#159492973#147545219#7916590921#true
+
+
+real	0m8.274s
+user	0m8.148s
+sys	0m0.096s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 2 false`
+size: 1500000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#1500000#5979#160939915#145774078#7931656303#true
+
+
+real	0m8.291s
+user	0m8.172s
+sys	0m0.104s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 2 false`
+size: 1500000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#1500000#6485#158303207#143264411#7870094968#true
+
+
+real	0m8.232s
+user	0m8.144s
+sys	0m0.072s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 2 false`
+size: 1500000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#1500000#6096#157309507#143963369#7843146120#true
+
+
+real	0m8.203s
+user	0m8.096s
+sys	0m0.092s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 2 false`
+size: 1500000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#1500000#5804#159588998#145937449#7880803092#true
+
+
+real	0m8.239s
+user	0m8.148s
+sys	0m0.076s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 1 2 false`
+size: 1500000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#1500000#6076#173843817#143534002#7951976723#true
+
+
+real	0m8.314s
+user	0m8.232s
+sys	0m0.068s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 1 true`
+size: 1500000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#1500000#6282#181944842#133888219#580691635#true
+
+
+real	0m0.614s
+user	0m0.584s
+sys	0m0.020s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 1 true`
+size: 1500000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#1500000#5982#194972915#133147064#596822754#true
+
+
+real	0m0.631s
+user	0m0.612s
+sys	0m0.008s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 1 true`
+size: 1500000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#1500000#7287#180836403#133295921#578939924#true
+
+
+real	0m0.613s
+user	0m0.592s
+sys	0m0.008s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 1 true`
+size: 1500000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#1500000#5989#195909524#133626694#608333684#true
+
+
+real	0m0.642s
+user	0m0.616s
+sys	0m0.012s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 1 true`
+size: 1500000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#1500000#6604#180356068#135034687#580734046#true
+
+
+real	0m0.615s
+user	0m0.596s
+sys	0m0.008s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 1 false`
+size: 1500000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#1500000#6764#182519965#132696906#1578690910#true
+
+
+real	0m1.615s
+user	0m1.600s
+sys	0m0.000s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 1 false`
+size: 1500000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#1500000#6420#179983619#135367156#1581016495#true
+
+
+real	0m1.615s
+user	0m1.580s
+sys	0m0.020s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 1 false`
+size: 1500000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#1500000#6229#180475664#133270341#1585148488#true
+
+
+real	0m1.619s
+user	0m1.592s
+sys	0m0.016s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 1 false`
+size: 1500000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#1500000#6180#181139541#134828179#1581310666#true
+
+
+real	0m1.615s
+user	0m1.592s
+sys	0m0.012s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 1 false`
+size: 1500000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#1500000#6064#181598526#133793799#1591260461#true
+
+
+real	0m1.625s
+user	0m1.592s
+sys	0m0.020s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 2 true`
+size: 1500000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#1500000#6198#158174932#145860167#7986416875#true
+
+
+real	0m8.347s
+user	0m8.240s
+sys	0m0.092s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 2 true`
+size: 1500000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#1500000#6397#158625489#145546542#7930628384#true
+
+
+real	0m8.292s
+user	0m8.172s
+sys	0m0.104s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 2 true`
+size: 1500000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#1500000#6406#161278941#144558420#7881523598#true
+
+
+real	0m8.241s
+user	0m8.140s
+sys	0m0.088s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 2 true`
+size: 1500000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#1500000#5845#157301419#149646620#7897783372#true
+
+
+real	0m8.257s
+user	0m8.136s
+sys	0m0.088s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 2 true`
+size: 1500000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#1500000#5854#168285928#144146377#7964297142#true
+
+
+real	0m8.324s
+user	0m8.216s
+sys	0m0.100s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 2 false`
+size: 1500000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#1500000#6734#157790244#143871931#7997244071#true
+
+
+real	0m8.354s
+user	0m8.260s
+sys	0m0.076s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 2 false`
+size: 1500000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#1500000#5875#159431414#144031568#7861514335#true
+
+
+real	0m8.220s
+user	0m8.128s
+sys	0m0.076s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 2 false`
+size: 1500000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#1500000#6567#159582261#143371193#7858713328#true
+
+
+real	0m8.220s
+user	0m8.128s
+sys	0m0.080s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 2 false`
+size: 1500000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#1500000#6179#170801044#148347543#7932520910#true
+
+
+real	0m8.293s
+user	0m8.200s
+sys	0m0.080s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 2 2 false`
+size: 1500000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#1500000#6216#160515885#143429580#7924105138#true
+
+
+real	0m8.282s
+user	0m8.204s
+sys	0m0.064s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 1 true`
+size: 1500000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#1500000#6499#3829225#134588541#403332474#true
+
+
+real	0m0.438s
+user	0m0.416s
+sys	0m0.008s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 1 true`
+size: 1500000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#1500000#6901#3861006#133853076#400716624#true
+
+
+real	0m0.435s
+user	0m0.412s
+sys	0m0.012s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 1 true`
+size: 1500000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#1500000#6165#3840458#135375768#404179716#true
+
+
+real	0m0.438s
+user	0m0.412s
+sys	0m0.012s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 1 true`
+size: 1500000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#1500000#6248#3880188#133834703#401813235#true
+
+
+real	0m0.436s
+user	0m0.412s
+sys	0m0.012s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 1 true`
+size: 1500000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#1500000#6636#3807936#133768710#400791273#true
+
+
+real	0m0.436s
+user	0m0.404s
+sys	0m0.020s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 1 false`
+size: 1500000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#1500000#6544#3865140#132862042#1412223107#true
+
+
+real	0m1.447s
+user	0m1.420s
+sys	0m0.012s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 1 false`
+size: 1500000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#1500000#6722#3886022#132401547#1400529083#true
+
+
+real	0m1.436s
+user	0m1.416s
+sys	0m0.008s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 1 false`
+size: 1500000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#1500000#6468#3877362#133620692#1403320733#true
+
+
+real	0m1.438s
+user	0m1.404s
+sys	0m0.020s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 1 false`
+size: 1500000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#1500000#6565#3849442#133707522#1400642606#true
+
+
+real	0m1.435s
+user	0m1.420s
+sys	0m0.008s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 1 false`
+size: 1500000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#1500000#6328#3895542#133848313#1400049752#true
+
+
+real	0m1.434s
+user	0m1.408s
+sys	0m0.012s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 2 true`
+size: 1500000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#1500000#6051#157475776#144607645#7865802158#true
+
+
+real	0m8.224s
+user	0m8.132s
+sys	0m0.080s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 2 true`
+size: 1500000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#1500000#6311#159049280#144240210#7933772622#true
+
+
+real	0m8.293s
+user	0m8.184s
+sys	0m0.092s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 2 true`
+size: 1500000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#1500000#5975#158696865#145258673#7924073381#true
+
+
+real	0m8.283s
+user	0m8.168s
+sys	0m0.084s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 2 true`
+size: 1500000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#1500000#6814#161856125#147708376#7901383174#true
+
+
+real	0m8.262s
+user	0m8.176s
+sys	0m0.072s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 2 true`
+size: 1500000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#1500000#6169#161950977#146661623#7923535768#true
+
+
+real	0m8.282s
+user	0m8.180s
+sys	0m0.088s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 2 false`
+size: 1500000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#1500000#6269#158962767#145609798#7879991157#true
+
+
+real	0m8.238s
+user	0m8.152s
+sys	0m0.072s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 2 false`
+size: 1500000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#1500000#8691#159741733#144476394#7882347321#true
+
+
+real	0m8.242s
+user	0m8.128s
+sys	0m0.100s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 2 false`
+size: 1500000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#1500000#5616#159248351#143448439#7894176254#true
+
+
+real	0m8.256s
+user	0m8.148s
+sys	0m0.092s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 2 false`
+size: 1500000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#1500000#6066#168318706#144695340#7966282413#true
+
+
+real	0m8.323s
+user	0m8.220s
+sys	0m0.088s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 3 2 false`
+size: 1500000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#1500000#5569#157997288#143933103#7854331946#true
+
+
+real	0m8.213s
+user	0m8.128s
+sys	0m0.064s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 1 true`
+size: 1500000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#1500000#6213#4033341#134531339#402922929#true
+
+
+real	0m0.438s
+user	0m0.416s
+sys	0m0.012s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 1 true`
+size: 1500000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#1500000#12523#3808283#134466392#402208131#true
+
+
+real	0m0.436s
+user	0m0.412s
+sys	0m0.012s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 1 true`
+size: 1500000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#1500000#6350#3834184#136602376#407255132#true
+
+
+real	0m0.441s
+user	0m0.396s
+sys	0m0.032s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 1 true`
+size: 1500000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#1500000#6779#3797744#133579306#400819169#true
+
+
+real	0m0.435s
+user	0m0.416s
+sys	0m0.008s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 1 true`
+size: 1500000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#1500000#5978#3764137#134037944#402068116#true
+
+
+real	0m0.436s
+user	0m0.408s
+sys	0m0.016s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 1 false`
+size: 1500000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#1500000#6923#3805392#132954865#1396547730#true
+
+
+real	0m1.430s
+user	0m1.408s
+sys	0m0.008s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 1 false`
+size: 1500000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#1500000#6057#3788138#132927525#1405481255#true
+
+
+real	0m1.440s
+user	0m1.420s
+sys	0m0.004s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 1 false`
+size: 1500000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#1500000#7081#3816389#135174255#1419110927#true
+
+
+real	0m1.454s
+user	0m1.416s
+sys	0m0.024s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 1 false`
+size: 1500000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#1500000#6302#3767610#133399837#1406578071#true
+
+
+real	0m1.441s
+user	0m1.424s
+sys	0m0.004s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 1 false`
+size: 1500000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#1500000#6453#3974067#134549785#1413076741#true
+
+
+real	0m1.447s
+user	0m1.420s
+sys	0m0.016s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 2 true`
+size: 1500000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#1500000#6123#158954001#144800852#7935435982#true
+
+
+real	0m8.299s
+user	0m8.208s
+sys	0m0.076s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 2 true`
+size: 1500000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#1500000#5750#158961440#145324391#7934567466#true
+
+
+real	0m8.295s
+user	0m8.192s
+sys	0m0.076s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 2 true`
+size: 1500000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#1500000#6493#159118860#144105882#7911569540#true
+
+
+real	0m8.270s
+user	0m8.180s
+sys	0m0.076s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 2 true`
+size: 1500000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#1500000#6272#166070010#145369332#7880249104#true
+
+
+real	0m8.246s
+user	0m8.148s
+sys	0m0.084s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 2 true`
+size: 1500000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#1500000#6596#159447820#145661539#7919402738#true
+
+
+real	0m8.280s
+user	0m8.168s
+sys	0m0.100s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 2 false`
+size: 1500000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#1500000#6083#160207616#144585321#7916091134#true
+
+
+real	0m8.275s
+user	0m8.164s
+sys	0m0.096s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 2 false`
+size: 1500000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#1500000#5928#158640362#144529741#7904177932#true
+
+
+real	0m8.264s
+user	0m8.164s
+sys	0m0.084s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 2 false`
+size: 1500000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#1500000#5964#167289129#144664013#7918963516#true
+
+
+real	0m8.278s
+user	0m8.172s
+sys	0m0.092s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 2 false`
+size: 1500000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#1500000#5996#173262653#144195377#8080642354#true
+
+
+real	0m8.441s
+user	0m8.336s
+sys	0m0.088s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 1500000 4 2 false`
+size: 1500000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#1500000#6321#156933531#143147760#7923754337#true
+
+
+real	0m8.284s
+user	0m8.212s
+sys	0m0.060s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 1 true`
+size: 10000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#10000000#6599#25144164#791#937243493#true
+
+
+real	0m0.974s
+user	0m0.916s
+sys	0m0.044s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 1 true`
+size: 10000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#10000000#6379#24412949#734#901550490#true
+
+
+real	0m0.938s
+user	0m0.884s
+sys	0m0.040s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 1 true`
+size: 10000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#10000000#6495#24495779#662#893756722#true
+
+
+real	0m0.930s
+user	0m0.880s
+sys	0m0.036s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 1 true`
+size: 10000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#10000000#6372#24673024#688#904164266#true
+
+
+real	0m0.941s
+user	0m0.884s
+sys	0m0.044s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 1 true`
+size: 10000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#10000000#6195#24262570#630#942761585#true
+
+
+real	0m0.981s
+user	0m0.924s
+sys	0m0.040s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 1 false`
+size: 10000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#10000000#6400#24743608#919#7606695595#true
+
+
+real	0m7.643s
+user	0m7.580s
+sys	0m0.048s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 1 false`
+size: 10000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#10000000#6755#24549984#595#7601529256#true
+
+
+real	0m7.638s
+user	0m7.560s
+sys	0m0.048s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 1 false`
+size: 10000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#10000000#6535#24472598#933#7549786973#true
+
+
+real	0m7.586s
+user	0m7.528s
+sys	0m0.044s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 1 false`
+size: 10000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#10000000#6110#24421579#727#7555570661#true
+
+
+real	0m7.592s
+user	0m7.528s
+sys	0m0.052s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 1 false`
+size: 10000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#10000000#6113#24498613#1025#7567974707#true
+
+
+real	0m7.605s
+user	0m7.544s
+sys	0m0.048s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 2 true`
+size: 10000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#10000000#6125#1385578656#967477936#53341465968#true
+
+
+real	0m55.568s
+user	0m54.372s
+sys	0m1.136s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 2 true`
+size: 10000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#10000000#19750#1164915271#965009327#52669169577#true
+
+
+real	0m54.893s
+user	0m54.260s
+sys	0m0.584s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 2 true`
+size: 10000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#10000000#5895#1147169612#966922669#52770947919#true
+
+
+real	0m54.988s
+user	0m54.268s
+sys	0m0.676s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 2 true`
+size: 10000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#10000000#7112#1153334129#975445839#52786026332#true
+
+
+real	0m55.014s
+user	0m54.296s
+sys	0m0.692s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 2 true`
+size: 10000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#10000000#5927#1143544694#984768921#53399448469#true
+
+
+real	0m55.627s
+user	0m55.004s
+sys	0m0.580s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 2 false`
+size: 10000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#10000000#6256#1161897118#969761943#53149983920#true
+
+
+real	0m55.366s
+user	0m54.668s
+sys	0m0.652s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 2 false`
+size: 10000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#10000000#5780#1160474149#972745882#52912380523#true
+
+
+real	0m55.139s
+user	0m54.452s
+sys	0m0.636s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 2 false`
+size: 10000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#10000000#5763#1148789463#964234823#52792276234#true
+
+
+real	0m55.016s
+user	0m54.220s
+sys	0m0.736s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 2 false`
+size: 10000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#10000000#5586#1148965077#969477728#53496867023#true
+
+
+real	0m55.734s
+user	0m55.012s
+sys	0m0.664s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 1 2 false`
+size: 10000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#10000000#5848#1156068838#974772048#52757725295#true
+
+
+real	0m54.985s
+user	0m54.256s
+sys	0m0.696s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 1 true`
+size: 10000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#10000000#7161#1305260731#893132742#3989851377#true
+
+
+real	0m4.027s
+user	0m3.972s
+sys	0m0.040s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 1 true`
+size: 10000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#10000000#6773#1220996914#891490236#3871957547#true
+
+
+real	0m3.909s
+user	0m3.856s
+sys	0m0.040s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 1 true`
+size: 10000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#10000000#6791#1205698214#893683542#3870723761#true
+
+
+real	0m3.907s
+user	0m3.852s
+sys	0m0.040s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 1 true`
+size: 10000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#10000000#6833#1224668374#898362219#3941906148#true
+
+
+real	0m3.979s
+user	0m3.944s
+sys	0m0.020s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 1 true`
+size: 10000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#10000000#6874#1219123278#892471301#3872362266#true
+
+
+real	0m3.909s
+user	0m3.840s
+sys	0m0.040s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 1 false`
+size: 10000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#10000000#6191#1215984162#889262044#10573998324#true
+
+
+real	0m10.610s
+user	0m10.536s
+sys	0m0.056s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 1 false`
+size: 10000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#10000000#6355#1225926946#887138352#10532806733#true
+
+
+real	0m10.569s
+user	0m10.496s
+sys	0m0.056s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 1 false`
+size: 10000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#10000000#6818#1225590812#898732527#10651185628#true
+
+
+real	0m10.688s
+user	0m10.612s
+sys	0m0.056s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 1 false`
+size: 10000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#10000000#6244#1258827738#889141699#10585144050#true
+
+
+real	0m10.623s
+user	0m10.568s
+sys	0m0.040s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 1 false`
+size: 10000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#10000000#6552#1223099803#893382396#10614536108#true
+
+
+real	0m10.652s
+user	0m10.592s
+sys	0m0.044s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 2 true`
+size: 10000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#10000000#7165#1170929515#968704048#53016227767#true
+
+
+real	0m55.233s
+user	0m54.504s
+sys	0m0.688s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 2 true`
+size: 10000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#10000000#5687#1146585647#972287200#52745941144#true
+
+
+real	0m54.969s
+user	0m54.240s
+sys	0m0.668s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 2 true`
+size: 10000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#10000000#5861#1140647436#975750165#52752022038#true
+
+
+real	0m54.977s
+user	0m54.260s
+sys	0m0.672s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 2 true`
+size: 10000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#10000000#5487#1167721660#965163797#52809374100#true
+
+
+real	0m55.045s
+user	0m54.348s
+sys	0m0.632s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 2 true`
+size: 10000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#10000000#6150#1137358854#970538106#52648280769#true
+
+
+real	0m54.864s
+user	0m54.144s
+sys	0m0.688s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 2 false`
+size: 10000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#10000000#5271#1154959188#963361836#52669856375#true
+
+
+real	0m54.907s
+user	0m54.160s
+sys	0m0.704s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 2 false`
+size: 10000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#10000000#6099#1201098214#966571934#52708312629#true
+
+
+real	0m54.929s
+user	0m54.188s
+sys	0m0.696s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 2 false`
+size: 10000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#10000000#6086#1142249697#969320119#52717766374#true
+
+
+real	0m54.939s
+user	0m54.184s
+sys	0m0.720s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 2 false`
+size: 10000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#10000000#6014#1139670482#971178915#52767188110#true
+
+
+real	0m54.988s
+user	0m54.176s
+sys	0m0.752s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 2 2 false`
+size: 10000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#10000000#6626#1140835820#966427843#52695746879#true
+
+
+real	0m54.926s
+user	0m54.120s
+sys	0m0.768s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 1 true`
+size: 10000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#10000000#6580#25105581#895120953#2681232118#true
+
+
+real	0m2.719s
+user	0m2.672s
+sys	0m0.036s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 1 true`
+size: 10000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#10000000#6498#24674704#893279760#2675910360#true
+
+
+real	0m2.713s
+user	0m2.656s
+sys	0m0.040s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 1 true`
+size: 10000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#10000000#6059#24221427#892714967#2673142773#true
+
+
+real	0m2.709s
+user	0m2.648s
+sys	0m0.048s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 1 true`
+size: 10000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#10000000#6038#24466388#892029528#2676510263#true
+
+
+real	0m2.714s
+user	0m2.664s
+sys	0m0.032s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 1 true`
+size: 10000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#10000000#6383#24480193#891459962#2674894010#true
+
+
+real	0m2.712s
+user	0m2.660s
+sys	0m0.040s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 1 false`
+size: 10000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#10000000#5975#24632509#887637089#9312242193#true
+
+
+real	0m9.349s
+user	0m9.280s
+sys	0m0.056s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 1 false`
+size: 10000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#10000000#6457#24389469#888068757#9339205418#true
+
+
+real	0m9.376s
+user	0m9.312s
+sys	0m0.048s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 1 false`
+size: 10000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#10000000#6551#24189106#889069405#9312417947#true
+
+
+real	0m9.348s
+user	0m9.280s
+sys	0m0.056s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 1 false`
+size: 10000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#10000000#6989#24281714#890257603#9309318146#true
+
+
+real	0m9.346s
+user	0m9.268s
+sys	0m0.064s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 1 false`
+size: 10000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#10000000#5934#24437567#891673359#9344671060#true
+
+
+real	0m9.381s
+user	0m9.312s
+sys	0m0.052s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 2 true`
+size: 10000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#10000000#6579#1169782818#976923526#52743992945#true
+
+
+real	0m54.967s
+user	0m54.272s
+sys	0m0.652s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 2 true`
+size: 10000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#10000000#6001#1143825676#969321235#52684488057#true
+
+
+real	0m54.912s
+user	0m54.088s
+sys	0m0.776s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 2 true`
+size: 10000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#10000000#5914#1142947440#975606317#52543721473#true
+
+
+real	0m54.770s
+user	0m54.068s
+sys	0m0.680s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 2 true`
+size: 10000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#10000000#6130#1141578344#974221019#52706133263#true
+
+
+real	0m54.928s
+user	0m54.204s
+sys	0m0.676s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 2 true`
+size: 10000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#10000000#7042#1152880112#968654509#52643190723#true
+
+
+real	0m54.859s
+user	0m54.112s
+sys	0m0.704s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 2 false`
+size: 10000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#10000000#6369#1161207323#975668539#52573145169#true
+
+
+real	0m54.834s
+user	0m54.064s
+sys	0m0.720s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 2 false`
+size: 10000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#10000000#5909#1143827952#965175968#52798068828#true
+
+
+real	0m55.012s
+user	0m54.304s
+sys	0m0.668s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 2 false`
+size: 10000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#10000000#5829#1155618852#969656760#52781227257#true
+
+
+real	0m55.015s
+user	0m54.240s
+sys	0m0.744s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 2 false`
+size: 10000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#10000000#7120#1168578009#973913453#52812751351#true
+
+
+real	0m55.039s
+user	0m54.288s
+sys	0m0.708s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 3 2 false`
+size: 10000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#10000000#5807#1140745668#968727942#52857241478#true
+
+
+real	0m55.079s
+user	0m54.272s
+sys	0m0.760s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 1 true`
+size: 10000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#10000000#6285#24987895#897414100#2681857994#true
+
+
+real	0m2.719s
+user	0m2.668s
+sys	0m0.040s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 1 true`
+size: 10000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#10000000#6638#24347052#894692130#2702175472#true
+
+
+real	0m2.739s
+user	0m2.688s
+sys	0m0.036s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 1 true`
+size: 10000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#10000000#6404#24409683#893439578#2702174612#true
+
+
+real	0m2.739s
+user	0m2.684s
+sys	0m0.040s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 1 true`
+size: 10000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#10000000#6249#24949780#897674355#2710423445#true
+
+
+real	0m2.748s
+user	0m2.708s
+sys	0m0.028s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 1 true`
+size: 10000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#10000000#7044#24712618#897827343#2705842349#true
+
+
+real	0m2.742s
+user	0m2.696s
+sys	0m0.032s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 1 false`
+size: 10000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#10000000#6194#24561860#894455433#9385142067#true
+
+
+real	0m9.422s
+user	0m9.356s
+sys	0m0.052s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 1 false`
+size: 10000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#10000000#6571#24749547#896291348#9349981037#true
+
+
+real	0m9.387s
+user	0m9.328s
+sys	0m0.044s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 1 false`
+size: 10000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#10000000#7165#25124600#888074489#9371272019#true
+
+
+real	0m9.408s
+user	0m9.344s
+sys	0m0.048s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 1 false`
+size: 10000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#10000000#6831#24806430#889345648#9364114794#true
+
+
+real	0m9.400s
+user	0m9.344s
+sys	0m0.040s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 1 false`
+size: 10000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#10000000#6027#24996618#888810183#9365211677#true
+
+
+real	0m9.402s
+user	0m9.340s
+sys	0m0.040s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 2 true`
+size: 10000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#10000000#7639#1150887828#976464125#52725382748#true
+
+
+real	0m54.957s
+user	0m54.180s
+sys	0m0.736s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 2 true`
+size: 10000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#10000000#5870#1135908888#967966884#52819745509#true
+
+
+real	0m55.052s
+user	0m54.372s
+sys	0m0.636s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 2 true`
+size: 10000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#10000000#6588#1139978519#970480471#52487334693#true
+
+
+real	0m54.709s
+user	0m54.000s
+sys	0m0.664s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 2 true`
+size: 10000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#10000000#5459#1139723010#966033153#52516138704#true
+
+
+real	0m54.742s
+user	0m53.940s
+sys	0m0.752s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 2 true`
+size: 10000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#10000000#5535#1141368796#973384865#52506315452#true
+
+
+real	0m54.723s
+user	0m54.036s
+sys	0m0.648s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 2 false`
+size: 10000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#10000000#5653#1138928841#966143817#52473722908#true
+
+
+real	0m54.693s
+user	0m53.936s
+sys	0m0.728s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 2 false`
+size: 10000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#10000000#5810#1143998033#963722591#52568983269#true
+
+
+real	0m54.786s
+user	0m54.116s
+sys	0m0.628s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 2 false`
+size: 10000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#10000000#5315#1141805267#963295171#52419913176#true
+
+
+real	0m54.640s
+user	0m53.972s
+sys	0m0.620s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 2 false`
+size: 10000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#10000000#5647#1156971029#985497147#52532618600#true
+
+
+real	0m54.764s
+user	0m54.024s
+sys	0m0.716s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 10000000 4 2 false`
+size: 10000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#10000000#6689#1140161045#971209935#52668253504#true
+
+
+real	0m54.893s
+user	0m54.128s
+sys	0m0.712s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 1 true`
+size: 15000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#15000000#6135#37246617#816#1353494875#true
+
+
+real	0m1.392s
+user	0m1.312s
+sys	0m0.068s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 1 true`
+size: 15000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#15000000#6646#36253013#843#1428274439#true
+
+
+real	0m1.469s
+user	0m1.404s
+sys	0m0.048s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 1 true`
+size: 15000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#15000000#5806#36791119#952#1343480879#true
+
+
+real	0m1.381s
+user	0m1.320s
+sys	0m0.048s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 1 true`
+size: 15000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#15000000#6348#36784449#823#1342792589#true
+
+
+real	0m1.383s
+user	0m1.312s
+sys	0m0.060s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 1 true`
+size: 15000000, method: memcpy, type: Integer, mutability: mutable
+[RustVector]#"memcpy"#"Integer"#"mutable"#15000000#6742#53088324#1020#1416144931#true
+
+
+real	0m1.454s
+user	0m1.364s
+sys	0m0.044s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 1 false`
+size: 15000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#15000000#5885#37153662#963#11436596268#true
+
+
+real	0m11.474s
+user	0m11.388s
+sys	0m0.076s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 1 false`
+size: 15000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#15000000#6119#36400450#853#11353135769#true
+
+
+real	0m11.391s
+user	0m11.292s
+sys	0m0.084s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 1 false`
+size: 15000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#15000000#5730#36719604#947#11401060273#true
+
+
+real	0m11.439s
+user	0m11.364s
+sys	0m0.056s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 1 false`
+size: 15000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#15000000#6630#39119962#747#11363671814#true
+
+
+real	0m11.403s
+user	0m11.312s
+sys	0m0.060s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 1 false`
+size: 15000000, method: memcpy, type: Integer, mutability: immutable
+[RustVector]#"memcpy"#"Integer"#"immutable"#15000000#7130#36875830#1202#11338475070#true
+
+
+real	0m11.377s
+user	0m11.308s
+sys	0m0.052s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 2 true`
+size: 15000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#15000000#6158#1923025620#1450238483#79343490039#true
+
+
+real	1m22.642s
+user	1m21.164s
+sys	0m1.424s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 2 true`
+size: 15000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#15000000#18108#1727382717#1462333212#78903728935#true
+
+
+real	1m22.222s
+user	1m21.124s
+sys	0m1.044s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 2 true`
+size: 15000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#15000000#6232#1772940464#1448994411#79437358054#true
+
+
+real	1m22.809s
+user	1m21.684s
+sys	0m1.012s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 2 true`
+size: 15000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#15000000#6155#1724337509#1445872109#79156676549#true
+
+
+real	1m22.467s
+user	1m21.376s
+sys	0m1.036s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 2 true`
+size: 15000000, method: memcpy, type: String, mutability: mutable
+[RustVector]#"memcpy"#"String"#"mutable"#15000000#6260#1703145438#1455937837#78995490702#true
+
+
+real	1m22.299s
+user	1m21.264s
+sys	0m0.980s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 2 false`
+size: 15000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#15000000#5704#1713968532#1476934395#78765022651#true
+
+
+real	1m22.118s
+user	1m21.104s
+sys	0m0.964s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 2 false`
+size: 15000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#15000000#5970#1734480903#1450350780#78905759863#true
+
+
+real	1m22.245s
+user	1m21.072s
+sys	0m1.140s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 2 false`
+size: 15000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#15000000#6873#1773748890#1457267010#79431028207#true
+
+
+real	1m22.807s
+user	1m21.648s
+sys	0m1.104s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 2 false`
+size: 15000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#15000000#6029#1757974447#1457257128#79282966692#true
+
+
+real	1m22.606s
+user	1m21.492s
+sys	0m1.064s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 1 2 false`
+size: 15000000, method: memcpy, type: String, mutability: immutable
+[RustVector]#"memcpy"#"String"#"immutable"#15000000#6117#1791589175#1474010548#79931343534#true
+
+
+real	1m23.263s
+user	1m22.060s
+sys	0m1.148s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 1 true`
+size: 15000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#15000000#6278#1885397212#1339061840#5891407256#true
+
+
+real	0m5.932s
+user	0m5.844s
+sys	0m0.072s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 1 true`
+size: 15000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#15000000#6391#1918458247#1338161452#5903299809#true
+
+
+real	0m5.945s
+user	0m5.836s
+sys	0m0.076s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 1 true`
+size: 15000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#15000000#6256#1913519606#1340540558#5924218295#true
+
+
+real	0m5.964s
+user	0m5.912s
+sys	0m0.036s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 1 true`
+size: 15000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#15000000#6358#1888267649#1342128921#5896285185#true
+
+
+real	0m5.935s
+user	0m5.856s
+sys	0m0.060s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 1 true`
+size: 15000000, method: onebyone, type: Integer, mutability: mutable
+[RustVector]#"onebyone"#"Integer"#"mutable"#15000000#6288#1894957961#1342284702#5945072249#true
+
+
+real	0m5.985s
+user	0m5.912s
+sys	0m0.060s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 1 false`
+size: 15000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#15000000#6145#1906595822#1343563424#15892883945#true
+
+
+real	0m15.931s
+user	0m15.840s
+sys	0m0.072s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 1 false`
+size: 15000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#15000000#7095#1949725659#1332780355#15971577711#true
+
+
+real	0m16.011s
+user	0m15.956s
+sys	0m0.040s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 1 false`
+size: 15000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#15000000#6071#1892820961#1331858195#15941324286#true
+
+
+real	0m15.980s
+user	0m15.904s
+sys	0m0.060s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 1 false`
+size: 15000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#15000000#6626#1929545472#1333457035#16025171393#true
+
+
+real	0m16.066s
+user	0m15.988s
+sys	0m0.056s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 1 false`
+size: 15000000, method: onebyone, type: Integer, mutability: immutable
+[RustVector]#"onebyone"#"Integer"#"immutable"#15000000#5946#1847106761#1336450879#15880766018#true
+
+
+real	0m15.919s
+user	0m15.824s
+sys	0m0.064s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 2 true`
+size: 15000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#15000000#6057#1808973116#1458495381#79718097576#true
+
+
+real	1m23.045s
+user	1m21.876s
+sys	0m1.096s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 2 true`
+size: 15000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#15000000#5899#1764898303#1457170213#79205237212#true
+
+
+real	1m22.521s
+user	1m21.428s
+sys	0m1.024s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 2 true`
+size: 15000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#15000000#6144#1707787192#1454162364#79109682803#true
+
+
+real	1m22.422s
+user	1m21.312s
+sys	0m1.036s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 2 true`
+size: 15000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#15000000#6833#1698128243#1469542903#79071811239#true
+
+
+real	1m22.402s
+user	1m21.220s
+sys	0m1.128s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 2 true`
+size: 15000000, method: onebyone, type: String, mutability: mutable
+[RustVector]#"onebyone"#"String"#"mutable"#15000000#4992#1689050296#1448350470#78809412735#true
+
+
+real	1m22.128s
+user	1m21.200s
+sys	0m0.888s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 2 false`
+size: 15000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#15000000#5656#1732179462#1450451518#79303973092#true
+
+
+real	1m22.648s
+user	1m21.516s
+sys	0m1.044s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 2 false`
+size: 15000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#15000000#6946#1714176565#1454555351#78794403494#true
+
+
+real	1m22.092s
+user	1m21.064s
+sys	0m0.988s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 2 false`
+size: 15000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#15000000#5600#1698972921#1450848903#78557402080#true
+
+
+real	1m21.867s
+user	1m20.736s
+sys	0m1.084s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 2 false`
+size: 15000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#15000000#6559#1694165417#1448811655#78824786563#true
+
+
+real	1m22.125s
+user	1m21.024s
+sys	0m1.012s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 2 2 false`
+size: 15000000, method: onebyone, type: String, mutability: immutable
+[RustVector]#"onebyone"#"String"#"immutable"#15000000#5825#1757451760#1451571980#79242999393#true
+
+
+real	1m22.559s
+user	1m21.384s
+sys	0m1.124s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 1 true`
+size: 15000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#15000000#6293#36486936#1340500580#4009442417#true
+
+
+real	0m4.048s
+user	0m3.988s
+sys	0m0.048s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 1 true`
+size: 15000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#15000000#5859#37436155#1339493300#4012667835#true
+
+
+real	0m4.050s
+user	0m3.968s
+sys	0m0.068s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 1 true`
+size: 15000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#15000000#6438#36703923#1343891011#4032025571#true
+
+
+real	0m4.071s
+user	0m3.964s
+sys	0m0.080s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 1 true`
+size: 15000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#15000000#6077#36620963#1336849101#4013640251#true
+
+
+real	0m4.054s
+user	0m3.976s
+sys	0m0.060s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 1 true`
+size: 15000000, method: clone, type: Integer, mutability: mutable
+[RustVector]#"clone"#"Integer"#"mutable"#15000000#6694#38362835#1340421531#4037828915#true
+
+
+real	0m4.076s
+user	0m4.020s
+sys	0m0.044s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 1 false`
+size: 15000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#15000000#6184#36810717#1329555459#14033696264#true
+
+
+real	0m14.074s
+user	0m13.996s
+sys	0m0.056s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 1 false`
+size: 15000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#15000000#6003#36507661#1341508368#14063579589#true
+
+
+real	0m14.101s
+user	0m14.032s
+sys	0m0.052s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 1 false`
+size: 15000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#15000000#5986#36330483#1330692914#14020112208#true
+
+
+real	0m14.059s
+user	0m13.960s
+sys	0m0.084s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 1 false`
+size: 15000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#15000000#6868#36665394#1330953247#14020843757#true
+
+
+real	0m14.060s
+user	0m13.968s
+sys	0m0.080s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 1 false`
+size: 15000000, method: clone, type: Integer, mutability: immutable
+[RustVector]#"clone"#"Integer"#"immutable"#15000000#6536#37094026#1341267894#14098870381#true
+
+
+real	0m14.140s
+user	0m14.060s
+sys	0m0.060s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 2 true`
+size: 15000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#15000000#6415#1747139720#1462067068#79224702430#true
+
+
+real	1m22.537s
+user	1m21.516s
+sys	0m0.952s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 2 true`
+size: 15000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#15000000#7003#1735113821#1456380158#78770699388#true
+
+
+real	1m22.067s
+user	1m20.972s
+sys	0m1.036s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 2 true`
+size: 15000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#15000000#5848#1721059658#1446505434#79052922799#true
+
+
+real	1m22.358s
+user	1m21.212s
+sys	0m1.092s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 2 true`
+size: 15000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#15000000#5932#1708129882#1451855443#79082955991#true
+
+
+real	1m22.393s
+user	1m21.372s
+sys	0m0.972s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 2 true`
+size: 15000000, method: clone, type: String, mutability: mutable
+[RustVector]#"clone"#"String"#"mutable"#15000000#6702#1728692214#1461928661#79343870224#true
+
+
+real	1m22.662s
+user	1m21.504s
+sys	0m1.104s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 2 false`
+size: 15000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#15000000#6221#1724962241#1450453192#79033157654#true
+
+
+real	1m22.329s
+user	1m21.176s
+sys	0m1.092s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 2 false`
+size: 15000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#15000000#5397#1701440348#1445180879#78652837869#true
+
+
+real	1m21.945s
+user	1m20.900s
+sys	0m0.996s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 2 false`
+size: 15000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#15000000#5502#1748882933#1454791284#78837782010#true
+
+
+real	1m22.146s
+user	1m21.144s
+sys	0m0.952s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 2 false`
+size: 15000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#15000000#7403#1719269033#1468140546#79040067289#true
+
+
+real	1m22.358s
+user	1m21.220s
+sys	0m1.084s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 3 2 false`
+size: 15000000, method: clone, type: String, mutability: immutable
+[RustVector]#"clone"#"String"#"immutable"#15000000#6862#1733711245#1460772680#79018105864#true
+
+
+real	1m22.321s
+user	1m21.228s
+sys	0m1.036s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 1 true`
+size: 15000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#15000000#6368#36645321#1349707172#4022684736#true
+
+
+real	0m4.062s
+user	0m3.976s
+sys	0m0.072s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 1 true`
+size: 15000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#15000000#6394#36736083#1344707398#4017374715#true
+
+
+real	0m4.055s
+user	0m3.980s
+sys	0m0.060s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 1 true`
+size: 15000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#15000000#12105#36693796#1340846079#4010874491#true
+
+
+real	0m4.050s
+user	0m3.980s
+sys	0m0.052s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 1 true`
+size: 15000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#15000000#8075#36865273#1352070583#4038652197#true
+
+
+real	0m4.077s
+user	0m3.960s
+sys	0m0.088s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 1 true`
+size: 15000000, method: clone_from, type: Integer, mutability: mutable
+[RustVector]#"clone_from"#"Integer"#"mutable"#15000000#5851#36718105#1339071519#4011832545#true
+
+
+real	0m4.050s
+user	0m3.988s
+sys	0m0.048s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 1 false`
+size: 15000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#15000000#6369#36579005#1343315062#14059250237#true
+
+
+real	0m14.097s
+user	0m13.980s
+sys	0m0.088s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 1 false`
+size: 15000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#15000000#6299#37002902#1330997163#14064847698#true
+
+
+real	0m14.103s
+user	0m14.032s
+sys	0m0.056s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 1 false`
+size: 15000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#15000000#6304#36829671#1329541786#14082593375#true
+
+
+real	0m14.121s
+user	0m14.036s
+sys	0m0.068s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 1 false`
+size: 15000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#15000000#16814#37461735#1333425176#14038742865#true
+
+
+real	0m14.077s
+user	0m13.992s
+sys	0m0.064s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 1 false`
+size: 15000000, method: clone_from, type: Integer, mutability: immutable
+[RustVector]#"clone_from"#"Integer"#"immutable"#15000000#6409#36430908#1329480798#14035633248#true
+
+
+real	0m14.075s
+user	0m14.000s
+sys	0m0.064s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 2 true`
+size: 15000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#15000000#5803#1736117555#1460902061#79242969090#true
+
+
+real	1m22.576s
+user	1m21.564s
+sys	0m0.960s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 2 true`
+size: 15000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#15000000#6978#1702438124#1456394321#79063513462#true
+
+
+real	1m22.382s
+user	1m21.276s
+sys	0m1.052s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 2 true`
+size: 15000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#15000000#5548#1694253394#1462832080#78962015514#true
+
+
+real	1m22.264s
+user	1m21.164s
+sys	0m1.032s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 2 true`
+size: 15000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#15000000#5697#1698274932#1454127504#78737796497#true
+
+
+real	1m22.052s
+user	1m20.972s
+sys	0m0.996s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 2 true`
+size: 15000000, method: clone_from, type: String, mutability: mutable
+[RustVector]#"clone_from"#"String"#"mutable"#15000000#5700#1711259240#1454287319#78785963933#true
+
+
+real	1m22.098s
+user	1m21.088s
+sys	0m0.956s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 2 false`
+size: 15000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#15000000#6314#1705122526#1453318745#78747876796#true
+
+
+real	1m22.085s
+user	1m20.960s
+sys	0m1.072s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 2 false`
+size: 15000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#15000000#5869#1698285015#1452077244#78788601893#true
+
+
+real	1m22.113s
+user	1m21.052s
+sys	0m1.008s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 2 false`
+size: 15000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#15000000#5837#1717367639#1457675465#79066096471#true
+
+
+real	1m22.393s
+user	1m21.300s
+sys	0m1.036s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 2 false`
+size: 15000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#15000000#5883#1700760852#1456718305#79515609229#true
+
+
+real	1m22.831s
+user	1m21.788s
+sys	0m0.992s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_memAlloc_various 15000000 4 2 false`
+size: 15000000, method: clone_from, type: String, mutability: immutable
+[RustVector]#"clone_from"#"String"#"immutable"#15000000#5973#1710123386#1451815088#79230332865#true
+
+
+real	1m22.547s
+user	1m21.420s
+sys	0m1.068s

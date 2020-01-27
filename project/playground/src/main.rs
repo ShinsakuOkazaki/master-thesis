@@ -5,6 +5,7 @@ use std::io::BufReader;
 use std::fs::File;
 use bytes::{Bytes, BytesMut, Buf, BufMut};
 use std::io::Result;
+use serde::{Serializem, Deserialize};
 
 fn main() -> Result<()> {
     let part_id = 14;
@@ -38,6 +39,7 @@ fn main() -> Result<()> {
     Ok(())
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Part {
     part_id: i32,
     size: i32,

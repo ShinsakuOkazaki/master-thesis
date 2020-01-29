@@ -24,5 +24,5 @@ do
             # time cargo run $size $method $field
         done
     done
-    cat loging.log  >  result/resultRustVarious_"$size".txt
+    cat loging.log  >  result/resultRustBorrow_"$size".txt
 done

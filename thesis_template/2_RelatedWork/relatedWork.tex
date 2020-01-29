@@ -293,9 +293,70 @@ The impacts of initialization of Java ArrayList vary among elemet types. On the 
 \end{figure}
 
 
-\section{Elements Copy and Insertion into Size-initialized Vector in Rust}
+\section{Elements Copy and Insertion into Size-initialized Vector in Rust.}
 \label{sec:history}
-In this experiment, three methods to insert elements into vector in Rust. One is clone method which is performs bitwise deep copy.
+In this experiment, four methods are used to insert elements into vector in Rust. One is clone method which performs bitwise deep copy. 
+Another is clone_from which also performs bitwise deep copy, but copies elements of the vector to distination vector rather than 
+creating new one. We initialize the distination vector with the same size to the number of elements we insert into it. 
 Another is copy_nonoverlapping function which copies values from source to distination memory region. 
-The other is pushing elements of source to distination vector one by one. Insertions of elements with 4 size are conducted, 1000, 10000, 100000, 1000000 and, 
-their runtime for each 
+The other is pushing elements of source to distination vector one by one. Insertions of elements with 4 size are conducted 1000000, 1500000, 10000000, 15000000, and, 
+their runtimes for each elements type, integer and String are measured. 
+
+
+The figure shows the result of the experiment. Among the runtime performances of integer insertion for every methods, 
+clone, clone_from, and copy_nonoverlapping method shows the similar performance. However, the pushing the copy of elements one by one has much slower runtime performance 
+compared to the rest. This is because integer elements are allocated contiguously in the memory, so that accessing address of memory by pointer reads some next address. 
+This boosts the copy and insertion of elements. 
+
+On the other hand, all of methods show the similar runtime performance in experiment for String object insertion. 
+This is because String object is not stored in contiguous memory region. The vector stores pointer to the object and 
+process need to access around different memory region again and again to deeply copy the object.
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{rust_various_insertion.eps}
+    \caption{Runtime of elements copy from one vector and insertion to the other vector.}
+    \label{fig:Sampling}
+\end{figure}
+
+
+
+\section{Access time to elements in vector}
+\label{sec:history}
+In this experiment, whether mutability has impacts to operation on the object in terms of runtime performance. 
+According to the experiment, there is no difference on accessing to elements of mutable and immutable vector.
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{rust_various_access.eps}
+    \caption{Runtime of elements copy from one vector and insertion to the other vector.}
+    \label{fig:Sampling}
+\end{figure}
+
+
+\section{Note for next}
+\label{sec:history}
+Complex object of elements copy and insertion among vector is worth to experiment. This can be compared with Java, ¥
+because memory layouts of struct in Rust and class in Java are different. Rust stores fieds in the contiguous memory region. 
+However, Java stores field elements to different region.
+
+Complex object whose fields has reference elemenets insertion to vector can be evaluated. Operation to the fields can be little 
+more expensive because the pointer to the value of the field is not stored in contiguous memory region.
+
+Generic type and static type function can be compared. 
+
+To optimise access to String elements of vector, smallstring can be improve the runtime performance. 
+This is because the smallstring optimization enables short length of string on stack as byte array. 
+This string type sets condition where it makes decition where the string is stored on heap or stack as array at certain length.
+
+Comparing operation on reference and owned variable is also interested to examine.
+
+Comparing operation on various smart pointer type. 
+Rc<T> enables value to have multiple owners, but the value should be immutable. Rx<T> is used in case of single thread. 
+When the situation is multi-thread, Arc<T> is used. Arc<T> performs atomic operation, so it is more expensive than Arc<T>. 
+When we need to mutate value of Rc<T>, RefCell<T> can be useful. RefCell<T> allow us to have mutiple mutable reference and immutable
+of reference mutable or immutable variable at the same time. When the mutability consistency is voilented, it terminates program during runtime. 
+That is why RefCell<T> is expensive so that the state of mutable consistency should tracked. 
+As Cell<T>, the value is copied in and out of the Cell<T> instead of getting refrence to it. 
+In addition, Mutex<T> provides intetior mutability across multi-thread.
+
+ Comparison between mutable and immutable tree or graph structure can be checked. 
+ This is because tree structure requires Rc<T> or Week<T> and in addition RefCell<T> to make it mutable.

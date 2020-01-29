@@ -152,7 +152,7 @@ fn get_vector_string(size: usize) -> Vec<String>{
     for _i in 0..size {
         let rand_string: String = thread_rng()
                             .sample_iter(&Alphanumeric)
-                            .take(dist.sample(&mut thread_rng()))
+                            .take(dist.sample(&mut thread_rng())
                             .collect();
         source.push(rand_string);    
     }
@@ -196,7 +196,9 @@ fn access_integer_test_mutable(distination :&mut Vec<i32>, source: &Vec<i32>) ->
     for i in 0..len {
         true_sum += source[i] as i64;
     }
+
     let correct = (sum == true_sum);
+
     return (elapsed_access, correct);
 }
 
@@ -231,6 +233,7 @@ fn access_string_test_mutable(distination :&mut Vec<String>, source: &Vec<String
     }
 
     let correct = (sum == true_sum);
+
     return (elapsed_access, correct);
 }
 

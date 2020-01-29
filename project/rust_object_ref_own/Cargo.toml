@@ -1,5 +1,5 @@
 [package]
-name = "playground"
+name = "rust_object_ref_own"
 version = "0.1.0"
 authors = ["sinsakuokazaki <golisaku4639@gmail.com>"]
 edition = "2018"
@@ -8,3 +8,4 @@ edition = "2018"
 
 [dependencies]
 rand = "0.7"
+rand_core = "0.5.1"

@@ -55,7 +55,7 @@ fn run_ex_country(size: usize) {
     let (elapsed_create, customers) = create_customer_vecor(size, &addresses, zip_codes, &countries);
     let (elapsed_access, count) = access_country(& customers);
     let elapsed_total = start.elapsed().as_nanos();
-    write_to_file(size, "reference", elapsed_create, elapsed_access, elapsed_total, count);
+    write_to_file(size, "slice", elapsed_create, elapsed_access, elapsed_total, count);
 }
 
 fn access_zip_code(customers: &Vec<Customer>) -> (u128, u128) {

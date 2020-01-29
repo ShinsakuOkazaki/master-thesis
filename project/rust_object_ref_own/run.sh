@@ -7,7 +7,7 @@ do
     rm -rf loging.log
     echo "datastructure#size#field#createtime#accesstime#totaltime#count" > loging.log
 
-    for field in 1 2 
+    for field in 1 2 3
     do
         
         for counter in 1 2 3 4 5
@@ -19,9 +19,9 @@ do
             echo "Adding $size elements in Run number  $counter "
 
             # Server experiment
-            # time taskset -c 0 cargo run $size $field
+            time taskset -c 0 cargo run $size $field
             # Loacal experiment
-            time cargo run $size $method $field
+            # time cargo run $size $method $field
         done
     done
     cat loging.log  >  result/resultRustVarious_"$size".txt

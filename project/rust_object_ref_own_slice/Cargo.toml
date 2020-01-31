@@ -1,5 +1,5 @@
 [package]
-name = "playground"
+name = "rust_object_ref_own_slice"
 version = "0.1.0"
 authors = ["sinsakuokazaki <golisaku4639@gmail.com>"]
 edition = "2018"

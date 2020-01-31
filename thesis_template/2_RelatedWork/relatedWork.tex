@@ -331,6 +331,33 @@ According to the experiment, there is no difference on accessing to elements of 
     \label{fig:Sampling}
 \end{figure}
 
+\section{Access time to onwned, borrowed, and sliced field of object}
+\label{sec:history}
+In this experiment, differences of access time among to owned, borrowed, and sliced are observed. 
+The figure is representation of a Customer object. Among the experiment, we focus on zip_code, address, country fields. 
+These three fields take differet type of String value. The zip_code field takes owned String variable. 
+The address field takes borrowed String variable. The country field takes slice String variable. 
+The assumption here is that there may be difference of operation time among variable types: ownner, reference, slice. 
+
+The result shows that access times to onwer and reference are almost the same, but the one to slice is relatively faster 
+compared to the other two.
+
+
+\begin{figure}[htb]
+    \begin{lstlisting}
+        struct Customer<'a> {
+            total_order: i32,
+            weight_order: f32,
+            zip_code: String,
+            address: &'a String,
+            country: &'a str
+        }
+    \end{lstlisting}
+    \caption{Representation of Customer object in Rust.}
+    \label{fig:Sampling}
+\end{figure}
+
+
 
 \section{Note for next}
 \label{sec:history}
@@ -358,5 +385,16 @@ That is why RefCell<T> is expensive so that the state of mutable consistency sho
 As Cell<T>, the value is copied in and out of the Cell<T> instead of getting refrence to it. 
 In addition, Mutex<T> provides intetior mutability across multi-thread.
 
- Comparison between mutable and immutable tree or graph structure can be checked. 
- This is because tree structure requires Rc<T> or Week<T> and in addition RefCell<T> to make it mutable.
+Comparison between mutable and immutable tree or graph structure can be checked. 
+This is because tree structure requires Rc<T> or Week<T> and in addition RefCell<T> to make it mutable.
+
+Design experiment for Trait object and Generic function. 
+We can have Trait object which is pointer to object which imprements its Trait and use the method of Trait object.
+This object has additional information other than just reference to tye original object. 
+This is because Rust needs the type information to dynamically calll the right method of Trait object depending on the type of 
+original object.
+On the other hand, we can have Generic function whose parameter types are Generic types corresponding to Trait. 
+When Rust compiles the code, it emits independent function corresponding to every types that implements the Trains specified in parameter.
+
+
+Vector of Trait(need to put element into Box) vs Vector of concrete type.

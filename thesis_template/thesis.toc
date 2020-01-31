@@ -13,10 +13,11 @@
 \contentsline {section}{\numberline {2.10}Experiment of Memory Allocation for Different Element Type.}{9}% 
 \contentsline {section}{\numberline {2.11}Elements Copy and Insertion into Size-initialized Vector in Rust.}{10}% 
 \contentsline {section}{\numberline {2.12}Access time to elements in vector}{10}% 
-\contentsline {section}{\numberline {2.13}Note for next}{11}% 
-\contentsline {chapter}{\numberline {3}Body of my thesis}{20}% 
-\contentsline {section}{\numberline {3.1}Some results}{20}% 
-\contentsline {chapter}{\numberline {4}Conclusions}{22}% 
-\contentsline {section}{\numberline {4.1}Summary of the thesis}{22}% 
-\contentsline {chapter}{\numberline {A}Proof of xyz}{23}% 
-\contentsline {chapter}{Curriculum Vitae}{24}% 
+\contentsline {section}{\numberline {2.13}Access time to onwned, borrowed, and sliced field of object}{11}% 
+\contentsline {section}{\numberline {2.14}Note for next}{11}% 
+\contentsline {chapter}{\numberline {3}Body of my thesis}{21}% 
+\contentsline {section}{\numberline {3.1}Some results}{21}% 
+\contentsline {chapter}{\numberline {4}Conclusions}{23}% 
+\contentsline {section}{\numberline {4.1}Summary of the thesis}{23}% 
+\contentsline {chapter}{\numberline {A}Proof of xyz}{24}% 
+\contentsline {chapter}{Curriculum Vitae}{25}% 

@@ -19,9 +19,9 @@ do
             echo "Adding $size elements in Run number  $counter "
 
             # Server experiment
-            time taskset -c 0 cargo run $size $field
+            # stime taskset -c 0 cargo run $size $field
             # Loacal experiment
-            # time cargo run $size $method $field
+            time cargo run $size $method $field
         done
     done
     cat loging.log  >  result/resultRustOwnerType_"$size".txt

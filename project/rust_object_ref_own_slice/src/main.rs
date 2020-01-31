@@ -36,7 +36,7 @@ fn run_ex_owned(size: usize) {
     let countries = get_string_vector(size);
     let (elapsed_create, customers) = create_customer_onwed_vector(size, addresses, zip_codes, countries);
     let (elapsed_access, count) = access_owned(& customers).unwrap();
-    let elapsed_total = start.elapsed().as_nanos();
+    let elapsed_total = start.elapsed().as_millis();
     write_to_file(size, "own", elapsed_create, elapsed_access, elapsed_total, count);
 }
 
@@ -47,9 +47,10 @@ fn run_ex_borrowed(size: usize) {
     let countries = get_string_vector(size);
     let (elapsed_create, customers) = create_customer_borrowed_vector(size, &addresses, &zip_codes, &countries);
     let (elapsed_access, count) = access_borrowed(& customers).unwrap();
-    let elapsed_total = start.elapsed().as_nanos();
+    let elapsed_total = start.elapsed().as_millis();
     write_to_file(size, "reference", elapsed_create, elapsed_access, elapsed_total, count);
 }
+
 
 fn run_ex_slice(size: usize) {
     let start = Instant::now();
@@ -58,7 +59,7 @@ fn run_ex_slice(size: usize) {
     let countries = get_string_vector(size);
     let (elapsed_create, customers) = create_customer_slice_vector(size, &addresses, &zip_codes, &countries);
     let (elapsed_access, count) = access_slice(& customers).unwrap();
-    let elapsed_total = start.elapsed().as_nanos();
+    let elapsed_total = start.elapsed().as_millis();
     write_to_file(size, "slice", elapsed_create, elapsed_access, elapsed_total, count);
 }
 
@@ -80,7 +81,7 @@ fn access_owned(customers: &Vec<CustomerOwned>) -> Result<(u128, u128)>  {
         let after_customer = read_byte_buffer(out_buf)?;
         count = (after_customer.zip_code.len() + after_customer.address.len() + after_customer.country.len()) as u128;
     }
-    let elapsed = start.elapsed().as_nanos();
+    let elapsed = start.elapsed().as_millis();
     Ok((elapsed, count))
 }
 
@@ -102,7 +103,7 @@ fn access_borrowed(customers: &Vec<CustomerBorrowed>) -> Result<(u128, u128)> {
         let after_customer = read_byte_buffer(out_buf)?;
         count = (after_customer.zip_code.len() + after_customer.address.len() + after_customer.country.len()) as u128;
     }
-    let elapsed = start.elapsed().as_nanos();
+    let elapsed = start.elapsed().as_millis();
     Ok((elapsed, count))
 }
 
@@ -124,7 +125,7 @@ fn access_slice(customers: &Vec<CustomerSlice>) -> Result<(u128, u128)> {
         let after_customer = read_byte_buffer(out_buf)?;
         count = (after_customer.zip_code.len() + after_customer.address.len() + after_customer.country.len()) as u128;
     }
-    let elapsed = start.elapsed().as_nanos();
+    let elapsed = start.elapsed().as_millis();
     Ok((elapsed, count))
 }
 
@@ -155,7 +156,7 @@ fn create_customer_onwed_vector(size: usize, mut addresses: Vec<String>, mut zip
         let customer = CustomerOwned::new(zip_code, address, country);
         customers.push(customer);
     }
-    let elapsed = start.elapsed().as_nanos();
+    let elapsed = start.elapsed().as_millis();
     (elapsed, customers)
 }
 
@@ -169,7 +170,7 @@ fn create_customer_borrowed_vector<'a>(size: usize, addresses: &'a Vec<String>, 
         let customer = CustomerBorrowed::new(zip_code, address, country);
         customers.push(customer);
     }
-    let elapsed = start.elapsed().as_nanos();
+    let elapsed = start.elapsed().as_millis();
     (elapsed, customers)
 }
 
@@ -184,7 +185,7 @@ fn create_customer_slice_vector<'a>(size: usize, addresses: &'a Vec<String>, zip
         let customer = CustomerSlice::new(zip_code, address, country);
         customers.push(customer);
     }
-    let elapsed = start.elapsed().as_nanos();
+    let elapsed = start.elapsed().as_millis();
     (elapsed, customers)
 }
 

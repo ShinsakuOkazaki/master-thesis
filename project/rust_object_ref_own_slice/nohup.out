@@ -949,3 +949,564 @@ sys	9m22.308s
 Adding 10000000 elements in Run number  2 
     Finished dev [unoptimized + debuginfo] target(s) in 0.03s
      Running `target/debug/rust_object_ref_own_slice 10000000 1`
+   Compiling libc v0.2.66
+   Compiling getrandom v0.1.14
+   Compiling cfg-if v0.1.10
+   Compiling ppv-lite86 v0.2.6
+   Compiling bytes v0.5.4
+   Compiling c2-chacha v0.2.3
+   Compiling rand_core v0.5.1
+   Compiling rand_chacha v0.2.1
+   Compiling rand v0.7.3
+   Compiling rust_object_ref_own_slice v0.1.0 (/home/goli4goli6/research/master-thesis/project/rust_object_ref_own_slice)
+    Finished release [optimized] target(s) in 25.17s
+Adding 1000000 elements in Run number  1 
+   Compiling libc v0.2.66
+   Compiling getrandom v0.1.14
+   Compiling cfg-if v0.1.10
+   Compiling ppv-lite86 v0.2.6
+   Compiling bytes v0.5.4
+   Compiling c2-chacha v0.2.3
+   Compiling rand_core v0.5.1
+   Compiling rand_chacha v0.2.1
+   Compiling rand v0.7.3
+   Compiling rust_object_ref_own_slice v0.1.0 (/home/goli4goli6/research/master-thesis/project/rust_object_ref_own_slice)
+    Finished dev [unoptimized + debuginfo] target(s) in 10.59s
+     Running `target/debug/rust_object_ref_own_slice 1000000 1`
+[RustVector]#1000000#"own"#366616#3676588#16182479#15
+
+
+real	0m27.128s
+user	0m26.196s
+sys	0m0.736s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 1`
+[RustVector]#1000000#"own"#359260#3695360#16258336#15
+
+
+real	0m16.638s
+user	0m16.472s
+sys	0m0.144s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 1`
+[RustVector]#1000000#"own"#355793#3679640#16241544#15
+
+
+real	0m16.619s
+user	0m16.432s
+sys	0m0.168s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 1`
+[RustVector]#1000000#"own"#347759#3660047#16279953#15
+
+
+real	0m16.652s
+user	0m16.448s
+sys	0m0.188s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 1`
+[RustVector]#1000000#"own"#358648#3677938#16176749#15
+
+
+real	0m16.552s
+user	0m16.392s
+sys	0m0.128s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 2`
+[RustVector]#1000000#"reference"#200523#3705580#16105655#15
+
+
+real	0m16.480s
+user	0m16.288s
+sys	0m0.168s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 2`
+[RustVector]#1000000#"reference"#198045#3672041#16039878#15
+
+
+real	0m16.410s
+user	0m16.264s
+sys	0m0.132s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 2`
+[RustVector]#1000000#"reference"#197375#3650950#15947285#15
+
+
+real	0m16.320s
+user	0m16.184s
+sys	0m0.120s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 2`
+[RustVector]#1000000#"reference"#198095#3693933#16085200#15
+
+
+real	0m16.461s
+user	0m16.304s
+sys	0m0.124s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 2`
+[RustVector]#1000000#"reference"#196969#3695465#16103070#15
+
+
+real	0m16.477s
+user	0m16.300s
+sys	0m0.156s
+Adding 1000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 3`
+[RustVector]#1000000#"slice"#315752#3594116#16058241#15
+
+
+real	0m16.429s
+user	0m16.260s
+sys	0m0.152s
+Adding 1000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 3`
+[RustVector]#1000000#"slice"#317929#3589676#16032532#15
+
+
+real	0m16.409s
+user	0m16.256s
+sys	0m0.132s
+Adding 1000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 3`
+[RustVector]#1000000#"slice"#318376#3594340#16144313#15
+
+
+real	0m16.517s
+user	0m16.380s
+sys	0m0.104s
+Adding 1000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 3`
+[RustVector]#1000000#"slice"#321010#3638429#16169402#15
+
+
+real	0m16.551s
+user	0m16.340s
+sys	0m0.192s
+Adding 1000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1000000 3`
+[RustVector]#1000000#"slice"#317543#3584919#16130911#15
+
+
+real	0m16.507s
+user	0m16.328s
+sys	0m0.164s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 1`
+[RustVector]#1500000#"own"#560079#5560821#24382988#15
+
+
+real	0m24.933s
+user	0m24.644s
+sys	0m0.268s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 1`
+[RustVector]#1500000#"own"#542412#5496911#24414436#15
+
+
+real	0m24.953s
+user	0m24.648s
+sys	0m0.264s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 1`
+[RustVector]#1500000#"own"#533969#5539030#24215442#15
+
+
+real	0m24.753s
+user	0m24.568s
+sys	0m0.168s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 1`
+[RustVector]#1500000#"own"#536964#5498838#24311587#15
+
+
+real	0m24.850s
+user	0m24.620s
+sys	0m0.196s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 1`
+[RustVector]#1500000#"own"#544800#5590413#24375048#15
+
+
+real	0m24.916s
+user	0m24.656s
+sys	0m0.236s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 2`
+[RustVector]#1500000#"reference"#296483#5559258#24074921#15
+
+
+real	0m24.620s
+user	0m24.400s
+sys	0m0.200s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 2`
+[RustVector]#1500000#"reference"#298164#5514854#24127301#15
+
+
+real	0m24.667s
+user	0m24.420s
+sys	0m0.212s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 2`
+[RustVector]#1500000#"reference"#295878#5480106#23963702#15
+
+
+real	0m24.507s
+user	0m24.272s
+sys	0m0.220s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 2`
+[RustVector]#1500000#"reference"#293726#5547059#24139246#15
+
+
+real	0m24.684s
+user	0m24.476s
+sys	0m0.184s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 2`
+[RustVector]#1500000#"reference"#297282#5478137#23973498#15
+
+
+real	0m24.513s
+user	0m24.296s
+sys	0m0.184s
+Adding 1500000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 3`
+[RustVector]#1500000#"slice"#486383#5414573#24119788#15
+
+
+real	0m24.669s
+user	0m24.428s
+sys	0m0.176s
+Adding 1500000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 3`
+[RustVector]#1500000#"slice"#490397#5452679#24240336#15
+
+
+real	0m24.786s
+user	0m24.568s
+sys	0m0.184s
+Adding 1500000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 3`
+[RustVector]#1500000#"slice"#476454#5382643#24112122#15
+
+
+real	0m24.656s
+user	0m24.428s
+sys	0m0.184s
+Adding 1500000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 3`
+[RustVector]#1500000#"slice"#482033#5391272#24115528#15
+
+
+real	0m24.656s
+user	0m24.440s
+sys	0m0.196s
+Adding 1500000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 1500000 3`
+[RustVector]#1500000#"slice"#479554#5381947#23986358#15
+
+
+real	0m24.535s
+user	0m24.288s
+sys	0m0.212s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 1`
+[RustVector]#10000000#"own"#3960949#36954903#163922471#15
+
+
+real	2m47.368s
+user	2m43.820s
+sys	0m3.452s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 1`
+[RustVector]#10000000#"own"#3587863#36825639#162220922#15
+
+
+real	2m45.673s
+user	2m44.000s
+sys	0m1.576s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 1`
+[RustVector]#10000000#"own"#3566980#36613490#161926988#15
+
+
+real	2m45.449s
+user	2m43.660s
+sys	0m1.672s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 1`
+[RustVector]#10000000#"own"#3663610#36777274#162854739#15
+
+
+real	2m46.299s
+user	2m44.440s
+sys	0m1.752s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 1`
+[RustVector]#10000000#"own"#3613951#36665899#161848819#15
+
+
+real	2m45.278s
+user	2m43.492s
+sys	0m1.672s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 2`
+[RustVector]#10000000#"reference"#1976195#37069476#161513429#15
+
+
+real	2m45.013s
+user	2m43.432s
+sys	0m1.480s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 2`
+[RustVector]#10000000#"reference"#1999101#36712582#160698294#15
+
+
+real	2m44.159s
+user	2m42.540s
+sys	0m1.508s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 2`
+[RustVector]#10000000#"reference"#1997401#36793730#160943847#15
+
+
+real	2m44.432s
+user	2m42.876s
+sys	0m1.460s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 2`
+[RustVector]#10000000#"reference"#2029542#37015550#160798902#15
+
+
+real	2m44.280s
+user	2m42.744s
+sys	0m1.436s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 2`
+[RustVector]#10000000#"reference"#2039670#37339374#160969420#15
+
+
+real	2m44.416s
+user	2m42.868s
+sys	0m1.432s
+Adding 10000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 3`
+[RustVector]#10000000#"slice"#3238017#35747005#160567741#15
+
+
+real	2m44.096s
+user	2m42.400s
+sys	0m1.564s
+Adding 10000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 3`
+[RustVector]#10000000#"slice"#3276922#35633926#160788423#15
+
+
+real	2m44.249s
+user	2m42.628s
+sys	0m1.504s
+Adding 10000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 3`
+[RustVector]#10000000#"slice"#3303959#36581998#161907822#15
+
+
+real	2m45.312s
+user	2m43.704s
+sys	0m1.512s
+Adding 10000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 3`
+[RustVector]#10000000#"slice"#3192723#35705359#160443902#15
+
+
+real	2m43.958s
+user	2m42.356s
+sys	0m1.500s
+Adding 10000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 10000000 3`
+[RustVector]#10000000#"slice"#3264869#35593940#160196668#15
+
+
+real	2m43.649s
+user	2m42.112s
+sys	0m1.428s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 1`
+[RustVector]#15000000#"own"#7182108#54914765#244648926#15
+
+
+real	4m10.038s
+user	4m5.420s
+sys	0m4.264s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 1.44s
+     Running `target/debug/rust_object_ref_own_slice 15000000 1`
+[RustVector]#15000000#"own"#5416942#55250166#242750954#15
+
+
+real	4m10.762s
+user	4m5.436s
+sys	0m2.392s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 1`
+[RustVector]#15000000#"own"#5386624#55179701#243075059#15
+
+
+real	4m8.277s
+user	4m5.648s
+sys	0m2.428s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 1`
+[RustVector]#15000000#"own"#5611494#55412234#244143507#15
+
+
+real	4m9.343s
+user	4m6.680s
+sys	0m2.456s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 1`
+[RustVector]#15000000#"own"#5403601#55310768#243119466#15
+
+
+real	4m8.640s
+user	4m5.760s
+sys	0m2.440s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 2`
+[RustVector]#15000000#"reference"#2971388#55223812#241537341#15
+
+
+real	4m6.755s
+user	4m4.492s
+sys	0m2.104s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 2`
+[RustVector]#15000000#"reference"#2963146#54846879#240634407#15
+
+
+real	4m5.868s
+user	4m3.532s
+sys	0m2.184s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 2`
+[RustVector]#15000000#"reference"#2994204#55233830#241359280#15
+
+
+real	4m6.741s
+user	4m4.492s
+sys	0m2.096s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 2`
+[RustVector]#15000000#"reference"#3012667#55441993#241325242#15
+
+
+real	4m6.654s
+user	4m4.464s
+sys	0m2.028s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 2`
+[RustVector]#15000000#"reference"#3003437#55503575#241693271#15
+
+
+real	4m7.049s
+user	4m4.672s
+sys	0m2.192s
+Adding 15000000 elements in Run number  1 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 3`
+[RustVector]#15000000#"slice"#4893811#56278499#244070829#15
+
+
+real	4m9.333s
+user	4m6.776s
+sys	0m2.392s
+Adding 15000000 elements in Run number  2 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 3`
+[RustVector]#15000000#"slice"#4827025#54018773#241525855#15
+
+
+real	4m6.782s
+user	4m4.256s
+sys	0m2.368s
+Adding 15000000 elements in Run number  3 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 3`
+[RustVector]#15000000#"slice"#4841033#53816798#241858105#15
+
+
+real	4m7.135s
+user	4m4.640s
+sys	0m2.356s
+Adding 15000000 elements in Run number  4 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 3`
+[RustVector]#15000000#"slice"#4861799#53968723#242043377#15
+
+
+real	4m7.327s
+user	4m4.840s
+sys	0m2.332s
+Adding 15000000 elements in Run number  5 
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/rust_object_ref_own_slice 15000000 3`
+[RustVector]#15000000#"slice"#4877863#54125173#242157725#15
+
+
+real	4m7.439s
+user	4m4.976s
+sys	0m2.308s

@@ -1,8 +1,9 @@
 
 extern crate rand;
 use rand::thread_rng;
-use rand::distributions::Uniform;
+use rand::distributions::{Uniform, Distribution};
 use std::time::Instant;
+use std::io::prelude::*;
 use std::env;
 use std::fs::OpenOptions;
 fn main() {
@@ -25,7 +26,7 @@ fn run_ex_trait_object(size: usize) {
     let total = 0;
     let start = Instant::now();
     for i in 0..size {
-        total += get_area_trait_object(&shape_vector[i]);
+        total += get_area_trait_object(&*shape_vector[i]);
     }
     let elapsed = start.elapsed().as_nanos();
     write_to_file(size, "trait", elapsed, total);
@@ -36,7 +37,7 @@ fn run_ex_generic_function(size: usize) {
     let total = 0;
     let start = Instant::now();
     for i in 0..size {
-        total += get_area_generic_function(&shape_vector[i]);
+        total += get_area_generic_function(&*shape_vector[i]);
     }
     let elapsed = start.elapsed().as_nanos();
     write_to_file(size, "generic", elapsed, total);
@@ -56,6 +57,7 @@ fn get_shape_vector(size: usize) -> Vec<Box<dyn Shape>> {
         let shape = get_random_shape();
         shape_vector.push(shape);
     }
+    shape_vector
 }
 
 fn get_random_shape() -> Box<dyn Shape> {
@@ -68,7 +70,7 @@ fn get_random_shape() -> Box<dyn Shape> {
     }
 }
 
-fn get_triangle() {
+fn get_triangle() -> Triangle {
     Triangle {
         x: get_integer(),
         y: get_integer(),
@@ -78,16 +80,17 @@ fn get_triangle() {
     }
 }
 
-fn get_circle() {
+fn get_circle() -> Circle {
     Circle {
         x: get_integer(),
         y: get_integer(),
         r_vertical: get_integer(),
-        r_horizontal: get_integer()
+        r_horizontal: get_integer(),
+        angle: get_integer()
     }
 }
 
-fn get_rectangle() {
+fn get_rectangle() -> Rectangle {
     Rectangle {
         x: get_integer(),
         y: get_integer(),

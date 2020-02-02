@@ -32,4 +32,4 @@ struct CustomerSlice<'a> {
 }
 ```
 
-![alt text](https://github.com/ShinsakuOkazaki/master-thesis/tree/master/project/rust_object_ref_own_slice/analysis/rust_borrowing.png)
+![picture](https://github.com/ShinsakuOkazaki/master-thesis/tree/master/project/rust_object_ref_own_slice/analysis/rust_borrowing.png)

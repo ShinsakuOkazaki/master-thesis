@@ -32,4 +32,4 @@ struct CustomerSlice<'a> {
 }
 ```
 
-<img src = https://github.com/ShinsakuOkazaki/master-thesis/tree/master/project/rust_object_ref_own_slice/analysis/rust_borrowing.png width = "500" height = "500">
+<img src = analysis/rust_borrowing.png width = "500" height = "500">

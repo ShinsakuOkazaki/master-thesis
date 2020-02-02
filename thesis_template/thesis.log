@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  30 JAN 2020 17:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  1 FEB 2020 20:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -616,14 +616,14 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 348.
 
 
-/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:364: Package inputenc Error: Unicode character ¥ (U+00A5)
+/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:366: Package inputenc Error: Unicode character ¥ (U+00A5)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.364 ...iment. This can be compared with Java, ¥
+l.366 ...iment. This can be compared with Java, ¥
                                                   
 You may provide a definition with
 \DeclareUnicodeCharacter 

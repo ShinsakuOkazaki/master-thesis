@@ -1,6 +1,6 @@
 cargo clean
 cargo build --release
-for size in 10000000 15000000 100000000 150000000
+for size in 9000000 12000000 15000000 18000000
 do
     rm -rf loging.log
     echo "datastructure#size#method#runtime#total" > loging.log

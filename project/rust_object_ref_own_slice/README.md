@@ -32,4 +32,4 @@ struct CustomerSlice<'a> {
 }
 ```
 
-<img src = analysis/rust_borrowing.png width = "500" height = "500">
+<img src = analysis/rust_borrowing.png width = "1000" height = "800">

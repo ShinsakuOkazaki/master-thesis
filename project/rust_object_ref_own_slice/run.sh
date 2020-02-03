@@ -12,16 +12,17 @@ do
         
         for counter in 1 2 3 4 5
         do
-
+            rm -rf string.log
         # write the first line
 
 
             echo "Adding $size elements in Run number  $counter "
 
             # Server experiment
-            time taskset -c 0 cargo run $size $field
+            time taskset -c 0 cargo run --release $size $field
             # Loacal experiment
-            # time cargo run $size $method $field
+            # time cargo run --release $size $method $field
+            cat string.log  >  result/string/stringContents_"$size"_"$field"_"$counter".txt
         done
     done
     cat loging.log  >  result/resultRustOwnerType_"$size".txt

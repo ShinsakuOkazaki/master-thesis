@@ -36,9 +36,9 @@ fn run_ex_owned(size: usize) {
     // Create vector of CustomerOwned objects and take creation time.
     let (elapsed_create, customers) = create_customer_onwed_vector(size, addresses, zip_codes, countries);
     // Access to every feild of each object in the vector and take access time.
-    let (elapsed_access, count) = access_owned(& customers).unwrap();
-    let elapsed_total = start.elapsed().as_micros();
-    write_to_file(size, "own", elapsed_create, elapsed_access, elapsed_total, count);
+    let elapsed_access = access_owned(& customers).unwrap();
+    let elapsed_total = start.elapsed().as_secs();
+    write_to_file(size, "own", elapsed_create, elapsed_access, elapsed_total);
 }
 
 fn run_ex_borrowed(size: usize) {
@@ -50,9 +50,9 @@ fn run_ex_borrowed(size: usize) {
     // Create vector of CustomerBorrowed objects and take creation time.
     let (elapsed_create, customers) = create_customer_borrowed_vector(size, &addresses, &zip_codes, &countries);
     // Access to every feild of each object in the vector and take access time.
-    let (elapsed_access, count) = access_borrowed(& customers).unwrap();
-    let elapsed_total = start.elapsed().as_micros();
-    write_to_file(size, "reference", elapsed_create, elapsed_access, elapsed_total, count);
+    let elapsed_access = access_borrowed(& customers).unwrap();
+    let elapsed_total = start.elapsed().as_secs();
+    write_to_file(size, "reference", elapsed_create, elapsed_access, elapsed_total);
 }
 
 // Function to run experiment for object whose fields are slice.
@@ -65,17 +65,16 @@ fn run_ex_slice(size: usize) {
     // Create vector of CustomerSlice objects and take creation time.
     let (elapsed_create, customers) = create_customer_slice_vector(size, &addresses, &zip_codes, &countries);
     // Access to every feild of each object in the vector and take access time.   
-    let (elapsed_access, count) = access_slice(& customers).unwrap();
-    let elapsed_total = start.elapsed().as_micros();
-    write_to_file(size, "slice", elapsed_create, elapsed_access, elapsed_total, count);
+    let elapsed_access = access_slice(& customers).unwrap();
+    let elapsed_total = start.elapsed().as_secs();
+    write_to_file(size, "slice", elapsed_create, elapsed_access, elapsed_total);
 }
 
 
 // Function access object whose field is owned.
-fn access_owned(customers: &Vec<CustomerOwned>) -> Result<(u128, u128)>  {
+fn access_owned(customers: &Vec<CustomerOwned>) -> Result<u64>  {
     let len = customers.len();
     let start = Instant::now();
-    let mut count: u128 = 0;
     for i in 0..len {
         // Serialize object to bytes and read the bytes back to new object.
         let before_customer = &customers[i];
@@ -83,17 +82,16 @@ fn access_owned(customers: &Vec<CustomerOwned>) -> Result<(u128, u128)>  {
         let buf = bytes.bytes();
         let after_customer = read_byte_buffer(buf)?;
         // To force to compile above code, access all of fields of newly created object by counting their length.
-        count = (after_customer.zip_code.len() + after_customer.address.len() + after_customer.country.len()) as u128;
+        write_string_customer(&after_customer);
     }
-    let elapsed = start.elapsed().as_micros(); 
-    Ok((elapsed, count))
+    let elapsed = start.elapsed().as_secs(); 
+    Ok(elapsed)
 }
 
 // Function access object whose field is borrowed.
-fn access_borrowed(customers: &Vec<CustomerBorrowed>) -> Result<(u128, u128)> {
+fn access_borrowed(customers: &Vec<CustomerBorrowed>) -> Result<u64> {
     let len = customers.len();
     let start = Instant::now();
-    let mut count: u128 = 0;
     for i in 0..len {
         // Serialize object to bytes and read the bytes back to new object.
         let before_customer = &customers[i];
@@ -101,26 +99,25 @@ fn access_borrowed(customers: &Vec<CustomerBorrowed>) -> Result<(u128, u128)> {
         let buf = bytes.bytes();
         let after_customer = read_byte_buffer(buf)?;
         // To force to compile above code, access all of fields of newly created object by counting their length.
-        count = (after_customer.zip_code.len() + after_customer.address.len() + after_customer.country.len()) as u128;
+        write_string_customer(&after_customer);
     }
-    let elapsed = start.elapsed().as_micros();
-    Ok((elapsed, count))
+    let elapsed = start.elapsed().as_secs();
+    Ok(elapsed)
 }
 
 // Function access object whose field is slice.
-fn access_slice(customers: &Vec<CustomerSlice>) -> Result<(u128, u128)> {
+fn access_slice(customers: &Vec<CustomerSlice>) -> Result<u64> {
     let len = customers.len();
     let start = Instant::now();
-    let mut count: u128 = 0;
     for i in 0..len {
         let before_customer = &customers[i];
         let bytes = write_byte_buffer(&before_customer);
         let buf = bytes.bytes();
         let after_customer = read_byte_buffer(buf)?;
-        count = (after_customer.zip_code.len() + after_customer.address.len() + after_customer.country.len()) as u128;
+        write_string_customer(&after_customer);
     }
-    let elapsed = start.elapsed().as_micros();
-    Ok((elapsed, count))
+    let elapsed = start.elapsed().as_secs();
+    Ok(elapsed)
 }
 
 
@@ -142,7 +139,7 @@ fn get_string_vector(size: usize) -> Vec<String> {
 }
 
 // Function to create a vector of CustomerOwned objects.
-fn create_customer_onwed_vector(size: usize, mut addresses: Vec<String>, mut zip_codes: Vec<String>, mut countries: Vec<String>) -> (u128, Vec<CustomerOwned>) {
+fn create_customer_onwed_vector(size: usize, mut addresses: Vec<String>, mut zip_codes: Vec<String>, mut countries: Vec<String>) -> (u64, Vec<CustomerOwned>) {
     let start = Instant::now();
     let mut customers: Vec<CustomerOwned> = Vec::with_capacity(size);
     for _ in 0..size {
@@ -153,11 +150,11 @@ fn create_customer_onwed_vector(size: usize, mut addresses: Vec<String>, mut zip
         let customer = CustomerOwned::new(zip_code, address, country);
         customers.push(customer);
     }
-    let elapsed = start.elapsed().as_micros();
+    let elapsed = start.elapsed().as_secs();
     (elapsed, customers)
 }
 
-fn create_customer_borrowed_vector<'a>(size: usize, addresses: &'a Vec<String>, zip_codes: &'a Vec<String>, countries: &'a Vec<String>) -> (u128, Vec<CustomerBorrowed<'a>>) {
+fn create_customer_borrowed_vector<'a>(size: usize, addresses: &'a Vec<String>, zip_codes: &'a Vec<String>, countries: &'a Vec<String>) -> (u64, Vec<CustomerBorrowed<'a>>) {
     let start = Instant::now();
     let mut customers: Vec<CustomerBorrowed> = Vec::with_capacity(size);
     for i in 0..size {
@@ -168,12 +165,12 @@ fn create_customer_borrowed_vector<'a>(size: usize, addresses: &'a Vec<String>, 
         let customer = CustomerBorrowed::new(zip_code, address, country);
         customers.push(customer);
     }
-    let elapsed = start.elapsed().as_micros();
+    let elapsed = start.elapsed().as_secs();
     (elapsed, customers)
 }
 
 // Function to create Customer Vector 
-fn create_customer_slice_vector<'a>(size: usize, addresses: &'a Vec<String>, zip_codes: &'a Vec<String>, countries: &'a Vec<String>) -> (u128, Vec<CustomerSlice<'a>>) {
+fn create_customer_slice_vector<'a>(size: usize, addresses: &'a Vec<String>, zip_codes: &'a Vec<String>, countries: &'a Vec<String>) -> (u64, Vec<CustomerSlice<'a>>) {
     let start = Instant::now();
     let mut customers: Vec<CustomerSlice> = Vec::with_capacity(size);
     for i in 0..size {
@@ -184,7 +181,7 @@ fn create_customer_slice_vector<'a>(size: usize, addresses: &'a Vec<String>, zip
         let customer = CustomerSlice::new(zip_code, address, country);
         customers.push(customer);
     }
-    let elapsed = start.elapsed().as_micros();
+    let elapsed = start.elapsed().as_secs();
     (elapsed, customers)
 }
 
@@ -290,9 +287,9 @@ impl<'a> Customer for &'a CustomerSlice<'_> {
 
 
 // Function to write result to file.
-fn write_to_file(size: usize, field: &str, elapsed_create: u128, elapsed_access: u128, elapsed_total: u128, count: u128) {
-    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}#{:?}\n", 
-                         size, field, elapsed_create, elapsed_access, elapsed_total, count);
+fn write_to_file(size: usize, field: &str, elapsed_create: u64, elapsed_access: u64, elapsed_total: u64) {
+    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}\n", 
+                         size, field, elapsed_create, elapsed_access, elapsed_total);
     println!("{}",output);
     let mut file = OpenOptions::new()
         .append(true)
@@ -301,6 +298,17 @@ fn write_to_file(size: usize, field: &str, elapsed_create: u128, elapsed_access:
         .unwrap();
 
     file.write_all(output.as_bytes()).expect("Fail to write file.");
+}
+
+fn write_string_customer(after_customer: &CustomerOwned) {
+    let output = format!("[ResultString]#{:?}#{:?}#{:?}\n", 
+                         after_customer.zip_code, after_customer.address, after_customer.country);
+    let mut file = OpenOptions::new()
+        .append(true)
+        .create(true)
+        .open("string.log")
+        .unwrap();
+        file.write_all(output.as_bytes()).expect("Fail to write file.");
 }
 
 ///

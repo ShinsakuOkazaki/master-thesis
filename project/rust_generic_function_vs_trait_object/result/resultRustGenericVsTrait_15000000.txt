@@ -1,0 +1,11 @@
+datastructure#size#method#runtime#total
+[RustVector]#15000000#"trait"#104851328#-468611416
+[RustVector]#15000000#"trait"#104200064#-468783304
+[RustVector]#15000000#"trait"#104387659#-468697742
+[RustVector]#15000000#"trait"#104771836#-468728417
+[RustVector]#15000000#"trait"#104831925#-468842697
+[RustVector]#15000000#"generic"#104681147#-468850213
+[RustVector]#15000000#"generic"#104347295#-468744305
+[RustVector]#15000000#"generic"#104736441#-468568481
+[RustVector]#15000000#"generic"#104487891#-468662800
+[RustVector]#15000000#"generic"#104645890#-468859901

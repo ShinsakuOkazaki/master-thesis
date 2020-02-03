@@ -49,7 +49,7 @@ fn run_ex_trait_object(size: usize) {
         total += get_area_trait_object(&*parallelogram_vector[i]);
     }
 
-    let elapsed = start.elapsed().as_micros();
+    let elapsed = start.elapsed().as_millis();
     write_to_file(size, "trait", elapsed, total);
 }
 
@@ -82,7 +82,7 @@ fn run_ex_generic_function(size: usize) {
     }
 
 
-    let elapsed = start.elapsed().as_micros();
+    let elapsed = start.elapsed().as_millis();
     write_to_file(size, "generic", elapsed, total);
 }
 

@@ -18,9 +18,9 @@ do
             echo "Adding $size elements in Run number  $counter "
 
             # Server experiment
-            #time taskset -c 0 cargo run --release $size $method $eltype $mutability
+            time taskset -c 0 cargo run --release $size $method
             # Loacal experiment
-            time cargo run --release $size $method $eltype $mutability
+            # time cargo run --release $size $method 
         done
     done
     cat loging.log  >  result/resultRustGenericVsTrait_"$size".txt

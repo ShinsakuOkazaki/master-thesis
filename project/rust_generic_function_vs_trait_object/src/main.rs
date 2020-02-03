@@ -31,12 +31,22 @@ fn run_ex_trait_object(size: usize) {
 
     let circle_vector = get_circle_vector(size);
     for i in 0..size {
-        total += get_area_trait_object(&*circle_vector[i]);
+        total -= get_area_trait_object(&*circle_vector[i]);
     }
 
     let rectangle_vector = get_rectangle_vector(size);
     for i in 0..size {
         total += get_area_trait_object(&*rectangle_vector[i]);
+    }
+
+    let pentagon_vector = get_pentagon_vector(size);
+    for i in 0..size {
+        total -= get_area_trait_object(&*pentagon_vector[i]);
+    }
+
+    let parallelogram_vector = get_parallelogram_vector(size);
+    for i in 0..size {
+        total += get_area_trait_object(&*parallelogram_vector[i]);
     }
 
     let elapsed = start.elapsed().as_micros();
@@ -53,13 +63,24 @@ fn run_ex_generic_function(size: usize) {
 
     let circle_vector = get_circle_vector(size);
     for i in 0..size {
-        total += get_area_generic_function(&*circle_vector[i]);
+        total -= get_area_generic_function(&*circle_vector[i]);
     }
 
     let rectangle_vector = get_rectangle_vector(size);
     for i in 0..size {
         total += get_area_generic_function(&*rectangle_vector[i]);
     }
+
+    let pentagon_vector = get_pentagon_vector(size);
+    for i in 0..size {
+        total -= get_area_generic_function(&*pentagon_vector[i]);
+    }
+
+    let parallelogram_vector = get_parallelogram_vector(size);
+    for i in 0..size {
+        total += get_area_generic_function(&*parallelogram_vector[i]);
+    }
+
 
     let elapsed = start.elapsed().as_micros();
     write_to_file(size, "generic", elapsed, total);
@@ -109,6 +130,30 @@ fn get_rectangle_vector(size: usize) -> Vec<Box<Rectangle>> {
     rectangle_vector
 }
 
+fn get_pentagon_vector(size: usize) -> Vec<Box<Pentagon>> {
+    let mut pentagon_vector = Vec::with_capacity(size);
+    for _ in 0..size {
+        let pentagon =  Pentagon {
+            a: get_integer(),
+            h: get_integer()
+        };
+        pentagon_vector.push(Box::new(pentagon));
+    }
+    pentagon_vector
+}
+
+fn get_parallelogram_vector(size: usize) -> Vec<Box<Parallelogram>> {
+    let mut parallelogram_vector = Vec::with_capacity(size);
+    for _ in 0..size {
+        let parallelogram =  Parallelogram {
+            base: get_integer(),
+            height: get_integer()
+        };
+        parallelogram_vector.push(Box::new(parallelogram));
+    }
+    parallelogram_vector
+}
+
 pub trait Shape {
     fn get_area(&self) -> i32;
 }
@@ -128,6 +173,16 @@ pub struct Rectangle {
     hight: i32
 }
 
+pub struct Pentagon {
+    a: i32, 
+    h: i32
+}
+
+pub struct Parallelogram {
+    base: i32,
+    height: i32
+}
+
 impl Shape for Triangle {
     fn get_area(&self) -> i32 {
         self.bottom * self.hight
@@ -145,6 +200,20 @@ impl Shape for Rectangle {
         self.wide * self.hight
     }
 }
+
+impl Shape for Pentagon {
+    fn get_area(&self) -> i32 {
+        5 * self.a * self.h
+    }
+}
+
+impl Shape for Parallelogram {
+    fn get_area(&self) -> i32 {
+        self.base * self.height
+    }
+}
+
+
 
 
 fn get_integer() -> i32 {

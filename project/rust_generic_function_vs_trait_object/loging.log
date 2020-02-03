@@ -1,0 +1,3 @@
+datastructure#size#method#runtime#total
+[RustVector]#10000000#"trait"#30242591#312564122
+[RustVector]#10000000#"trait"#35136996#312465524

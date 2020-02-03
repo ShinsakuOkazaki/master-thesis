@@ -1,4 +1,3 @@
-
 extern crate rand;
 use rand::thread_rng;
 use rand::distributions::{Uniform, Distribution};
@@ -32,7 +31,7 @@ fn run_ex_trait_object(size: usize) {
 
     let circle_vector = get_circle_vector(size);
     for i in 0..size {
-        total -= get_area_trait_object(&*circle_vector[i]);
+        total += get_area_trait_object(&*circle_vector[i]);
     }
 
     let rectangle_vector = get_rectangle_vector(size);
@@ -54,7 +53,7 @@ fn run_ex_generic_function(size: usize) {
 
     let circle_vector = get_circle_vector(size);
     for i in 0..size {
-        total -= get_area_generic_function(&*circle_vector[i]);
+        total += get_area_generic_function(&*circle_vector[i]);
     }
 
     let rectangle_vector = get_rectangle_vector(size);

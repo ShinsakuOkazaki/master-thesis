@@ -1,5 +1,6 @@
 extern crate rand;
-use rand::thread_rng;
+use rand::SeedableRng;
+use rand::rngs::StdRng;
 use rand::distributions::{Uniform, Distribution};
 use std::time::Instant;
 use std::io::prelude::*;
@@ -21,10 +22,10 @@ fn run_experiment(size: usize, method: i32) {
 }
 
 fn run_ex_trait_object(size: usize) {
+    let start = Instant::now();
+    let mut total = 0;
 
     let triangle_vector = get_triangle_vector(size);
-    let mut total = 0;
-    let start = Instant::now();
     for i in 0..size {
         total += get_area_trait_object(&*triangle_vector[i]);
     }
@@ -49,14 +50,40 @@ fn run_ex_trait_object(size: usize) {
         total += get_area_trait_object(&*parallelogram_vector[i]);
     }
 
+    let someshape_a_vector = get_someshape_a_vector(size);
+    for i in 0..size {
+        total += get_area_trait_object(&*someshape_a_vector[i]);
+    }
+
+    let someshape_b_vector = get_someshape_b_vector(size);
+    for i in 0..size {
+        total += get_area_trait_object(&*someshape_b_vector[i]);
+    }
+
+    let someshape_c_vector = get_someshape_c_vector(size);
+    for i in 0..size {
+        total += get_area_trait_object(&*someshape_c_vector[i]);
+    }
+
+    let someshape_d_vector = get_someshape_d_vector(size);
+    for i in 0..size {
+        total += get_area_trait_object(&*someshape_d_vector[i]);
+    }
+
+    let someshape_e_vector = get_someshape_e_vector(size);
+    for i in 0..size {
+        total += get_area_trait_object(&*someshape_e_vector[i]);
+    }
+
     let elapsed = start.elapsed().as_millis();
     write_to_file(size, "trait", elapsed, total);
 }
 
 fn run_ex_generic_function(size: usize) {
-    let triangle_vector = get_triangle_vector(size);
-    let mut total = 0;
     let start = Instant::now();
+    let mut total = 0;
+
+    let triangle_vector = get_triangle_vector(size);
     for i in 0..size {
         total += get_area_generic_function(&*triangle_vector[i]);
     }
@@ -81,6 +108,25 @@ fn run_ex_generic_function(size: usize) {
         total += get_area_generic_function(&*parallelogram_vector[i]);
     }
 
+    let someshape_a_vector = get_someshape_a_vector(size);
+    for i in 0..size {
+        total += get_area_generic_function(&*someshape_a_vector[i]);
+    }
+
+    let someshape_b_vector = get_someshape_b_vector(size);
+    for i in 0..size {
+        total += get_area_generic_function(&*someshape_b_vector[i]);
+    }
+
+    let someshape_d_vector = get_someshape_d_vector(size);
+    for i in 0..size {
+        total += get_area_generic_function(&*someshape_d_vector[i]);
+    }
+
+    let someshape_e_vector = get_someshape_e_vector(size);
+    for i in 0..size {
+        total += get_area_generic_function(&*someshape_e_vector[i]);
+    }
 
     let elapsed = start.elapsed().as_millis();
     write_to_file(size, "generic", elapsed, total);
@@ -154,6 +200,82 @@ fn get_parallelogram_vector(size: usize) -> Vec<Box<Parallelogram>> {
     parallelogram_vector
 }
 
+fn get_someshape_a_vector(size: usize) -> Vec<Box<SomeShapeA>> {
+    let mut shape_vector = Vec::with_capacity(size);
+    for _ in 0..size {
+        let shape =  SomeShapeA {
+            a: get_integer(),
+            b: get_integer(),
+            c: get_integer(),
+            d: get_integer(),
+            e: get_integer()
+        };
+        shape_vector.push(Box::new(shape));
+    }
+    shape_vector
+}
+
+
+fn get_someshape_b_vector(size: usize) -> Vec<Box<SomeShapeB>> {
+    let mut shape_vector = Vec::with_capacity(size);
+    for _ in 0..size {
+        let shape =  SomeShapeB {
+            a: get_integer(),
+            b: get_integer(),
+            c: get_integer(),
+            d: get_integer(),
+            e: get_integer()
+        };
+        shape_vector.push(Box::new(shape));
+    }
+    shape_vector
+}
+
+fn get_someshape_c_vector(size: usize) -> Vec<Box<SomeShapeC>> {
+    let mut shape_vector = Vec::with_capacity(size);
+    for _ in 0..size {
+        let shape =  SomeShapeC {
+            a: get_integer(),
+            b: get_integer(),
+            c: get_integer(),
+            d: get_integer(),
+            e: get_integer()
+        };
+        shape_vector.push(Box::new(shape));
+    }
+    shape_vector
+}
+
+fn get_someshape_d_vector(size: usize) -> Vec<Box<SomeShapeD>> {
+    let mut shape_vector = Vec::with_capacity(size);
+    for _ in 0..size {
+        let shape =  SomeShapeD {
+            a: get_integer(),
+            b: get_integer(),
+            c: get_integer(),
+            d: get_integer(),
+            e: get_integer()
+        };
+        shape_vector.push(Box::new(shape));
+    }
+    shape_vector
+}
+
+fn get_someshape_e_vector(size: usize) -> Vec<Box<SomeShapeE>> {
+    let mut shape_vector = Vec::with_capacity(size);
+    for _ in 0..size {
+        let shape =  SomeShapeE {
+            a: get_integer(),
+            b: get_integer(),
+            c: get_integer(),
+            d: get_integer(),
+            e: get_integer()
+        };
+        shape_vector.push(Box::new(shape));
+    }
+    shape_vector
+}
+
 pub trait Shape {
     fn get_area(&self) -> i32;
 }
@@ -181,6 +303,46 @@ pub struct Pentagon {
 pub struct Parallelogram {
     base: i32,
     height: i32
+}
+
+pub struct SomeShapeA {
+    a: i32,
+    b: i32,
+    c: i32,
+    d: i32, 
+    e: i32
+}
+
+pub struct SomeShapeB {
+    a: i32,
+    b: i32,
+    c: i32,
+    d: i32,
+    e: i32
+}
+
+pub struct SomeShapeC {
+    a: i32,
+    b: i32,
+    c: i32,
+    d: i32,
+    e: i32
+}
+
+pub struct SomeShapeD {
+    a: i32,
+    b: i32,
+    c: i32,
+    d: i32,
+    e: i32
+}
+
+pub struct SomeShapeE {
+    a: i32,
+    b: i32,
+    c: i32,
+    d: i32,
+    e: i32
 }
 
 impl Shape for Triangle {
@@ -213,12 +375,41 @@ impl Shape for Parallelogram {
     }
 }
 
+impl Shape for SomeShapeA {
+    fn get_area(&self) -> i32 {
+        2 * self.a + self.b + self.c + self.d + self.e
+    }
+}
 
+impl Shape for SomeShapeB {
+    fn get_area(&self) -> i32 {
+        self.a + 2 * self.b + self.c + self.d + self.e
+    }
+}
+
+impl Shape for SomeShapeC {
+    fn get_area(&self) -> i32 {
+        self.a + self.b + 2 * self.c + self.d + self.e
+    }
+}
+
+impl Shape for SomeShapeD {
+    fn get_area(&self) -> i32 {
+        self.a + self.b + self.c + 2 * self.d + self.e
+    }
+}
+
+impl Shape for SomeShapeE {
+    fn get_area(&self) -> i32 {
+        self.a + self.b + self.c + self.d + 2 * self.e
+    }
+}
 
 
 fn get_integer() -> i32 {
+    let mut rng: StdRng = SeedableRng::seed_from_u64(0);
     let dist = Uniform::from(1..5);
-    let num: i32 = dist.sample(&mut thread_rng()) as i32;
+    let num: i32 = dist.sample(&mut rng) as i32;
     num
 }
 

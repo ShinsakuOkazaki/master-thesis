@@ -63,7 +63,7 @@ fn run_ex_trait_object(size: usize) {
     {
         let vector = get_someshape_a_vector(size);
         for i in 0..size {
-            total += get_area_trait_object(&*vector[i]);
+            total -= get_area_trait_object(&*vector[i]);
         }
     }
 
@@ -77,7 +77,7 @@ fn run_ex_trait_object(size: usize) {
     {
         let vector = get_someshape_c_vector(size);
         for i in 0..size {
-            total += get_area_trait_object(&*vector[i]);
+            total -= get_area_trait_object(&*vector[i]);
         }
     }
 
@@ -91,7 +91,7 @@ fn run_ex_trait_object(size: usize) {
     {
         let vector = get_someshape_e_vector(size);
         for i in 0..size {
-            total += get_area_trait_object(&*vector[i]);
+            total -= get_area_trait_object(&*vector[i]);
         }
     }
     
@@ -142,7 +142,7 @@ fn run_ex_generic_function(size: usize) {
     {
         let vector = get_someshape_a_vector(size);
         for i in 0..size {
-            total += get_area_generic_function(&*vector[i]);
+            total -= get_area_generic_function(&*vector[i]);
         }
     }
     
@@ -153,7 +153,13 @@ fn run_ex_generic_function(size: usize) {
         }
     }
 
-    
+    {
+        let vector  = get_someshape_c_vector(size);
+        for i in 0..size {
+            total -= get_area_generic_function(&*vector[i]);
+        }
+    }
+
     {
         let vector = get_someshape_d_vector(size);
         for i in 0..size {
@@ -164,7 +170,7 @@ fn run_ex_generic_function(size: usize) {
     { 
         let vector = get_someshape_e_vector(size);
         for i in 0..size {
-            total += get_area_generic_function(&*vector[i]);
+            total -= get_area_generic_function(&*vector[i]);
         }
     } 
     

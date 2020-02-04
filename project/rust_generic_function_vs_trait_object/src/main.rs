@@ -25,56 +25,76 @@ fn run_ex_trait_object(size: usize) {
     let start = Instant::now();
     let mut total = 0;
 
-    let triangle_vector = get_triangle_vector(size);
-    for i in 0..size {
-        total += get_area_trait_object(&*triangle_vector[i]);
+    {
+        let vector = get_triangle_vector(size);
+        for i in 0..size {
+            total += get_area_trait_object(&*vector[i]);
+        }
+    }
+    
+    {
+        let vector = get_circle_vector(size);
+        for i in 0..size {
+            total -= get_area_trait_object(&*vector[i]);
+        }
+    }
+    
+    {
+        let vector = get_rectangle_vector(size);
+        for i in 0..size {
+            total += get_area_trait_object(&*vector[i]);
+        }
     }
 
-    let circle_vector = get_circle_vector(size);
-    for i in 0..size {
-        total -= get_area_trait_object(&*circle_vector[i]);
+    {
+        let vector = get_pentagon_vector(size);
+        for i in 0..size {
+            total -= get_area_trait_object(&*vector[i]);
+        }
+    }
+    
+    {
+        let vector = get_parallelogram_vector(size);
+        for i in 0..size {
+            total += get_area_trait_object(&*vector[i]);
+        }
     }
 
-    let rectangle_vector = get_rectangle_vector(size);
-    for i in 0..size {
-        total += get_area_trait_object(&*rectangle_vector[i]);
+    {
+        let vector = get_someshape_a_vector(size);
+        for i in 0..size {
+            total += get_area_trait_object(&*vector[i]);
+        }
     }
 
-    let pentagon_vector = get_pentagon_vector(size);
-    for i in 0..size {
-        total -= get_area_trait_object(&*pentagon_vector[i]);
+    {
+        let vector = get_someshape_b_vector(size);
+        for i in 0..size {
+            total += get_area_trait_object(&*vector[i]);
+        }
     }
 
-    let parallelogram_vector = get_parallelogram_vector(size);
-    for i in 0..size {
-        total += get_area_trait_object(&*parallelogram_vector[i]);
+    {
+        let vector = get_someshape_c_vector(size);
+        for i in 0..size {
+            total += get_area_trait_object(&*vector[i]);
+        }
     }
 
-    let someshape_a_vector = get_someshape_a_vector(size);
-    for i in 0..size {
-        total += get_area_trait_object(&*someshape_a_vector[i]);
+    {
+        let vector = get_someshape_d_vector(size);
+        for i in 0..size {
+            total += get_area_trait_object(&*vector[i]);
+        }
     }
-
-    let someshape_b_vector = get_someshape_b_vector(size);
-    for i in 0..size {
-        total += get_area_trait_object(&*someshape_b_vector[i]);
+    
+    {
+        let vector = get_someshape_e_vector(size);
+        for i in 0..size {
+            total += get_area_trait_object(&*vector[i]);
+        }
     }
-
-    let someshape_c_vector = get_someshape_c_vector(size);
-    for i in 0..size {
-        total += get_area_trait_object(&*someshape_c_vector[i]);
-    }
-
-    let someshape_d_vector = get_someshape_d_vector(size);
-    for i in 0..size {
-        total += get_area_trait_object(&*someshape_d_vector[i]);
-    }
-
-    let someshape_e_vector = get_someshape_e_vector(size);
-    for i in 0..size {
-        total += get_area_trait_object(&*someshape_e_vector[i]);
-    }
-
+    
     let elapsed = start.elapsed().as_millis();
     write_to_file(size, "trait", elapsed, total);
 }
@@ -83,51 +103,71 @@ fn run_ex_generic_function(size: usize) {
     let start = Instant::now();
     let mut total = 0;
 
-    let triangle_vector = get_triangle_vector(size);
-    for i in 0..size {
-        total += get_area_generic_function(&*triangle_vector[i]);
+
+    {
+        let vector = get_triangle_vector(size);
+        for i in 0..size {
+            total += get_area_generic_function(&*vector[i]);
+        }
+    }
+    
+    {
+        let vector = get_circle_vector(size);
+        for i in 0..size {
+            total -= get_area_generic_function(&*vector[i]);
+        }
     }
 
-    let circle_vector = get_circle_vector(size);
-    for i in 0..size {
-        total -= get_area_generic_function(&*circle_vector[i]);
+    {
+        let vector = get_rectangle_vector(size);
+        for i in 0..size {
+            total += get_area_generic_function(&*vector[i]);
+        }   
+    }
+    
+    {
+        let vector = get_pentagon_vector(size);
+        for i in 0..size {
+            total -= get_area_generic_function(&*vector[i]);
+        }
+    }
+    
+    {
+        let vector = get_parallelogram_vector(size);
+        for i in 0..size {
+            total += get_area_generic_function(&*vector[i]);
+        }
     }
 
-    let rectangle_vector = get_rectangle_vector(size);
-    for i in 0..size {
-        total += get_area_generic_function(&*rectangle_vector[i]);
+    {
+        let vector = get_someshape_a_vector(size);
+        for i in 0..size {
+            total += get_area_generic_function(&*vector[i]);
+        }
+    }
+    
+    {   
+        let vector = get_someshape_b_vector(size);
+        for i in 0..size {
+            total += get_area_generic_function(&*vector[i]);
+        }
     }
 
-    let pentagon_vector = get_pentagon_vector(size);
-    for i in 0..size {
-        total -= get_area_generic_function(&*pentagon_vector[i]);
+    
+    {
+        let vector = get_someshape_d_vector(size);
+        for i in 0..size {
+            total += get_area_generic_function(&*vector[i]);
+        }
     }
-
-    let parallelogram_vector = get_parallelogram_vector(size);
-    for i in 0..size {
-        total += get_area_generic_function(&*parallelogram_vector[i]);
-    }
-
-    let someshape_a_vector = get_someshape_a_vector(size);
-    for i in 0..size {
-        total += get_area_generic_function(&*someshape_a_vector[i]);
-    }
-
-    let someshape_b_vector = get_someshape_b_vector(size);
-    for i in 0..size {
-        total += get_area_generic_function(&*someshape_b_vector[i]);
-    }
-
-    let someshape_d_vector = get_someshape_d_vector(size);
-    for i in 0..size {
-        total += get_area_generic_function(&*someshape_d_vector[i]);
-    }
-
-    let someshape_e_vector = get_someshape_e_vector(size);
-    for i in 0..size {
-        total += get_area_generic_function(&*someshape_e_vector[i]);
-    }
-
+    
+    { 
+        let vector = get_someshape_e_vector(size);
+        for i in 0..size {
+            total += get_area_generic_function(&*vector[i]);
+        }
+    } 
+    
     let elapsed = start.elapsed().as_millis();
     write_to_file(size, "generic", elapsed, total);
 }

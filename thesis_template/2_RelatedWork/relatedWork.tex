@@ -379,8 +379,8 @@ This string type sets condition where it makes decition where the string is stor
 Comparing operation on reference and owned variable is also interested to examine.
 
 Comparing operation on various smart pointer type. 
-Rc<T> enables value to have multiple owners, but the value should be immutable. Rx<T> is used in case of single thread. 
-When the situation is multi-thread, Arc<T> is used. Arc<T> performs atomic operation, so it is more expensive than Arc<T>. 
+Rc<T> enables value to have multiple owners, but the value should be immutable. Rc<T> is used in case of single thread. 
+When the situation is multi-thread, Arc<T> is used. Arc<T> performs atomic operation, so it is more expensive than Rc<T>. 
 When we need to mutate value of Rc<T>, RefCell<T> can be useful. RefCell<T> allow us to have mutiple mutable reference and immutable
 of reference mutable or immutable variable at the same time. When the mutability consistency is voilented, it terminates program during runtime. 
 That is why RefCell<T> is expensive so that the state of mutable consistency should tracked. 

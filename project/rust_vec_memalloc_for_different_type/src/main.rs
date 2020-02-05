@@ -58,7 +58,7 @@ fn run_ex_owned(size: usize) {
                                                                     zip_codes, addresss, countrys, states, first_names, last_names, provinces, comments, orders);
     // Access to every feild of each object in the vector and take access time.
     let elapsed_access = access_owned(& customers);
-    let elapsed_total = start.elapsed().as_secs();
+    let elapsed_total = start.elapsed().as_millis();
     write_to_file(size, "own", elapsed_create, elapsed_access, elapsed_total);
 }
 
@@ -93,7 +93,7 @@ fn run_ex_borrowed(size: usize) {
                                                                 &zip_codes, &addresss, &countrys, &states, &first_names, &last_names, &provinces, &comments, &orders);
     // Access to every feild of each object in the vector and take access time.
     let elapsed_access = access_borrowed(& customers);
-    let elapsed_total = start.elapsed().as_secs();
+    let elapsed_total = start.elapsed().as_millis();
     write_to_file(size, "reference", elapsed_create, elapsed_access, elapsed_total);
 }
 
@@ -128,7 +128,7 @@ fn run_ex_slice(size: usize) {
         &zip_codes, &addresss, &countrys, &states, &first_names, &last_names, &provinces, &comments, &orders);
     // Access to every feild of each object in the vector and take access time.   
     let elapsed_access = access_slice(& customers);
-    let elapsed_total = start.elapsed().as_secs();
+    let elapsed_total = start.elapsed().as_millis();
     write_to_file(size, "slice", elapsed_create, elapsed_access, elapsed_total);
 }
 
@@ -146,35 +146,35 @@ fn de_serialize<T>(customer: &T)
 
 
 // Function access object whose field is owned.
-fn access_owned(customers: &Vec<CustomerOwned>) -> u64 {
+fn access_owned(customers: &Vec<CustomerOwned>) -> u128 {
     let len = customers.len();
     let start = Instant::now();
     for i in 0..len {
         de_serialize(&customers[i])
     }
-    let elapsed = start.elapsed().as_secs(); 
+    let elapsed = start.elapsed().as_millis(); 
     elapsed
 }
 
 // Function access object whose field is borrowed.
-fn access_borrowed(customers: &Vec<CustomerBorrowed>) -> u64 {
+fn access_borrowed(customers: &Vec<CustomerBorrowed>) -> u128 {
     let len = customers.len();
     let start = Instant::now();
     for i in 0..len {
         de_serialize(&customers[i])
     }
-    let elapsed = start.elapsed().as_secs(); 
+    let elapsed = start.elapsed().as_millis(); 
     elapsed
 }
 
 // Function access object whose field is slice.
-fn access_slice(customers: &Vec<CustomerSlice>) -> u64 {
+fn access_slice(customers: &Vec<CustomerSlice>) -> u128 {
     let len = customers.len();
     let start = Instant::now();
     for i in 0..len {
         de_serialize(&customers[i])
     }
-    let elapsed = start.elapsed().as_secs(); 
+    let elapsed = start.elapsed().as_millis(); 
     elapsed
 }
 
@@ -277,7 +277,7 @@ fn create_customer_onwed_vector(size: usize, mut keys: Vec<i32>, mut ages: Vec<i
                                 mut total_purchases: Vec<f64>, mut duration_spents: Vec<f64>, mut duration_sinces: Vec<f64>,
                                 mut zip_codes: Vec<String>, mut addresses: Vec<String> ,mut countries: Vec<String>,
                                 mut states: Vec<String>, mut first_names: Vec<String>, mut last_names: Vec<String>,
-                                mut provinces: Vec<String>, mut comments: Vec<String>, mut orders: Vec<OrderOwned>) -> (u64, Vec<CustomerOwned>) {
+                                mut provinces: Vec<String>, mut comments: Vec<String>, mut orders: Vec<OrderOwned>) -> (u128, Vec<CustomerOwned>) {
     let start = Instant::now();
     let mut customers: Vec<CustomerOwned> = Vec::with_capacity(size);
     for _ in 0..size {
@@ -301,7 +301,7 @@ fn create_customer_onwed_vector(size: usize, mut keys: Vec<i32>, mut ages: Vec<i
                                         zip_code, address, country, state, first_name, last_name, province, comment, order);
         customers.push(customer);
     }
-    let elapsed = start.elapsed().as_secs();
+    let elapsed = start.elapsed().as_millis();
     (elapsed, customers)
 }
 
@@ -309,7 +309,7 @@ fn create_customer_borrowed_vector<'a>(size: usize, keys: &'a Vec<i32>, ages: &'
                                         total_purchases: &'a Vec<f64>, duration_spents: &'a Vec<f64>, duration_sinces: &'a Vec<f64>,
                                         zip_codes: &'a Vec<String>, addresses: &'a Vec<String> , countries: &'a Vec<String>,
                                         states: &'a Vec<String>, first_names: &'a Vec<String>, last_names: &'a Vec<String>,
-                                        provinces: &'a Vec<String>, comments: &'a Vec<String>, orders: &'a Vec<OrderBorrowed>) -> (u64, Vec<CustomerBorrowed<'a>>) {
+                                        provinces: &'a Vec<String>, comments: &'a Vec<String>, orders: &'a Vec<OrderBorrowed>) -> (u128, Vec<CustomerBorrowed<'a>>) {
     let start = Instant::now();
     let mut customers: Vec<CustomerBorrowed> = Vec::with_capacity(size);
     for i in 0..size {
@@ -333,7 +333,7 @@ fn create_customer_borrowed_vector<'a>(size: usize, keys: &'a Vec<i32>, ages: &'
                                             zip_code, address, country, state, first_name, last_name, province, comment, order);
         customers.push(customer);
     }
-    let elapsed = start.elapsed().as_secs();
+    let elapsed = start.elapsed().as_millis();
     (elapsed, customers)
 }
 
@@ -342,7 +342,7 @@ fn create_customer_slice_vector<'a>(size: usize, keys: &'a Vec<i32>, ages: &'a V
                                     total_purchases: &'a Vec<f64>, duration_spents: &'a Vec<f64>, duration_sinces: &'a Vec<f64>,
                                     zip_codes: &'a Vec<String>, addresses: &'a Vec<String> , countries: &'a Vec<String>,
                                     states: &'a Vec<String>, first_names: &'a Vec<String>, last_names: &'a Vec<String>,
-                                    provinces: &'a Vec<String>, comments: &'a Vec<String>, orders: &'a Vec<OrderSlice>) -> (u64, Vec<CustomerSlice<'a>>) {
+                                    provinces: &'a Vec<String>, comments: &'a Vec<String>, orders: &'a Vec<OrderSlice>) -> (u128, Vec<CustomerSlice<'a>>) {
     let start = Instant::now();
     let mut customers: Vec<CustomerSlice> = Vec::with_capacity(size);
     for i in 0..size {
@@ -365,7 +365,7 @@ fn create_customer_slice_vector<'a>(size: usize, keys: &'a Vec<i32>, ages: &'a V
         let customer = CustomerSlice::new(key, age, num_purchase, total_purchase, duration_spent, duration_since, zip_code, address, country, state, first_name, last_name, province, comment, order);
         customers.push(customer);
     }
-    let elapsed = start.elapsed().as_secs();
+    let elapsed = start.elapsed().as_millis();
     (elapsed, customers)
 }
 
@@ -744,7 +744,7 @@ impl Customer for CustomerSlice<'_> {
 
 
 // Function to write result to file.
-fn write_to_file(size: usize, field: &str, elapsed_create: u64, elapsed_access: u64, elapsed_total: u64) {
+fn write_to_file(size: usize, field: &str, elapsed_create: u128, elapsed_access: u128, elapsed_total: u128) {
     let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}\n", 
                          size, field, elapsed_create, elapsed_access, elapsed_total);
     println!("{}",output);

@@ -2,7 +2,7 @@
 
 cargo clean
 cargo build --release
-for size in 3700000 3800000 3900000 4000000 
+for size in 3800000 3850000 3900000 3950000
 do
     rm -rf loging.log
     echo "datastructure#size#field#createtime#accesstime#totaltime" > loging.log

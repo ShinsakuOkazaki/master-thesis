@@ -2,7 +2,7 @@
 
 cargo clean
 cargo build --release
-for size in 10000 10000000 12500000 15000000
+for size in 3700000 3800000 3900000 4000000 
 do
     rm -rf loging.log
     echo "datastructure#size#field#createtime#accesstime#totaltime" > loging.log
@@ -19,9 +19,9 @@ do
             echo "Adding $size elements in Run number  $counter "
 
             # Server experiment
-            # time taskset -c 0 cargo run --release $size $field
+            time taskset -c 0 cargo run --release $size $field
             # Loacal experiment
-            time cargo run --release $size $method $field
+            # time cargo run --release $size $method $field
         done
     done
     cat loging.log  >  result/resultRustOwnerType_"$size".txt

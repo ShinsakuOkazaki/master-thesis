@@ -600,12 +600,12 @@ impl Serialize for OrderBorrowed<'_> {
     where S: Serializer,
     {
         let mut state = serializer.serialize_struct("OrderBorrowed", 6)?;
-        state.serialize_field("order_id", &*self.order_id)?;
-        state.serialize_field("num_items", &*self.num_items)?;
-        state.serialize_field("payment", &*self.payment)?;
-        state.serialize_field("order_time", &*self.order_time)?;
-        state.serialize_field("title", &*self.title)?;
-        state.serialize_field("comment", &*self.comment)?;
+        state.serialize_field("order_id", self.order_id)?;
+        state.serialize_field("num_items", self.num_items)?;
+        state.serialize_field("payment", self.payment)?;
+        state.serialize_field("order_time", &self.order_time)?;
+        state.serialize_field("title", self.title)?;
+        state.serialize_field("comment", self.comment)?;
         state.end()
     }
 }
@@ -615,12 +615,12 @@ impl Serialize for OrderSlice<'_> {
     where S: Serializer,
     {
         let mut state = serializer.serialize_struct("OrderSlice", 6)?;
-        state.serialize_field("order_id", &*self.order_id)?;
-        state.serialize_field("num_items", &*self.num_items)?;
-        state.serialize_field("payment", &*self.payment)?;
-        state.serialize_field("order_time", &*self.order_time)?;
-        state.serialize_field("title", &self.title)?;
-        state.serialize_field("comment", &self.comment)?;
+        state.serialize_field("order_id", self.order_id)?;
+        state.serialize_field("num_items", self.num_items)?;
+        state.serialize_field("payment", self.payment)?;
+        state.serialize_field("order_time", self.order_time)?;
+        state.serialize_field("title", self.title)?;
+        state.serialize_field("comment", self.comment)?;
         state.end()
     }
 }
@@ -654,21 +654,21 @@ impl Serialize for CustomerBorrowed<'_> {
     where S: Serializer,
     {
         let mut state = serializer.serialize_struct("CustomerBorrowed", 6).unwrap();
-        state.serialize_field("key", &self.key)?;
-        state.serialize_field("age", &self.age)?;
-        state.serialize_field("num_purchase", &self.num_purchase)?;
-        state.serialize_field("total_purchase", &self.total_purchase)?;
-        state.serialize_field("duration_spent", &self.duration_spent)?;
-        state.serialize_field("duration_since", &self.duration_since)?;
-        state.serialize_field("zip_code", &self.zip_code)?;
-        state.serialize_field("address", &self.address)?;
-        state.serialize_field("country", &self.country)?;
-        state.serialize_field("state", &self.state)?;
-        state.serialize_field("first_name", &self.first_name)?;
-        state.serialize_field("last_name", &self.last_name)?;
-        state.serialize_field("province", &self.province)?;
-        state.serialize_field("comment", &self.comment)?;
-        state.serialize_field("order", &self.order)?;
+        state.serialize_field("key", self.key)?;
+        state.serialize_field("age", self.age)?;
+        state.serialize_field("num_purchase", self.num_purchase)?;
+        state.serialize_field("total_purchase", self.total_purchase)?;
+        state.serialize_field("duration_spent", self.duration_spent)?;
+        state.serialize_field("duration_since", self.duration_since)?;
+        state.serialize_field("zip_code", self.zip_code)?;
+        state.serialize_field("address", self.address)?;
+        state.serialize_field("country", self.country)?;
+        state.serialize_field("state", self.state)?;
+        state.serialize_field("first_name", self.first_name)?;
+        state.serialize_field("last_name", self.last_name)?;
+        state.serialize_field("province", self.province)?;
+        state.serialize_field("comment", self.comment)?;
+        state.serialize_field("order", self.order)?;
         state.end()
     }
 }
@@ -679,21 +679,21 @@ impl Serialize for CustomerSlice<'_> {
     where S: Serializer,
     {
         let mut state = serializer.serialize_struct("CustomerBorrowed", 6).unwrap();
-        state.serialize_field("key", &self.key)?;
-        state.serialize_field("age", &self.age)?;
-        state.serialize_field("num_purchase", &self.num_purchase)?;
-        state.serialize_field("total_purchase", &self.total_purchase)?;
-        state.serialize_field("duration_spent", &self.duration_spent)?;
-        state.serialize_field("duration_since", &self.duration_since)?;
-        state.serialize_field("zip_code", &self.zip_code)?;
-        state.serialize_field("address", &self.address)?;
-        state.serialize_field("country", &self.country)?;
-        state.serialize_field("state", &self.state)?;
-        state.serialize_field("first_name", &self.first_name)?;
-        state.serialize_field("last_name", &self.last_name)?;
-        state.serialize_field("province", &self.province)?;
-        state.serialize_field("comment", &self.comment)?;
-        state.serialize_field("order", &self.order)?;
+        state.serialize_field("key", self.key)?;
+        state.serialize_field("age", self.age)?;
+        state.serialize_field("num_purchase", self.num_purchase)?;
+        state.serialize_field("total_purchase", self.total_purchase)?;
+        state.serialize_field("duration_spent", self.duration_spent)?;
+        state.serialize_field("duration_since", self.duration_since)?;
+        state.serialize_field("zip_code", self.zip_code)?;
+        state.serialize_field("address", self.address)?;
+        state.serialize_field("country", self.country)?;
+        state.serialize_field("state", self.state)?;
+        state.serialize_field("first_name", self.first_name)?;
+        state.serialize_field("last_name", self.last_name)?;
+        state.serialize_field("province", self.province)?;
+        state.serialize_field("comment", self.comment)?;
+        state.serialize_field("order", self.order)?;
         state.end()
     }
 }

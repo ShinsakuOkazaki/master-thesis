@@ -279,7 +279,8 @@ fn create_customer_onwed_vector(size: usize, mut keys: Vec<i32>, mut ages: Vec<i
                                 mut states: Vec<String>, mut first_names: Vec<String>, mut last_names: Vec<String>,
                                 mut provinces: Vec<String>, mut comments: Vec<String>, mut orders: Vec<OrderOwned>) -> (u128, Vec<CustomerOwned>) {
     let start = Instant::now();
-    let mut customers: Vec<CustomerOwned> = Vec::with_capacity(size);
+    // let mut customers: Vec<CustomerOwned> = Vec::with_capacity(size);
+    let mut customers: Vec<CustomerOwned> = Vec::new();
     for _ in 0..size {
         // Get owner by poping String from vector and create CustomerOwned.
         let key = keys.pop().unwrap();
@@ -311,7 +312,8 @@ fn create_customer_borrowed_vector<'a>(size: usize, keys: &'a Vec<i32>, ages: &'
                                         states: &'a Vec<String>, first_names: &'a Vec<String>, last_names: &'a Vec<String>,
                                         provinces: &'a Vec<String>, comments: &'a Vec<String>, orders: &'a Vec<OrderBorrowed>) -> (u128, Vec<CustomerBorrowed<'a>>) {
     let start = Instant::now();
-    let mut customers: Vec<CustomerBorrowed> = Vec::with_capacity(size);
+    // let mut customers: Vec<CustomerBorrowed> = Vec::with_capacity(size);
+    let mut customers: Vec<CustomerBorrowed> = Vec::new();
     for i in 0..size {
         // Get reference by acceesing String in vector and create CustomerBorrowed.
         let key = &keys[i];
@@ -344,7 +346,8 @@ fn create_customer_slice_vector<'a>(size: usize, keys: &'a Vec<i32>, ages: &'a V
                                     states: &'a Vec<String>, first_names: &'a Vec<String>, last_names: &'a Vec<String>,
                                     provinces: &'a Vec<String>, comments: &'a Vec<String>, orders: &'a Vec<OrderSlice>) -> (u128, Vec<CustomerSlice<'a>>) {
     let start = Instant::now();
-    let mut customers: Vec<CustomerSlice> = Vec::with_capacity(size);
+    // let mut customers: Vec<CustomerSlice> = Vec::with_capacity(size);
+    let mut customers: Vec<CustomerSlice> = Vec::new();
     for i in 0..size {
         // Get slice by acceesing String in vector and create CustomerSlice.
         let key = &keys[i];

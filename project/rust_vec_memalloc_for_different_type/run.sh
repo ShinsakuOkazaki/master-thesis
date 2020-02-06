@@ -24,5 +24,6 @@ do
             # time cargo run --release $size $method $field
         done
     done
+    cat string.log  >  result/vectorSize_"$size".txt
     cat loging.log  >  result/resultRustOwnerType_"$size".txt
 done

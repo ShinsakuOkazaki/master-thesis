@@ -360,6 +360,22 @@ compared to the other two.
 
 
 
+\section{Possible Graph Structure in Rust}
+\label{sec:history}
+In Rust, there are two essential problems to construct graph structure, lifetime and mutability. 
+
+The first problem is about what kind of pointer to use to point to other nodes. 
+Since graph can be cyclic, so the ownership consept in Rust is violated if we use Box<Node>.
+
+All of graph structure are immutable at least at creation time. Because graph may have cyclic, 
+we can not create graph at one statement. Although edge of graph has to be mutable to create entire graph structure, 
+we might need multiple references to edges, which violates basic rule of Rust programming.
+
+One solution is to use raw pointers. This is the most flexible approach, but also the most dangerous. 
+By taking this way, we are ignoring all the benefits of Rust.
+
+For 
+
 
 \section{Note for next}
 \label{sec:history}
@@ -400,3 +416,5 @@ When Rust compiles the code, it emits independent function corresponding to ever
 
 
 Vector of Trait(need to put element into Box) vs Vector of concrete type.
+
+

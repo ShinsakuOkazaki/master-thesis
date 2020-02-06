@@ -2,7 +2,7 @@
 
 cargo clean
 cargo build --release
-for size in 3870000 3880000 3890000 3900000
+for size in 3750000 3760000 3770000 3780000
 do
     rm -rf loging.log
     echo "datastructure#size#field#createtime#accesstime#totaltime" > loging.log
@@ -24,6 +24,7 @@ do
             # time cargo run --release $size $method $field
         done
     done
-    cat string.log  >  result/vectorSize_"$size".txt
+    
     cat loging.log  >  result/resultRustOwnerType_"$size".txt
 done
+cat string.log  >  result/vectorSize.txt

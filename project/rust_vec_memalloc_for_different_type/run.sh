@@ -3,13 +3,22 @@
 cargo clean
 cargo build --release
 # for size in 3750000 3760000 3770000 3780000
-for size in 37500 37600 37700 37800
-do
-    rm -rf loging.log
-    echo "datastructure#init#size#field#createtime#accesstime#totaltime" > loging.log
 
-    for init in true false
+for init in true false
+do 
+    case "$init" in 
+        "true") 
+            sizes=( 3910000 3920000 3930000 3940000 )
+        ;;
+        "false")
+            sizes=( 3770000 3780000 3790000 3800000 )
+        ;;
+    esac
+    for size in "${sizes[@]}"
     do
+        rm -rf loging.log
+        echo "datastructure#init#size#field#createtime#accesstime#totaltime" > loging.log
+
         for field in 1 2 3
         do
             
@@ -19,7 +28,7 @@ do
             # write the first line
 
 
-                echo "Adding $size elements in Run number  $counter "
+                echo "Size: $size, Init: $init, Field: $field, Counter: $counter"
 
                 # Server experiment
                 time taskset -c 0 cargo run --release $size $init $field
@@ -27,7 +36,7 @@ do
                 # time cargo run --release $size $method $init $field
             done
         done
+    cat loging.log  >  result/resultRustOwnerType_init_"$init"_"$size".txt
     done
-    cat loging.log  >  result/resultRustOwnerType_"$size".txt
 done
 cat string.log  >  result/vectorSize.txt

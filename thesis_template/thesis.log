@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  5 FEB 2020 23:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  7 FEB 2020 15:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -640,4 +640,96 @@ Package epstopdf Info: Source file: <3_Body/Figures/figure_sampling_view1.eps>
 (epstopdf)                    date: 2019-09-30 19:08:32
 (epstopdf)                    size: 51079 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view1.eps>
-(epstopdf)          
+(epstopdf)             \includegraphics on input line 17.
+Package epstopdf Info: Output file is already uptodate.
+<3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf, id=472, 400.49625pt x 396.48125pt>
+File: 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf Graphic file (type pdf)
+<use 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf>
+Package pdftex.def Info: 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf  used on input line 17.
+(pdftex.def)             Requested size: 199.16928pt x 197.17535pt.
+Package epstopdf Info: Source file: <3_Body/Figures/figure_sampling_view2.eps>
+(epstopdf)                    date: 2019-09-30 19:08:32
+(epstopdf)                    size: 50379 bytes
+(epstopdf)             Output file: <3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-09-30 19:08:32
+(epstopdf)                    size: 51145 bytes
+(epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view2.eps>
+(epstopdf)             \includegraphics on input line 22.
+Package epstopdf Info: Output file is already uptodate.
+<3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf, id=473, 400.49625pt x 396.48125pt>
+File: 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf Graphic file (type pdf)
+<use 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>
+Package pdftex.def Info: 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf  used on input line 22.
+(pdftex.def)             Requested size: 199.16928pt x 197.17535pt.
+
+LaTeX Warning: Citation `lamport1985:latex' on page 21 undefined on input line 31.
+
+
+LaTeX Warning: Citation `Debr01' on page 21 undefined on input line 31.
+
+[21
+
+
+
+
+ </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>]
+
+LaTeX Warning: Reference `fig:Sampling' on page 22 undefined on input line 39.
+
+
+LaTeX Warning: Reference `fig:Sampling' on page 22 undefined on input line 39.
+
+) [22
+
+]
+\openout2 = `4_Conclusion/conclusion.aux'.
+
+ (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.tex
+Chapter 4.
+) [23
+
+
+
+
+]
+\openout2 = `Appendix/Appendix.aux'.
+
+ (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.tex
+Appendix A.
+) [24
+
+
+
+
+]
+No file thesis.bbl.
+\openout2 = `0_Prelim/cv.aux'.
+
+(/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [25
+
+
+
+] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.aux (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/prelim.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/1_Intro/intro.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 6207 strings out of 492616
+ 93952 string characters out of 6129482
+ 346980 words of memory out of 5000000
+ 9952 multiletter control sequences out of 15000+600000
+ 8066 words of font info for 31 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 42i,10n,53p,514b,1329s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (35 pages, 442439 bytes).
+PDF statistics:
+ 529 PDF objects out of 1000 (max. 8388607)
+ 176 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -417,4 +417,8 @@ When Rust compiles the code, it emits independent function corresponding to ever
 
 Vector of Trait(need to put element into Box) vs Vector of concrete type.
 
+Design experiment for comparing among the performance of smart pointers.
 
+Box<T> - Box pointer lets value is allocated on heap rather than on the stack
+Rc<T> - Reference counted pointer lets variable to take multiple immutable ownership.
+RefCell<T>

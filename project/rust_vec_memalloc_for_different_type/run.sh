@@ -8,10 +8,10 @@ for init in true false
 do 
     case "$init" in 
         "true") 
-            sizes=( 3910000 3920000 3930000 3940000 )
+            sizes=( 3900000 3910000 3920000 3930000 3940000 )
         ;;
         "false")
-            sizes=( 3770000 3780000 3790000 3800000 )
+            sizes=( 3750000 3760000 3780000 3790000 3800000 )
         ;;
     esac
     for size in "${sizes[@]}"

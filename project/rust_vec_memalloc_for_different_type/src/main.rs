@@ -10,25 +10,27 @@ use rand::rngs::StdRng;
 use rand::distributions::Alphanumeric;
 use rand::distributions::{Uniform, Distribution};
 use serde::ser::{Serialize, Serializer, SerializeStruct};
-
+use std::collections::HashMap;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     let size: usize = args[1].parse().unwrap();
-    let field: i32 = args[2].parse().unwrap();
-    run(field, size);
+    let init: bool = args[2].parse().unwrap();
+    let field: i32 = args[3].parse().unwrap();
+    run(field, init ,size);
 }
 
-fn run(field: i32, size: usize) {
+fn run(field: i32, init: bool, size: usize) {
     match field {
-        1 => run_ex_owned(size),
-        2 => run_ex_borrowed(size),
-        3 => run_ex_slice(size),
+        1 => run_ex_owned(init, size),
+        2 => run_ex_borrowed(init, size),
+        3 => run_ex_slice(init, size),
         _ => println!("Wrong input!")
     }
 }
 
-fn run_ex_owned(size: usize) {
+fn run_ex_owned(init: bool, size: usize) {
+    warming_up(size);
     let start = Instant::now();
     let order_ids = get_integer_vector(size);
     let num_itemss = get_integer_vector(size);
@@ -54,16 +56,17 @@ fn run_ex_owned(size: usize) {
     let comments = get_string_vector(size);
 
     // Create vector of CustomerOwned objects and take creation time.
-    let (elapsed_create, customers) = create_customer_onwed_vector(size, keys, ages, num_purchases, total_purchases, duration_spents, duration_sinces, 
+    let (elapsed_create, customers) = create_customer_onwed_vector(init, size, keys, ages, num_purchases, total_purchases, duration_spents, duration_sinces, 
                                                                     zip_codes, addresss, countrys, states, first_names, last_names, provinces, comments, orders);
     // Access to every feild of each object in the vector and take access time.
     let elapsed_access = access_owned(& customers);
     let elapsed_total = start.elapsed().as_millis();
-    write_to_file(size, "own", elapsed_create, elapsed_access, elapsed_total);
+    write_to_file(init, size, "own", elapsed_create, elapsed_access, elapsed_total);
 }
 
 
-fn run_ex_borrowed(size: usize) {
+fn run_ex_borrowed(init: bool, size: usize) {
+    warming_up(size);
     let start = Instant::now();
     let order_ids = get_integer_vector(size);
     let num_itemss = get_integer_vector(size);
@@ -89,16 +92,17 @@ fn run_ex_borrowed(size: usize) {
     let comments = get_string_vector(size);
     
     // Create vector of CustomerBorrowed objects and take creation time.
-    let (elapsed_create, customers) = create_customer_borrowed_vector(size, &keys, &ages, &num_purchases, &total_purchases, &duration_spents, &duration_sinces, 
+    let (elapsed_create, customers) = create_customer_borrowed_vector(init, size, &keys, &ages, &num_purchases, &total_purchases, &duration_spents, &duration_sinces, 
                                                                 &zip_codes, &addresss, &countrys, &states, &first_names, &last_names, &provinces, &comments, &orders);
     // Access to every feild of each object in the vector and take access time.
     let elapsed_access = access_borrowed(& customers);
     let elapsed_total = start.elapsed().as_millis();
-    write_to_file(size, "reference", elapsed_create, elapsed_access, elapsed_total);
+    write_to_file(init, size, "reference", elapsed_create, elapsed_access, elapsed_total);
 }
 
 // Function to run experiment for object whose fields are slice.
-fn run_ex_slice(size: usize) {
+fn run_ex_slice(init: bool, size: usize) {
+    warming_up(size);
     let start = Instant::now();
     // Create String vectors.
     let order_ids = get_integer_vector(size);
@@ -124,12 +128,165 @@ fn run_ex_slice(size: usize) {
     let provinces = get_string_vector(size);
     let comments = get_string_vector(size);
     // Create vector of CustomerSlice objects and take creation time.
-    let (elapsed_create, customers) = create_customer_slice_vector(size, &keys, &ages, &num_purchases, &total_purchases, &duration_spents, &duration_sinces, 
+    let (elapsed_create, customers) = create_customer_slice_vector(init, size, &keys, &ages, &num_purchases, &total_purchases, &duration_spents, &duration_sinces, 
         &zip_codes, &addresss, &countrys, &states, &first_names, &last_names, &provinces, &comments, &orders);
     // Access to every feild of each object in the vector and take access time.   
     let elapsed_access = access_slice(& customers);
     let elapsed_total = start.elapsed().as_millis();
-    write_to_file(size, "slice", elapsed_create, elapsed_access, elapsed_total);
+    write_to_file(init, size, "slice", elapsed_create, elapsed_access, elapsed_total);
+}
+
+fn warming_up(size: usize) {
+    let mut count_integer = HashMap::new();
+    let mut count_string = HashMap::new();
+
+    let mut count;
+
+    let mut order_ids;
+    let mut num_itemss;
+    let mut titles;
+    let mut comments_order;
+    for _ in 0..2 {
+        order_ids = get_integer_vector(size);
+        num_itemss = get_integer_vector(size);
+        titles = get_string_vector(size);
+        comments_order = get_string_vector(size);
+        for _ in 0..size {
+            let order_id = order_ids.pop().unwrap();
+            if count_integer.contains_key(&order_id) {
+                count = count_integer.get(&order_id).unwrap() + 1;
+                count_integer.insert(order_id, count);
+            } else {
+                count_integer.insert(order_id, 0);
+            }
+            let num_items = num_itemss.pop().unwrap();
+            if count_integer.contains_key(&num_items) {
+                count = count_integer.get(&num_items).unwrap() + 1;
+                count_integer.insert(num_items, count);
+            } else {
+                count_integer.insert(num_items, 0);
+            }
+            let title = titles.pop().unwrap();
+            if count_string.contains_key(&title) {
+                count = count_string.get(&title).unwrap() + 1;
+                count_string.insert(title, count);
+            } else {
+                count_string.insert(title, 0);
+            }
+            let comment_order = comments_order.pop().unwrap();
+            if count_string.contains_key(&comment_order) {
+                count = count_string.get(&comment_order).unwrap() + 1;
+                count_string.insert(comment_order, count);
+            } else {
+                count_string.insert(comment_order, 0);
+            }
+        }
+    }
+
+    let mut keys;
+    let mut ages;
+    let mut num_purchases;
+    let mut zip_codes;
+    let mut addresss;
+    let mut countrys;
+    let mut states;
+    let mut first_names;
+    let mut last_names;
+    let mut provinces;
+    let mut comments;
+    for _ in 0..2 {
+        keys = get_integer_vector(size);
+        ages = get_integer_vector(size);
+        num_purchases = get_integer_vector(size);
+        zip_codes = get_string_vector(size);
+        addresss = get_string_vector(size);
+        countrys = get_string_vector(size);
+        states = get_string_vector(size);
+        first_names = get_string_vector(size);
+        last_names = get_string_vector(size);
+        provinces = get_string_vector(size);
+        comments = get_string_vector(size);
+        for _ in 0..size {
+            let key = keys.pop().unwrap();
+            if count_integer.contains_key(&key) {
+                count = count_integer.get(&key).unwrap() + 1;
+                count_integer.insert(key, count);
+            } else {
+                count_integer.insert(key, 0);
+            }
+            let age = ages.pop().unwrap();
+            if count_integer.contains_key(&age) {
+                count = count_integer.get(&age).unwrap() + 1;
+                count_integer.insert(age, count);
+            } else {
+                count_integer.insert(age, 0);
+            }
+            let num_purchase = num_purchases.pop().unwrap();
+            if count_integer.contains_key(&num_purchase) {
+                count = count_integer.get(&num_purchase).unwrap() + 1;
+                count_integer.insert(num_purchase, count);
+            } else {
+                count_integer.insert(num_purchase, 0);
+            }
+            let zip_code = zip_codes.pop().unwrap();
+            if count_string.contains_key(&zip_code) {
+                count = count_string.get(&zip_code).unwrap() + 1;
+                count_string.insert(zip_code, count);
+            } else {
+                count_string.insert(zip_code, 0);
+            }
+            let address = addresss.pop().unwrap();
+            if count_string.contains_key(&address) {
+                count = count_string.get(&address).unwrap() + 1;
+                count_string.insert(address, count);
+            } else {
+                count_string.insert(address, 0);
+            }
+            let country = countrys.pop().unwrap();
+            if count_string.contains_key(&country) {
+                count = count_string.get(&country).unwrap() + 1;
+                count_string.insert(country, count);
+            } else {
+                count_string.insert(country, 0);
+            }
+            let state = states.pop().unwrap();
+            if count_string.contains_key(&state) {
+                count = count_string.get(&state).unwrap() + 1;
+                count_string.insert(state, count);
+            } else {
+                count_string.insert(state, 0);
+            }
+            let first_name = first_names.pop().unwrap();
+            if count_string.contains_key(&first_name) {
+                count = count_string.get(&first_name).unwrap() + 1;
+                count_string.insert(first_name, count);
+            } else {
+                count_string.insert(first_name, 0);
+            }
+            let last_name = last_names.pop().unwrap();
+            if count_string.contains_key(&last_name) {
+                count = count_string.get(&last_name).unwrap() + 1;
+                count_string.insert(last_name, count);
+            } else {
+                count_string.insert(last_name, 0);
+            }
+            let province = provinces.pop().unwrap();
+            if count_string.contains_key(&province) {
+                count = count_string.get(&province).unwrap() + 1;
+                count_string.insert(province, count);
+            } else {
+                count_string.insert(province, 0);
+            }
+            let comment = comments.pop().unwrap();
+            if count_string.contains_key(&comment) {
+                count = count_string.get(&comment).unwrap() + 1;
+                count_string.insert(comment, count);
+            } else {
+                count_string.insert(comment, 0);
+            }
+        }
+    }
+    println!("Warmed Up!! created HashMap with {} and {}", count_integer.len(), count_string.len());
 }
 
 fn de_serialize<T>(customer: &T) 
@@ -273,14 +430,18 @@ fn get_order_slice_vector<'a>(size: usize, order_ids: &'a Vec<i32>, num_itemss: 
 
 
 // Function to create a vector of CustomerOwned objects.
-fn create_customer_onwed_vector(size: usize, mut keys: Vec<i32>, mut ages: Vec<i32>, mut num_purchases: Vec<i32>, 
+fn create_customer_onwed_vector(init: bool, size: usize, mut keys: Vec<i32>, mut ages: Vec<i32>, mut num_purchases: Vec<i32>, 
                                 mut total_purchases: Vec<f64>, mut duration_spents: Vec<f64>, mut duration_sinces: Vec<f64>,
                                 mut zip_codes: Vec<String>, mut addresses: Vec<String> ,mut countries: Vec<String>,
                                 mut states: Vec<String>, mut first_names: Vec<String>, mut last_names: Vec<String>,
                                 mut provinces: Vec<String>, mut comments: Vec<String>, mut orders: Vec<OrderOwned>) -> (u128, Vec<CustomerOwned>) {
     let start = Instant::now();
-    // let mut customers: Vec<CustomerOwned> = Vec::with_capacity(size);
-    let mut customers: Vec<CustomerOwned> = Vec::new();
+    let mut customers: Vec<CustomerOwned>;
+    if init {
+        customers = Vec::with_capacity(size);
+    } else {
+        customers = Vec::new();
+    }
     for _ in 0..size {
         // Get owner by poping String from vector and create CustomerOwned.
         let key = keys.pop().unwrap();
@@ -306,14 +467,19 @@ fn create_customer_onwed_vector(size: usize, mut keys: Vec<i32>, mut ages: Vec<i
     (elapsed, customers)
 }
 
-fn create_customer_borrowed_vector<'a>(size: usize, keys: &'a Vec<i32>, ages: &'a Vec<i32>, num_purchases: &'a Vec<i32>, 
+
+fn create_customer_borrowed_vector<'a>(init: bool, size: usize, keys: &'a Vec<i32>, ages: &'a Vec<i32>, num_purchases: &'a Vec<i32>, 
                                         total_purchases: &'a Vec<f64>, duration_spents: &'a Vec<f64>, duration_sinces: &'a Vec<f64>,
                                         zip_codes: &'a Vec<String>, addresses: &'a Vec<String> , countries: &'a Vec<String>,
                                         states: &'a Vec<String>, first_names: &'a Vec<String>, last_names: &'a Vec<String>,
                                         provinces: &'a Vec<String>, comments: &'a Vec<String>, orders: &'a Vec<OrderBorrowed>) -> (u128, Vec<CustomerBorrowed<'a>>) {
     let start = Instant::now();
-    // let mut customers: Vec<CustomerBorrowed> = Vec::with_capacity(size);
-    let mut customers: Vec<CustomerBorrowed> = Vec::new();
+    let mut customers: Vec<CustomerBorrowed>;
+    if init {
+        customers = Vec::with_capacity(size);
+    } else {
+        customers = Vec::new();
+    }
     for i in 0..size {
         // Get reference by acceesing String in vector and create CustomerBorrowed.
         let key = &keys[i];
@@ -340,14 +506,19 @@ fn create_customer_borrowed_vector<'a>(size: usize, keys: &'a Vec<i32>, ages: &'
 }
 
 // Function to create Customer Vector 
-fn create_customer_slice_vector<'a>(size: usize, keys: &'a Vec<i32>, ages: &'a Vec<i32>, num_purchases: &'a Vec<i32>, 
+fn create_customer_slice_vector<'a>(init: bool, size: usize, keys: &'a Vec<i32>, ages: &'a Vec<i32>, num_purchases: &'a Vec<i32>, 
                                     total_purchases: &'a Vec<f64>, duration_spents: &'a Vec<f64>, duration_sinces: &'a Vec<f64>,
                                     zip_codes: &'a Vec<String>, addresses: &'a Vec<String> , countries: &'a Vec<String>,
                                     states: &'a Vec<String>, first_names: &'a Vec<String>, last_names: &'a Vec<String>,
                                     provinces: &'a Vec<String>, comments: &'a Vec<String>, orders: &'a Vec<OrderSlice>) -> (u128, Vec<CustomerSlice<'a>>) {
     let start = Instant::now();
-    // let mut customers: Vec<CustomerSlice> = Vec::with_capacity(size);
-    let mut customers: Vec<CustomerSlice> = Vec::new();
+    let mut customers: Vec<CustomerSlice>;
+    if init {
+        customers = Vec::with_capacity(size);
+    } else {
+        customers = Vec::new();
+    }
+
     for i in 0..size {
         // Get slice by acceesing String in vector and create CustomerSlice.
         let key = &keys[i];
@@ -747,9 +918,9 @@ impl Customer for CustomerSlice<'_> {
 
 
 // Function to write result to file.
-fn write_to_file(size: usize, field: &str, elapsed_create: u128, elapsed_access: u128, elapsed_total: u128) {
-    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}\n", 
-                         size, field, elapsed_create, elapsed_access, elapsed_total);
+fn write_to_file(init: bool, size: usize, field: &str, elapsed_create: u128, elapsed_access: u128, elapsed_total: u128) {
+    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}#{:?}\n", 
+                         init, size, field, elapsed_create, elapsed_access, elapsed_total);
     println!("{}",output);
     let mut file = OpenOptions::new()
         .append(true)

@@ -29,6 +29,17 @@ fn run(field: i32, size: usize) {
     }
 }
 
+fn run_ex_rc(size: usize) {
+    let start = Instant::now();
+    let order_ids = get_integer_vector(size);
+    let num_itemss = get_integer_vector(size);
+    let payments = get_float_vector(size);
+    let order_times = get_float_vector(size);
+    let titles = get_string_vector(size);
+    let comments_order = get_string_vector(size);
+    
+}
+
 fn run_ex_owned(size: usize) {
     let start = Instant::now();
     let order_ids = get_integer_vector(size);

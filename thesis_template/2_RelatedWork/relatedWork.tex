@@ -419,6 +419,36 @@ Vector of Trait(need to put element into Box) vs Vector of concrete type.
 
 Design experiment for comparing among the performance of smart pointers.
 
-Box<T> - Box pointer lets value is allocated on heap rather than on the stack
-Rc<T> - Reference counted pointer lets variable to take multiple immutable ownership.
-RefCell<T>
+If we keep first created owner until the last phase, we can use borrowing to operate.
+If we delete first created owner during the operation, we should use Rc<T>.
+The question would be, we can use Rc<T> every where?
+
+Smart pointer
+    Box<T> - Box pointer lets value allocated on heap rather than on the stack.
+    Rc<T> - Reference counted pointer lets variable take multiple immutable ownership.
+Interier mutability
+    Cell<T> - For only Copy type, it allows us to mutate variable, even if it is immutable
+            Howeever, it does not support sharing the variable so that it returns always copy of the value.
+    RefCell<T> - This support sharing and interier immutability for all types. This is done by allowing to get 
+                mutable reference from immutable variable and push the error detacting time from compile time to runtime.
+
+Experiment to do 
+
+Difference of operation time for 
+    - T vs Box<T> vs Rc<T>
+Vec<Box<T>>
+&Box<T>  vs 
+Vec<Rc<T>>
+Vec<Rc<RefCell>>
+
+\section{Todos}
+\label{sec:history}
+\begin{itemize}
+    \item Document experiment of reference and dereferenced
+    \item Redo the experiment with appropriate size
+    \item Design experiment for reference counting(measure dropt time using criterion)
+    \item Design experiment for Graph
+    \item Design experiment for Multithread
+    \item Study about LLVM
+    \item Study about OS memory management(optional)
+\end{itemize}

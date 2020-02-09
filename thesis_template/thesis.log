@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  7 FEB 2020 15:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  9 FEB 2020 17:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -628,7 +628,18 @@ l.382 ...iment. This can be compared with Java, ¥
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[11]) [12] [13 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist-eps-converted-to.pdf>] [14 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf>] [15 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_log-eps-converted-to.pdf>] [16 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector_log-eps-converted-to.pdf>] [17 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_difference-eps-converted-to.pdf>] [18 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf>] [19 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf>] [20 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>]
+[11]
+/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:440: Misplaced alignment tab character &.
+l.440 &
+       Box<T>  vs
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[12]) [13] [14 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist-eps-converted-to.pdf>] [15 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf>] [16 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_log-eps-converted-to.pdf>] [17 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector_log-eps-converted-to.pdf>] [18 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_difference-eps-converted-to.pdf>] [19 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf>] [20 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf>] [21 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>]
 \openout2 = `3_Body/body.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.tex
@@ -642,7 +653,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/figure_sampling_view1.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view1.eps>
 (epstopdf)             \includegraphics on input line 17.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf, id=472, 400.49625pt x 396.48125pt>
+<3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf, id=476, 400.49625pt x 396.48125pt>
 File: 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf  used on input line 17.
@@ -656,37 +667,37 @@ Package epstopdf Info: Source file: <3_Body/Figures/figure_sampling_view2.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view2.eps>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf, id=473, 400.49625pt x 396.48125pt>
+<3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf, id=477, 400.49625pt x 396.48125pt>
 File: 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf  used on input line 22.
 (pdftex.def)             Requested size: 199.16928pt x 197.17535pt.
 
-LaTeX Warning: Citation `lamport1985:latex' on page 21 undefined on input line 31.
+LaTeX Warning: Citation `lamport1985:latex' on page 22 undefined on input line 31.
 
 
-LaTeX Warning: Citation `Debr01' on page 21 undefined on input line 31.
+LaTeX Warning: Citation `Debr01' on page 22 undefined on input line 31.
 
-[21
+[22
 
 
 
 
  </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>]
 
-LaTeX Warning: Reference `fig:Sampling' on page 22 undefined on input line 39.
+LaTeX Warning: Reference `fig:Sampling' on page 23 undefined on input line 39.
 
 
-LaTeX Warning: Reference `fig:Sampling' on page 22 undefined on input line 39.
+LaTeX Warning: Reference `fig:Sampling' on page 23 undefined on input line 39.
 
-) [22
+) [23
 
 ]
 \openout2 = `4_Conclusion/conclusion.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.tex
 Chapter 4.
-) [23
+) [24
 
 
 
@@ -696,7 +707,7 @@ Chapter 4.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.tex
 Appendix A.
-) [24
+) [25
 
 
 
@@ -705,7 +716,7 @@ Appendix A.
 No file thesis.bbl.
 \openout2 = `0_Prelim/cv.aux'.
 
-(/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [25
+(/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [26
 
 
 
@@ -726,10 +737,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  42i,10n,53p,514b,1329s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (35 pages, 442439 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (36 pages, 443740 bytes).
 PDF statistics:
- 529 PDF objects out of 1000 (max. 8388607)
- 176 compressed objects within 2 object streams
+ 532 PDF objects out of 1000 (max. 8388607)
+ 178 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

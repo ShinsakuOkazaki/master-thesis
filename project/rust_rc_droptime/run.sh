@@ -5,7 +5,7 @@ cargo build --release
 # for size in 3900000 3910000 3920000 3930000 3940000
 
 
-for size in 3900000 3910000 3920000 3930000 3940000
+for size in 3760000 3770000 3780000 
 do
     rm -rf loging.log
     echo "datastructure#size#field#createtime#accesstime#droptime#totaltime" > loging.log
@@ -22,9 +22,9 @@ do
             echo "Size: $size, Field: $field, Counter: $counter"
 
             # Server experiment
-            # time taskset -c 0 cargo run --release $size $field
+            time taskset -c 0 cargo run --release $size $field
             # Loacal experiment
-            time cargo run --release $size $field
+            # time cargo run --release $size $field
         done
     done
 cat loging.log  >  result/resultRustRc_"$size".txt

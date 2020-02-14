@@ -2,4 +2,60 @@
 \label{appendix}
 \thispagestyle{myheadings}
 
-This is the appendix.
+\section{Memory and Process in Operation Systems}
+\label{sec:history}
+A process is a section of commutation job. A process can work on a CPU core. We can devide process as well.
+Basically, each process does not share thier memory. However, for multiprocessing, we could avoid this restriction.
+Processes can be represented as tree structure, because a process may create onther child processes.
+Process has 4 states, new, running, waiting, and ready. 
+Process is represented in process control block (PCB) with state type, process ID, registers, and so on.
+The scheduling for process assigning to CPU core is implemented in queues containing PCB. There are two main queues in this scheduler: 
+ready queue and wait queue. The head of process in ready queue is selected for execution and once the process requested I/O request or 
+production of child process, the running process will be stored n wait queue. Once the request that the process waiting for end, 
+the waiting process will be pushed tail of ready queue. 
+
+Processes executing concurrently in the operating system may be either independent processes or cooperating processes excuting in the system.
+A process is indepenedent if it does not share data with any other processes. A process cooperating if ti can affect or be affected by the 
+other processed executing in the system. In cooperating process, there are two kinds, shared memory and message passing. 
+In shared memory, it removes restriction of not interfering memory region. Message passing can be useful for destribution systems as well.
+
+For a pair of processes to communicate throught message, a socket is needed to be established. 
+A socket is identified by an IP address concatenated with a port number. When two process communicate, each process will have socket. 
+If another process of the same machine wants to communicate, we need new socket to be established. The protocol used in the socket connection
+can be TPC and UDP.
+
+
+\section{Miltithreading and Parallelism}
+\label{sec:history}
+A thread is a basic unit of CPU usilization, so that a process can have multiple thread. Threads shares mainly code and data. 
+Multithreaing is increasingly popular as the multicore programming becomes in common, becasue we can run multiple thread on different core.
+Creating thread is much cheaper than creating process and it shares resources so that we do not need addtional methods to allow threads to 
+communicate each other, such as sharing memory and message passing.
+
+\section{Memory management in Operation System}
+\label{sec:history}
+In computer storage hierarchy, the closest strage to CPU is register. It is built into each CPU core and accessible within one cycle of the CPU clock.
+However, the same cannot be said of main memory, which is accessed via a transaction on the memory bus. This takes many cycles of the CPU clock.
+The remedy is to add fast memeory between the CPU and main memory, typically on the CPU chip for faster access. Such a cache plays a role for this.
+
+For the layout of main memory, it must be ensured that each process has a separate memory space, including operation system. 
+The base register and limit register, whose roles are lower boound of memory region and specific size of range respectively, can achieve that goal. 
+
+Usually a program resides on a disk as binary excutable file. To run, the program must be brought into memory and placed within the context of a crocess.
+The process is binded to corresponding parts of the physical memory. Binding program to memeory address is staging process. 
+There three stages: compile time, load time excution time. The source program is compiled by compiler producing object file. 
+After the compilation, the object file is linked with other object file by linker creating executable file . 
+Finally, the executable file will be loaded to run execute. At this run time dynamic linbrary link can be done.
+
+If where the process will reside in memory at compile time, absolute code is generated. If this is unknown at the time, 
+the binding will be done at load time. At this time, the compiler must generate relocatable code. Otherwise, the binding will be done at 
+execution time.
+
+A process does not interact with addresses of physical memory, instead virtual memory. The memory-management unit (MMU) takes roles to map 
+logical address to physical address. OS needs to ensure that any of physical memory spaces of processes do not overlap. 
+Since one process can be created and deleted and the corresponding memory space should be de/allocated, 
+optimization for use of physical memory space is important; we need to allocate memory contiguously avoiding fragmentation.
+
+There are several approaches to deal with this problems. However, we will focus on paging here, which is the most used method OS use to manage memory.
+A frame and page are a unit of Separated physical and virtaual memory space in fixed size (4KB or 8KB) respectively.
+A process can use as many as pages and correspinding frames obtained by page table matching.  

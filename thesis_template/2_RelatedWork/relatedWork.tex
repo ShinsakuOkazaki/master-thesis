@@ -333,30 +333,107 @@ According to the experiment, there is no difference on accessing to elements of 
 
 \section{Access time to onwned, borrowed, and sliced field of object}
 \label{sec:history}
-In this experiment, differences of access time among to owned, borrowed, and sliced are observed. 
-The figure is representation of a Customer object. Among the experiment, we focus on zip_code, address, country fields. 
-These three fields take differet type of String value. The zip_code field takes owned String variable. 
-The address field takes borrowed String variable. The country field takes slice String variable. 
-The assumption here is that there may be difference of operation time among variable types: ownner, reference, slice. 
-
-The result shows that access times to onwer and reference are almost the same, but the one to slice is relatively faster 
-compared to the other two.
+In this experiment, differences of access time to among owned, borrowed, and sliced are observed. 
+Each variable has slightly different use of memomry. 
 
 
 \begin{figure}[htb]
     \begin{lstlisting}
-        struct Customer<'a> {
-            total_order: i32,
-            weight_order: f32,
+        struct CustomerOwned {
+            key: i32,
+            age: i32,
+            num_purchase: i32,
+            total_purchase: f64,
+            duration_spent: f64, 
+            duration_since: f64,
             zip_code: String,
+            address: String,
+            country: String,
+            state: String,
+            first_name: String,
+            last_name: String,
+            province: String,
+            comment: String, 
+            order: OrderOwned
+        }
+
+        struct CustomerBorrowed<'a> {
+            key: &'a i32,
+            age: &'a i32,
+            num_purchase: &'a i32,
+            total_purchase: &'a f64,
+            duration_spent: &'a f64, 
+            duration_since: &'a f64,
+            zip_code: &'a String,
             address: &'a String,
-            country: &'a str
+            country: &'a String,
+            state: &'a String,
+            first_name: &'a String,
+            last_name: &'a String,
+            province: &'a String,
+            comment: &'a String, 
+            order: &'a OrderBorrowed<'a>
+        }
+
+        struct CustomerSlice<'a> {
+            key: &'a i32,
+            age: &'a i32,
+            num_purchase: &'a i32,
+            total_purchase: &'a f64,
+            duration_spent: &'a f64, 
+            duration_since: &'a f64,
+            zip_code: &'a str,
+            address: &'a str,
+            country: &'a str, 
+            state: &'a str,
+            first_name: &'a str,
+            last_name: &'a str,
+            province: &'a str,
+            comment: &'a str,
+            order: &'a OrderSlice<'a>
+        }
+
+        struct CustomerRc {
+            key: Rc<i32>,
+            age: Rc<i32>,
+            num_purchase: Rc<i32>,
+            total_purchase: Rc<f64>,
+            duration_spent: Rc<f64>, 
+            duration_since: Rc<f64>,
+            zip_code: Rc<String>,
+            address: Rc<String>,
+            country: Rc<String>,
+            state: Rc<String>,
+            first_name: Rc<String>,
+            last_name: Rc<String>,
+            province: Rc<String>,
+            comment: Rc<String>, 
+            order: Rc<OrderRc>
         }
     \end{lstlisting}
     \caption{Representation of Customer object in Rust.}
     \label{fig:Sampling}
 \end{figure}
 
+
+\section{Accessment of different reference methods in Rust}
+\label{sec:history}
+The goal of this experiment is to assess efficiency of different reference strategies in Rust, borrowing and reference counting. 
+
+By levaraging reference counting, a value can be shared like what borrowing plays the role in Rust programming. 
+The difference is that reference counting checks number of reference pointing to the actual data and makes sure the data is not deleted 
+until all the references are dereferenced. Using reference counting is sometimes preferable approach for developers, 
+we do not have care about lifetime which is usually troublesome when we use borrowing approach many times in our code. 
+However, the possible problem regarding to reference counting is the cost for tracking the number of references. 
+Having this assumption, this experiment will show difference of behavior among reference countinig and borrowing.
+
+In this experiment, CustomerBorrowed and CustomerRc in figure are used to see difference of dropping time among borrowing and reference counting. 
+In the CustomerRc and OrderRc struct, all fields take reference counting (Rc<T>). Similaly to the experiment in the last section, 
+vectors of CustomerRc and CustomerBorrowed are created and droped the elements one by one. 
+
+The result shows significant difference of dropping time among the two objects; deletion of CustomerRc is much slower than CustomerBorrowed. 
+This is because reference counters which are feilds of CustomerRc have to check the number of reference pointing to the actual content and decide 
+deallocate the memory or not. However, memory management and lifetime strategy of borrowing is already determined at compile time.
 
 
 
@@ -373,8 +450,6 @@ we might need multiple references to edges, which violates basic rule of Rust pr
 
 One solution is to use raw pointers. This is the most flexible approach, but also the most dangerous. 
 By taking this way, we are ignoring all the benefits of Rust.
-
-For 
 
 
 \section{Note for next}
@@ -414,41 +489,60 @@ original object.
 On the other hand, we can have Generic function whose parameter types are Generic types corresponding to Trait. 
 When Rust compiles the code, it emits independent function corresponding to every types that implements the Trains specified in parameter.
 
+Vector of Trait object (need to put element into Box) vs Vector of concrete type.
 
-Vector of Trait(need to put element into Box) vs Vector of concrete type.
-
-Design experiment for comparing among the performance of smart pointers.
 
 If we keep first created owner until the last phase, we can use borrowing to operate.
 If we delete first created owner during the operation, we should use Rc<T>.
 The question would be, we can use Rc<T> every where?
 
 Smart pointer
-    Box<T> - Box pointer lets value allocated on heap rather than on the stack.
-    Rc<T> - Reference counted pointer lets variable take multiple immutable ownership.
+\begin{itemize}
+    \item Box<T>: Box pointer lets value allocated on heap rather than on the stack.
+    \item Rc<T>: Reference counted pointer lets variable take multiple immutable ownership.
+\end{itemize}
+
 Interier mutability
-    Cell<T> - For only Copy type, it allows us to mutate variable, even if it is immutable
-            Howeever, it does not support sharing the variable so that it returns always copy of the value.
-    RefCell<T> - This support sharing and interier immutability for all types. This is done by allowing to get 
-                mutable reference from immutable variable and push the error detacting time from compile time to runtime.
-
-Experiment to do 
-
-Difference of operation time for 
-    - T vs Box<T> vs Rc<T>
-Vec<Box<T>>
-&Box<T>  vs 
-Vec<Rc<T>>
-Vec<Rc<RefCell>>
-
+    \item Cell<T>: For only Copy type, it allows us to mutate variable, even if it is immutable. Howeever, it does not support sharing the variable so that it returns always copy of the value.
+    \item RefCell<T>: This support sharing and interier immutability for all types. This is done by allowing to get mutable reference from immutable variable and push the error detacting time from compile time to runtime.
+    
 \section{Todos}
 \label{sec:history}
 \begin{itemize}
-    \item Document experiment of reference and dereferenced
     \item Redo the experiment with appropriate size
-    \item Design experiment for reference counting(measure dropt time using criterion)
+    \item Document for reference counting(measure dropt time using criterion)
     \item Design experiment for Graph
     \item Design experiment for Multithread
     \item Study about LLVM
-    \item Study about OS memory management(optional)
+    \item Study about OS memory management
 \end{itemize}
+
+\section{LLVM}
+\label{sec:history}
+LLVM (Low Level Virtual Machine) is an umbrella project which contains components of compilation of programming language.
+Exsiting compilers have tightly coupled functionalities so that it is not possible to embed them into other applications.
+However, the abstract framework of LLVM decouples the functionalities into peaces and the peaces of functionalities can be reused.
+
+In structure of a compiler, there are three main components; flontend, optimizer, and backend. 
+In flontend, a develper designs the interface of source programming language in way where it can be optimized by optimizer. 
+Then, backend takes optimized code and produce the native machine code. LLVM has a component called LLVM Intermediate Representation (IR), 
+which places itself across frontend to optimizer. IR is designed to host mid-level analyses and transformations that you find in optimizer section of a compiler.
+High-level language has many common structures and functionalities, so most of all high-level program languages can be represented with IR. 
+Once source code is represented with IR, optimizer can easily find pattern and optimize it in faster time. 
+IR is useful in terms of flontend. This is because developer of language flontend need to know only how the IR works and use the framework to develop a language.
+
+
+
+
+LLVM is a library for programmatically creating machine-native code. A develpers can use the API to generate instruction in a format 
+called an intermeidiate representation (IR). LLVM can then compile tht IR into a standalone binary, 
+perform a JIT (just-in-time) compilation on the code to run in the context of another porgram, such as an interpreter for the language.
+LLVM provides a framework API of intermediate representation for common structures of progamming language, such as function, type, struct.
+LLVM comes with the portability. It independents of machine architecture. 
+
+The most common use of LLVM is for ahead-of-time (AOT) compiler for a language, such as C, C++, Rust. 
+However, LLVM can be leveraged with just-in-time (JIT) compiling. 
+For example, python is offten used in iterative workflow and rapid development by being a interpreted language.
+Using JIT compilation to produce such code complements Python's interactive workflow better thatn ahead-of-time compilation.
+
+LLVM

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  9 FEB 2020 17:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  13 FEB 2020 20:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -586,60 +586,56 @@ File: 2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf Graphic fil
 <use 2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf  used on input line 329.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
-/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:337: Missing $ inserted.
-<inserted text> 
-                $
-l.337 ...t. Among the experiment, we focus on zip_
-                                                  code, address, country fie...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:341: Missing $ inserted.
-<inserted text> 
-                $
-l.341 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (1270.79408pt too wide) in paragraph at lines 336--341
-\OT1/cmr/m/n/10 The fig-ure is rep-re-sen-ta-tion of a Cus-tomer ob-ject. Among the ex-per-i-ment, we fo-cus on zip$[]\OML/cmm/m/it/10 ode; address; countryfields:ThesethreefieldstakedifferettypeofStringvalue:Thezip[]odefieldtakesownedStringvariable:TheaddressfieldtakesborrowedStringvariable:ThecountryfieldtakessliceStringvariable:Theassumptionhereisthattheremaybedifferenceofoperationtimeamongvariabletypes \OT1/cmr/m/n/10 :
- []
-
-[10]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 348.
- (/usr/local/texlive/2019/texmf-dist/tex/latex/base/omlcmr.fd
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 360.
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 348.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 360.
 
 
-/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:382: Package inputenc Error: Unicode character ¥ (U+00A5)
+LaTeX Warning: Float too large for page by 271.705pt on input line 416.
+
+[10] [11]
+
+/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:457: Package inputenc Error: Unicode character ¥ (U+00A5)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.382 ...iment. This can be compared with Java, ¥
+l.457 ...iment. This can be compared with Java, ¥
                                                   
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[11]
-/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:440: Misplaced alignment tab character &.
-l.440 &
-       Box<T>  vs
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
+[12]
 
-[12]) [13] [14 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist-eps-converted-to.pdf>] [15 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf>] [16 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_log-eps-converted-to.pdf>] [17 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector_log-eps-converted-to.pdf>] [18 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_difference-eps-converted-to.pdf>] [19 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf>] [20 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf>] [21 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>]
+/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:506: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.506     \item C
+                 ell<T>: For only Copy type, it allows us to mutate variable...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:507: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.507     \item R
+                 efCell<T>: This support sharing and interier immutability f...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[13]) [14] [15 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist-eps-converted-to.pdf>] [16 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf>] [17 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_log-eps-converted-to.pdf>] [18 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector_log-eps-converted-to.pdf>] [19 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_difference-eps-converted-to.pdf>] [20 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf>] [21 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf>] [22 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>] [23]
 \openout2 = `3_Body/body.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.tex
@@ -653,7 +649,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/figure_sampling_view1.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view1.eps>
 (epstopdf)             \includegraphics on input line 17.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf, id=476, 400.49625pt x 396.48125pt>
+<3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf, id=482, 400.49625pt x 396.48125pt>
 File: 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf  used on input line 17.
@@ -667,37 +663,37 @@ Package epstopdf Info: Source file: <3_Body/Figures/figure_sampling_view2.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view2.eps>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf, id=477, 400.49625pt x 396.48125pt>
+<3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf, id=483, 400.49625pt x 396.48125pt>
 File: 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf  used on input line 22.
 (pdftex.def)             Requested size: 199.16928pt x 197.17535pt.
 
-LaTeX Warning: Citation `lamport1985:latex' on page 22 undefined on input line 31.
+LaTeX Warning: Citation `lamport1985:latex' on page 24 undefined on input line 31.
 
 
-LaTeX Warning: Citation `Debr01' on page 22 undefined on input line 31.
+LaTeX Warning: Citation `Debr01' on page 24 undefined on input line 31.
 
-[22
+[24
 
 
 
 
  </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>]
 
-LaTeX Warning: Reference `fig:Sampling' on page 23 undefined on input line 39.
+LaTeX Warning: Reference `fig:Sampling' on page 25 undefined on input line 39.
 
 
-LaTeX Warning: Reference `fig:Sampling' on page 23 undefined on input line 39.
+LaTeX Warning: Reference `fig:Sampling' on page 25 undefined on input line 39.
 
-) [23
+) [25
 
 ]
 \openout2 = `4_Conclusion/conclusion.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.tex
 Chapter 4.
-) [24
+) [26
 
 
 
@@ -707,16 +703,16 @@ Chapter 4.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.tex
 Appendix A.
-) [25
+[27
 
 
 
 
-]
+] [28]) [29]
 No file thesis.bbl.
 \openout2 = `0_Prelim/cv.aux'.
 
-(/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [26
+(/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [30
 
 
 
@@ -729,18 +725,18 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 6207 strings out of 492616
- 93952 string characters out of 6129482
- 346980 words of memory out of 5000000
- 9952 multiletter control sequences out of 15000+600000
+ 6229 strings out of 492616
+ 94263 string characters out of 6129482
+ 380980 words of memory out of 5000000
+ 9974 multiletter control sequences out of 15000+600000
  8066 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,10n,53p,514b,1329s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (36 pages, 443740 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (40 pages, 452490 bytes).
 PDF statistics:
- 532 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
+ 547 PDF objects out of 1000 (max. 8388607)
+ 189 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

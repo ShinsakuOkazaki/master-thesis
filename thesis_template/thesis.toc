@@ -17,8 +17,9 @@
 \contentsline {section}{\numberline {2.14}Accessment of different reference methods in Rust}{11}% 
 \contentsline {section}{\numberline {2.15}Possible Graph Structure in Rust}{11}% 
 \contentsline {section}{\numberline {2.16}Note for next}{12}% 
-\contentsline {section}{\numberline {2.17}Todos}{13}% 
-\contentsline {section}{\numberline {2.18}LLVM}{13}% 
+\contentsline {section}{\numberline {2.17}LLVM}{13}% 
+\contentsline {section}{\numberline {2.18}Todos}{14}% 
+\contentsline {section}{\numberline {2.19}Time Line}{14}% 
 \contentsline {chapter}{\numberline {3}Body of my thesis}{24}% 
 \contentsline {section}{\numberline {3.1}Some results}{24}% 
 \contentsline {chapter}{\numberline {4}Conclusions}{26}% 
@@ -27,4 +28,6 @@
 \contentsline {section}{\numberline {A.1}Memory and Process in Operation Systems}{27}% 
 \contentsline {section}{\numberline {A.2}Miltithreading and Parallelism}{28}% 
 \contentsline {section}{\numberline {A.3}Memory management in Operation System}{28}% 
-\contentsline {chapter}{Curriculum Vitae}{30}% 
+\contentsline {section}{\numberline {A.4}Demand Paging}{29}% 
+\contentsline {section}{\numberline {A.5}Copy on Page}{30}% 
+\contentsline {chapter}{Curriculum Vitae}{31}% 

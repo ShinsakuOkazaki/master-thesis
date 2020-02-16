@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  13 FEB 2020 20:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  16 FEB 2020 15:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**thesis.tex
+**/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.tex
 (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.tex
 LaTeX2e <2018-12-01>
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/report.cls
@@ -619,7 +619,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.506     \item C
-                 ell<T>: For only Copy type, it allows us to mutate variable...
+                 ell$<$T$>$: For only Copy type, it allows us to mutate vari...
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -631,7 +631,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.507     \item R
-                 efCell<T>: This support sharing and interier immutability f...
+                 efCell$<$T$>$: This support sharing and interier immutabili...
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -708,11 +708,11 @@ Appendix A.
 
 
 
-] [28]) [29]
+] [28]) [29] [30]
 No file thesis.bbl.
 \openout2 = `0_Prelim/cv.aux'.
 
-(/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [30
+(/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [31
 
 
 
@@ -731,12 +731,12 @@ Here is how much of TeX's memory you used:
  9974 multiletter control sequences out of 15000+600000
  8066 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,10n,53p,514b,1329s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,10n,53p,566b,1329s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (40 pages, 452490 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (41 pages, 454277 bytes).
 PDF statistics:
- 547 PDF objects out of 1000 (max. 8388607)
- 189 compressed objects within 2 object streams
+ 550 PDF objects out of 1000 (max. 8388607)
+ 191 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

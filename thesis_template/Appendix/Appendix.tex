@@ -4,7 +4,7 @@
 
 \section{Memory and Process in Operation Systems}
 \label{sec:history}
-A process is a section of commutation job. A process can work on a CPU core. We can devide process as well.
+A process is a section of computation job. A process can work on a CPU core. We can devide process as well.
 Basically, each process does not share thier memory. However, for multiprocessing, we could avoid this restriction.
 Processes can be represented as tree structure, because a process may create onther child processes.
 Process has 4 states, new, running, waiting, and ready. 
@@ -23,7 +23,6 @@ For a pair of processes to communicate throught message, a socket is needed to b
 A socket is identified by an IP address concatenated with a port number. When two process communicate, each process will have socket. 
 If another process of the same machine wants to communicate, we need new socket to be established. The protocol used in the socket connection
 can be TPC and UDP.
-
 
 \section{Miltithreading and Parallelism}
 \label{sec:history}
@@ -58,4 +57,33 @@ optimization for use of physical memory space is important; we need to allocate 
 
 There are several approaches to deal with this problems. However, we will focus on paging here, which is the most used method OS use to manage memory.
 A frame and page are a unit of Separated physical and virtaual memory space in fixed size (4KB or 8KB) respectively.
-A process can use as many as pages and correspinding frames obtained by page table matching.  
+A process can use as many as pages and correspinding frames obtained by page table matching. This strategy does improve external fragmentation, but not for internal fragmentation.
+The smaller size of page has smaller fragmentation, but mapping from page to grame has overhead and also disk I/O is more efficient when the amount of data transfered is larger.
+
+
+
+\section{Demand Paging}
+\label{sec:history}
+A process can have mutiple pages. However, loading entire executable code from sendory storage to memory is not necessarily needed to 
+get jobs done. A storategy used in several operating systems is loading only the portion of programs that are needed, demand page. 
+
+In the storatege, some pages currently used are in memory and the others are in secondary storage. 
+The page table specifies whether pages are valid or invalid, which means are in memory or not. 
+Access to a page marked invalid causes page fault and some steps to resolve the error will be required. 
+
+The first part of process of demand pageing would be that we check an internal table to check whether the reference is valide or invalid.
+If the reference is valid, the process reads the content from the memory. Otherwise, we terminates the process and find the free frame in 
+physical memory. Then, we schedule a secondary storage operation to read the desired page into newly allocated frame. 
+When the storage complete reading the page, we modify the internal table to indicate the page is now in memory. 
+Finally, we restart the instruction that was interrupted. 
+
+However, there would be a case where the memory does not have any free frame. In this case, a victim frame that will be replaced with new comming frame should be selected. 
+To perform this selection efficiently, a modify bit is tracked for each frame or page. The modify bit represents whether the page is modified since it is loaded from secondary storage. 
+If the page or frame is modified, when we swap page we need to update the content in the secondary storage. However, it is not modified, we can simplly delete the frame and replace with new frame.
+
+
+
+\section{Copy on Page}
+\label{sec:history}
+When a parent process creates child process and if these process shares contents on particular page and modify it, 
+only the page whitch has the contenst will be copied.

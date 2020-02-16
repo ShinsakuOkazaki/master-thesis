@@ -428,7 +428,7 @@ However, the possible problem regarding to reference counting is the cost for tr
 Having this assumption, this experiment will show difference of behavior among reference countinig and borrowing.
 
 In this experiment, CustomerBorrowed and CustomerRc in figure are used to see difference of dropping time among borrowing and reference counting. 
-In the CustomerRc and OrderRc struct, all fields take reference counting (Rc<T>). Similaly to the experiment in the last section, 
+In the CustomerRc and OrderRc struct, all fields take reference counting (Rc$<$T$>$). Similaly to the experiment in the last section, 
 vectors of CustomerRc and CustomerBorrowed are created and droped the elements one by one. 
 
 The result shows significant difference of dropping time among the two objects; deletion of CustomerRc is much slower than CustomerBorrowed. 
@@ -470,16 +470,16 @@ This string type sets condition where it makes decition where the string is stor
 Comparing operation on reference and owned variable is also interested to examine.
 
 Comparing operation on various smart pointer type. 
-Rc<T> enables value to have multiple owners, but the value should be immutable. Rc<T> is used in case of single thread. 
-When the situation is multi-thread, Arc<T> is used. Arc<T> performs atomic operation, so it is more expensive than Rc<T>. 
-When we need to mutate value of Rc<T>, RefCell<T> can be useful. RefCell<T> allow us to have mutiple mutable reference and immutable
+Rc<T> enables value to have multiple owners, but the value should be immutable. Rc$<$T$>$ is used in case of single thread. 
+When the situation is multi-thread, Arc$<$T$>$ is used. Arc$<$T$>$ performs atomic operation, so it is more expensive than Rc$<$T$>$. 
+When we need to mutate value of Rc$<$T$>$, RefCell$<$T$>$ can be useful. RefCell$<$T$>$ allow us to have mutiple mutable reference and immutable
 of reference mutable or immutable variable at the same time. When the mutability consistency is voilented, it terminates program during runtime. 
-That is why RefCell<T> is expensive so that the state of mutable consistency should tracked. 
-As Cell<T>, the value is copied in and out of the Cell<T> instead of getting refrence to it. 
-In addition, Mutex<T> provides intetior mutability across multi-thread.
+That is why RefCell$<$T$>$ is expensive so that the state of mutable consistency should tracked. 
+As Cell$<$T$>$, the value is copied in and out of the Cell$<$T$>$ instead of getting refrence to it. 
+In addition, Mutex$<$T$>$ provides intetior mutability across multi-thread.
 
 Comparison between mutable and immutable tree or graph structure can be checked. 
-This is because tree structure requires Rc<T> or Week<T> and in addition RefCell<T> to make it mutable.
+This is because tree structure requires Rc$<$T$>$ or Week$<$T$>$ and in addition RefCell<T> to make it mutable.
 
 Design experiment for Trait object and Generic function. 
 We can have Trait object which is pointer to object which imprements its Trait and use the method of Trait object.
@@ -493,29 +493,19 @@ Vector of Trait object (need to put element into Box) vs Vector of concrete type
 
 
 If we keep first created owner until the last phase, we can use borrowing to operate.
-If we delete first created owner during the operation, we should use Rc<T>.
-The question would be, we can use Rc<T> every where?
+If we delete first created owner during the operation, we should use Rc$<$T$>$.
+The question would be, we can use Rc$<$T$>$ every where?
 
 Smart pointer
 \begin{itemize}
-    \item Box<T>: Box pointer lets value allocated on heap rather than on the stack.
-    \item Rc<T>: Reference counted pointer lets variable take multiple immutable ownership.
+    \item Box$<$T$>$: Box pointer lets value allocated on heap rather than on the stack.
+    \item Rc$<$T$>$: Reference counted pointer lets variable take multiple immutable ownership.
 \end{itemize}
 
 Interier mutability
-    \item Cell<T>: For only Copy type, it allows us to mutate variable, even if it is immutable. Howeever, it does not support sharing the variable so that it returns always copy of the value.
-    \item RefCell<T>: This support sharing and interier immutability for all types. This is done by allowing to get mutable reference from immutable variable and push the error detacting time from compile time to runtime.
+    \item Cell$<$T$>$: For only Copy type, it allows us to mutate variable, even if it is immutable. Howeever, it does not support sharing the variable so that it returns always copy of the value.
+    \item RefCell$<$T$>$: This support sharing and interier immutability for all types. This is done by allowing to get mutable reference from immutable variable and push the error detacting time from compile time to runtime.
     
-\section{Todos}
-\label{sec:history}
-\begin{itemize}
-    \item Redo the experiment with appropriate size
-    \item Document for reference counting(measure dropt time using criterion)
-    \item Design experiment for Graph
-    \item Design experiment for Multithread
-    \item Study about LLVM
-    \item Study about OS memory management
-\end{itemize}
 
 \section{LLVM}
 \label{sec:history}
@@ -532,17 +522,22 @@ Once source code is represented with IR, optimizer can easily find pattern and o
 IR is useful in terms of flontend. This is because developer of language flontend need to know only how the IR works and use the framework to develop a language.
 
 
+\section{Todos}
+\label{sec:history}
+\begin{itemize}
+    \item Redo the experiment with appropriate size
+    \item Document for reference counting(measure dropt time using criterion)
+    \item Design experiment for Graph
+    \item Design experiment for Multithread
+    \item Study about LLVM
+    \item Study about OS memory management
+\end{itemize}
 
-
-LLVM is a library for programmatically creating machine-native code. A develpers can use the API to generate instruction in a format 
-called an intermeidiate representation (IR). LLVM can then compile tht IR into a standalone binary, 
-perform a JIT (just-in-time) compilation on the code to run in the context of another porgram, such as an interpreter for the language.
-LLVM provides a framework API of intermediate representation for common structures of progamming language, such as function, type, struct.
-LLVM comes with the portability. It independents of machine architecture. 
-
-The most common use of LLVM is for ahead-of-time (AOT) compiler for a language, such as C, C++, Rust. 
-However, LLVM can be leveraged with just-in-time (JIT) compiling. 
-For example, python is offten used in iterative workflow and rapid development by being a interpreted language.
-Using JIT compilation to produce such code complements Python's interactive workflow better thatn ahead-of-time compilation.
-
-LLVM
+\section{Time Line}
+\label{sec:history}
+\begin{itemize}
+    \item End Feb: Finish Experiment for Multithread and Graph
+    \item Mid May: ML experiment
+    \item End May: Redo experiment with bench mark dataset.
+    \item Start April: Finish Writing for first revise.
+\end{itemize}

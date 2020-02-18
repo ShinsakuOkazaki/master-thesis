@@ -435,7 +435,24 @@ The result shows significant difference of dropping time among the two objects; 
 This is because reference counters which are feilds of CustomerRc have to check the number of reference pointing to the actual content and decide 
 deallocate the memory or not. However, memory management and lifetime strategy of borrowing is already determined at compile time.
 
+\section{Time to Drop Reference vs Reference Counting}
+\label{sec:history}
+In this experiment, an assessment is conducted to valify whether there is difference between behavior of borrowing and reference counting. 
+These two methods can be used in similar situation. Especially, when we want reference to an original variable and keep the original variable until all of references are dereferenced, 
+we can have reference with both storategies, borrowing and reference counting. One advantage of using reference counting is that we do not have to pay attention to lifetime.
+However, the assumption here is that use of reference counting might be computationally expenesive than borrowing, because reference counting has to track the number of reference pointing to the value. 
+Considered this assumption, we assess difference of time for dropping reference using borrowing and reference counting strategies. 
 
+Similally to the last section, we implement struct whose fields are borrowing reference and reference counting and measure the time to drop the struct. 
+
+The result shows the time to drop borrowing reference is significatly faster than reference counting. This says that we should use borrwoing storategies whenever high performance computation is critical.
+
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{rust_droptime_borring_rc.eps}
+    \caption{Runtime for Droping to fields of Customer Object}
+    \label{fig:Sampling}
+\end{figure}
 
 \section{Possible Graph Structure in Rust}
 \label{sec:history}
@@ -533,6 +550,7 @@ IR is useful in terms of flontend. This is because developer of language flonten
     \item Study about OS memory management
 \end{itemize}
 
+
 \section{Time Line}
 \label{sec:history}
 \begin{itemize}
@@ -541,3 +559,5 @@ IR is useful in terms of flontend. This is because developer of language flonten
     \item End May: Redo experiment with bench mark dataset.
     \item Start April: Finish Writing for first revise.
 \end{itemize}
+
+

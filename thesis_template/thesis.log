@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  18 FEB 2020 18:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  18 FEB 2020 19:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -627,30 +627,31 @@ You may provide a definition with
 
 [12]
 
-/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:523: LaTeX Error: Lonely \item--perhaps a missing list environment.
+/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:525: LaTeX Error: Lonely \item--perhaps a missing list environment.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.523     \item C
+l.525     \item C
                  ell$<$T$>$: For only Copy type, it allows us to mutate vari...
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+[13]
 
-/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:524: LaTeX Error: Lonely \item--perhaps a missing list environment.
+/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex:526: LaTeX Error: Lonely \item--perhaps a missing list environment.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.524     \item R
+l.526     \item R
                  efCell$<$T$>$: This support sharing and interier immutabili...
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[13] [14]) [15] [16 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist-eps-converted-to.pdf>] [17 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf>] [18 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_log-eps-converted-to.pdf>] [19 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector_log-eps-converted-to.pdf>] [20 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_difference-eps-converted-to.pdf>] [21 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf>] [22 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf>] [23 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>] [24] [25 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>]
+[14]) [15] [16 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist-eps-converted-to.pdf>] [17 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf>] [18 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_log-eps-converted-to.pdf>] [19 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector_log-eps-converted-to.pdf>] [20 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_difference-eps-converted-to.pdf>] [21 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf>] [22 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf>] [23 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>] [24] [25 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>]
 \openout2 = `3_Body/body.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.tex
@@ -742,13 +743,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  6234 strings out of 492616
  94602 string characters out of 6129482
- 381980 words of memory out of 5000000
+ 380980 words of memory out of 5000000
  9978 multiletter control sequences out of 15000+600000
  8066 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,10n,53p,566b,1329s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (43 pages, 469672 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (43 pages, 469717 bytes).
 PDF statistics:
  602 PDF objects out of 1000 (max. 8388607)
  200 compressed objects within 2 object streams

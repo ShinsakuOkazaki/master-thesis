@@ -20,7 +20,7 @@
 \contentsline {section}{\numberline {2.17}Note for next}{12}% 
 \contentsline {section}{\numberline {2.18}LLVM}{14}% 
 \contentsline {section}{\numberline {2.19}Todos}{14}% 
-\contentsline {section}{\numberline {2.20}Time Line}{14}% 
+\contentsline {section}{\numberline {2.20}Time Line}{15}% 
 \contentsline {chapter}{\numberline {3}Body of my thesis}{26}% 
 \contentsline {section}{\numberline {3.1}Some results}{26}% 
 \contentsline {chapter}{\numberline {4}Conclusions}{28}% 

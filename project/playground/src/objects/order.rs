@@ -1,6 +1,8 @@
 use std::rc::Rc;
 use serde::ser::{Serialize, Serializer, SerializeStruct};
+use std::cmp::Ordering;
 
+#[derive(Clone, Debug)]
 pub struct OrderOwned {
     order_id: i32,
     num_items: i32, 
@@ -9,8 +11,7 @@ pub struct OrderOwned {
     title: String,
     comment: String
 }
-
-
+#[derive(Clone, Debug)]
 pub struct OrderBorrowed<'a> {
     order_id: &'a i32,
     num_items: &'a i32, 
@@ -20,6 +21,7 @@ pub struct OrderBorrowed<'a> {
     comment: &'a String
 }
 
+#[derive(Clone, Debug)]
 pub struct OrderRc {
     order_id: Rc<i32>,
     num_items: Rc<i32>, 
@@ -65,6 +67,66 @@ impl OrderRc {
             title: title,
             comment: comment
         }
+    }
+}
+
+impl Eq for OrderOwned {}
+
+impl Ord for OrderOwned {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.order_id.cmp(&other.order_id)
+    }
+}
+
+impl PartialOrd for OrderOwned {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl PartialEq for OrderOwned {
+    fn eq(&self, other: &Self) -> bool {
+        self.order_id == other.order_id
+    }
+}
+
+impl Eq for OrderBorrowed<'_> {}
+
+impl Ord for OrderBorrowed<'_> {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.order_id.cmp(&other.order_id)
+    }
+}
+
+impl PartialOrd for OrderBorrowed<'_> {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl PartialEq for OrderBorrowed<'_> {
+    fn eq(&self, other: &Self) -> bool {
+        self.order_id == other.order_id
+    }
+}
+
+impl Eq for OrderRc {}
+
+impl Ord for OrderRc {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.order_id.cmp(&other.order_id)
+    }
+}
+
+impl PartialOrd for OrderRc {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl PartialEq for OrderRc {
+    fn eq(&self, other: &Self) -> bool {
+        self.order_id == other.order_id
     }
 }
 

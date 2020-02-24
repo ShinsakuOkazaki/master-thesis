@@ -468,6 +468,23 @@ we might need multiple references to edges, which violates basic rule of Rust pr
 One solution is to use raw pointers. This is the most flexible approach, but also the most dangerous. 
 By taking this way, we are ignoring all the benefits of Rust.
 
+\section{Experiment for Multithread}
+\label{sec:history}
+Experiment for multithreading in Rust is interesting, because there are many memory allocation and deallocation in each threads.
+This is because each thread offten need to form independent memory state to each other to perform computation concurrently safely.
+In addition, the multithreading strategy can be planned in different ways in Rust using different concurrent computation tools, 
+Mutex, Arc, spawn, channel, scope, and so on.
+
+Currently available plan
+\begin{itemize}
+    \item spawn, channel and sending data (currently deviding data, but we probably do not need to).
+    \item spawn, forkjoin and shared data.(shared data among child and parent).
+    \item scope, forkjoin and slice shared data.
+    \item Use linkedList instead of Vector (Each node can be sharable data structure). When we have complex object of elements in vector, we want to copy the pointer to the object.
+    \item Compare performace on LinkedList which is not contiguous allocation, but do not need additional memory allocation and Vec.
+\end{itemize}
+
+
 
 \section{Note for next}
 \label{sec:history}

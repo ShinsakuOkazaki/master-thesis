@@ -1,7 +1,9 @@
-use crate::objects::order::*;
+use crate::objects::order::{OrderOwned, OrderBorrowed, OrderRc};
 use std::rc::Rc;
 use std::time::Instant;
+use std::cmp::Ordering;
 use serde::ser::{Serialize, Serializer, SerializeStruct};
+use std::fmt;
 // Custorm trait (interface for all objects.)
 pub trait Customer {
     fn zip_code_bytes(&self) -> &[u8];
@@ -12,6 +14,7 @@ pub trait Customer {
 
 
 // Objects whose fields are all owned.
+#[derive(Clone, Debug)]
 pub struct CustomerOwned {
     key: i32,
     age: i32,
@@ -31,6 +34,7 @@ pub struct CustomerOwned {
 }
 
 // Objects whose fields are all borrowed.
+#[derive(Clone, Debug)]
 pub struct CustomerBorrowed<'a> {
     key: &'a i32,
     age: &'a i32,
@@ -48,8 +52,7 @@ pub struct CustomerBorrowed<'a> {
     comment: &'a String, 
     order: &'a OrderBorrowed<'a>
 }
-
-
+#[derive(Clone, Debug)]
 pub struct CustomerRc {
     key: Rc<i32>,
     age: Rc<i32>,
@@ -181,6 +184,73 @@ impl Customer for CustomerRc {
     }
     fn country_bytes(&self) -> &[u8] {
         self.country.as_bytes()
+    }
+}
+
+impl Eq for CustomerOwned {}
+
+impl Ord for CustomerOwned {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.key.cmp(&other.key)
+    }
+}
+
+impl PartialOrd for CustomerOwned {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl PartialEq for CustomerOwned {
+    fn eq(&self, other: &Self) -> bool {
+        self.key == other.key
+    }
+}
+
+impl Eq for CustomerBorrowed<'_> {}
+
+impl Ord for CustomerBorrowed<'_> {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.key.cmp(&other.key)
+    }
+}
+
+impl PartialOrd for CustomerBorrowed<'_> {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl PartialEq for CustomerBorrowed<'_> {
+    fn eq(&self, other: &Self) -> bool {
+        self.key == other.key
+    }
+}
+
+impl Eq for CustomerRc {}
+
+impl Ord for CustomerRc {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.key.cmp(&other.key)
+    }
+}
+
+impl PartialOrd for CustomerRc {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl PartialEq for CustomerRc {
+    fn eq(&self, other: &Self) -> bool {
+        self.key == other.key
+    }
+}
+
+impl fmt::Display for CustomerOwned {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // Use `self.number` to refer to each positional data point.
+        write!(f, "{}", self.key)
     }
 }
 

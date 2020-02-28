@@ -2,7 +2,7 @@ use std::rc::Rc;
 use serde::ser::{Serialize, Serializer, SerializeStruct};
 use std::cmp::Ordering;
 use std::marker::Send;
-use std::sync::Arc;
+
 
 #[derive(Clone, Debug)]
 pub struct OrderOwned {
@@ -32,15 +32,7 @@ pub struct OrderRc {
     title: Rc<String>,
     comment: Rc<String>
 }
-#[derive(Clone, Debug)]
-pub struct OrderArc {
-    order_id: Arc<i32>,
-    num_items: Arc<i32>, 
-    payment: Arc<f64>,
-    order_time: Arc<f64>,
-    title: Arc<String>,
-    comment: Arc<String>
-}
+
 impl OrderOwned {
     pub fn new(order_id: i32, num_items: i32, payment: f64, order_time: f64, title: String, comment: String) -> OrderOwned {
         OrderOwned {
@@ -70,20 +62,6 @@ impl OrderBorrowed<'_> {
 impl OrderRc {
     pub fn new(order_id: Rc<i32>, num_items: Rc<i32>, payment: Rc<f64>, order_time: Rc<f64>, title: Rc<String>, comment: Rc<String>) -> OrderRc {
         OrderRc {
-            order_id: order_id, 
-            num_items: num_items, 
-            payment: payment,
-            order_time: order_time,
-            title: title,
-            comment: comment
-        }
-    }
-}
-
-
-impl OrderArc {
-    pub fn new(order_id: Arc<i32>, num_items: Arc<i32>, payment: Arc<f64>, order_time: Arc<f64>, title: Arc<String>, comment: Arc<String>) -> OrderArc {
-        OrderArc {
             order_id: order_id, 
             num_items: num_items, 
             payment: payment,
@@ -154,28 +132,6 @@ impl PartialEq for OrderRc {
     }
 }
 
-
-impl Eq for OrderArc {}
-
-impl Ord for OrderArc {
-    fn cmp(&self, other: &Self) -> Ordering {
-        self.order_id.cmp(&other.order_id)
-    }
-}
-
-impl PartialOrd for OrderArc {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        Some(self.cmp(other))
-    }
-}
-
-impl PartialEq for OrderArc {
-    fn eq(&self, other: &Self) -> bool {
-        self.order_id == other.order_id
-    }
-}
-
-
 pub fn get_order_owned_vector(size: usize, mut order_ids: Vec<i32>, mut num_itemss: Vec<i32>, 
         mut payments: Vec<f64>, mut order_times: Vec<f64>, mut titles: Vec<String>, mut comments: Vec<String>) -> Vec<OrderOwned> {
     let mut orders = Vec::with_capacity(size);
@@ -224,23 +180,6 @@ pub fn get_order_rc_vector<'a>(size: usize, order_ids: &'a Vec<Rc<i32>>, num_ite
     orders
 }
 
-pub fn get_order_arc_vector<'a>(size: usize, order_ids: &'a Vec<Arc<i32>>, num_itemss: &'a Vec<Arc<i32>>, 
-    payments: &'a Vec<Arc<f64>>, order_times: &'a Vec<Arc<f64>>, titles: &'a Vec<Arc<String>>, comments: &'a Vec<Arc<String>>) -> Vec<Arc<OrderArc>> {
-    let mut orders = Vec::with_capacity(size);
-    for i in 0..size {
-        let order_id = Arc::clone(&order_ids[i]);
-        let num_items = Arc::clone(&num_itemss[i]);
-        let payment = Arc::clone(&payments[i]);
-        let order_time = Arc::clone(&order_times[i]);
-        let title = Arc::clone(&titles[i]);
-        let comment = Arc::clone(&comments[i]);
-        let order = OrderArc::new(order_id, num_items, payment, order_time, title, comment);
-        orders.push(Arc::new(order));
-    }
-    orders
-}
-
-
 impl Serialize for OrderOwned {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where S: Serializer,
@@ -277,22 +216,6 @@ impl Serialize for OrderRc {
     where S: Serializer,
     {
         let mut state = serializer.serialize_struct("OrderRc", 6)?;
-        state.serialize_field("order_id", &self.order_id)?;
-        state.serialize_field("num_items", &self.num_items)?;
-        state.serialize_field("payment", &self.payment)?;
-        state.serialize_field("order_time", &self.order_time)?;
-        state.serialize_field("title", &self.title)?;
-        state.serialize_field("comment", &self.comment)?;
-        state.end()
-    }
-}
-
-
-impl Serialize for OrderArc {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where S: Serializer,
-    {
-        let mut state = serializer.serialize_struct("OrderArc", 6)?;
         state.serialize_field("order_id", &self.order_id)?;
         state.serialize_field("num_items", &self.num_items)?;
         state.serialize_field("payment", &self.payment)?;

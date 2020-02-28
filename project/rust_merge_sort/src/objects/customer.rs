@@ -1,12 +1,10 @@
-use crate::objects::order::{OrderOwned, OrderBorrowed, OrderRc, OrderArc};
+use crate::objects::order::{OrderOwned, OrderBorrowed, OrderRc};
 use std::rc::Rc;
 use std::time::Instant;
 use std::cmp::Ordering;
 use serde::ser::{Serialize, Serializer, SerializeStruct};
 use std::fmt;
 use std::marker::{Send, Sync};
-use std::sync::Arc;
-
 // Custorm trait (interface for all objects.)
 pub trait Customer {
     fn zip_code_bytes(&self) -> &[u8];
@@ -72,26 +70,6 @@ pub struct CustomerRc {
     province: Rc<String>,
     comment: Rc<String>, 
     order: Rc<OrderRc>
-}
-
-
-#[derive(Clone, Debug)]
-pub struct CustomerArc {
-    key: Arc<i32>,
-    age: Arc<i32>,
-    num_purchase: Arc<i32>,
-    total_purchase: Arc<f64>,
-    duration_spent: Arc<f64>, 
-    duration_since: Arc<f64>,
-    zip_code: Arc<String>,
-    address: Arc<String>,
-    country: Arc<String>,
-    state: Arc<String>,
-    first_name: Arc<String>,
-    last_name: Arc<String>,
-    province: Arc<String>,
-    comment: Arc<String>, 
-    order: Arc<OrderArc>
 }
 
 
@@ -170,32 +148,6 @@ impl CustomerRc {
     }
 }
 
-impl CustomerArc {
-    pub fn new(key: Arc<i32>, age: Arc<i32>, num_purchase: Arc<i32>, total_purchase: Arc<f64>, duration_spent: Arc<f64>, duration_since: Arc<f64>, 
-        zip_code: Arc<String>, address: Arc<String>, country: Arc<String>, state: Arc<String>, 
-        first_name: Arc<String>, last_name: Arc<String>, province: Arc<String>, comment: Arc<String>, order: Arc<OrderArc>) -> CustomerArc{
-        CustomerArc {
-            key: key, 
-            age: age,
-            num_purchase: num_purchase, 
-            total_purchase: total_purchase,
-            duration_spent: duration_spent,
-            duration_since: duration_since,
-            zip_code: zip_code,
-            address: address,
-            country: country,
-            state: state,
-            first_name: first_name, 
-            last_name: last_name, 
-            province: province,
-            comment: comment,
-            order: order
-        }
-    }
-}
-
-
-
 
 //Implement Trait to  Struct 
 impl Customer for CustomerOwned {
@@ -235,20 +187,6 @@ impl Customer for CustomerRc {
         self.country.as_bytes()
     }
 }
-
-
-impl Customer for CustomerArc {
-    fn zip_code_bytes(&self) -> &[u8] {
-        self.zip_code.as_bytes()
-    }
-    fn address_bytes(&self) -> &[u8] {
-        self.address.as_bytes()
-    }
-    fn country_bytes(&self) -> &[u8] {
-        self.country.as_bytes()
-    }
-}
-
 
 impl Eq for CustomerOwned {}
 
@@ -310,27 +248,6 @@ impl PartialEq for CustomerRc {
     }
 }
 
-impl Eq for CustomerArc {}
-
-impl Ord for CustomerArc {
-    fn cmp(&self, other: &Self) -> Ordering {
-        self.key.cmp(&other.key)
-    }
-}
-
-impl PartialOrd for CustomerArc {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        Some(self.cmp(other))
-    }
-}
-
-impl PartialEq for CustomerArc {
-    fn eq(&self, other: &Self) -> bool {
-        self.key == other.key
-    }
-}
-
-
 impl fmt::Display for CustomerOwned {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // Use `self.number` to refer to each positional data point.
@@ -352,23 +269,13 @@ impl fmt::Display for CustomerRc {
     }
 }
 
-impl fmt::Display for CustomerArc {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        // Use `self.number` to refer to each positional data point.
-        write!(f, "{}", self.key)
-    }
-}
-
 unsafe impl Send for CustomerOwned {}
 unsafe impl Send for CustomerBorrowed<'_> {}
 unsafe impl Send for CustomerRc {}
-unsafe impl Send for CustomerArc {}
-
 
 unsafe impl Sync for CustomerOwned {}
 unsafe impl Sync for CustomerBorrowed<'_> {}
 unsafe impl Sync for CustomerRc {}
-unsafe impl Sync for CustomerArc {}
 
 
 // Function to create a vector of CustomerOwned objects.
@@ -469,38 +376,6 @@ pub fn create_customer_rc_vector<'a>(size: usize, keys: &'a Vec<Rc<i32>>, ages: 
     (elapsed, customers)
 }
 
-pub fn create_customer_arc_vector<'a>(size: usize, keys: &'a Vec<Arc<i32>>, ages: &'a Vec<Arc<i32>>, num_purchases: &'a Vec<Arc<i32>>, 
-    total_purchases: &'a Vec<Arc<f64>>, duration_spents: &'a Vec<Arc<f64>>, duration_sinces: &'a Vec<Arc<f64>>,
-    zip_codes: &'a Vec<Arc<String>>, addresses: &'a Vec<Arc<String>> , countries: &'a Vec<Arc<String>>,
-    states: &'a Vec<Arc<String>>, first_names: &'a Vec<Arc<String>>, last_names: &'a Vec<Arc<String>>,
-    provinces: &'a Vec<Arc<String>>, comments: &'a Vec<Arc<String>>, orders: &'a Vec<Arc<OrderArc>>) -> (u128, Vec<CustomerArc>) {
-    let start = Instant::now();
-    let mut customers: Vec<CustomerArc> = Vec::new();
-    for i in 0..size {
-        // Get reference by acceesing String in vector and create CustomerBorrowed.
-        let key = Arc::clone(&keys[i]);
-        let age = Arc::clone(&ages[i]);
-        let num_purchase = Arc::clone(&num_purchases[i]);
-        let total_purchase = Arc::clone(&total_purchases[i]);
-        let duration_spent = Arc::clone(&duration_spents[i]);
-        let duration_since = Arc::clone(&duration_sinces[i]);
-        let zip_code = Arc::clone(&zip_codes[i]);
-        let address = Arc::clone(&addresses[i]);
-        let country = Arc::clone(&countries[i]);
-        let state = Arc::clone(&states[i]);
-        let first_name = Arc::clone(&first_names[i]);
-        let last_name = Arc::clone(&last_names[i]);
-        let province = Arc::clone(&provinces[i]);
-        let comment = Arc::clone(&comments[i]);
-        let order = Arc::clone(&orders[i]);
-        let customer = CustomerArc::new(key, age, num_purchase, total_purchase, duration_spent, duration_since, 
-        zip_code, address, country, state, first_name, last_name, province, comment, order);
-        customers.push(customer);
-    }
-    let elapsed = start.elapsed().as_millis();
-    (elapsed, customers)
-}
-
 
 impl Serialize for CustomerOwned {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
@@ -555,31 +430,6 @@ impl Serialize for CustomerRc {
     where S: Serializer,
     {
         let mut state = serializer.serialize_struct("CustomerRc", 6).unwrap();
-        state.serialize_field("key", &self.key)?;
-        state.serialize_field("age", &self.age)?;
-        state.serialize_field("num_purchase", &self.num_purchase)?;
-        state.serialize_field("total_purchase", &self.total_purchase)?;
-        state.serialize_field("duration_spent", &self.duration_spent)?;
-        state.serialize_field("duration_since", &self.duration_since)?;
-        state.serialize_field("zip_code", &self.zip_code)?;
-        state.serialize_field("address", &self.address)?;
-        state.serialize_field("country", &self.country)?;
-        state.serialize_field("state", &self.state)?;
-        state.serialize_field("first_name", &self.first_name)?;
-        state.serialize_field("last_name", &self.last_name)?;
-        state.serialize_field("province", &self.province)?;
-        state.serialize_field("comment", &self.comment)?;
-        state.serialize_field("order", &self.order)?;
-        state.end()
-    }
-}
-
-
-impl Serialize for CustomerArc {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where S: Serializer,
-    {
-        let mut state = serializer.serialize_struct("CustomerArc", 6).unwrap();
         state.serialize_field("key", &self.key)?;
         state.serialize_field("age", &self.age)?;
         state.serialize_field("num_purchase", &self.num_purchase)?;

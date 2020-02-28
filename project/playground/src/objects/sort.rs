@@ -13,7 +13,7 @@ const MAX_THREADS: usize = 4;
 
 
 
-pub fn mergesort_vecdeque<T: 'static>(mut arr:Vec<Arc<T>>, left: usize, right: usize) -> Vec<Arc<T>> 
+pub fn mergesort_vecdeque<T: 'static>(mut arr:VecDeque<Arc<T>>, left: usize, right: usize) -> VecDeque<Arc<T>> 
     where T: Clone + Customer + PartialOrd + Send + Sync
 {
     let l = arr.len();
@@ -21,7 +21,7 @@ pub fn mergesort_vecdeque<T: 'static>(mut arr:Vec<Arc<T>>, left: usize, right: u
 }
 
 
-fn merge_helper_vecdeque<T: 'static>(arr: Arc<Vec<Arc<T>>>, left: usize, right: usize, depth: usize) -> Vec<Arc<T>>  
+fn merge_helper_vecdeque<T: 'static>(arr: Arc<VecDeque<Arc<T>>>, left: usize, right: usize, depth: usize) -> VecDeque<Arc<T>>  
     where T: Clone + Customer + PartialOrd + Send + Sync
 {
     if right - left > 1 {
@@ -49,7 +49,7 @@ fn merge_helper_vecdeque<T: 'static>(arr: Arc<Vec<Arc<T>>>, left: usize, right: 
     return merge_vecdeque_base(arr, left);
 }
 
-fn merge_vecdeque<T: 'static>(arr_left: Vec<Arc<T>>, arr_right: Vec<Arc<T>>) -> Vec<Arc<T>> 
+fn merge_vecdeque<T: 'static>(arr_left: VecDeque<Arc<T>>, arr_right: VecDeque<Arc<T>>) -> VecDeque<Arc<T>> 
     where T: Clone + Customer + PartialOrd + Send + Sync
 {
     let arr_left_len = arr_left.len();

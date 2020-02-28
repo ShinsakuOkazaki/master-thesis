@@ -18,77 +18,74 @@ fn main() {
     println!("Sorted: {:?}", res);
 }
 
-pub fn mergesort_vecdeque(arr: Vec<i32>, left: usize, right: usize) -> Vec<i32>{
-    let mut res = Vec::with_capacity(right);
-    merge_helper_vecdeque(&mut arr[..], left, right, 0, &mut res[..]);
-    return res
+pub fn mergesort_vecdeque(mut arr: Vec<i32>, left: usize, right: usize) -> VecDeque<i32> {
+    let res = merge_helper_vecdeque(&mut arr[..], left, right, 0);
+    return res;
 }
 
 
-fn merge_helper_vecdeque(arr: &mut [i32], left: usize, right: usize, depth: usize, res: &mut [i32]) {
+fn merge_helper_vecdeque(arr: &mut [i32], left: usize, right: usize, depth: usize) -> VecDeque<i32> {
     if right - left > 1 {
         let mid = (left + right) / 2;
         let new_depth = depth + 1;
-        let n = arr.len();
-        let res_left = Vec::with_capacity(n);
-        let res_right = Vec::with_capacity(n);
         let (arr_right, arr_left) = arr.split_at_mut(mid);
+        let res_left: VecDeque<i32>;
+        let res_right: VecDeque<i32>;
         if new_depth < MAX_THREADS {
-            crossbeam::scope(|scope| {
-                let arr_left_ptr = &mut arr_left[..];
-                let arr_right_ptr = &mut arr_right[..];
-                let ref_left = &mut res_left[..];
-                let ref_right = &mut res_right[..];
-                scope.spawn(move |_| {
-                    merge_helper_vecdeque(arr_left_ptr, left, mid, new_depth, ref_left);
+            let (left_thread, right_thread) = crossbeam::scope(|scope| {
+                
+                let left_handler = scope.spawn(move |_| {
+                    merge_helper_vecdeque(arr_left, left, mid, new_depth)
                 });
-                scope.spawn(move |_| {
-                    merge_helper_vecdeque(arr_right_ptr, mid, right, new_depth, ref_right);
-                })
-            });
+                let right_handler = scope.spawn(move |_| {
+                    merge_helper_vecdeque(arr_right, mid, right, new_depth)
+                });
+                
+                let l = left_handler.join().unwrap();
+                let r = right_handler.join().unwrap();
+                (l, r)
+            }).unwrap();
+            res_left = left_thread;
+            res_right = right_thread;
         } else {
-            merge_helper_vecdeque(&mut arr_left[..], left, mid, new_depth, &mut res_left[..]);
-            merge_helper_vecdeque(&mut arr_right[..], mid, right, new_depth, &mut res_right[..]);
+            res_left = merge_helper_vecdeque(arr_right, left, mid, new_depth);
+            res_right = merge_helper_vecdeque(arr_left, mid, right, new_depth);
         }
-        merge_vecdeque(&mut res_left[..], &mut res_right[..], &mut res[..]);
-    } else if right - left == 1 {
-        merge_vecdeque_base(&mut arr[..], left, &mut res[..]);
-    } 
+        return merge_vecdeque(res_left, res_right);
+    }
+    return merge_vecdeque_base(arr, left);
 }
 
-fn merge_vecdeque(arr_left: &mut [i32], arr_right: &mut [i32], res: &mut [i32]) {
+fn merge_vecdeque(mut arr_left: VecDeque<i32>, mut arr_right: VecDeque<i32>) -> VecDeque<i32> {
     let arr_left_len = arr_left.len();
     let arr_right_len = arr_right.len();
-    
-    let left_ptr = 0;
-    let right_ptr = 0;
-    let current = 0;
+    let mut arr_merged = VecDeque::with_capacity(arr_left_len + arr_right_len);
 
-    while left_ptr < arr_left_len && right_ptr < arr_right_len {
-        if (arr_left[left_ptr] < arr_right[right_ptr]) {
-            res[current] = mem::replace(&mut arr_left[left_ptr], i32::default());
-            left_ptr += 1;
-            current += 1;
+    while !arr_left.is_empty() && !arr_right.is_empty() {
+        if arr_left.front().unwrap() < arr_right.front().unwrap() {
+            arr_merged.push_back(arr_left.pop_front().unwrap());
         } else {
-            res[current] = mem::replace(&mut arr_right[right_ptr], i32::default());
-            right_ptr += 1;
-            current += 1;
+            arr_merged.push_back(arr_right.pop_front().unwrap());
         }
     }
 
-    if left_ptr < arr_left_len {
-        res[current] =  mem::replace(&mut arr_left[left_ptr], i32::default()); 
-        left_ptr += 1;
-        current += 1;
+    if !arr_left.is_empty() {
+        arr_merged.append(&mut arr_left);
     }
 
-    if right_ptr < arr_right_len {
-        res[current] = mem::replace(&mut arr_right[right_ptr], i32::default());  
+    if !arr_right.is_empty() {
+        arr_merged.append(&mut arr_right);
     }
+
+    return arr_merged;
 }
 
-fn merge_vecdeque_base(arr: &mut [i32], left: usize, res: &mut [i32]) {
-    res[left] = mem::replace(&mut arr[0], i32::default())
+fn merge_vecdeque_base(arr: &mut [i32], left: usize) -> VecDeque<i32> {
+    println!("In base case {:?}", arr);
+    let mut arr_merged = VecDeque::with_capacity(1);
+    let temp = mem::replace(&mut arr[0], i32::default());
+    arr_merged.push_back(temp);
+    return arr_merged;
 }
 ///////////////////////
 ////////////////////////////

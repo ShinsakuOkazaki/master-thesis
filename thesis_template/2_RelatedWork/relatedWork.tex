@@ -296,15 +296,15 @@ The impacts of initialization of Java ArrayList vary among elemet types. On the 
 \section{Elements Copy and Insertion into Size-initialized Vector in Rust.}
 \label{sec:history}
 In this experiment, four methods are used to insert elements into vector in Rust. One is clone method which performs bitwise deep copy. 
-Another is clone_from which also performs bitwise deep copy, but copies elements of the vector to distination vector rather than 
+Another is clone\_from which also performs bitwise deep copy, but copies elements of the vector to distination vector rather than 
 creating new one. We initialize the distination vector with the same size to the number of elements we insert into it. 
-Another is copy_nonoverlapping function which copies values from source to distination memory region. 
+Another is copy\_nonoverlapping function which copies values from source to distination memory region. 
 The other is pushing elements of source to distination vector one by one. Insertions of elements with 4 size are conducted 1000000, 1500000, 10000000, 15000000, and, 
 their runtimes for each elements type, integer and String are measured. 
 
 
 The figure shows the result of the experiment. Among the runtime performances of integer insertion for every methods, 
-clone, clone_from, and copy_nonoverlapping method shows the similar performance. However, the pushing the copy of elements one by one has much slower runtime performance 
+clone, clone\_from, and copy\_nonoverlapping method shows the similar performance. However, the pushing the copy of elements one by one has much slower runtime performance 
 compared to the rest. This is because integer elements are allocated contiguously in the memory, so that accessing address of memory by pointer reads some next address. 
 This boosts the copy and insertion of elements. 
 
@@ -459,7 +459,7 @@ The result shows the time to drop borrowing reference is significatly faster tha
 In Rust, there are two essential problems to construct graph structure, lifetime and mutability. 
 
 The first problem is about what kind of pointer to use to point to other nodes. 
-Since graph can be cyclic, so the ownership consept in Rust is violated if we use Box<Node>.
+Since graph can be cyclic, so the ownership consept in Rust is violated if we use Box$<$Node$>$.
 
 All of graph structure are immutable at least at creation time. Because graph may have cyclic, 
 we can not create graph at one statement. Although edge of graph has to be mutable to create entire graph structure, 
@@ -488,7 +488,7 @@ Currently available plan
 
 \section{Note for next}
 \label{sec:history}
-Complex object of elements copy and insertion among vector is worth to experiment. This can be compared with Java, ¥
+Complex object of elements copy and insertion among vector is worth to experiment. This can be compared with Java,
 because memory layouts of struct in Rust and class in Java are different. Rust stores fieds in the contiguous memory region. 
 However, Java stores field elements to different region.
 
@@ -504,7 +504,7 @@ This string type sets condition where it makes decition where the string is stor
 Comparing operation on reference and owned variable is also interested to examine.
 
 Comparing operation on various smart pointer type. 
-Rc<T> enables value to have multiple owners, but the value should be immutable. Rc$<$T$>$ is used in case of single thread. 
+Rc$<$T$>$ enables value to have multiple owners, but the value should be immutable. Rc$<$T$>$ is used in case of single thread. 
 When the situation is multi-thread, Arc$<$T$>$ is used. Arc$<$T$>$ performs atomic operation, so it is more expensive than Rc$<$T$>$. 
 When we need to mutate value of Rc$<$T$>$, RefCell$<$T$>$ can be useful. RefCell$<$T$>$ allow us to have mutiple mutable reference and immutable
 of reference mutable or immutable variable at the same time. When the mutability consistency is voilented, it terminates program during runtime. 
@@ -513,7 +513,7 @@ As Cell$<$T$>$, the value is copied in and out of the Cell$<$T$>$ instead of get
 In addition, Mutex$<$T$>$ provides intetior mutability across multi-thread.
 
 Comparison between mutable and immutable tree or graph structure can be checked. 
-This is because tree structure requires Rc$<$T$>$ or Week$<$T$>$ and in addition RefCell<T> to make it mutable.
+This is because tree structure requires Rc$<$T$>$ or Week$<$T$>$ and in addition RefCell$<$T$>$ to make it mutable.
 
 Design experiment for Trait object and Generic function. 
 We can have Trait object which is pointer to object which imprements its Trait and use the method of Trait object.
@@ -539,9 +539,10 @@ Smart pointer
 \end{itemize}
 
 Interier mutability
+\begin{itemize}
     \item Cell$<$T$>$: For only Copy type, it allows us to mutate variable, even if it is immutable. Howeever, it does not support sharing the variable so that it returns always copy of the value.
     \item RefCell$<$T$>$: This support sharing and interier immutability for all types. This is done by allowing to get mutable reference from immutable variable and push the error detacting time from compile time to runtime.
-    
+\end{itemize}    
 
 \section{LLVM}
 \label{sec:history}

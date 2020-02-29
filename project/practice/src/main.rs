@@ -14,31 +14,33 @@ fn main() {
     let size: usize = args[1].parse().unwrap();
     let mut nums = get_integer_vector(size);
     println!("Initial: {:?}", nums);
-    let res = mergesort_vecdeque(nums, 0, size);
+    let res = mergesort_vecdeque(nums, size);
     println!("Sorted: {:?}", res);
 }
 
-pub fn mergesort_vecdeque(mut arr: Vec<i32>, left: usize, right: usize) -> VecDeque<i32> {
-    let res = merge_helper_vecdeque(&mut arr[..], left, right, 0);
+pub fn mergesort_vecdeque(mut arr: Vec<i32>, len: usize) -> VecDeque<i32> {
+    let res = merge_helper_vecdeque(&mut arr[..], len, 0);
     return res;
 }
 
 
-fn merge_helper_vecdeque(arr: &mut [i32], left: usize, right: usize, depth: usize) -> VecDeque<i32> {
-    if right - left > 1 {
-        let mid = (left + right) / 2;
+fn merge_helper_vecdeque(arr: &mut [i32], len: usize ,depth: usize) -> VecDeque<i32> {
+    if len > 1 {
+        let mid = len / 2;
         let new_depth = depth + 1;
-        let (arr_right, arr_left) = arr.split_at_mut(mid);
+        let (arr_left, arr_right) = arr.split_at_mut(mid);
+        let len_left = arr_left.len();
+        let len_right = arr_right.len();
         let res_left: VecDeque<i32>;
         let res_right: VecDeque<i32>;
         if new_depth < MAX_THREADS {
             let (left_thread, right_thread) = crossbeam::scope(|scope| {
                 
                 let left_handler = scope.spawn(move |_| {
-                    merge_helper_vecdeque(arr_left, left, mid, new_depth)
+                    merge_helper_vecdeque(arr_left, len_left, new_depth)
                 });
                 let right_handler = scope.spawn(move |_| {
-                    merge_helper_vecdeque(arr_right, mid, right, new_depth)
+                    merge_helper_vecdeque(arr_right, len_right, new_depth)
                 });
                 
                 let l = left_handler.join().unwrap();
@@ -48,12 +50,12 @@ fn merge_helper_vecdeque(arr: &mut [i32], left: usize, right: usize, depth: usiz
             res_left = left_thread;
             res_right = right_thread;
         } else {
-            res_left = merge_helper_vecdeque(arr_right, left, mid, new_depth);
-            res_right = merge_helper_vecdeque(arr_left, mid, right, new_depth);
+            res_left = merge_helper_vecdeque(arr_left, len_left ,new_depth);
+            res_right = merge_helper_vecdeque(arr_right, len_right, new_depth);
         }
         return merge_vecdeque(res_left, res_right);
     }
-    return merge_vecdeque_base(arr, left);
+    return merge_vecdeque_base(arr);
 }
 
 fn merge_vecdeque(mut arr_left: VecDeque<i32>, mut arr_right: VecDeque<i32>) -> VecDeque<i32> {
@@ -80,8 +82,7 @@ fn merge_vecdeque(mut arr_left: VecDeque<i32>, mut arr_right: VecDeque<i32>) -> 
     return arr_merged;
 }
 
-fn merge_vecdeque_base(arr: &mut [i32], left: usize) -> VecDeque<i32> {
-    println!("In base case {:?}", arr);
+fn merge_vecdeque_base(arr: &mut [i32]) -> VecDeque<i32> {
     let mut arr_merged = VecDeque::with_capacity(1);
     let temp = mem::replace(&mut arr[0], i32::default());
     arr_merged.push_back(temp);

@@ -165,6 +165,8 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 OUTPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.aux
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/rust_memory_management.tex
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/rust_memory_management.tex
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty

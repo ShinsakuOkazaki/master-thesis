@@ -54,27 +54,25 @@ fn merge_vecdeque<T: 'static>(arr_left: VecDeque<Arc<T>>, arr_right: VecDeque<Ar
 {
     let arr_left_len = arr_left.len();
     let arr_right_len = arr_right.len();
-    let mut left_q = VecDeque::from(arr_left);
-    let mut right_q = VecDeque::from(arr_right);
     let mut arr_merged = VecDeque::with_capacity(arr_left_len + arr_right_len);
 
-    while !left_q.is_empty() && !right_q.is_empty() {
-        if left_q.front().unwrap() < right_q.front().unwrap() {
-            arr_merged.push_back(left_q.pop_front().unwrap());
+    while !arr_left.is_empty() && !arr_right.is_empty() {
+        if arr_left.front().unwrap() < arr_right.front().unwrap() {
+            arr_merged.push_back(arr_left.pop_front().unwrap());
         } else {
-            arr_merged.push_back(right_q.pop_front().unwrap());
+            arr_merged.push_back(arr_right.pop_front().unwrap());
         }
     }
 
-    if !left_q.is_empty() {
-        arr_merged.append(&mut left_q);
+    if !arr_left.is_empty() {
+        arr_merged.append(&mut arr_left);
     }
 
-    if !right_q.is_empty() {
-        arr_merged.append(&mut right_q);
+    if !arr_right.is_empty() {
+        arr_merged.append(&mut arr_right);
     }
 
-    return Vec::from(arr_merged);
+    return arr_merged;
 }
 
 fn merge_vecdeque_base<T: 'static>(arr: Arc<Vec<Arc<T>>>, left: usize) -> Vec<Arc<T>> 

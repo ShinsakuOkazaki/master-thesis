@@ -6,15 +6,7 @@
 
 \section{Memory Management in Rust}
 \label{sec:history}
-
-Each value in Rust has a variable called its owner. This owner has information about the value, such as location in memory, 
-length and capacity of the value. This owner can live on the scope associated with its life time. When the owner goes out of it’s scope, 
-the value will be dropped. When a value already assigned to a variable is assigned to another variable, if the value is allocated 
-on heap its information is copied to the new owner and drop the old owner disabling old variable. Similar thing happens when we pass variable to parameter of function. 
-After passing a variable to a parameter, all the information is copied to new owner through the parameter and old owner is no longer available. 
-The new owner can only live in the function and the object will be dropped. In this case, we have no longer access to the object after the function. 
-To avoid this, Rust has a concept called borrowing. We can set reference for the parameter of function and use the reference for operation within function and drop the reference, 
-but not the ownership. 
+\input{2_RelatedWork/rust_memory_management}
 
 
 \section{Spark and RDD Catching}
@@ -557,6 +549,11 @@ which places itself across frontend to optimizer. IR is designed to host mid-lev
 High-level language has many common structures and functionalities, so most of all high-level program languages can be represented with IR. 
 Once source code is represented with IR, optimizer can easily find pattern and optimize it in faster time. 
 IR is useful in terms of flontend. This is because developer of language flontend need to know only how the IR works and use the framework to develop a language.
+
+\section{The existing Big Data tools}
+\label{sec:history}
+The existing Big Data tools are JVM based. JVM abstract hardware so that JVM can rarely achieve near-native speed. A garbage collector is a
+
 
 
 \section{Todos}

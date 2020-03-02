@@ -1,0 +1,8 @@
+Spark is one of the most used big data computing framework. Spark uses Resilient Distributed Datasets (RDDs) which implement in-memory data structures 
+used to cache intermediate data across a set of nodes. This enables multiple rounds of computation on the same data, which is required for machine learning 
+and graph analytics iteratively process the data. 
+
+In RDD caching, there are different stages of caching, such as MEMOR\_YONLY and DISK\_ONLY. 
+Currently, for very large data sets, we need to pay attention to garbage collection (GC) and OS page swapping overhead, 
+because these could degrades execution time significantly. Therefore, DISK\_ONLY RDD caching can be better configuration in this case. 
+However, writing and reading intermediate data among desk and memory could have bad effects for execution time, due to need of serialization and deserialization. 

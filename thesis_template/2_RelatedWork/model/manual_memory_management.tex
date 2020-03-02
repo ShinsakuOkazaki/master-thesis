@@ -1,0 +1,21 @@
+Programming languages, such as C and C++, perform memory management manuallu and explicitly. The functions, malloc() and free(), take roll for
+memory allocation and deallocation in respectively. However, these method to manage memory may cause several problems and require developers 
+attention to the problems with siginificant effort for debugging and testing. Here, we explain two of the most common problems regarding to memory management.
+
+Dangling pointer or reference is apointer or reference pointing to object that no longer exists. The situation of dangling pointer happens 
+because of deallocation of memory without modification of value of the pointer. 
+If the memory region is reallocated for other object and the dangling pointer tries to aceess the original object, the unpredictable behavior may result. 
+
+Memory leak occurs when memory is acllocated and no longer referenced so that the object in the memory location cannot be reached and released.
+This is result of dereferencing object with deallocation. Memory leak consumes more memory than necessary by making unreachable location.
+
+Many solutions are established to address these problems. Garbage Collection (GC) is a sofisticated memory management storategy with sacrifice of computation resources 
+to track the state of memory. Resource Acquisition is Initialisation (RAII) is a solution without significant overhead and with limitation of situation where is applicable.
+Region-Based Memory Management is 
+
+
+Garbage Collection is automated - Reference Counting, Tracing, the cost of GC is propotional to number of objects (Vector and array is fastor than LinkedList in Java)
+(Refer https://www.oracle.com/technetwork/java/javase/tech/memorymanagement-whitepaper-1-150020.pdf)
+Resource Acquisition is Initialisation (RAII) (Refer https://www.stephanboyer.com/post/60/region-based-memory-management)
+Region-Based Memory Management (Refer Region-Based Memory Management in Cyclone)
+Rust, ownership and borrwing 

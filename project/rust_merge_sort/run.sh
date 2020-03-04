@@ -21,9 +21,9 @@ do
             echo "Size: $size, Method: $method, Counter: $counter"
 
             # Server experiment
-            # time cargo run --release $size $method
-            # Loacal experiment
             time cargo run --release $size $method
+            # Loacal experiment
+            # time cargo run --release $size $method
         done
     done
 cat loging.log  >  result/resultMergesort_"$size".txt

@@ -10,3 +10,6 @@ datastructure#size#method#sorttime
 [RustVector]#150000#"scope"#226473
 [RustVector]#150000#"scope"#206350
 [RustVector]#150000#"linkedlist"#322468
+[RustVector]#100#"shared"#823
+[RustVector]#100#"linkedlist"#4550
+[RustVector]#100#"scope"#4216

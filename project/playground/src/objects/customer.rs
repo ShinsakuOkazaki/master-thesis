@@ -6,6 +6,7 @@ use serde::ser::{Serialize, Serializer, SerializeStruct};
 use std::fmt;
 use std::marker::{Send, Sync};
 use std::sync::Arc;
+use std::default::Default;
 
 // Custorm trait (interface for all objects.)
 pub trait Customer {
@@ -17,7 +18,7 @@ pub trait Customer {
 
 
 // Objects whose fields are all owned.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub struct CustomerOwned {
     key: i32,
     age: i32,
@@ -55,7 +56,7 @@ pub struct CustomerBorrowed<'a> {
     comment: &'a String, 
     order: &'a OrderBorrowed<'a>
 }
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub struct CustomerRc {
     key: Rc<i32>,
     age: Rc<i32>,
@@ -75,7 +76,7 @@ pub struct CustomerRc {
 }
 
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub struct CustomerArc {
     key: Arc<i32>,
     age: Arc<i32>,

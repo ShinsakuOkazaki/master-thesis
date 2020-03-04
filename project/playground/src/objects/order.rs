@@ -3,8 +3,9 @@ use serde::ser::{Serialize, Serializer, SerializeStruct};
 use std::cmp::Ordering;
 use std::marker::Send;
 use std::sync::Arc;
+use std::default::Default;
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub struct OrderOwned {
     order_id: i32,
     num_items: i32, 
@@ -23,7 +24,7 @@ pub struct OrderBorrowed<'a> {
     comment: &'a String
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub struct OrderRc {
     order_id: Rc<i32>,
     num_items: Rc<i32>, 
@@ -32,7 +33,7 @@ pub struct OrderRc {
     title: Rc<String>,
     comment: Rc<String>
 }
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub struct OrderArc {
     order_id: Arc<i32>,
     num_items: Arc<i32>, 

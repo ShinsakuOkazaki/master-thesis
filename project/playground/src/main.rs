@@ -13,6 +13,7 @@ use objects::field::*;
 //use objects::access::*;
 use objects::sort::*;
 use std::mem;
+use std::collections::{VecDeque, LinkedList};
 
 
 fn main() {
@@ -48,17 +49,21 @@ fn main() {
     let (_t, mut customers) = create_customer_onwed_vector(size, keys, ages, num_purchases, total_purchases, duration_spents, duration_sinces, 
                                                 zip_codes, addresses, countries, states, first_names, last_names, provinces, comments, orders);
     
-
-    let mut smart_customers = Vec::with_capacity(size);
+    let mut atomic_custorms = VecDeque::with_capacity(size);
     for i in 0..size {
-        smart_customers.push(Arc::new(customers.remove(0)));
+        let customer = customers.remove(0);
+        atomic_custorms.push_back(Arc::new(customer));
     }
-    let sorted_customers = mergesort_mt_mp_gr_nocp(smart_customers, 0, size);
+    let sorted_customers = mergesort_vecdeque(atomic_custorms, 0, size);
     print!("cusotomer vector: [");
     for i in 0..size {
         print!("{}, ", sorted_customers[i]);
     }
     print!("]");
+
+
+    
+    
 
     let keys = get_integer_arc_vector(size);
     let ages = get_integer_arc_vector(size); 
@@ -97,5 +102,7 @@ fn main() {
         print!("{}, ", sorted_customers2[i]);
     }
     print!("]");
+
+    
     
 }

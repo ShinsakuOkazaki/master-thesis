@@ -3,40 +3,42 @@
 \contentsline {section}{\numberline {1.2}Problem Description}{2}% 
 \contentsline {chapter}{\numberline {2}Related Work}{4}% 
 \contentsline {section}{\numberline {2.1}Memory Management in Rust}{4}% 
-\contentsline {section}{\numberline {2.2}Spark and RDD Catching}{4}% 
-\contentsline {section}{\numberline {2.3}Memory Management of Java}{5}% 
-\contentsline {section}{\numberline {2.4}Memory Management Problems of Java}{5}% 
-\contentsline {section}{\numberline {2.5}Serialization}{7}% 
-\contentsline {section}{\numberline {2.6}Experiment of Memory Allocation}{7}% 
-\contentsline {section}{\numberline {2.7}Experiment of Memory Allocation for Different Element Type.}{8}% 
-\contentsline {section}{\numberline {2.8}Elements Copy and Insertion into Size-initialized Vector in Rust.}{9}% 
-\contentsline {section}{\numberline {2.9}Access time to elements in vector}{10}% 
-\contentsline {section}{\numberline {2.10}Access time to onwned, borrowed, and sliced field of object}{10}% 
-\contentsline {section}{\numberline {2.11}Accessment of different reference methods in Rust}{10}% 
-\contentsline {section}{\numberline {2.12}Time to Drop Reference vs Reference Counting}{11}% 
-\contentsline {section}{\numberline {2.13}Possible Graph Structure in Rust}{11}% 
-\contentsline {section}{\numberline {2.14}Experiment for Multithread}{11}% 
-\contentsline {section}{\numberline {2.15}Note for next}{12}% 
-\contentsline {section}{\numberline {2.16}LLVM}{13}% 
-\contentsline {section}{\numberline {2.17}The existing Big Data tools}{14}% 
-\contentsline {section}{\numberline {2.18}Todos}{14}% 
-\contentsline {section}{\numberline {2.19}Done}{15}% 
-\contentsline {section}{\numberline {2.20}Time Line}{15}% 
-\contentsline {chapter}{\numberline {3}Body of my thesis}{26}% 
-\contentsline {section}{\numberline {3.1}Some results}{26}% 
-\contentsline {chapter}{\numberline {4}Conclusions}{28}% 
-\contentsline {section}{\numberline {4.1}Summary of the thesis}{28}% 
-\contentsline {chapter}{\numberline {A}Proof of xyz}{29}% 
-\contentsline {section}{\numberline {A.1}Memory and Process in Operation Systems}{29}% 
-\contentsline {section}{\numberline {A.2}Miltithreading and Parallelism}{30}% 
-\contentsline {section}{\numberline {A.3}Memory management in Operation System}{30}% 
-\contentsline {section}{\numberline {A.4}Demand Paging}{31}% 
-\contentsline {section}{\numberline {A.5}Copy on Page}{32}% 
-\contentsline {section}{\numberline {A.6}Threads and Concurrency}{32}% 
-\contentsline {section}{\numberline {A.7}BLAS LAPACK}{32}% 
-\contentsline {section}{\numberline {A.8}Netlib-Java}{33}% 
-\contentsline {section}{\numberline {A.9}Create Java interface of CBLAS with JNI}{33}% 
-\contentsline {section}{\numberline {A.10}Matrix Computation and Optimization in Apache Spark}{34}% 
-\contentsline {section}{\numberline {A.11}Memory Management of each Linear Algebra Library}{35}% 
-\contentsline {chapter}{References}{37}% 
-\contentsline {chapter}{Curriculum Vitae}{38}% 
+\contentsline {section}{\numberline {2.2}State of the Art}{4}% 
+\contentsline {section}{\numberline {2.3}Hahoop MapReduce to Spark}{4}% 
+\contentsline {section}{\numberline {2.4}Resilient Distributed Datasets}{5}% 
+\contentsline {section}{\numberline {2.5}Memory Management of Java}{6}% 
+\contentsline {section}{\numberline {2.6}Memory Management Problems of Java}{7}% 
+\contentsline {section}{\numberline {2.7}Serialization}{8}% 
+\contentsline {section}{\numberline {2.8}Experiment of Memory Allocation}{8}% 
+\contentsline {section}{\numberline {2.9}Experiment of Memory Allocation for Different Element Type.}{9}% 
+\contentsline {section}{\numberline {2.10}Elements Copy and Insertion into Size-initialized Vector in Rust.}{10}% 
+\contentsline {section}{\numberline {2.11}Access time to elements in vector}{11}% 
+\contentsline {section}{\numberline {2.12}Access time to onwned, borrowed, and sliced field of object}{11}% 
+\contentsline {section}{\numberline {2.13}Accessment of different reference methods in Rust}{11}% 
+\contentsline {section}{\numberline {2.14}Time to Drop Reference vs Reference Counting}{12}% 
+\contentsline {section}{\numberline {2.15}Possible Graph Structure in Rust}{12}% 
+\contentsline {section}{\numberline {2.16}Experiment for Multithread}{13}% 
+\contentsline {section}{\numberline {2.17}Note for next}{13}% 
+\contentsline {section}{\numberline {2.18}LLVM}{15}% 
+\contentsline {section}{\numberline {2.19}The existing Big Data tools}{15}% 
+\contentsline {section}{\numberline {2.20}Todos}{15}% 
+\contentsline {section}{\numberline {2.21}Done}{16}% 
+\contentsline {section}{\numberline {2.22}Time Line}{16}% 
+\contentsline {chapter}{\numberline {3}Body of my thesis}{27}% 
+\contentsline {section}{\numberline {3.1}Some results}{27}% 
+\contentsline {chapter}{\numberline {4}Conclusions}{29}% 
+\contentsline {section}{\numberline {4.1}Summary of the thesis}{29}% 
+\contentsline {chapter}{\numberline {A}Proof of xyz}{30}% 
+\contentsline {section}{\numberline {A.1}Memory and Process in Operation Systems}{30}% 
+\contentsline {section}{\numberline {A.2}Miltithreading and Parallelism}{31}% 
+\contentsline {section}{\numberline {A.3}Memory management in Operation System}{31}% 
+\contentsline {section}{\numberline {A.4}Demand Paging}{32}% 
+\contentsline {section}{\numberline {A.5}Copy on Page}{33}% 
+\contentsline {section}{\numberline {A.6}Threads and Concurrency}{33}% 
+\contentsline {section}{\numberline {A.7}BLAS LAPACK}{33}% 
+\contentsline {section}{\numberline {A.8}Netlib-Java}{34}% 
+\contentsline {section}{\numberline {A.9}Create Java interface of CBLAS with JNI}{34}% 
+\contentsline {section}{\numberline {A.10}Matrix Computation and Optimization in Apache Spark}{35}% 
+\contentsline {section}{\numberline {A.11}Memory Management of each Linear Algebra Library}{36}% 
+\contentsline {chapter}{References}{38}% 
+\contentsline {chapter}{Curriculum Vitae}{39}% 

@@ -1,0 +1,49 @@
+\section{Hahoop MapReduce to Spark}
+\label{sec:history}
+In several Big Data mining tools that have been developed, the most notable ones are MapReduce and Spark. MapReduce is a cluster computing framework 
+which supports locality-aware scheduling, fault tolerance, and load balancing. Spark improves operations that MapReduce does not cover well. 
+
+MapReduce provides a programming model where the user creates acyclic data flow graphs to pass input data through a set of opperation. This 
+data flow programming model is useful for many of query applications. However, MapReduce framework struggles from two of main resent data mining jobs: iterative jobs and interactive analysis. 
+
+Iterative job is especially common in Machine Learning Algorithm, such as Gradient Descent. In traditional MapReduce framework, each iteration can be expressed as single MapReduce job 
+so taht each job must reload the data from disk. This leads I/O overhead and deteriorates performance of iterative algorithms. 
+
+Interactive analysis is also an inevitable task in modern data science. A data scientist want perform exploratory analysis in interactive way. 
+Nevertheless, MapReduce is designed in the way more sutable for ad-hoc query, so each analysis can be single MapReduce job. 
+To perform multiple analysis to explore dataset, the data needs to be written to and reload from disk many times. 
+
+To overcome these limitations, Spark has been developed as a new cluster computing framework maintaining the innovative characteristics of MapReduce and improving 
+its iterative and interactive jobs with in-memory data structure.
+
+
+\section{Resilient Distributed Datasets}
+\label{sec:history}
+The major methods in Spark are Resilient Distributed Datasets (RDDs), a data structue that abstracts distributed memoy across different clusters. 
+The immutable coarse-grained transformantion, spark-scheduler with lazy-evaluation, and memory management with cacheing achieve computation with fault-tolerance, 
+fast execution, and moderate control on memory efficiency.
+
+A RDD is essentially a multi-layer Java data structure. A top RDD object references Java array, which intern, references a set of tuple objects. 
+The coarse-grained transformantion and immutability requires a RDD to be deep-copied to produce a new RDD, but efficiently offers fault tolerance. 
+The lost partitions of a RDD can be recomputed in parallel on different nodes rather than rolling back the whole program.
+
+Spark-pipeline consists of sequence of transformations and actions over RDDs. A transformation produces a new RDD from a set of existing RDD. 
+An action is method that computes statistics from an RDD. Due to lazy-evaluation nature, transformantions do not materialize the newly created RDD. 
+Instead, RDD Lineages are created. Lineage is a graph among parent and child RDDs which represents logical execution plan. 
+This enhance fault-tolerance and improve ability to optimize execution plan. 
+
+
+
+
+
+
+
+
+Spark is one of the most used big data computing framework. Spark uses Resilient Distributed Datasets (RDDs) which implement in-memory data structures 
+used to cache intermediate data across a set of nodes. This enables multiple rounds of computation on the same data, which is required for machine learning 
+and graph analytics iteratively process the data. 
+
+In RDD caching, there are different stages of caching, such as MEMOR\_YONLY and DISK\_ONLY. 
+Currently, for very large data sets, we need to pay attention to garbage collection (GC) and OS page swapping overhead, 
+because these could degrades execution time significantly. Therefore, DISK\_ONLY RDD caching can be better configuration in this case. 
+However, writing and reading intermediate data among desk and memory could have bad effects for execution time, due to need of serialization and deserialization. 

@@ -12,4 +12,14 @@ Lamport, L. (1985).
   Reference Manual}.
 \newblock Ad{\-d}i{\-s}on-Wes{\-l}ey.
 
+\bibitem[Zaharia et~al., 2012]{DBLP:conf/nsdi/ZahariaCDDMMFSS12}
+Zaharia, M., Chowdhury, M., Das, T., Dave, A., Ma, J., McCauly, M., Franklin,
+  M.~J., Shenker, S., and Stoica, I. (2012).
+\newblock Resilient distributed datasets: {A} fault-tolerant abstraction for
+  in-memory cluster computing.
+\newblock In Gribble, S.~D. and Katabi, D., editors, {\em Proceedings of the
+  9th {USENIX} Symposium on Networked Systems Design and Implementation, {NSDI}
+  2012, San Jose, CA, USA, April 25-27, 2012}, pages 15--28. {USENIX}
+  Association.
+
 \end{thebibliography}

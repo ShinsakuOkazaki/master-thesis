@@ -21,7 +21,7 @@ its iterative and interactive jobs with in-memory data structure.
 \label{sec:history}
 The major methods in Spark are Resilient Distributed Datasets (RDDs), a data structue that abstracts distributed memoy across different clusters. 
 The immutable coarse-grained transformantion, spark-scheduler with lazy-evaluation, and memory management with cacheing achieve computation with fault-tolerance, 
-fast execution, and moderate control on memory efficiency.
+fast execution, and moderate control on memory efficiency \cite{DBLP:conf/nsdi/ZahariaCDDMMFSS12}.
 
 A RDD is essentially a multi-layer Java data structure. A top RDD object references Java array, which intern, references a set of tuple objects. 
 The coarse-grained transformantion and immutability requires a RDD to be deep-copied to produce a new RDD, but efficiently offers fault tolerance. 

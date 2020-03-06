@@ -27,7 +27,7 @@ fn run(method: i32, size: usize) {
     match method {
         1 => run_ex_shared(size),
         2 => run_ex_scope(size),
-        3 => run_ex_linkedlist(size),
+       //3 => run_ex_linkedlist(size),
         _ => println!("Wrong input!")
     }
 }

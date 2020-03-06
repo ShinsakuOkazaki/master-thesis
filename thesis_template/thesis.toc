@@ -6,24 +6,26 @@
 \contentsline {section}{\numberline {2.2}State of the Art}{4}% 
 \contentsline {section}{\numberline {2.3}Hahoop MapReduce to Spark}{4}% 
 \contentsline {section}{\numberline {2.4}Resilient Distributed Datasets}{5}% 
-\contentsline {section}{\numberline {2.5}Memory Management of Java}{6}% 
-\contentsline {section}{\numberline {2.6}Memory Management Problems of Java}{7}% 
-\contentsline {section}{\numberline {2.7}Serialization}{8}% 
-\contentsline {section}{\numberline {2.8}Experiment of Memory Allocation}{8}% 
-\contentsline {section}{\numberline {2.9}Experiment of Memory Allocation for Different Element Type.}{9}% 
-\contentsline {section}{\numberline {2.10}Elements Copy and Insertion into Size-initialized Vector in Rust.}{10}% 
-\contentsline {section}{\numberline {2.11}Access time to elements in vector}{11}% 
-\contentsline {section}{\numberline {2.12}Access time to onwned, borrowed, and sliced field of object}{11}% 
-\contentsline {section}{\numberline {2.13}Accessment of different reference methods in Rust}{11}% 
-\contentsline {section}{\numberline {2.14}Time to Drop Reference vs Reference Counting}{12}% 
-\contentsline {section}{\numberline {2.15}Possible Graph Structure in Rust}{12}% 
-\contentsline {section}{\numberline {2.16}Experiment for Multithread}{13}% 
-\contentsline {section}{\numberline {2.17}Note for next}{13}% 
-\contentsline {section}{\numberline {2.18}LLVM}{15}% 
-\contentsline {section}{\numberline {2.19}The existing Big Data tools}{15}% 
-\contentsline {section}{\numberline {2.20}Todos}{15}% 
-\contentsline {section}{\numberline {2.21}Done}{16}% 
-\contentsline {section}{\numberline {2.22}Time Line}{16}% 
+\contentsline {section}{\numberline {2.5}Memory Management in Spark}{6}% 
+\contentsline {section}{\numberline {2.6}Application to System Language}{6}% 
+\contentsline {section}{\numberline {2.7}Memory Management of Java}{6}% 
+\contentsline {section}{\numberline {2.8}Memory Management Problems of Java}{6}% 
+\contentsline {section}{\numberline {2.9}Serialization}{7}% 
+\contentsline {section}{\numberline {2.10}Experiment of Memory Allocation}{8}% 
+\contentsline {section}{\numberline {2.11}Experiment of Memory Allocation for Different Element Type.}{9}% 
+\contentsline {section}{\numberline {2.12}Elements Copy and Insertion into Size-initialized Vector in Rust.}{10}% 
+\contentsline {section}{\numberline {2.13}Access time to elements in vector}{11}% 
+\contentsline {section}{\numberline {2.14}Access time to onwned, borrowed, and sliced field of object}{11}% 
+\contentsline {section}{\numberline {2.15}Accessment of different reference methods in Rust}{11}% 
+\contentsline {section}{\numberline {2.16}Time to Drop Reference vs Reference Counting}{12}% 
+\contentsline {section}{\numberline {2.17}Possible Graph Structure in Rust}{12}% 
+\contentsline {section}{\numberline {2.18}Experiment for Multithread}{13}% 
+\contentsline {section}{\numberline {2.19}Note for next}{13}% 
+\contentsline {section}{\numberline {2.20}LLVM}{15}% 
+\contentsline {section}{\numberline {2.21}The existing Big Data tools}{15}% 
+\contentsline {section}{\numberline {2.22}Todos}{15}% 
+\contentsline {section}{\numberline {2.23}Done}{16}% 
+\contentsline {section}{\numberline {2.24}Time Line}{16}% 
 \contentsline {chapter}{\numberline {3}Body of my thesis}{27}% 
 \contentsline {section}{\numberline {3.1}Some results}{27}% 
 \contentsline {chapter}{\numberline {4}Conclusions}{29}% 

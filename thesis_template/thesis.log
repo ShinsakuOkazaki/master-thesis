@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  5 MAR 2020 18:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  5 MAR 2020 19:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -272,13 +272,19 @@ LaTeX Warning: Label `sec:history' multiply defined.
 LaTeX Warning: Label `sec:history' multiply defined.
 
 
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
 LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
 
 
 LaTeX Warning: Label `sec:history' multiply defined.
@@ -516,12 +522,10 @@ Chapter 2.
 
 
 
-])
-Overfull \hbox (2.10625pt too wide) in paragraph at lines 46--15
-[]\OT1/cmr/m/n/10 In RDD caching, there are dif-fer-ent stages of caching, such as MEMOR[]YONLY and DISK[]ONLY.
- []
-
-[5] (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/memory_management_java.tex
+]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 46.
+ [5]) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/memory_management_java.tex
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_heap.eps>
 (epstopdf)                    date: 2019-11-14 18:46:46
 (epstopdf)                    size: 12541 bytes
@@ -550,7 +554,7 @@ File: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf  used on input line 28.
 (pdftex.def)             Requested size: 426.79134pt x 308.7261pt.
-) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/manual_memory_management.tex [6 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_heap-eps-converted-to.pdf>] [7 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_gc-eps-converted-to.pdf>])
+) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/manual_memory_management.tex [6])
 Overfull \hbox (234.4646pt too wide) in paragraph at lines 17--25
 \OT1/cmr/m/n/10 num-ber of ob-jects (Vec-tor and ar-ray is fas-tor than LinkedList in Java) (Re-fer https://www.oracle.com/technetwork/java/javase/tech/memorymanagement-
  []
@@ -565,7 +569,7 @@ Overfull \hbox (5.13081pt too wide) in paragraph at lines 17--25
 \OT1/cmr/m/n/10 based-memory-management) Region-Based Mem-ory Man-age-ment (Re-fer Region-Based Mem-ory Man-
  []
 
-(/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/serialization.tex) [8]
+(/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/serialization.tex) [7 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_heap-eps-converted-to.pdf>] [8 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_gc-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_arraylist.eps>
 (epstopdf)                    date: 2019-11-25 13:54:43
 (epstopdf)                    size: 45888 bytes
@@ -595,8 +599,6 @@ File: 2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf Graphic file (type 
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf  used on input line 67.
 (pdftex.def)             Requested size: 426.79134pt x 426.79732pt.
  [9]
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 100.
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_arraylist_log.eps>
 (epstopdf)                    date: 2020-01-03 16:52:23
 (epstopdf)                    size: 75115 bytes
@@ -702,7 +704,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_droptime_borring
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf 2_RelatedWork/Figures/rust_droptime_borring_rc.eps>
 (epstopdf)             \includegraphics on input line 304.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf, id=101, 1084.05pt x 722.7pt>
+<2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf, id=100, 1084.05pt x 722.7pt>
 File: 2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf  used on input line 304.
@@ -813,7 +815,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  42i,10n,53p,433b,1325s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (50 pages, 482185 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (50 pages, 482446 bytes).
 PDF statistics:
  625 PDF objects out of 1000 (max. 8388607)
  215 compressed objects within 3 object streams

@@ -3,7 +3,7 @@ use serde::ser::Serialize;
 use std::fs::OpenOptions;
 use std::io::prelude::*;
 use std::time::Instant;
-use std::collections::LinkedList;
+//use std::collections::LinkedList;
 
 fn de_serialize<T>(customer: &T) 
     where T: Customer + Serialize, 
@@ -17,15 +17,15 @@ fn de_serialize<T>(customer: &T)
     file.write_all(serialized.as_bytes()).expect("Fail to write file.");
 }
 
-pub fn access_linkedlist(customers: &LinkedList<CustomerOwned>) -> u128 {
-    let mut iterater = customers.iter();
-    let start = Instant::now();
-    while let Some(customer) = iterater.next() {
-        de_serialize(customer);
-    }
-    let elapsed = start.elapsed().as_millis(); 
-    elapsed 
-}
+// pub fn access_linkedlist(customers: &LinkedList<CustomerOwned>) -> u128 {
+//     let mut iterater = customers.iter();
+//     let start = Instant::now();
+//     while let Some(customer) = iterater.next() {
+//         de_serialize(customer);
+//     }
+//     let elapsed = start.elapsed().as_millis(); 
+//     elapsed 
+// }
 
 
 // Function access object whose field is owned.

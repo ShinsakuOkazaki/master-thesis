@@ -1,10 +1,11 @@
 use std::thread;
 pub use std::sync::{mpsc, Arc};
-use std::cell::RefCell;
+//use std::cell::RefCell;
 use crate::objects::customer::*;
 //use std::cmp::Ordering;
 use std::marker::{Send, Sync};
-use std::collections::{LinkedList, VecDeque};
+use std::collections::VecDeque;
+//use std::collections::LinkedList;
 use std::default::Default;
 use std::time::Instant;
 
@@ -180,68 +181,68 @@ fn merge_vecdeque_base_slice<T: 'static>(arr: &mut [T]) -> VecDeque<T>
 
 
 
-pub fn mergesort_linkedlist<T: 'static>(head: LinkedList<T>) -> (u128, LinkedList<T>)
-    where T: Clone + Customer + PartialOrd + Send + Sync + Default
-{
-    let start = Instant::now();
-    let l = head.len();
-    let res = merge_helper_linkedlist(head, 0, l, 0);
-    let elapsed = start.elapsed().as_micros();
-    return (elapsed, res);
-}
+// pub fn mergesort_linkedlist<T: 'static>(head: LinkedList<T>) -> (u128, LinkedList<T>)
+//     where T: Clone + Customer + PartialOrd + Send + Sync + Default
+// {
+//     let start = Instant::now();
+//     let l = head.len();
+//     let res = merge_helper_linkedlist(head, 0, l, 0);
+//     let elapsed = start.elapsed().as_micros();
+//     return (elapsed, res);
+// }
 
-fn merge_helper_linkedlist<T: 'static>(mut head: LinkedList<T>, left: usize, right: usize, depth: usize) ->LinkedList<T> 
-    where T: Clone + Customer + PartialOrd + Send + Sync + Default
-{
-    if right - left > 1 {
-        let mid = (left + right) / 2;
-        let new_depth = depth + 1;
-        let mut right_head = head.split_off(mid);
-        let mut left_head = head;
-        let right_len = right_head.len();
-        let left_len = left_head.len();
-        if new_depth < MAX_THREADS {
-            let (sender1, receiver1) = crossbeam::channel::unbounded();
-            let (sender2, receiver2) = crossbeam::channel::unbounded(); 
-            let left_ptr = RefCell::new(left_head);
-            let right_ptr = RefCell::new(right_head);
-            let _ = thread::spawn(move || {
-                let sorted = merge_helper_linkedlist(left_ptr.into_inner(), 0, left_len, new_depth);
-                sender1.send(sorted).unwrap();
-            });
-            let _ = thread::spawn(move || {
-                let sorted = merge_helper_linkedlist(right_ptr.into_inner(), 0, right_len, new_depth);
-                sender2.send(sorted).unwrap();
-            });
-            left_head = receiver1.recv().unwrap();
-            right_head = receiver2.recv().unwrap(); 
-        } else {
-            left_head = merge_helper_linkedlist(left_head, 0, left_len, new_depth);
-            right_head = merge_helper_linkedlist(right_head, 0, right_len, new_depth);
-        }
-        return merge_linkedlist(left_head, right_head);
-    }
-    return head;
-}
+// fn merge_helper_linkedlist<T: 'static>(mut head: LinkedList<T>, left: usize, right: usize, depth: usize) ->LinkedList<T> 
+//     where T: Clone + Customer + PartialOrd + Send + Sync + Default
+// {
+//     if right - left > 1 {
+//         let mid = (left + right) / 2;
+//         let new_depth = depth + 1;
+//         let mut right_head = head.split_off(mid);
+//         let mut left_head = head;
+//         let right_len = right_head.len();
+//         let left_len = left_head.len();
+//         if new_depth < MAX_THREADS {
+//             let (sender1, receiver1) = crossbeam::channel::unbounded();
+//             let (sender2, receiver2) = crossbeam::channel::unbounded(); 
+//             let left_ptr = RefCell::new(left_head);
+//             let right_ptr = RefCell::new(right_head);
+//             let _ = thread::spawn(move || {
+//                 let sorted = merge_helper_linkedlist(left_ptr.into_inner(), 0, left_len, new_depth);
+//                 sender1.send(sorted).unwrap();
+//             });
+//             let _ = thread::spawn(move || {
+//                 let sorted = merge_helper_linkedlist(right_ptr.into_inner(), 0, right_len, new_depth);
+//                 sender2.send(sorted).unwrap();
+//             });
+//             left_head = receiver1.recv().unwrap();
+//             right_head = receiver2.recv().unwrap(); 
+//         } else {
+//             left_head = merge_helper_linkedlist(left_head, 0, left_len, new_depth);
+//             right_head = merge_helper_linkedlist(right_head, 0, right_len, new_depth);
+//         }
+//         return merge_linkedlist(left_head, right_head);
+//     }
+//     return head;
+// }
 
-fn merge_linkedlist<T: 'static>(mut left_head: LinkedList<T>, mut right_head: LinkedList<T>) ->LinkedList<T> 
-    where T: Clone + Customer + PartialOrd + Send + Sync + Default
-{    
-    let mut merged = LinkedList::new();
-    while !left_head.is_empty() && !right_head.is_empty() {
-        if left_head.front().unwrap() < right_head.front().unwrap() {
-            merged.push_back(left_head.pop_front().unwrap());
-        } else {
-            merged.push_back(right_head.pop_front().unwrap());
-        }
-    }
+// fn merge_linkedlist<T: 'static>(mut left_head: LinkedList<T>, mut right_head: LinkedList<T>) ->LinkedList<T> 
+//     where T: Clone + Customer + PartialOrd + Send + Sync + Default
+// {    
+//     let mut merged = LinkedList::new();
+//     while !left_head.is_empty() && !right_head.is_empty() {
+//         if left_head.front().unwrap() < right_head.front().unwrap() {
+//             merged.push_back(left_head.pop_front().unwrap());
+//         } else {
+//             merged.push_back(right_head.pop_front().unwrap());
+//         }
+//     }
 
-    if !left_head.is_empty() {
-        merged.append(&mut left_head);
-    }
+//     if !left_head.is_empty() {
+//         merged.append(&mut left_head);
+//     }
 
-    if !right_head.is_empty() {
-        merged.append(&mut right_head);
-    }
-    return merged;
-}
+//     if !right_head.is_empty() {
+//         merged.append(&mut right_head);
+//     }
+//     return merged;
+// }

@@ -4,12 +4,12 @@ cargo clean
 cargo build --release
 
 
-for size in 100000 150000 200000
+for size in 1000000 2000000 3000000 4000000 
 do
     rm -rf loging.log
     echo "datastructure#size#method#sorttime" > loging.log
 
-    for method in 1 2 3
+    for method in 1 2
     do
         
         for counter in 1 2 3 4 5
@@ -28,3 +28,4 @@ do
     done
 cat loging.log  >  result/resultMergesort_"$size".txt
 done
+cat string.log  >  result/vectorSize.txt

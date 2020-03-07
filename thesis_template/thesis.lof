@@ -2,7 +2,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2$\cdot $1}{\ignorespaces Java Heap Structure\relax }}{7}% 
 \contentsline {figure}{\numberline {2$\cdot $2}{\ignorespaces Java Garbage Collection\relax }}{8}% 
-\contentsline {figure}{\numberline {2$\cdot $3}{\ignorespaces Memory allocation of ArrayList in Java\relax }}{17}% 
+\contentsline {figure}{\numberline {2$\cdot $3}{\ignorespaces Memory allocation of ArrayList in Java\relax }}{10}% 
 \contentsline {figure}{\numberline {2$\cdot $4}{\ignorespaces Memory allocation of Vector in Rust\relax }}{18}% 
 \contentsline {figure}{\numberline {2$\cdot $5}{\ignorespaces Representation of Customer object in Java.\relax }}{18}% 
 \contentsline {figure}{\numberline {2$\cdot $6}{\ignorespaces Representation of Customer object in Rust.\relax }}{19}% 

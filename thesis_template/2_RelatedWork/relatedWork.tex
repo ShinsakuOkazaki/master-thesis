@@ -412,7 +412,8 @@ The existing Big Data tools are JVM based. JVM abstract hardware so that JVM can
 \section{Experiment: Tree aggregate}
 \label{sec:history}
 Three aggregate can be more memory de/allocation intensive experiment, when we load data from disk line by line to aggregate.
-This is because, we will allocate many small objects and deallocate them many times. 
+This is because, we will allocate many small objects and deallocate them many times.
+We can imitate ShuffledRDDs by writing result to disk and reading it to other thread.  
 We can compare to Java implementation for ration of runtime increase.
 
 
@@ -425,7 +426,7 @@ We can compare to Java implementation for ration of runtime increase.
     \item 
     \item Redo the experiment with appropriate size
     \item Document for Memory Management of Java with Garbage Collection and the impact for Big Data tools
-    \item The safety of Region Based Maemory Management and advantage of using Rust.
+    \item The safety of Region Based Memory Management and advantage of using Rust.
     \item Serialize problem 
     \item Document for reference counting(measure dropt time using criterion)
     \item Design experiment for Graph
@@ -450,3 +451,8 @@ We can compare to Java implementation for ration of runtime increase.
 \end{itemize}
 
 
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{rust_merge_sort.eps}
+    \caption{mergesort}
+    \label{fig:Sampling}
+\end{figure}

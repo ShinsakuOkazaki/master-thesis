@@ -3,6 +3,7 @@ use crate::objects::order::OrderOwned;
 use std::time::Instant;
 use std::cmp::Ordering;
 use serde::ser::{Serialize, Serializer, SerializeStruct};
+use serde::de::{self, Deserialize, Deserializer, Visitor, SeqAccess, MapAccess};
 use std::fmt;
 use std::marker::{Send, Sync};
 //use std::sync::Arc;
@@ -524,6 +525,258 @@ impl Serialize for CustomerOwned {
         state.serialize_field("comment", &self.comment)?;
         state.serialize_field("order", &self.order)?;
         state.end()
+    }
+}
+
+
+impl<'de> Deserialize<'de> for CustomerOwned {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where D: Deserializer<'de>,
+    {
+        enum Field {Key, Age, NumPurchase, TotalPurchase, DurationSpent, DurationSince, 
+                    ZipCode, Address, Country, State, FirstName, 
+                    LastName, Province, Comment, Order};
+
+        impl<'de> Deserialize<'de> for Field {
+            fn deserialize<D>(deserializer: D) -> Result<Field, D::Error>
+            where D: Deserializer<'de>, 
+            {
+                struct FieldVisitor;
+
+                impl<'de> Visitor<'de> for FieldVisitor {
+                    type Value = Field;
+
+                    fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+                        formatter.write_str("9 fields")
+                    }
+
+                    fn visit_str<E>(self, value: &str) -> Result<Field, E>
+                    where E: de::Error, 
+                    {
+                        match value {
+                            "key" => Ok(Field::Key), 
+                            "age" => Ok(Field::Age), 
+                            "num_purchase" => Ok(Field::NumPurchase),  
+                            "total_purchase" => Ok(Field::TotalPurchase),
+                            "duration_spent" => Ok(Field::DurationSpent),
+                            "duration_since" => Ok(Field::DurationSince),
+                            "zip_code" => Ok(Field::ZipCode),
+                            "address" => Ok(Field::Address),
+                            "country" => Ok(Field::Country),
+                            "state" => Ok(Field::State),
+                            "first_name" => Ok(Field::FirstName),
+                            "last_name" => Ok(Field::LastName),
+                            "province" => Ok(Field::Province),
+                            "comment" => Ok(Field::Comment),
+                            "order" => Ok(Field::Order),
+                            _ => Err(de::Error::unknown_field(value, FIELDS)),
+                        }
+                    }
+                }
+
+                deserializer.deserialize_identifier(FieldVisitor)
+            }
+        }
+
+        struct CustomerOwnedVisitor;
+
+        impl<'de> Visitor<'de> for CustomerOwnedVisitor {
+            type Value = CustomerOwned;
+
+            fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+                formatter.write_str("struct CostomerOwned")
+            }
+
+            fn visit_seq<V>(self, mut seq: V) -> Result<CustomerOwned, V::Error>
+            where V: SeqAccess<'de>,
+            {
+                let key = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+                
+                let age = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+                
+                let num_purchase = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+                
+                let total_purchase = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+
+                let duration_spent = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+
+                let duration_since = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+
+                let zip_code = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+
+                let address = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+
+                let country = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+
+                let state = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+
+                let first_name = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+
+                let last_name = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+
+                let province = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+
+                let comment = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+
+                let order = seq.next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+                
+                Ok(CustomerOwned::new(
+                    key, age, num_purchase, total_purchase, duration_spent, duration_since,
+                    zip_code, address, country, state, first_name, last_name, province, comment, order))
+            }
+
+            fn visit_map<V>(self, mut map: V) -> Result<CustomerOwned, V::Error>
+            where V: MapAccess<'de>,
+            {
+                let mut key = None;
+                let mut age = None;
+                let mut num_purchase = None;
+                let mut total_purchase = None;
+                let mut duration_spent = None;
+                let mut duration_since = None;
+                let mut zip_code = None;
+                let mut address = None;
+                let mut country = None;
+                let mut state = None;
+                let mut first_name = None;
+                let mut last_name = None;
+                let mut province = None;
+                let mut comment = None;
+                let mut order = None;
+
+                while let Some(k) = map.next_key()? {
+                    match k {
+                        Field::Key => {
+                            if key.is_some() {
+                                return Err(de::Error::duplicate_field("key"));
+                            }
+                            key = Some(map.next_value()?);
+                        }
+                        Field::Age => {
+                            if age.is_some() {
+                                return Err(de::Error::duplicate_field("age"));
+                            }
+                            age = Some(map.next_value()?);
+                        }
+                        Field::NumPurchase => {
+                            if num_purchase.is_some() {
+                                return Err(de::Error::duplicate_field("num_purchase"));
+                            }
+                            num_purchase = Some(map.next_value()?);
+                        }
+                        Field::TotalPurchase => {
+                            if total_purchase.is_some() {
+                                return Err(de::Error::duplicate_field("total_purchase"));
+                            }
+                            total_purchase = Some(map.next_value()?);
+                        }
+                        Field::DurationSpent => {
+                            if duration_spent.is_some() {
+                                return Err(de::Error::duplicate_field("duration_spent"));
+                            }
+                            duration_spent = Some(map.next_value()?);
+                        }
+                        Field::DurationSince => {
+                            if duration_since.is_some() {
+                                return Err(de::Error::duplicate_field("duration_since"));
+                            }
+                            duration_since = Some(map.next_value()?);
+                        }
+                        Field::ZipCode => {
+                            if zip_code.is_some() {
+                                return Err(de::Error::duplicate_field("zip_code"));
+                            }
+                            zip_code = Some(map.next_value()?);
+                        }
+                        Field::Address => {
+                            if address.is_some() {
+                                return Err(de::Error::duplicate_field("address"));
+                            }
+                            address = Some(map.next_value()?);
+                        }
+                        Field::Country => {
+                            if country.is_some() {
+                                return Err(de::Error::duplicate_field("country"));
+                            }
+                            country = Some(map.next_value()?);
+                        }
+                        Field::State => {
+                            if state.is_some() {
+                                return Err(de::Error::duplicate_field("state"));
+                            }
+                            state = Some(map.next_value()?);
+                        }
+                        Field::FirstName => {
+                            if first_name.is_some() {
+                                return Err(de::Error::duplicate_field("first_name"));
+                            }
+                            first_name = Some(map.next_value()?);
+                        }
+                        Field::LastName => {
+                            if last_name.is_some() {
+                                return Err(de::Error::duplicate_field("last_name"));
+                            }
+                            last_name = Some(map.next_value()?);
+                        }
+                        Field::Province => {
+                            if province.is_some() {
+                                return Err(de::Error::duplicate_field("province"));
+                            }
+                            province = Some(map.next_value()?);
+                        }
+                        Field::Comment => {
+                            if comment.is_some() {
+                                return Err(de::Error::duplicate_field("comment"));
+                            }
+                            comment = Some(map.next_value()?);
+                        }
+                        Field::Order => {
+                            if order.is_some() {
+                                return Err(de::Error::duplicate_field("order"));
+                            }
+                            order = Some(map.next_value()?);
+                        }
+                    }
+                }
+                let key = key.ok_or_else(|| de::Error::missing_field("key"))?;
+                let age = age.ok_or_else(|| de::Error::missing_field("age"))?;
+                let num_purchase = num_purchase.ok_or_else(|| de::Error::missing_field("num_purchase"))?;
+                let total_purchase = total_purchase.ok_or_else(|| de::Error::missing_field("total_purchase"))?;
+                let duration_spent = duration_spent.ok_or_else(|| de::Error::missing_field("duration_spent"))?;
+                let duration_since = duration_since.ok_or_else(|| de::Error::missing_field("duration_since"))?;
+                let zip_code = zip_code.ok_or_else(|| de::Error::missing_field("zip_code"))?;
+                let address = address.ok_or_else(|| de::Error::missing_field("address"))?;
+                let country = country.ok_or_else(|| de::Error::missing_field("country"))?;
+                let state = state.ok_or_else(|| de::Error::missing_field("state"))?;
+                let first_name = first_name.ok_or_else(|| de::Error::missing_field("first_name"))?;
+                let last_name = last_name.ok_or_else(|| de::Error::missing_field("last_name"))?;
+                let province = province.ok_or_else(|| de::Error::missing_field("province"))?;
+                let comment = comment.ok_or_else(|| de::Error::missing_field("comment"))?;
+                let order = order.ok_or_else(|| de::Error::missing_field("order"))?;
+                Ok(CustomerOwned::new(
+                    key, age, num_purchase, total_purchase, duration_spent, duration_since,
+                    zip_code, address, country, state, first_name, last_name, province, comment, order))
+            }
+        }
+        const FIELDS: &'static [&'static str] = &["key", "age", "num_purchase", "total_purchase", "duration_spent", 
+                                                  "duration_since", "zip_code", "address", "country", "state", 
+                                                  "first_name", "last_name", "province", "comment", "order"];
+        deserializer.deserialize_struct("CustomerOwned", FIELDS, CustomerOwnedVisitor)
     }
 }
 

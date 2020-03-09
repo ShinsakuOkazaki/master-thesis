@@ -26,21 +26,21 @@
 \contentsline {section}{\numberline {2.22}Todos}{17}% 
 \contentsline {section}{\numberline {2.23}Done}{17}% 
 \contentsline {section}{\numberline {2.24}Time Line}{18}% 
-\contentsline {chapter}{\numberline {3}Body of my thesis}{28}% 
-\contentsline {section}{\numberline {3.1}Some results}{28}% 
-\contentsline {chapter}{\numberline {4}Conclusions}{30}% 
-\contentsline {section}{\numberline {4.1}Summary of the thesis}{30}% 
-\contentsline {chapter}{\numberline {A}Proof of xyz}{31}% 
-\contentsline {section}{\numberline {A.1}Memory and Process in Operation Systems}{31}% 
-\contentsline {section}{\numberline {A.2}Miltithreading and Parallelism}{32}% 
-\contentsline {section}{\numberline {A.3}Memory management in Operation System}{32}% 
-\contentsline {section}{\numberline {A.4}Demand Paging}{33}% 
+\contentsline {chapter}{\numberline {3}Body of my thesis}{29}% 
+\contentsline {section}{\numberline {3.1}Some results}{29}% 
+\contentsline {chapter}{\numberline {4}Conclusions}{31}% 
+\contentsline {section}{\numberline {4.1}Summary of the thesis}{31}% 
+\contentsline {chapter}{\numberline {A}Proof of xyz}{32}% 
+\contentsline {section}{\numberline {A.1}Memory and Process in Operation Systems}{32}% 
+\contentsline {section}{\numberline {A.2}Multi-threading and Parallelism}{33}% 
+\contentsline {section}{\numberline {A.3}Memory management in Operation System}{33}% 
+\contentsline {section}{\numberline {A.4}Demand Paging}{34}% 
 \contentsline {section}{\numberline {A.5}Copy on Page}{34}% 
-\contentsline {section}{\numberline {A.6}Threads and Concurrency}{34}% 
-\contentsline {section}{\numberline {A.7}BLAS LAPACK}{34}% 
-\contentsline {section}{\numberline {A.8}Netlib-Java}{35}% 
-\contentsline {section}{\numberline {A.9}Create Java interface of CBLAS with JNI}{35}% 
-\contentsline {section}{\numberline {A.10}Matrix Computation and Optimization in Apache Spark}{36}% 
-\contentsline {section}{\numberline {A.11}Memory Management of each Linear Algebra Library}{37}% 
-\contentsline {chapter}{References}{39}% 
-\contentsline {chapter}{Curriculum Vitae}{40}% 
+\contentsline {section}{\numberline {A.6}Threads and Concurrency}{35}% 
+\contentsline {section}{\numberline {A.7}BLAS LAPACK}{35}% 
+\contentsline {section}{\numberline {A.8}Netlib-Java}{36}% 
+\contentsline {section}{\numberline {A.9}Create Java interface of CBLAS with JNI}{36}% 
+\contentsline {section}{\numberline {A.10}Matrix Computation and Optimization in Apache Spark}{37}% 
+\contentsline {section}{\numberline {A.11}Memory Management of each Linear Algebra Library}{38}% 
+\contentsline {chapter}{References}{40}% 
+\contentsline {chapter}{Curriculum Vitae}{41}% 

@@ -61,8 +61,9 @@ After objects survive several GCs in Survivor space, they are finally promoted t
 In old generation, JVM lunches multi-thread to perform GC. GC with multi-threading suffers from Stop-The-World (STW) pauses; 
 GC may suspend application threads while performing object marking and deallocation. 
 Different GC algorithms try to solve this problem with trade-off between GC frequency and memory utilization. 
-Because of the problem of STW, JVM GC is inefficient when number of objects is large. 
-Therefore, GC become severe issue under Big Data situation where might produce significant number of object.
+
+Because of the problem of STW and copying objects to different physical memory pages , JVM GC cause huge overhead when number of objects is large. 
+Therefore, GC become severe issue in Big Data processing where might produce significant number of object.
 
 \begin{figure}[htb]
     \includegraphics[width=15cm]{java_heap.eps}

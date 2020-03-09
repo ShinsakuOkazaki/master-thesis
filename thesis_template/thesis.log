@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 MAR 2020 20:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  9 MAR 2020 15:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -367,6 +367,9 @@ LaTeX Warning: Label `fig:Sampling' multiply defined.
 
 LaTeX Warning: Label `fig:Sampling' multiply defined.
 
+
+LaTeX Warning: Label `fig:Sampling' multiply defined.
+
 ) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.aux
 
 LaTeX Warning: Label `fig:Sampling' multiply defined.
@@ -530,12 +533,12 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_heap.eps>
 (epstopdf)                    date: 2019-11-14 18:50:12
 (epstopdf)                    size: 5658 bytes
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_heap-eps-converted-to.pdf 2_RelatedWork/Figures/java_heap.eps>
-(epstopdf)             \includegraphics on input line 68.
+(epstopdf)             \includegraphics on input line 69.
 Package epstopdf Info: Output file is already uptodate.
 <2_RelatedWork/Figures/java_heap-eps-converted-to.pdf, id=64, 514.92375pt x 150.5625pt>
 File: 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf>
-Package pdftex.def Info: 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf  used on input line 68.
+Package pdftex.def Info: 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf  used on input line 69.
 (pdftex.def)             Requested size: 426.79134pt x 124.79453pt.
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_gc.eps>
 (epstopdf)                    date: 2019-11-14 19:00:52
@@ -544,15 +547,15 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_gc.eps>
 (epstopdf)                    date: 2019-11-14 19:01:21
 (epstopdf)                    size: 37749 bytes
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_gc-eps-converted-to.pdf 2_RelatedWork/Figures/java_gc.eps>
-(epstopdf)             \includegraphics on input line 74.
+(epstopdf)             \includegraphics on input line 75.
 Package epstopdf Info: Output file is already uptodate.
 <2_RelatedWork/Figures/java_gc-eps-converted-to.pdf, id=65, 1150.2975pt x 832.10875pt>
 File: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf>
-Package pdftex.def Info: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf  used on input line 74.
+Package pdftex.def Info: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf  used on input line 75.
 (pdftex.def)             Requested size: 426.79134pt x 308.7261pt.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
 ) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/manual_memory_management.tex [7 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_heap-eps-converted-to.pdf>])
 Overfull \hbox (234.4646pt too wide) in paragraph at lines 17--20
 \OT1/cmr/m/n/10 num-ber of ob-jects (Vec-tor and ar-ray is fas-tor than LinkedList in Java) (Re-fer https://www.oracle.com/technetwork/java/javase/tech/memorymanagement-
@@ -708,7 +711,22 @@ File: 2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf Graphi
 <use 2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf  used on input line 299.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [14] [15] [16] [17]) [18] [19 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf>] [20 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_log-eps-converted-to.pdf>] [21 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector_log-eps-converted-to.pdf>] [22 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_difference-eps-converted-to.pdf>] [23 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf>] [24 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf>] [25 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>] [26] [27 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>]
+ [14] [15] [16] [17]
+Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_merge_sort.eps>
+(epstopdf)                    date: 2020-03-06 12:42:48
+(epstopdf)                    size: 32060 bytes
+(epstopdf)             Output file: <2_RelatedWork/Figures/rust_merge_sort-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-03-08 23:14:42
+(epstopdf)                    size: 18108 bytes
+(epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust_merge_sort-eps-converted-to.pdf 2_RelatedWork/Figures/rust_merge_sort.eps>
+(epstopdf)             \includegraphics on input line 455.
+Package epstopdf Info: Output file is already uptodate.
+<2_RelatedWork/Figures/rust_merge_sort-eps-converted-to.pdf, id=151, 1084.05pt x 722.7pt>
+File: 2_RelatedWork/Figures/rust_merge_sort-eps-converted-to.pdf Graphic file (type pdf)
+<use 2_RelatedWork/Figures/rust_merge_sort-eps-converted-to.pdf>
+Package pdftex.def Info: 2_RelatedWork/Figures/rust_merge_sort-eps-converted-to.pdf  used on input line 455.
+(pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
+) [18] [19 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector-eps-converted-to.pdf>] [20 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_log-eps-converted-to.pdf>] [21 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vector_log-eps-converted-to.pdf>] [22 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_arraylist_difference-eps-converted-to.pdf>] [23 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_arraylist_difference-eps-converted-to.pdf>] [24 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf>] [25 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>] [26] [27 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>] [28 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_merge_sort-eps-converted-to.pdf>]
 \openout2 = `3_Body/body.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.tex
@@ -722,7 +740,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/figure_sampling_view1.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view1.eps>
 (epstopdf)             \includegraphics on input line 17.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf, id=536, 400.49625pt x 396.48125pt>
+<3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf, id=587, 400.49625pt x 396.48125pt>
 File: 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf  used on input line 17.
@@ -736,24 +754,24 @@ Package epstopdf Info: Source file: <3_Body/Figures/figure_sampling_view2.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view2.eps>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf, id=537, 400.49625pt x 396.48125pt>
+<3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf, id=588, 400.49625pt x 396.48125pt>
 File: 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf  used on input line 22.
 (pdftex.def)             Requested size: 199.16928pt x 197.17535pt.
-[28
+[29
 
 
 
 
- </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>]) [29
+ </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf>]) [30
 
 ]
 \openout2 = `4_Conclusion/conclusion.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.tex
 Chapter 4.
-) [30
+) [31
 
 
 
@@ -763,20 +781,21 @@ Chapter 4.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.tex
 Appendix A.
-[31
+[32
 
 
 
 
-] [32] [33] [34] (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
+] [33] [34] [35] (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/02/27 1.8b listings language file
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/02/27 1.8b listings language file
-) [35]
+)
 Overfull \hbox (65.38486pt too wide) in paragraph at lines 147--148
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
+[36]
 Package epstopdf Info: Source file: <Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)                    date: 2019-10-18 15:27:35
 (epstopdf)                    size: 100013 bytes
@@ -786,18 +805,18 @@ Package epstopdf Info: Source file: <Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)             Command: <repstopdf --outfile=Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)             \includegraphics on input line 156.
 Package epstopdf Info: Output file is already uptodate.
-<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=569, 756.8275pt x 427.5975pt>
+<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=620, 756.8275pt x 427.5975pt>
 File: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Graphic file (type pdf)
 <use Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>
 Package pdftex.def Info: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf  used on input line 156.
 (pdftex.def)             Requested size: 426.79134pt x 241.12979pt.
-[36 </Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>]) [37] [38] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl) [39
+ [37 </Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>]) [38] [39] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl) [40
 
 
 ]
 \openout2 = `0_Prelim/cv.aux'.
 
- (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [40
+ (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [41
 
 
 ] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.aux (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/prelim.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/1_Intro/intro.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.aux))
@@ -806,18 +825,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6244 strings out of 492616
- 96730 string characters out of 6129482
- 387170 words of memory out of 5000000
- 9950 multiletter control sequences out of 15000+600000
+ 6249 strings out of 492616
+ 97024 string characters out of 6129482
+ 385922 words of memory out of 5000000
+ 9954 multiletter control sequences out of 15000+600000
  8415 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,10n,53p,433b,1325s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (51 pages, 488025 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (52 pages, 502674 bytes).
 PDF statistics:
- 628 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
+ 679 PDF objects out of 1000 (max. 8388607)
+ 225 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 

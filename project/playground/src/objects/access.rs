@@ -3,9 +3,13 @@ use serde::ser::Serialize;
 use std::fs::OpenOptions;
 use std::io::prelude::*;
 use std::time::Instant;
+use std::net::SocketAddr;
+use std::error::Error;
+use std::io::BufReader;
+use std::path::Path;
 
-fn de_serialize<T>(customer: &T) 
-    where T: Customer + Serialize, 
+fn serialize<T>(customer: &T) 
+where T: Customer + Serialize, 
 {
     let serialized = serde_json::to_string(&customer).unwrap();
     let mut file = OpenOptions::new()
@@ -16,13 +20,35 @@ fn de_serialize<T>(customer: &T)
     file.write_all(serialized.as_bytes()).expect("Fail to write file.");
 }
 
+fn serialize_vector<T, P>(customers: &[T], path: P) 
+    where T: Customer + Serialize,
+          P: AsRef<Path> 
+{
+    let serialized = serde_json::to_string(customers).unwrap();
+    let mut file = OpenOptions::new()
+                    .append(false)
+                    .create(true)
+                    .open(file_name)
+                    .unwrap();
+    file.write_all(serialized.as_bytes()).expect("Fail to write file.");
+}
+
+fn deserialize_vector<T, P>(path: P) -> Result<Vec<T>, Box<Error>>
+    where T: Customer + Serialize + Deserialize,
+          P: AsRef<Path>
+{
+    let file = File::open(path)?;
+    let reader = BufReader::new(file);
+    let customers = serde_json::from_reader(reader)?;
+    Ok(customers)
+}
 // Function access object whose field is owned.
 
 pub fn access_owned(customers: &Vec<CustomerOwned>) -> u128 {
     let len = customers.len();
     let start = Instant::now();
     for i in 0..len {
-        de_serialize(&customers[i])
+        serialize(&customers[i])
     }
     let elapsed = start.elapsed().as_millis(); 
     elapsed
@@ -33,7 +59,7 @@ pub fn access_borrowed(customers: &Vec<CustomerBorrowed>) -> u128 {
     let len = customers.len();
     let start = Instant::now();
     for i in 0..len {
-        de_serialize(&customers[i])
+        serialize(&customers[i])
     }
     let elapsed = start.elapsed().as_millis(); 
     elapsed
@@ -45,7 +71,7 @@ pub fn access_rc(customers: &Vec<CustomerRc>) -> u128 {
     let len = customers.len();
     let start = Instant::now();
     for i in 0..len {
-        de_serialize(&customers[i])
+        serialize(&customers[i])
     }
     let elapsed = start.elapsed().as_millis(); 
     elapsed

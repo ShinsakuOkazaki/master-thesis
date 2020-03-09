@@ -409,6 +409,14 @@ IR is useful in terms of flontend. This is because developer of language flonten
 \label{sec:history}
 The existing Big Data tools are JVM based. JVM abstract hardware so that JVM can rarely achieve near-native speed. A garbage collector is a
 
+\section{Experiment: Tree aggregate}
+\label{sec:history}
+Three aggregate can be more memory de/allocation intensive experiment, when we load data from disk line by line to aggregate.
+This is because, we will allocate many small objects and deallocate them many times. 
+We can compare to Java implementation for ration of runtime increase.
+
+
+
 
 
 \section{Todos}

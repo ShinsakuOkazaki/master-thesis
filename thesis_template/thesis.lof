@@ -2,21 +2,21 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2$\cdot $1}{\ignorespaces Java Heap Structure\relax }}{7}% 
 \contentsline {figure}{\numberline {2$\cdot $2}{\ignorespaces Java Garbage Collection\relax }}{8}% 
-\contentsline {figure}{\numberline {2$\cdot $3}{\ignorespaces Memory allocation of ArrayList in Java\relax }}{10}% 
-\contentsline {figure}{\numberline {2$\cdot $4}{\ignorespaces Memory allocation of Vector in Rust\relax }}{11}% 
-\contentsline {figure}{\numberline {2$\cdot $5}{\ignorespaces Representation of Customer object in Java.\relax }}{12}% 
-\contentsline {figure}{\numberline {2$\cdot $6}{\ignorespaces Representation of Customer object in Rust.\relax }}{13}% 
-\contentsline {figure}{\numberline {2$\cdot $7}{\ignorespaces Memory allocation of Java ArrayList\relax }}{14}% 
-\contentsline {figure}{\numberline {2$\cdot $8}{\ignorespaces Memory allocation of Rust Vector\relax }}{15}% 
-\contentsline {figure}{\numberline {2$\cdot $9}{\ignorespaces Difference of Memory allocation of Java ArrayList between Non-initialization and Initialization\relax }}{16}% 
-\contentsline {figure}{\numberline {2$\cdot $10}{\ignorespaces Difference of Memory allocation of Rust Vector between Non-initialization and Initialization\relax }}{17}% 
-\contentsline {figure}{\numberline {2$\cdot $11}{\ignorespaces Runtime of elements copy from one vector and insertion to the other vector.\relax }}{18}% 
-\contentsline {figure}{\numberline {2$\cdot $12}{\ignorespaces Runtime of elements copy from one vector and insertion to the other vector.\relax }}{19}% 
-\contentsline {figure}{\numberline {2$\cdot $13}{\ignorespaces Representation of Customer object in Rust.\relax }}{23}% 
-\contentsline {figure}{\numberline {2$\cdot $14}{\ignorespaces Runtime for Droping to fields of Customer Object\relax }}{24}% 
-\contentsline {figure}{\numberline {2$\cdot $15}{\ignorespaces mergesort\relax }}{25}% 
+\contentsline {figure}{\numberline {2$\cdot $3}{\ignorespaces Memory allocation of ArrayList in Java\relax }}{22}% 
+\contentsline {figure}{\numberline {2$\cdot $4}{\ignorespaces Memory allocation of Vector in Rust\relax }}{23}% 
+\contentsline {figure}{\numberline {2$\cdot $5}{\ignorespaces Representation of Customer object in Java.\relax }}{23}% 
+\contentsline {figure}{\numberline {2$\cdot $6}{\ignorespaces Representation of Customer object in Rust.\relax }}{24}% 
+\contentsline {figure}{\numberline {2$\cdot $7}{\ignorespaces Memory allocation of Java ArrayList\relax }}{24}% 
+\contentsline {figure}{\numberline {2$\cdot $8}{\ignorespaces Memory allocation of Rust Vector\relax }}{25}% 
+\contentsline {figure}{\numberline {2$\cdot $9}{\ignorespaces Difference of Memory allocation of Java ArrayList between Non-initialization and Initialization\relax }}{26}% 
+\contentsline {figure}{\numberline {2$\cdot $10}{\ignorespaces Difference of Memory allocation of Rust Vector between Non-initialization and Initialization\relax }}{27}% 
+\contentsline {figure}{\numberline {2$\cdot $11}{\ignorespaces Runtime of elements copy from one vector and insertion to the other vector.\relax }}{28}% 
+\contentsline {figure}{\numberline {2$\cdot $12}{\ignorespaces Runtime of elements copy from one vector and insertion to the other vector.\relax }}{29}% 
+\contentsline {figure}{\numberline {2$\cdot $13}{\ignorespaces Representation of Customer object in Rust.\relax }}{30}% 
+\contentsline {figure}{\numberline {2$\cdot $14}{\ignorespaces Runtime for Droping to fields of Customer Object\relax }}{31}% 
+\contentsline {figure}{\numberline {2$\cdot $15}{\ignorespaces mergesort\relax }}{32}% 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3$\cdot $1}{\ignorespaces Assignment of single-view intensities to RGB components: (a) view \#1; and (b) view \#2. \relax }}{26}% 
+\contentsline {figure}{\numberline {3$\cdot $1}{\ignorespaces Assignment of single-view intensities to RGB components: (a) view \#1; and (b) view \#2. \relax }}{33}% 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A$\cdot $1}{\ignorespaces Integration of Native Methods \relax }}{34}% 
+\contentsline {figure}{\numberline {A$\cdot $1}{\ignorespaces Integration of Native Methods \relax }}{42}% 

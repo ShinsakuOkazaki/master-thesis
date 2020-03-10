@@ -8,7 +8,6 @@ const MAX_THREADS: usize = 4;
 fn tree_aggregate_sum(arr: Arc<Vec<String>>, left: usize, right: usize, depth: usize) -> i32
 {   
     let sum_current;
-    let path;
     if right - left > 1 {
         let mid = (left + right) / 2;
         let new_depth = depth + 1;
@@ -16,7 +15,7 @@ fn tree_aggregate_sum(arr: Arc<Vec<String>>, left: usize, right: usize, depth: u
         let arr_cloned2 = Arc::clone(&arr);
         let sum_left;
         let sum_right;
-        path = arr[mid];
+        let path = &arr[mid];
         if new_depth < MAX_THREADS {
             let (sender1, receiver1) = crossbeam::channel::unbounded();
             let (sender2, receiver2) = crossbeam::channel::unbounded(); 
@@ -41,7 +40,7 @@ fn tree_aggregate_sum(arr: Arc<Vec<String>>, left: usize, right: usize, depth: u
         return tree_reduce_sum(sum_current, sum_left, sum_right);
     } else {
         let mid = (right - left) / 2;
-        path = arr[mid];
+        let path = &arr[mid];
         sum_current = add_local(path);
         return sum_current;
     }    
@@ -55,13 +54,12 @@ fn tree_reduce_sum(sum_current: i32,  sum_left: i32, sum_right: i32) -> i32
 
 fn add_local<P: AsRef<Path>>(path: P) -> i32 
 {
-    let customers = deserialize_vector(path).unwrap();
+    let customers: Vec<CustomerOwned> = deserialize_vector(path).unwrap();
     let sum_current = add_customer_key(&customers[..]);
     sum_current
 }
 
-fn add_customer_key<T>(customers: &[T]) -> i32
-    where T: Clone + Customer + PartialOrd + Send + Sync + Default
+fn add_customer_key(customers: &[CustomerOwned]) -> i32
 {
     let mut sum = 0;
     for i in 0..customers.len() {

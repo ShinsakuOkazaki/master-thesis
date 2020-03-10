@@ -5,7 +5,7 @@ use crate::objects::customer::*;
 use crate::objects::access::*;
 const MAX_THREADS: usize = 4;
 
-fn tree_aggregate_sum<P: AsRef<Path>>(arr: Arc<Vec<P>>, left: usize, right: usize, depth: usize)
+fn tree_aggregate_sum(arr: Arc<Vec<String>>, left: usize, right: usize, depth: usize) -> i32
 {   
     let sum_current;
     let path;
@@ -21,12 +21,12 @@ fn tree_aggregate_sum<P: AsRef<Path>>(arr: Arc<Vec<P>>, left: usize, right: usiz
             let (sender1, receiver1) = crossbeam::channel::unbounded();
             let (sender2, receiver2) = crossbeam::channel::unbounded(); 
         
-            let _ = thread::spawn(move |_| {
+            let _ = thread::spawn(move || {
                let sum = tree_aggregate_sum(arr_cloned1, left, mid, new_depth);
                sender1.send(sum).unwrap();
             });
             
-            let _ = thread::spawn(move |_| {
+            let _ = thread::spawn(move || {
                 let sum = tree_aggregate_sum(arr_cloned2, mid, right, new_depth);
                 sender2.send(sum).unwrap();
              });
@@ -39,27 +39,28 @@ fn tree_aggregate_sum<P: AsRef<Path>>(arr: Arc<Vec<P>>, left: usize, right: usiz
             sum_right = tree_aggregate_sum(arr_cloned2, mid, right, new_depth);
         }
         return tree_reduce_sum(sum_current, sum_left, sum_right);
-    } else if (right - left == 1) {
+    } else {
         let mid = (right - left) / 2;
         path = arr[mid];
         sum_current = add_local(path);
-        return tree_aggregate_sum(sum_current, 0, 0);
+        return sum_current;
     }    
 }
 
-fn tree_reduce_sum<T>(sum_current: i32,  sum_left: i32, sum_right: i32) 
+fn tree_reduce_sum(sum_current: i32,  sum_left: i32, sum_right: i32) -> i32
 {
     let sum =  sum_left + sum_current + sum_right;
     sum
 }
 
-fn add_local<P: AsRef<Path>>(path: P) {
-    let customers = deserialize_vector(file).unwrap();
+fn add_local<P: AsRef<Path>>(path: P) -> i32 
+{
+    let customers = deserialize_vector(path).unwrap();
     let sum_current = add_customer_key(&customers[..]);
     sum_current
 }
 
-fn add_customer_key<T>(customers: &[T]) 
+fn add_customer_key<T>(customers: &[T]) -> i32
     where T: Clone + Customer + PartialOrd + Send + Sync + Default
 {
     let mut sum = 0;

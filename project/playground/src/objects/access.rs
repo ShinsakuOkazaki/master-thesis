@@ -34,7 +34,7 @@ fn serialize_vector<T, P>(customers: &[T], path: P)
     file.write_all(serialized.as_bytes()).expect("Fail to write file.");
 }
 
-fn deserialize_vector<T, P>(path: P) -> Result<Vec<T>, Box<Error>>
+pub fn deserialize_vector<T, P>(path: P) -> Result<Vec<T>, Box<Error>>
     where T: Customer + Serialize + DeserializeOwned,
           P: AsRef<Path>
 {

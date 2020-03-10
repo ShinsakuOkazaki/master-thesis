@@ -78,12 +78,13 @@ Therefore, GC become severe issue in Big Data processing where might produce sig
 \end{figure}
 
 
-
-\begin{itemize}
-    \item GC tuning solutions
-    \item Annotation, off-heap solution 
-\end{itemize}
-
+\section{Garbage Collection Tuning}
+\label{sec:history}
+Several solutions are suggested. Main idea is to reduce number of object and execution of GC. 
+One is avoiding pointer-based data structures, such as HashMap and LinkedList. These objects have a "wrapper" object for each entry 
+so that number of object tends to be larger than when when an array is used. Caching serialized object in memory also reduce number of object and memory usage 
+since the set of objects become a byte array. In addition, developers can allocate byte array off-heap of JVM to avoid tracking by GC. 
+Although these memory management solution for GC help developer improve performance of Spark applications, the effort to discover the best GC tuning afflicts developers.
 
 
 \section{Application to System Language}

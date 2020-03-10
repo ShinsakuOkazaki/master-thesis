@@ -1,0 +1,7 @@
+Tree-aggregate is a communication patten heavily used for Machine Learning algorithm in Spark (MLlib). 
+In the traditional aggregation function in Spark, results of aggregation in all executor clusters are sent to the driver. 
+That is why this operation suffers from the CUP cost in merging partial results and the network bandwidth limit.
+Tree-aggregate is a communication pattern which overcomes these problems by breaking aggregate operation in multi-level represented like tree structure.
+
+In multi-thread situation, tree-aggregate is just fork-join thread algorithm. We already implemented Merge-Sort algorithm with fork-join. 
+If we implement tree-aggregate with multi-thread, the difference is only aggregation and sorting.

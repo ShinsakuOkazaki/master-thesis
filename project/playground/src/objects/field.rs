@@ -15,7 +15,7 @@ pub fn get_string_vector(size: usize) -> Vec<String> {
         // Get random Stirng whose length is 5.
         let string: String = iter::repeat(())
                             .map(|()| rng.sample(Alphanumeric))
-                            .take(5)
+                            .take(2)
                             .collect();
         strings.push(string);
     }
@@ -29,7 +29,7 @@ pub fn get_string_rc_vector(size: usize) -> Vec<Rc<String>> {
         // Get random Stirng whose length is 5.
         let string: String = iter::repeat(())
                             .map(|()| rng.sample(Alphanumeric))
-                            .take(5)
+                            .take(2)
                             .collect();
         strings.push(Rc::new(string));
     }
@@ -44,7 +44,7 @@ pub fn get_string_arc_vector(size: usize) -> Vec<Arc<String>> {
         // Get random Stirng whose length is 5.
         let string: String = iter::repeat(())
                             .map(|()| rng.sample(Alphanumeric))
-                            .take(5)
+                            .take(2)
                             .collect();
         strings.push(Arc::new(string));
     }

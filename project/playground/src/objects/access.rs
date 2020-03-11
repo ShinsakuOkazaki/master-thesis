@@ -9,6 +9,9 @@ use std::error::Error;
 use std::io::BufReader;
 use std::path::Path;
 use std::fs::File;
+use std::sync::Arc;
+
+
 fn serialize<T>(customer: &T) 
 where T: Customer + Serialize, 
 {
@@ -43,6 +46,18 @@ pub fn deserialize_vector<T, P>(path: P) -> Result<Vec<T>, Box<Error>>
     let customers = serde_json::from_reader(reader)?;
     Ok(customers)
 }
+
+
+pub fn deserialize_vector_arc<T, P>(path: P) -> Result<Vec<Arc<T>>, Box<Error>>
+    where T: Customer + Serialize + DeserializeOwned,
+          P: AsRef<Path>
+{
+    let file = File::open(path)?;
+    let reader = BufReader::new(file);
+    let customers = serde_json::from_reader(reader)?;
+    Ok(customers)
+}
+
 // Function access object whose field is owned.
 
 pub fn access_owned(customers: &Vec<CustomerOwned>) -> u128 {

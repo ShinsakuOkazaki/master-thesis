@@ -21,7 +21,7 @@ pub trait Customer {
 // Objects whose fields are all owned.
 #[derive(Clone, Debug, Default)]
 pub struct CustomerOwned {
-    pub key: i32,
+    key: i32,
     age: i32,
     num_purchase: i32,
     total_purchase: f64,
@@ -32,7 +32,7 @@ pub struct CustomerOwned {
     country: String,
     state: String,
     first_name: String,
-    last_name: String,
+    pub last_name: String,
     province: String,
     comment: String, 
     order: OrderOwned

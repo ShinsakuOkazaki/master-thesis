@@ -3,67 +3,84 @@ use std::path::Path;
 pub use std::sync::Arc;
 use crate::objects::customer::*;
 use crate::objects::access::*;
+use std::collections::HashMap;
+
 const MAX_THREADS: usize = 4;
 
-fn tree_aggregate_sum(arr: Arc<Vec<String>>, left: usize, right: usize, depth: usize) -> i32
+fn tree_aggregate(paths: Arc<Vec<String>>, left: usize, right: usize, depth: usize) -> HashMap<String, Vec<Arc<CustomerOwned>>>
 {   
-    let sum_current;
+    let mut agg_current;
+    let arr;
     if right - left > 1 {
         let mid = (left + right) / 2;
         let new_depth = depth + 1;
-        let arr_cloned1 = Arc::clone(&arr);
-        let arr_cloned2 = Arc::clone(&arr);
-        let sum_left;
-        let sum_right;
-        let path = &arr[mid];
+        let paths_cloned1 = Arc::clone(&paths);
+        let paths_cloned2 = Arc::clone(&paths);
+        let mut agg_left;
+        let mut agg_right;
+        let path = &paths[mid];
         if new_depth < MAX_THREADS {
             let (sender1, receiver1) = crossbeam::channel::unbounded();
             let (sender2, receiver2) = crossbeam::channel::unbounded(); 
         
             let _ = thread::spawn(move || {
-               let sum = tree_aggregate_sum(arr_cloned1, left, mid, new_depth);
-               sender1.send(sum).unwrap();
+               let agg = tree_aggregate(paths_cloned1, left, mid, new_depth);
+               sender1.send(agg).unwrap();
             });
             
             let _ = thread::spawn(move || {
-                let sum = tree_aggregate_sum(arr_cloned2, mid, right, new_depth);
-                sender2.send(sum).unwrap();
+                let agg = tree_aggregate(paths_cloned2, mid, right, new_depth);
+                sender2.send(agg).unwrap();
              });
-             sum_current = add_local(path);
-             sum_left = receiver1.recv().unwrap();
-             sum_right = receiver2.recv().unwrap();
+
+             arr = deserialize_vector_arc(path).unwrap();
+             agg_current = aggregate_local(&arr[..]);
+             agg_left = receiver1.recv().unwrap();
+             agg_right = receiver2.recv().unwrap();
         } else {
-            sum_current = add_local(path);
-            sum_left = tree_aggregate_sum(arr_cloned1, left, mid, new_depth);
-            sum_right = tree_aggregate_sum(arr_cloned2, mid, right, new_depth);
+            arr = deserialize_vector_arc(path).unwrap();
+            agg_current = aggregate_local(&arr[..]);
+            agg_left = tree_aggregate(paths_cloned1, left, mid, new_depth);
+            agg_right = tree_aggregate(paths_cloned2, mid, right, new_depth);
         }
-        return tree_reduce_sum(sum_current, sum_left, sum_right);
+        return tree_join(agg_current, agg_left, agg_right);
     } else {
         let mid = (right - left) / 2;
-        let path = &arr[mid];
-        sum_current = add_local(path);
-        return sum_current;
+        let path = &paths[mid]; 
+        arr = deserialize_vector_arc(path).unwrap();
+        return aggregate_local(&arr[..]);
     }    
 }
 
-fn tree_reduce_sum(sum_current: i32,  sum_left: i32, sum_right: i32) -> i32
+fn tree_join(mut agg_current: HashMap<String, Vec<Arc<CustomerOwned>>>, 
+            mut agg_left: HashMap<String, Vec<Arc<CustomerOwned>>>, 
+            mut agg_right: HashMap<String, Vec<Arc<CustomerOwned>>>) -> HashMap<String, Vec<Arc<CustomerOwned>>>
 {
-    let sum =  sum_left + sum_current + sum_right;
-    sum
-}
 
-fn add_local<P: AsRef<Path>>(path: P) -> i32 
-{
-    let customers: Vec<CustomerOwned> = deserialize_vector(path).unwrap();
-    let sum_current = add_customer_key(&customers[..]);
-    sum_current
-}
-
-fn add_customer_key(customers: &[CustomerOwned]) -> i32
-{
-    let mut sum = 0;
-    for i in 0..customers.len() {
-        sum += customers[i].key;
+    
+    for (last_name, mut customers) in agg_left {
+        let vector = agg_current.entry(last_name).or_insert_with(Vec::new);
+        vector.append(&mut customers); 
     }
-    sum
+
+    for (last_name, mut customers) in agg_right {
+        let vector = agg_current.entry(last_name).or_insert_with(Vec::new);
+        vector.append(&mut customers); 
+    }
+    return agg_current;
 }
+
+
+fn aggregate_local(arr :&[Arc<CustomerOwned>]) -> HashMap<String, Vec<Arc<CustomerOwned>>>
+{   
+    let mut agg = HashMap::new();
+    let n = arr.len();
+    for i in 0..n {
+        let customer = Arc::clone(&arr[i]);
+        let last_name = customer.last_name.clone();
+        let vector = agg.entry(last_name).or_insert_with(Vec::new);
+        vector.push(customer);
+    }
+    return agg;
+}
+

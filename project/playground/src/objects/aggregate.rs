@@ -4,8 +4,20 @@ pub use std::sync::Arc;
 use crate::objects::customer::*;
 use crate::objects::access::*;
 use std::collections::HashMap;
+use std::time::Instant;
+
+
 
 const MAX_THREADS: usize = 4;
+
+pub fn tree_aggregate_run(paths: Arc<Vec<String>>) -> (u128, HashMap<String, Vec<Arc<CustomerOwned>>>)
+{
+    let start = Instant::now();
+    let n = paths.len();
+    let res = tree_aggregate(paths, 0, n, 0);
+    let elapsed = start.elapsed().as_micros(); 
+    return (elapsed, res)
+}
 
 fn tree_aggregate(paths: Arc<Vec<String>>, left: usize, right: usize, depth: usize) -> HashMap<String, Vec<Arc<CustomerOwned>>>
 {   

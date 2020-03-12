@@ -1,5 +1,5 @@
 Each value in Rust has a variable called its owner. This owner has information about the value, such as location in memory, 
-length and capacity of the value. This owner can live on the scope associated with its life time. When the owner goes out of it’s scope, 
+length and capacity of the value. This owner can live on the scope associated with its lifetime. When the owner goes out of it’s scope, 
 the value will be dropped. When a value already assigned to a variable is assigned to another variable, if the value is allocated 
 on heap its information is copied to the new owner and drop the old owner disabling old variable. Similar thing happens when we pass variable to parameter of function. 
 After passing a variable to a parameter, all the information is copied to new owner through the parameter and old owner is no longer available. 

@@ -24,18 +24,31 @@ where T: Customer + Serialize,
     file.write_all(serialized.as_bytes()).expect("Fail to write file.");
 }
 
-fn serialize_vector<T, P>(customers: &[T], path: P) 
+pub fn serialize_vector<T, P>(customers: Vec<T>, partition: &String) 
     where T: Customer + Serialize,
           P: AsRef<Path> 
 {
-    let serialized = serde_json::to_string(customers).unwrap();
+    let serialized = serde_json::to_string(&customers).unwrap();
+    let path = Path::new(&partition);
     let mut file = OpenOptions::new()
-                    .append(false)
-                    .create(true)
-                    .open(path)
+                    .create_new(true)
+                    .open(&path)
                     .unwrap();
     file.write_all(serialized.as_bytes()).expect("Fail to write file.");
 }
+
+pub fn serialize_vector_arc<T>(customers: Vec<Arc<T>>, partition: &String) 
+where T: Customer + Serialize
+{
+    let serialized = serde_json::to_string(&customers).unwrap();
+    let path = Path::new(&partition);
+    println!("serialized");
+    let mut file = OpenOptions::new()
+                .create_new(true)
+                .open(&path)
+                .unwrap();
+    file.write_all(serialized.as_bytes()).expect("Fail to write file.");
+} 
 
 pub fn deserialize_vector<T, P>(path: P) -> Result<Vec<T>, Box<Error>>
     where T: Customer + Serialize + DeserializeOwned,

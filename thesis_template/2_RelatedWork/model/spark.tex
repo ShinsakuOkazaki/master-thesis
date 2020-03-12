@@ -115,3 +115,23 @@ Nevertheless, these non-orthogonal concepts makes code in disorganize and leads 
 \section{Region-Based Memory Management}
 \label{sec:history}
 
+\section{Rust Memory Management}
+\label{sec:history}
+Rust is a system programming language which provides memory safety without runtime checking like GC and necessity of explicit memory de/allocation. 
+In addition to characteristic of memory safety, this language also enables a developer to write concurrent code , fearless concurrency. 
+Developers are able to write code with high performance given fair control of hardware and safety forced to follow restrictive pattern.
+
+Main concepts of Memory Management in Rust are ownership, move, and borrowing. In ownership feature or Rust, each value has a variable called its owner.
+This owner has information about the value, such as location in memory, length and capacity of the value. This owner can live on the scope associated with its lifetime.
+When the owner goes out of it’s scope, the value will be dropped. This feature is similar to how RAII in C++ works. 
+However, acquisition of owner out of the scope where it was constructed is available in Rust with the concept of move. 
+
+With move, a value can be transferred from one owner to another, For example, a value is instantiated in a function. 
+When it is returned to a new variable , the ownership of value is moved to the new variable. In Rust, one do not have to explicitly deallocate memory, 
+because ownership of value is passed among variables across scope using move and eventually goes out of scope deallocating memory of the value.
+
+Borrowing lets code use a value temporarily without affecting its ownership so that it reduces unnecessary movement of ownership. 
+One use case is when value is used in function and needed to be passed to the argument. If the argument takes ownership and the function does not return the value, 
+the ownership of value goes out of scope and the memory is deallocated. One can pass reference of the value to the argument instead of owner. 
+The reference goes out of scope, but ownership remains the same. 
+

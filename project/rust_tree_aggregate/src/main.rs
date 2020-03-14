@@ -84,8 +84,9 @@ fn run_ex_shared(size: usize, num_partition: usize) {
         serialize_vector_arc(customers_with_arc, &partitions[i + bigger_num]);
     }
     let partitions_arc = Arc::new(partitions);
-    let (elapsed_sort, _aggregated) = tree_aggregate_run(Arc::clone(&partitions_arc));
-    write_to_file(size, num_partition, "shared", elapsed_sort);
+    let (elapsed_sort, aggregated) = tree_aggregate_run(Arc::clone(&partitions_arc));
+    let elapsed_access = access_aggregate_arc(&aggregated);
+    write_to_file(size, num_partition, "shared", elapsed_sort, elapsed_access);
 }
 
 
@@ -139,8 +140,9 @@ fn run_ex_copy(size: usize, num_partition: usize) {
         serialize_vector(&customers[lower_bound..upper_bound], &partitions[i + bigger_num]);
     }
     let partitions_arc = Arc::new(partitions);
-    let (elapsed_sort, _aggregated) = tree_aggregate_copy_run(Arc::clone(&partitions_arc));
-    write_to_file(size, num_partition, "copy", elapsed_sort);
+    let (elapsed_sort, aggregated) = tree_aggregate_copy_run(Arc::clone(&partitions_arc));
+    let elapsed_access = access_aggregate(&aggregated);
+    write_to_file(size, num_partition, "copy", elapsed_sort, elapsed_access);
 }
 
 
@@ -156,9 +158,9 @@ fn wrap_elements_with_arc<T>(customers: &[T]) -> Vec<Arc<T>>
 }
 
 
-fn write_to_file(size: usize, num_partition: usize, method: &str, elapsed_sort: u128) {
-    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}\n", 
-                         size, num_partition, method, elapsed_sort);
+fn write_to_file(size: usize, num_partition: usize, method: &str, elapsed_sort: u128, elapsed_access: u128) {
+    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}\n", 
+                         size, num_partition, method, elapsed_sort, elapsed_access);
     println!("{}",output);
     let mut file = OpenOptions::new()
         .append(true)

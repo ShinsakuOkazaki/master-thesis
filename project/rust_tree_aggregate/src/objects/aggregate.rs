@@ -1,10 +1,9 @@
 use std::thread;
-use std::path::Path;
 pub use std::sync::Arc;
 use crate::objects::customer::*;
 use crate::objects::access::*;
-use std::collections::HashMap;
 use std::time::Instant;
+use std::collections::HashMap;
 
 
 
@@ -21,15 +20,15 @@ pub fn tree_aggregate_run(paths: Arc<Vec<String>>) -> (u128, HashMap<String, Vec
 
 fn tree_aggregate(paths: Arc<Vec<String>>, left: usize, right: usize, depth: usize) -> HashMap<String, Vec<Arc<CustomerOwned>>>
 {   
-    let mut agg_current;
+    let agg_current;
     let arr;
     if right - left > 1 {
         let mid = (left + right) / 2;
         let new_depth = depth + 1;
         let paths_cloned1 = Arc::clone(&paths);
         let paths_cloned2 = Arc::clone(&paths);
-        let mut agg_left;
-        let mut agg_right;
+        let agg_left;
+        let agg_right;
         let path = &paths[mid];
         if new_depth < MAX_THREADS {
             let (sender1, receiver1) = crossbeam::channel::unbounded();
@@ -65,8 +64,8 @@ fn tree_aggregate(paths: Arc<Vec<String>>, left: usize, right: usize, depth: usi
 }
 
 fn tree_join(mut agg_current: HashMap<String, Vec<Arc<CustomerOwned>>>, 
-            mut agg_left: HashMap<String, Vec<Arc<CustomerOwned>>>, 
-            mut agg_right: HashMap<String, Vec<Arc<CustomerOwned>>>) -> HashMap<String, Vec<Arc<CustomerOwned>>>
+            agg_left: HashMap<String, Vec<Arc<CustomerOwned>>>, 
+            agg_right: HashMap<String, Vec<Arc<CustomerOwned>>>) -> HashMap<String, Vec<Arc<CustomerOwned>>>
 {
 
     
@@ -108,15 +107,15 @@ pub fn tree_aggregate_copy_run(paths: Arc<Vec<String>>) -> (u128, HashMap<String
 
 fn tree_aggregate_copy(paths: Arc<Vec<String>>, left: usize, right: usize, depth: usize) -> HashMap<String, Vec<CustomerOwned>>
 {   
-    let mut agg_current;
+    let agg_current;
     let arr;
     if right - left > 1 {
         let mid = (left + right) / 2;
         let new_depth = depth + 1;
         let paths_cloned1 = Arc::clone(&paths);
         let paths_cloned2 = Arc::clone(&paths);
-        let mut agg_left;
-        let mut agg_right;
+        let agg_left;
+        let agg_right;
         let path = &paths[mid];
         if new_depth < MAX_THREADS {
             let (sender1, receiver1) = crossbeam::channel::unbounded();
@@ -152,8 +151,8 @@ fn tree_aggregate_copy(paths: Arc<Vec<String>>, left: usize, right: usize, depth
 }
 
 fn tree_join_copy(mut agg_current: HashMap<String, Vec<CustomerOwned>>, 
-            mut agg_left: HashMap<String, Vec<CustomerOwned>>, 
-            mut agg_right: HashMap<String, Vec<CustomerOwned>>) -> HashMap<String, Vec<CustomerOwned>>
+            agg_left: HashMap<String, Vec<CustomerOwned>>, 
+            agg_right: HashMap<String, Vec<CustomerOwned>>) -> HashMap<String, Vec<CustomerOwned>>
 {
 
     

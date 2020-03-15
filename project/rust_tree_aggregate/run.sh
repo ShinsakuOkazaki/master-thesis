@@ -9,7 +9,7 @@ do
     rm -rf loging.log
     echo "datastructure#size#partnumber#method#aggtime#accesstime" > loging.log
 
-    for partnumber in 7 15 31
+    for partnumber in 7 31 127 511 2047 8191
     do
         for method in 1 2
         do

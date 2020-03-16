@@ -2,7 +2,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2$\cdot $1}{\ignorespaces Java Heap Structure\relax }}{7}% 
 \contentsline {figure}{\numberline {2$\cdot $2}{\ignorespaces Java Garbage Collection\relax }}{8}% 
-\contentsline {figure}{\numberline {2$\cdot $3}{\ignorespaces Memory allocation of ArrayList in Java\relax }}{23}% 
+\contentsline {figure}{\numberline {2$\cdot $3}{\ignorespaces Memory allocation of ArrayList in Java\relax }}{13}% 
 \contentsline {figure}{\numberline {2$\cdot $4}{\ignorespaces Memory allocation of Vector in Rust\relax }}{24}% 
 \contentsline {figure}{\numberline {2$\cdot $5}{\ignorespaces Representation of Customer object in Java.\relax }}{24}% 
 \contentsline {figure}{\numberline {2$\cdot $6}{\ignorespaces Representation of Customer object in Rust.\relax }}{25}% 
@@ -14,9 +14,10 @@
 \contentsline {figure}{\numberline {2$\cdot $12}{\ignorespaces Runtime of elements copy from one vector and insertion to the other vector.\relax }}{30}% 
 \contentsline {figure}{\numberline {2$\cdot $13}{\ignorespaces Representation of Customer object in Rust.\relax }}{31}% 
 \contentsline {figure}{\numberline {2$\cdot $14}{\ignorespaces Runtime for Droping to fields of Customer Object\relax }}{32}% 
-\contentsline {figure}{\numberline {2$\cdot $15}{\ignorespaces mergesort\relax }}{33}% 
+\contentsline {figure}{\numberline {2$\cdot $15}{\ignorespaces Runtime of Tree-aggregate algorithm\relax }}{33}% 
+\contentsline {figure}{\numberline {2$\cdot $16}{\ignorespaces mergesort\relax }}{34}% 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3$\cdot $1}{\ignorespaces Assignment of single-view intensities to RGB components: (a) view \#1; and (b) view \#2. \relax }}{34}% 
+\contentsline {figure}{\numberline {3$\cdot $1}{\ignorespaces Assignment of single-view intensities to RGB components: (a) view \#1; and (b) view \#2. \relax }}{35}% 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A$\cdot $1}{\ignorespaces Integration of Native Methods \relax }}{43}% 
+\contentsline {figure}{\numberline {A$\cdot $1}{\ignorespaces Integration of Native Methods \relax }}{44}% 

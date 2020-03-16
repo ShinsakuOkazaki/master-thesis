@@ -175,8 +175,6 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 OUTPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.aux
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex
-INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/rust_memory_management.tex
-INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/rust_memory_management.tex
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/spark.tex
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/spark.tex
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_heap.eps
@@ -284,6 +282,17 @@ INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/tree_aggregate_experiment.tex
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/tree_aggregate_experiment.tex
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_tree_aggregate.eps
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_tree_aggregate.eps
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_tree_aggregate.eps
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_tree_aggregate-eps-converted-to.pdf
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_tree_aggregate-eps-converted-to.pdf
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_tree_aggregate.eps
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_tree_aggregate-eps-converted-to.pdf
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_tree_aggregate-eps-converted-to.pdf
+INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_tree_aggregate-eps-converted-to.pdf
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_merge_sort.eps
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_merge_sort.eps
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_merge_sort.eps

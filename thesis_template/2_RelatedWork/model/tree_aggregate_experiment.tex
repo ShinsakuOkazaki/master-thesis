@@ -1,7 +1,32 @@
 Tree-aggregate is a communication patten heavily used for Machine Learning algorithm in Spark (MLlib). 
 In the traditional aggregation function in Spark, results of aggregation in all executor clusters are sent to the driver. 
-That is why this operation suffers from the CUP cost in merging partial results and the network bandwidth limit.
+That is why this operation suffers from the CPU cost in merging partial results and the network bandwidth limit.
 Tree-aggregate is a communication pattern which overcomes these problems by breaking aggregate operation in multi-level represented like tree structure.
 
-In multi-thread situation, tree-aggregate is just fork-join thread algorithm. We already implemented Merge-Sort algorithm with fork-join. 
-If we implement tree-aggregate with multi-thread, the difference is only aggregation and sorting.
+In our experiment, tree-aggregation algorithms are examined in multi-threading. This experiment is to evaluate the impact of having Arc (Atomic Reference Counting) as elements of vector. 
+In Big Data mining tool, such as Spark, it generates intermediate objects from original source vector. In tree-aggregation, aggregated HashMap like data structure is created in each step or node. 
+When this aggregated data structure is generated, two ways to acquire elements from source vector: deep copy and getting reference. 
+
+Two algorithms are implemented and evaluated their runtime performance. The both algorithms perform tree-aggregation where runs seven nodes. 
+Each node load Customer vector from disk and aggregate it by Customer last name. Once a node finishes aggregation, it sends result to parent node. 
+After parent nodes receive aggregation results from all of its children nodes, it joins all aggregation results including its and sends next parent. 
+One algorithm performs aggregation by deep-copying elements from source vector loaded from disk. In the other algorithm, each element of source vector 
+is wrapped in Arc, and its reference is acquired while aggregation. 
+
+Figure shows runtime performance of two tree-aggregate algorithms. The runtime of algorithm with deep-copy is slower than algorithm with Arc for every vector size. 
+This is result of overhead of deep-copy is larger than deletion of Arc. As we explained, Arc has overhead to be deleted because it has to check if the value is still referred. 
+Even though the deletion of Arc is slow, deep copy of complex objects has more impact in deterioration of runtime performance. 
+In the algorithm with deep copy, the elements of each partition in each node are deep-copied once during aggregation. 
+If total number of elements are 1000000, the all of 1000000 elements are deep-copied once during execution. On the other hand, acquisition and deletion of Arc occurs several time for each element object.
+First, acquisition of Arc of all elements in loaded vector happens during aggregation in each node and the loaded vector is deleted after the aggregation. 
+Second, deletion of all elements in aggregated structures from children nodes and the node is occurs after joining these aggregated structures to single one. 
+The result shows a deep-copy of Customer vector is computationally much more expensive than acquisition and deletion of Arc. 
+
+This result suggests that having element objects in Arc is efficient than deep-copying element from original source vector in tree-aggregation algorithm 
+where generates intermediate data structure. The intermediate data structure is 
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{rust_tree_aggregate.eps}
+    \caption{Runtime of Tree-aggregate algorithm}
+    \label{fig:Sampling}
+\end{figure}

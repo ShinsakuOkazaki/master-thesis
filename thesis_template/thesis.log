@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  17 MAR 2020 13:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  19 MAR 2020 16:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -337,9 +337,6 @@ LaTeX Warning: Label `sec:history' multiply defined.
 LaTeX Warning: Label `sec:history' multiply defined.
 
 
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
 LaTeX Warning: Label `fig:Sampling' multiply defined.
 
 
@@ -352,43 +349,34 @@ LaTeX Warning: Label `fig:Sampling' multiply defined.
 LaTeX Warning: Label `sec:history' multiply defined.
 
 
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
 LaTeX Warning: Label `fig:Sampling' multiply defined.
 
 
-LaTeX Warning: Label `fig:Sampling' multiply defined.
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
+LaTeX Warning: Label `sec:history' multiply defined.
+
+
+LaTeX Warning: Label `sec:history' multiply defined.
 
 ) (./3_Body/body.aux
 
@@ -398,40 +386,46 @@ LaTeX Warning: Label `fig:Sampling' multiply defined.
 LaTeX Warning: Label `sec:history' multiply defined.
 
 
+LaTeX Warning: Label `fig:Sampling' multiply defined.
+
+
+LaTeX Warning: Label `fig:Sampling' multiply defined.
+
+
 LaTeX Warning: Label `sec:history' multiply defined.
 
 
+LaTeX Warning: Label `fig:Sampling' multiply defined.
+
+
+LaTeX Warning: Label `fig:Sampling' multiply defined.
+
+
+LaTeX Warning: Label `fig:Sampling' multiply defined.
+
+
+LaTeX Warning: Label `fig:Sampling' multiply defined.
+
+
+LaTeX Warning: Label `fig:Sampling' multiply defined.
+
+
+LaTeX Warning: Label `fig:Sampling' multiply defined.
+
+
 LaTeX Warning: Label `sec:history' multiply defined.
 
 
+LaTeX Warning: Label `fig:Sampling' multiply defined.
+
+
 LaTeX Warning: Label `sec:history' multiply defined.
 
 
 LaTeX Warning: Label `fig:Sampling' multiply defined.
 
 
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
-
-
-LaTeX Warning: Label `fig:Sampling' multiply defined.
+LaTeX Warning: Label `sec:history' multiply defined.
 
 
 LaTeX Warning: Label `fig:Sampling' multiply defined.
@@ -634,26 +628,10 @@ Package pdftex.def Info: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf  us
 ed on input line 75.
 (pdftex.def)             Requested size: 426.79134pt x 308.7261pt.
  [7 <./2_RelatedWork/Figures/java_heap-eps-converted-to.pdf>] [8 <./2_RelatedWo
-rk/Figures/java_gc-eps-converted-to.pdf>] [9]) (./2_RelatedWork/model/manual_me
-mory_management.tex [10])
-Overfull \hbox (3.7113pt too wide) in paragraph at lines 17--14
-\OT1/cmr/m/n/10.95 https://www.oracle.com/technetwork/java/javase/tech/memoryma
-nagement-whitepaper-1-
- []
+rk/Figures/java_gc-eps-converted-to.pdf>] [9]) [10] (./2_RelatedWork/model/seri
+alization.tex) [11
 
-
-Overfull \hbox (99.614pt too wide) in paragraph at lines 17--14
-\OT1/cmr/m/n/10.95 150020.pdf) Re-source Ac-qui-si-tion is Ini-tial-i-sa-tion (
-RAII) (Re-fer https://www.stephanboyer.com/post/60/region-
- []
-
-
-Overfull \hbox (7.23972pt too wide) in paragraph at lines 17--14
-\OT1/cmr/m/n/10.95 based-memory-management) Region-Based Mem-ory Man-age-ment (
-Re-fer Region-Based Mem-
- []
-
-(./2_RelatedWork/model/serialization.tex) [11]
+]
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_various_inserti
 on.eps>
 (epstopdf)                    date: 2020-01-27 16:48:42
@@ -665,7 +643,7 @@ on-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust
 _various_insertion-eps-converted-to.pdf 2_RelatedWork/Figures/rust_various_inse
 rtion.eps>
-(epstopdf)             \includegraphics on input line 42.
+(epstopdf)             \includegraphics on input line 38.
 Package epstopdf Info: Output file is already uptodate.
 <2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf, id=92, 1084
 .05pt x 722.7pt>
@@ -673,8 +651,11 @@ File: 2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf Graphic
  file (type pdf)
 <use 2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_various_insertion-eps-conve
-rted-to.pdf  used on input line 42.
+rted-to.pdf  used on input line 38.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
+ [12
+
+] [13 <./2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_various_access.
 eps>
 (epstopdf)                    date: 2020-01-27 17:02:35
@@ -686,55 +667,35 @@ eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust
 _various_access-eps-converted-to.pdf 2_RelatedWork/Figures/rust_various_access.
 eps>
-(epstopdf)             \includegraphics on input line 55.
+(epstopdf)             \includegraphics on input line 50.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf, id=93, 1084.05
-pt x 722.7pt>
+<2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf, id=143, 1084.0
+5pt x 722.7pt>
 File: 2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf Graphic fi
 le (type pdf)
 <use 2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_various_access-eps-converte
-d-to.pdf  used on input line 55.
+d-to.pdf  used on input line 50.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [12 <./2_RelatedWork/Figures/rust_various_insertion-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 86.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 81.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 86.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 81.
 
 
-LaTeX Warning: Float too large for page by 386.90541pt on input line 142.
+LaTeX Warning: Float too large for page by 386.90541pt on input line 137.
 
-[13 <./2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>]
-[14]
-Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_droptime_borrin
-g_rc.eps>
-(epstopdf)                    date: 2020-02-18 11:01:57
-(epstopdf)                    size: 32829 bytes
-(epstopdf)             Output file: <2_RelatedWork/Figures/rust_droptime_borrin
-g_rc-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-02-18 11:30:18
-(epstopdf)                    size: 17250 bytes
-(epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust
-_droptime_borring_rc-eps-converted-to.pdf 2_RelatedWork/Figures/rust_droptime_b
-orring_rc.eps>
-(epstopdf)             \includegraphics on input line 178.
-Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf, id=185, 1
-084.05pt x 722.7pt>
-File: 2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf Graph
-ic file (type pdf)
-<use 2_RelatedWork/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>
-Package pdftex.def Info: 2_RelatedWork/Figures/rust_droptime_borring_rc-eps-con
-verted-to.pdf  used on input line 178.
-(pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [15] [16] [17] [18]) [19] [20] [21 <./2_RelatedWork/Figures/rust_droptime_borr
-ing_rc-eps-converted-to.pdf>]
+[14
+
+ <./2_RelatedWork/Figures/rust_various_access-eps-converted-to.pdf>]
+[15] [16
+
+] [17] [18] [19]) [20]
 \openout2 = `3_Body/body.aux'.
 
  (./3_Body/body.tex
@@ -750,7 +711,7 @@ onverted-to.pdf>
 ling_view1-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view1.eps>
 (epstopdf)             \includegraphics on input line 17.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf, id=252, 400.49625pt
+<3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf, id=204, 400.49625pt
  x 396.48125pt>
 File: 3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf Graphic file (t
 ype pdf)
@@ -769,7 +730,7 @@ onverted-to.pdf>
 ling_view2-eps-converted-to.pdf 3_Body/Figures/figure_sampling_view2.eps>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf, id=253, 400.49625pt
+<3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf, id=205, 400.49625pt
  x 396.48125pt>
 File: 3_Body/Figures/figure_sampling_view2-eps-converted-to.pdf Graphic file (t
 ype pdf)
@@ -777,14 +738,14 @@ ype pdf)
 Package pdftex.def Info: 3_Body/Figures/figure_sampling_view2-eps-converted-to.
 pdf  used on input line 22.
 (pdftex.def)             Requested size: 199.16928pt x 197.17535pt.
-[22
+[21
 
 
 
 
  <./3_Body/Figures/figure_sampling_view1-eps-converted-to.pdf> <./3_Body/Figure
 s/figure_sampling_view2-eps-converted-to.pdf>]
-(./3_Body/model/memory_allocation.tex [23
+(./3_Body/model/memory_allocation.tex [22
 
 ]
 Package epstopdf Info: Source file: <3_Body/Figures/java_arraylist.eps>
@@ -798,7 +759,7 @@ d-to.pdf>
 ist-eps-converted-to.pdf 3_Body/Figures/java_arraylist.eps>
 (epstopdf)             \includegraphics on input line 29.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/java_arraylist-eps-converted-to.pdf, id=266, 722.7pt x 722.7pt>
+<3_Body/Figures/java_arraylist-eps-converted-to.pdf, id=218, 722.7pt x 722.7pt>
 
 File: 3_Body/Figures/java_arraylist-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -817,14 +778,17 @@ o.pdf>
 -eps-converted-to.pdf 3_Body/Figures/rust_vector.eps>
 (epstopdf)             \includegraphics on input line 35.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_vector-eps-converted-to.pdf, id=267, 722.7pt x 722.7pt>
+<3_Body/Figures/rust_vector-eps-converted-to.pdf, id=219, 722.7pt x 722.7pt>
 File: 3_Body/Figures/rust_vector-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_vector-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_vector-eps-converted-to.pdf  used 
 on input line 35.
 (pdftex.def)             Requested size: 426.79134pt x 426.79732pt.
-)
-(./3_Body/model/different_element.tex [24]
+) [23] [24 <./3_Body/Figures/java_arraylist-eps-converted-to.pdf>] [25 <./3_Bod
+y/Figures/rust_vector-eps-converted-to.pdf>] (./3_Body/model/different_element.
+tex [26
+
+]
 Package epstopdf Info: Source file: <3_Body/Figures/java_arraylist_log.eps>
 (epstopdf)                    date: 2020-01-03 16:52:23
 (epstopdf)                    size: 75115 bytes
@@ -836,7 +800,7 @@ erted-to.pdf>
 ist_log-eps-converted-to.pdf 3_Body/Figures/java_arraylist_log.eps>
 (epstopdf)             \includegraphics on input line 48.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/java_arraylist_log-eps-converted-to.pdf, id=271, 1300.86pt x 10
+<3_Body/Figures/java_arraylist_log-eps-converted-to.pdf, id=294, 1300.86pt x 10
 84.05pt>
 File: 3_Body/Figures/java_arraylist_log-eps-converted-to.pdf Graphic file (type
  pdf)
@@ -855,7 +819,7 @@ ed-to.pdf>
 _log-eps-converted-to.pdf 3_Body/Figures/rust_vector_log.eps>
 (epstopdf)             \includegraphics on input line 54.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_vector_log-eps-converted-to.pdf, id=272, 1300.86pt x 1084.
+<3_Body/Figures/rust_vector_log-eps-converted-to.pdf, id=295, 1300.86pt x 1084.
 05pt>
 File: 3_Body/Figures/rust_vector_log-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -876,7 +840,7 @@ ist_difference-eps-converted-to.pdf 3_Body/Figures/java_arraylist_difference.ep
 s>
 (epstopdf)             \includegraphics on input line 61.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/java_arraylist_difference-eps-converted-to.pdf, id=273, 1300.86
+<3_Body/Figures/java_arraylist_difference-eps-converted-to.pdf, id=296, 1300.86
 pt x 1084.05pt>
 File: 3_Body/Figures/java_arraylist_difference-eps-converted-to.pdf Graphic fil
 e (type pdf)
@@ -897,7 +861,7 @@ ist_difference-eps-converted-to.pdf 3_Body/Figures/rust_arraylist_difference.ep
 s>
 (epstopdf)             \includegraphics on input line 67.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_arraylist_difference-eps-converted-to.pdf, id=274, 1300.86
+<3_Body/Figures/rust_arraylist_difference-eps-converted-to.pdf, id=297, 1300.86
 pt x 1084.05pt>
 File: 3_Body/Figures/rust_arraylist_difference-eps-converted-to.pdf Graphic fil
 e (type pdf)
@@ -905,29 +869,35 @@ e (type pdf)
 Package pdftex.def Info: 3_Body/Figures/rust_arraylist_difference-eps-converted
 -to.pdf  used on input line 67.
 (pdftex.def)             Requested size: 426.79134pt x 355.65341pt.
-)
-(./3_Body/model/tree_aggregate_experiment.tex [25] [26]
-Package epstopdf Info: Source file: <3_Body/Figures/rust_tree_aggregate.eps>
-(epstopdf)                    date: 2020-03-17 00:45:33
-(epstopdf)                    size: 30083 bytes
-(epstopdf)             Output file: <3_Body/Figures/rust_tree_aggregate-eps-con
-verted-to.pdf>
-(epstopdf)                    date: 2020-03-17 00:46:58
-(epstopdf)                    size: 16635 bytes
-(epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_tree_a
-ggregate-eps-converted-to.pdf 3_Body/Figures/rust_tree_aggregate.eps>
-(epstopdf)             \includegraphics on input line 31.
+) [27] [28 <./3_Body/Figures/java_arraylist_log-eps-converted-to.pdf>] [29 <./3
+_Body/Figures/rust_vector_log-eps-converted-to.pdf>] [30 <./3_Body/Figures/java
+_arraylist_difference-eps-converted-to.pdf>] [31 <./3_Body/Figures/rust_arrayli
+st_difference-eps-converted-to.pdf>] (./3_Body/model/drop_ref_rc.tex [32
+
+]
+Package epstopdf Info: Source file: <3_Body/Figures/rust_droptime_borring_rc.ep
+s>
+(epstopdf)                    date: 2020-02-18 11:01:57
+(epstopdf)                    size: 32829 bytes
+(epstopdf)             Output file: <3_Body/Figures/rust_droptime_borring_rc-ep
+s-converted-to.pdf>
+(epstopdf)                    date: 2020-03-17 13:49:09
+(epstopdf)                    size: 17250 bytes
+(epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_dropti
+me_borring_rc-eps-converted-to.pdf 3_Body/Figures/rust_droptime_borring_rc.eps>
+
+(epstopdf)             \includegraphics on input line 30.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf, id=283, 1084.05pt x 7
-22.7pt>
-File: 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf Graphic file (typ
-e pdf)
-<use 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>
-Package pdftex.def Info: 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pd
-f  used on input line 31.
+<3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf, id=515, 1084.05p
+t x 722.7pt>
+File: 3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf Graphic file
+ (type pdf)
+<use 3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>
+Package pdftex.def Info: 3_Body/Figures/rust_droptime_borring_rc-eps-converted-
+to.pdf  used on input line 30.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
-)
-(./3_Body/model/merge_sort_experiment.tex [27]
+) [33 <./3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>] (./3_Bo
+dy/model/merge_sort_experiment.tex
 Package epstopdf Info: Source file: <3_Body/Figures/rust_merge_sort.eps>
 (epstopdf)                    date: 2020-03-17 00:50:10
 (epstopdf)                    size: 32060 bytes
@@ -939,7 +909,7 @@ ed-to.pdf>
 sort-eps-converted-to.pdf 3_Body/Figures/rust_merge_sort.eps>
 (epstopdf)             \includegraphics on input line 21.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_merge_sort-eps-converted-to.pdf, id=287, 1084.05pt x 722.7
+<3_Body/Figures/rust_merge_sort-eps-converted-to.pdf, id=563, 1084.05pt x 722.7
 pt>
 File: 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -947,19 +917,38 @@ f)
 Package pdftex.def Info: 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf  u
 sed on input line 21.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
-)) [28] [29 <./3_Body/Figures/java_arraylist-eps-converted-to.pdf>] [30 <./3_Bo
-dy/Figures/rust_vector-eps-converted-to.pdf>] [31 <./3_Body/Figures/java_arrayl
-ist_log-eps-converted-to.pdf>]
-[32 <./3_Body/Figures/rust_vector_log-eps-converted-to.pdf>] [33 <./3_Body/Figu
-res/java_arraylist_difference-eps-converted-to.pdf>] [34 <./3_Body/Figures/rust
-_arraylist_difference-eps-converted-to.pdf>] [35 <./3_Body/Figures/rust_tree_ag
-gregate-eps-converted-to.pdf>] [36 <./3_Body/Figures/rust_merge_sort-eps-conver
-ted-to.pdf>]
+) [34
+
+] [35 <./3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>]
+(./3_Body/model/tree_aggregate_experiment.tex [36
+
+]
+Package epstopdf Info: Source file: <3_Body/Figures/rust_tree_aggregate.eps>
+(epstopdf)                    date: 2020-03-17 00:45:33
+(epstopdf)                    size: 30083 bytes
+(epstopdf)             Output file: <3_Body/Figures/rust_tree_aggregate-eps-con
+verted-to.pdf>
+(epstopdf)                    date: 2020-03-17 00:46:58
+(epstopdf)                    size: 16635 bytes
+(epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_tree_a
+ggregate-eps-converted-to.pdf 3_Body/Figures/rust_tree_aggregate.eps>
+(epstopdf)             \includegraphics on input line 39.
+Package epstopdf Info: Output file is already uptodate.
+<3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf, id=620, 1084.05pt x 7
+22.7pt>
+File: 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf Graphic file (typ
+e pdf)
+<use 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>
+Package pdftex.def Info: 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pd
+f  used on input line 39.
+(pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
+) [37] [38 <./3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>])
 \openout2 = `4_Conclusion/conclusion.aux'.
 
  (./4_Conclusion/conclusion.tex
 Chapter 4.
-) [37
+) [39
+
 
 
 
@@ -969,12 +958,12 @@ Chapter 4.
 
  (./Appendix/Appendix.tex
 Appendix A.
-[38
+[40
 
 
 
 
-] [39] [40] [41] [42]
+] [41] [42] [43] [44]
 (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/02/27 1.8b listings language file
 )
@@ -985,7 +974,7 @@ Overfull \hbox (112.79047pt too wide) in paragraph at lines 147--148
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[43]
+[45]
 Overfull \hbox (17.6728pt too wide) in paragraph at lines 149--150
 []\OT1/cmr/m/n/10.95 Compile shared li-brary link-ing li-brary (libcblas.a or l
 ibcblas.dylib) ob-ject file (CBLASJ.o). 
@@ -1002,7 +991,7 @@ ted-to.pdf>
 h_jni-eps-converted-to.pdf Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)             \includegraphics on input line 156.
 Package epstopdf Info: Output file is already uptodate.
-<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=687, 756.8275pt x 427
+<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=694, 756.8275pt x 427
 .5975pt>
 File: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Graphic file (type p
 df)
@@ -1010,14 +999,14 @@ df)
 Package pdftex.def Info: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf  
 used on input line 156.
 (pdftex.def)             Requested size: 426.79134pt x 241.12979pt.
-[44 <./Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>] [45]) [46]
-(./thesis.bbl) [47
+[46 <./Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>] [47]) [48]
+(./thesis.bbl) [49
 
 
 ]
 \openout2 = `0_Prelim/cv.aux'.
 
- (./0_Prelim/cv.tex) [48
+ (./0_Prelim/cv.tex) [50
 
 
 ] (./thesis.aux
@@ -1030,8 +1019,8 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  6271 strings out of 492616
- 93317 string characters out of 6129482
- 377858 words of memory out of 5000000
+ 93236 string characters out of 6129482
+ 375863 words of memory out of 5000000
  9968 multiletter control sequences out of 15000+600000
  11367 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1046,10 +1035,10 @@ cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
 al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loca
 l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/
 texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (59 pages, 525106 bytes).
+Output written on thesis.pdf (61 pages, 525168 bytes).
 PDF statistics:
- 746 PDF objects out of 1000 (max. 8388607)
- 244 compressed objects within 3 object streams
+ 753 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

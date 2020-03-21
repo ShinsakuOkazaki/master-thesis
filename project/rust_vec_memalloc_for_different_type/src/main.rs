@@ -289,6 +289,17 @@ fn warming_up(size: usize) {
     println!("Warmed Up!! created HashMap with {} and {}", count_integer.len(), count_string.len());
 }
 
+fn de_serialize<T>(customer: &T) 
+    where T: Customer + Serialize, 
+{
+    let serialized = serde_json::to_string(&customer).unwrap();
+    let mut file = OpenOptions::new()
+            .append(true)
+            .create(true)
+            .open("string.log")
+            .unwrap();
+    file.write_all(serialized.as_bytes()).expect("Fail to write file.");
+}
 
 // Function access object whose field is owned.
 fn access_owned(customers: &Vec<CustomerOwned>) -> u128 {

@@ -1,6 +1,11 @@
 datastructure#size#method#sorttime
-[RustVector]#3000000#"scope"#5433997
-[RustVector]#3000000#"scope"#4925366
-[RustVector]#3000000#"scope"#4855719
-[RustVector]#3000000#"scope"#4932231
-[RustVector]#3000000#"scope"#4864306
+[RustVector]#3000000#"shared"#5718727
+[RustVector]#3000000#"shared"#5125901
+[RustVector]#3000000#"shared"#5082645
+[RustVector]#3000000#"shared"#5062237
+[RustVector]#3000000#"shared"#5084450
+[RustVector]#3000000#"scope"#4262452
+[RustVector]#3000000#"scope"#4311919
+[RustVector]#3000000#"scope"#4284920
+[RustVector]#3000000#"scope"#4302998
+[RustVector]#3000000#"scope"#4320801

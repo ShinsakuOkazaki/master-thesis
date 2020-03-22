@@ -1,0 +1,6 @@
+datastructure#size#method#sorttime
+[RustVector]#2000000#"scope"#4443754
+[RustVector]#2000000#"scope"#3248440
+[RustVector]#2000000#"scope"#3245387
+[RustVector]#2000000#"scope"#3225267
+[RustVector]#2000000#"scope"#3226713

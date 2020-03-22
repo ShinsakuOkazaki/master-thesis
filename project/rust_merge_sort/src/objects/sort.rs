@@ -83,7 +83,7 @@ fn merge_helper_vecdeque<T: 'static>(arr: Arc<VecDeque<T>>, left: usize, right: 
                     merge_helper_vecdeque(arr_left, left, mid, new_depth)
                 });
                 let right_handler = scope.spawn(move |_| {
-                    merge_helper_vecdeque(arr_right, right, mid, new_depth)
+                    merge_helper_vecdeque(arr_right, mid, right, new_depth)
                 });
                 
                 let l = left_handler.join().unwrap();

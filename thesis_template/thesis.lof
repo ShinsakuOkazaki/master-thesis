@@ -18,6 +18,8 @@
 \contentsline {figure}{\numberline {3$\cdot $10}{\ignorespaces Runtime for Droping to fields of Customer Object\relax }}{33}% 
 \contentsline {figure}{\numberline {3$\cdot $11}{\ignorespaces Runtime of Sortting Elements of Customer Vector\relax }}{35}% 
 \contentsline {figure}{\numberline {3$\cdot $12}{\ignorespaces Runtime of Tree-aggregate algorithm\relax }}{38}% 
+\contentsline {figure}{\numberline {3$\cdot $13}{\ignorespaces Aggregation function with Arc\relax }}{39}% 
+\contentsline {figure}{\numberline {3$\cdot $14}{\ignorespaces Aggregation function with deep-copy\relax }}{39}% 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A$\cdot $1}{\ignorespaces Integration of Native Methods \relax }}{46}% 
+\contentsline {figure}{\numberline {A$\cdot $1}{\ignorespaces Integration of Native Methods \relax }}{47}% 

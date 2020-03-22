@@ -1,4 +1,7 @@
+\subsection{Description}
 This experiment is to assess importance of careful memory management in multithreading of Rust. 
+In Rust programming, we usually need Atomic Reference Counting (Arc) to share data among threads. 
+However, 
 We implement merge-sort algorithm in two different ways. One is sharing source vector with Arc. 
 The other is passing slice of source vector to child thread. 
 
@@ -17,15 +20,20 @@ The figure shows the result of
 An atomic reference count of the shareable vector is passed to every recursion steps and 
 
 
+\subsection{Result}
+
 \begin{figure}[htb]
     \includegraphics[width=15cm]{rust_merge_sort.eps}
     \caption{Runtime of Sortting Elements of Customer Vector}
     \label{fig:Sampling}
 \end{figure}
 
+\subsection{Discussion}
 
 
 The other is LinkedList implementation other than vector.
 The linkedlist implementation is different from another two. This algorithm is inplace sorting so that it does not de/allocate memory during execution. 
 The comparison among vector and linkedlist implementations can show trade-off between contiguous memory access and inplace non memory de/allocation. 
 Experiment with Java linkedlist implementation can be interesting, because Java GC is severe problem when number of object is large. 
+
+

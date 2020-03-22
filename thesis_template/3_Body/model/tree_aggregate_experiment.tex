@@ -20,11 +20,11 @@ Since our experiment is implemented in multithreading, Atomic Reference Counting
 possessed by different variables across multiple threads. Therefore a value is not deallocated until all of owners to it are dropped. 
 This does not require extra memory allocation, because only acquisition of new ownership to value is needed. 
 However, deletion of Arc type checks whether the value is still owned by other variables. 
-This checking may be a overhead in algorithms where generate a lot of intermediate data structures, because deletion of the data structures occurs in frequent.
+This checking may be an overhead in algorithms where generate a lot of intermediate data structures, because deletion of the data structures occurs in frequent.
 
 Two algorithms are implemented using the above two different methods and evaluated their runtime performance. 
-The both algorithms perform tree-aggregation where runs seven nodes. 
-Each node load Customer vector from disk and aggregate it by Customer last name. Once a node finishes aggregation, it sends result to parent node. 
+The both algorithms perform tree-aggregation where runs on seven partitions of source vector. 
+Each steps load Customer vector from disk and aggregate it by Customer last name. Once a node finishes aggregation, it sends result to parent node. 
 After parent nodes receive aggregation results from all of its children nodes, it joins all aggregation results including its and sends next parent. 
 One algorithm performs aggregation by deep-copying elements from source vector loaded from disk. In the other algorithm, each element of source vector 
 is wrapped in Arc, and its reference is acquired while aggregation. 
@@ -53,3 +53,43 @@ Second, deletion of all elements in aggregated structures from children nodes an
 The result shows a deep-copy of Customer vector is computationally much more expensive than acquisition and deletion of Arc. 
 This result suggests that having element objects in Arc is efficient than deep-copying element from original source vector in tree-aggregation algorithm 
 where generates intermediate data structure. 
+
+
+\begin{figure}[htb]
+    \begin{lstlisting}
+        fn aggregate_local(arr :&[Arc<CustomerOwned>]) 
+        {   
+            let mut agg = HashMap::new();
+            let n = arr.len();
+            for i in 0..n {
+                let customer = Arc::clone(&arr[i]);
+                let last_name = customer.last_name.clone();
+                let vector = agg.entry(last_name).or_insert_with(Vec::new);
+                vector.push(customer);
+            }
+            return agg;
+        }
+    \end{lstlisting}
+    \caption{Aggregation function with Arc}
+    \label{fig:Sampling}
+\end{figure}
+
+
+\begin{figure}[htb]
+    \begin{lstlisting}
+        fn aggregate_local_copy(arr :&[CustomerOwned]) 
+        {   
+            let mut agg = HashMap::new();
+            let n = arr.len();
+            for i in 0..n {
+                let customer = arr[i].clone();
+                let last_name = customer.last_name.clone();
+                let vector = agg.entry(last_name).or_insert_with(Vec::new);
+                vector.push(customer);
+            }
+            return agg;
+        }
+    \end{lstlisting}
+    \caption{Aggregation function with deep-copy}
+    \label{fig:Sampling}
+\end{figure}

@@ -1,4 +1,3 @@
-use std::thread;
 pub use std::sync::{mpsc, Arc};
 //use std::cell::RefCell;
 use crate::objects::customer::*;
@@ -11,6 +10,16 @@ use std::time::Instant;
 
 const MAX_THREADS: usize = 4;
 
+// pub fn mergesort_vecdeque<T: 'static>(arr:VecDeque<T>, left: usize, right: usize) -> (u128, VecDeque<T>) 
+//     where T: Clone + Customer + PartialOrd + Send + Sync + Default
+// {
+//     let start = Instant::now();
+//     let res = merge_helper_vecdeque(Arc::new(arr), left, right, 0);
+//     let elapsed = start.elapsed().as_micros(); 
+//     return (elapsed, res)
+// }
+
+
 pub fn mergesort_vecdeque<T: 'static>(arr:VecDeque<T>, left: usize, right: usize) -> (u128, VecDeque<T>) 
     where T: Clone + Customer + PartialOrd + Send + Sync + Default
 {
@@ -21,38 +30,77 @@ pub fn mergesort_vecdeque<T: 'static>(arr:VecDeque<T>, left: usize, right: usize
 }
 
 
+// fn merge_helper_vecdeque<T: 'static>(arr: Arc<VecDeque<T>>, left: usize, right: usize, depth: usize) -> VecDeque<T>
+//     where T: Clone + Customer + PartialOrd + Send + Sync + Default
+// {
+//     if right - left > 1 {
+//         let mid = (left + right) / 2;
+//         let new_depth = depth + 1;
+//         let arr_cloned1 = Arc::clone(&arr);
+//         let arr_cloned2 = Arc::clone(&arr);
+//         let arr_right;
+//         let arr_left;
+
+//         if new_depth < MAX_THREADS {
+//             let (sender1, receiver1) = crossbeam::channel::unbounded();
+//             let (sender2, receiver2) = crossbeam::channel::unbounded(); 
+//             let _ = thread::spawn(move || {
+//                 let sorted = merge_helper_vecdeque(arr_cloned1, left, mid, new_depth);
+//                 sender1.send(sorted).unwrap();
+//             });
+//             let _ = thread::spawn(move || {
+//                 let sorted = merge_helper_vecdeque(arr_cloned2, mid, right, new_depth);
+//                 sender2.send(sorted).unwrap();
+//             });
+//             arr_left = receiver1.recv().unwrap();
+//             arr_right = receiver2.recv().unwrap(); 
+//         } else {
+//             arr_left = merge_helper_vecdeque(arr_cloned1, left, mid, new_depth);
+//             arr_right = merge_helper_vecdeque(arr_cloned2, mid, right, new_depth);
+//         }
+//         return merge_vecdeque(arr_left, arr_right);
+//     }
+//     return merge_vecdeque_base(arr, left);
+// 
+
+
 fn merge_helper_vecdeque<T: 'static>(arr: Arc<VecDeque<T>>, left: usize, right: usize, depth: usize) -> VecDeque<T>
     where T: Clone + Customer + PartialOrd + Send + Sync + Default
 {
     if right - left > 1 {
         let mid = (left + right) / 2;
         let new_depth = depth + 1;
-        let arr_cloned1 = Arc::clone(&arr);
-        let arr_cloned2 = Arc::clone(&arr);
-        let arr_right;
-        let arr_left;
+        let arr_right = Arc::clone(&arr);
+        let arr_left = Arc::clone(&arr);
+        let res_left;
+        let res_right;
 
         if new_depth < MAX_THREADS {
-            let (sender1, receiver1) = crossbeam::channel::unbounded();
-            let (sender2, receiver2) = crossbeam::channel::unbounded(); 
-            let _ = thread::spawn(move || {
-                let sorted = merge_helper_vecdeque(arr_cloned1, left, mid, new_depth);
-                sender1.send(sorted).unwrap();
-            });
-            let _ = thread::spawn(move || {
-                let sorted = merge_helper_vecdeque(arr_cloned2, mid, right, new_depth);
-                sender2.send(sorted).unwrap();
-            });
-            arr_left = receiver1.recv().unwrap();
-            arr_right = receiver2.recv().unwrap(); 
+
+            let (left_thread, right_thread) = crossbeam::scope(|scope| {
+                
+                let left_handler = scope.spawn(move |_| {
+                    merge_helper_vecdeque(arr_left, left, mid, new_depth)
+                });
+                let right_handler = scope.spawn(move |_| {
+                    merge_helper_vecdeque(arr_right, right, mid, new_depth)
+                });
+                
+                let l = left_handler.join().unwrap();
+                let r = right_handler.join().unwrap();
+                (l, r)
+            }).unwrap();
+            res_left = left_thread;
+            res_right = right_thread;
         } else {
-            arr_left = merge_helper_vecdeque(arr_cloned1, left, mid, new_depth);
-            arr_right = merge_helper_vecdeque(arr_cloned2, mid, right, new_depth);
+            res_left = merge_helper_vecdeque(arr_left, left, mid, new_depth);
+            res_right = merge_helper_vecdeque(arr_right, mid, right, new_depth);
         }
-        return merge_vecdeque(arr_left, arr_right);
+        return merge_vecdeque(res_left, res_right);
     }
     return merge_vecdeque_base(arr, left);
 }
+
 
 fn merge_vecdeque<T: 'static>(mut arr_left: VecDeque<T>, mut arr_right: VecDeque<T>) -> VecDeque<T> 
     where T: Clone + Customer + PartialOrd + Send + Sync + Default
@@ -80,6 +128,15 @@ fn merge_vecdeque<T: 'static>(mut arr_left: VecDeque<T>, mut arr_right: VecDeque
     return arr_merged;
 }
 
+// fn merge_vecdeque_base<T: 'static>(arr: Arc<VecDeque<T>>, left: usize) -> VecDeque<T>
+//     where T: Clone + Customer + PartialOrd + Send + Sync + Default
+// {
+//     let mut arr_merged = VecDeque::with_capacity(1);
+//     arr_merged.push_back(arr[left].clone());
+//     return arr_merged;
+// }
+
+
 fn merge_vecdeque_base<T: 'static>(arr: Arc<VecDeque<T>>, left: usize) -> VecDeque<T>
     where T: Clone + Customer + PartialOrd + Send + Sync + Default
 {
@@ -87,7 +144,6 @@ fn merge_vecdeque_base<T: 'static>(arr: Arc<VecDeque<T>>, left: usize) -> VecDeq
     arr_merged.push_back(arr[left].clone());
     return arr_merged;
 }
-
 
 //////////////////////
 /////////////////////
@@ -115,6 +171,7 @@ fn merge_helper_vecdeque_slice<T: 'static>(arr: &mut [T], len: usize ,depth: usi
         let res_left;
         let res_right;
         if new_depth < MAX_THREADS {
+
             let (left_thread, right_thread) = crossbeam::scope(|scope| {
                 
                 let left_handler = scope.spawn(move |_| {
@@ -178,7 +235,6 @@ fn merge_vecdeque_base_slice<T: 'static>(arr: &mut [T]) -> VecDeque<T>
 ///////////////////////////
 //////////////////////////
 //////////////////////////////
-
 
 
 // pub fn mergesort_linkedlist<T: 'static>(head: LinkedList<T>) -> (u128, LinkedList<T>)

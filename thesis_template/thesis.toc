@@ -30,7 +30,7 @@
 \contentsline {section}{\numberline {3.5}Experiment for Merge-sort}{34}% 
 \contentsline {subsection}{\numberline {3.5.1}Description}{34}% 
 \contentsline {subsection}{\numberline {3.5.2}Result}{35}% 
-\contentsline {subsection}{\numberline {3.5.3}Discussion}{36}% 
+\contentsline {subsection}{\numberline {3.5.3}Discussion}{35}% 
 \contentsline {section}{\numberline {3.6}Experiment for Tree-aggregation}{37}% 
 \contentsline {subsection}{\numberline {3.6.1}Description}{37}% 
 \contentsline {subsection}{\numberline {3.6.2}Result}{38}% 

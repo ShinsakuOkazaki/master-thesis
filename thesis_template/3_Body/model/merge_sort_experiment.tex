@@ -23,14 +23,17 @@ At merge phase, merge function receives two sorted independent vector and merge 
 We use scope method from crossbeam crate to perform multithread programming. 
 Scoped thread can have reference to value from its parent thread by ensuring children threads are joined before their parent thread returns value. 
 By using scoped thread, we can implement two merge-sort algorithms in identical way except whether the function receives Arc or reference of source vector.
-
+The representations of source vector for each algorithm are shown in figure.
 
 \begin{figure}[htb]
     \begin{lstlisting}
+        // Source vector for algorithm with Arc.
         arr: Arc<VecDeque<T>>
-        arr: &mut [T]
+
+        // Source vector for algorithm with reference (slice).
+        arr: &[T]
     \end{lstlisting}
-    \caption{Aggregation function with Arc}
+    \caption{Representation of Source Vector}
     \label{fig:Sampling}
 \end{figure}
 
@@ -46,10 +49,4 @@ Finally, merge-sort is performed based on Customer key value. The figure shows t
 \end{figure}
 
 \subsection{Discussion}
-
-
-The other is LinkedList implementation other than vector.
-The linkedlist implementation is different from another two. This algorithm is inplace sorting so that it does not de/allocate memory during execution. 
-The comparison among vector and linkedlist implementations can show trade-off between contiguous memory access and inplace non memory de/allocation. 
-Experiment with Java linkedlist implementation can be interesting, because Java GC is severe problem when number of object is large. 
 

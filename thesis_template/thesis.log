@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  22 MAR 2020 18:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  23 MAR 2020 16:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -432,18 +432,18 @@ LaTeX Warning: Label `sec:history' multiply defined.
 ) (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: listings package is loaded.
@@ -777,14 +777,14 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_merge_sort.eps>
 (epstopdf)                    date: 2020-03-22 15:27:18
 (epstopdf)                    size: 18063 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_merge_sort-eps-converted-to.pdf 3_Body/Figures/rust_merge_sort.eps>
-(epstopdf)             \includegraphics on input line 43.
+(epstopdf)             \includegraphics on input line 46.
 Package epstopdf Info: Output file is already uptodate.
 <3_Body/Figures/rust_merge_sort-eps-converted-to.pdf, id=572, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>
-Package pdftex.def Info: 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf  used on input line 43.
+Package pdftex.def Info: 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf  used on input line 46.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [35 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>]) [36] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/tree_aggregate_experiment.tex [37
+) [35] [36 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/tree_aggregate_experiment.tex [37
 
 ]
 Package epstopdf Info: Source file: <3_Body/Figures/rust_tree_aggregate.eps>
@@ -883,7 +883,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  42i,10n,53p,433b,1325s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (65 pages, 529673 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (65 pages, 529494 bytes).
 PDF statistics:
  765 PDF objects out of 1000 (max. 8388607)
  257 compressed objects within 3 object streams

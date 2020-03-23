@@ -16,8 +16,8 @@
 \contentsline {figure}{\numberline {3$\cdot $8}{\ignorespaces Difference of Memory allocation of Java ArrayList between Non-initialization and Initialization\relax }}{30}% 
 \contentsline {figure}{\numberline {3$\cdot $9}{\ignorespaces Difference of Memory allocation of Rust Vector between Non-initialization and Initialization\relax }}{31}% 
 \contentsline {figure}{\numberline {3$\cdot $10}{\ignorespaces Runtime for Droping to fields of Customer Object\relax }}{33}% 
-\contentsline {figure}{\numberline {3$\cdot $11}{\ignorespaces Aggregation function with Arc\relax }}{35}% 
-\contentsline {figure}{\numberline {3$\cdot $12}{\ignorespaces Runtime of Sortting Elements of Customer Vector\relax }}{35}% 
+\contentsline {figure}{\numberline {3$\cdot $11}{\ignorespaces Representation of Source Vector\relax }}{35}% 
+\contentsline {figure}{\numberline {3$\cdot $12}{\ignorespaces Runtime of Sortting Elements of Customer Vector\relax }}{36}% 
 \contentsline {figure}{\numberline {3$\cdot $13}{\ignorespaces Runtime of Tree-aggregate algorithm\relax }}{39}% 
 \contentsline {figure}{\numberline {3$\cdot $14}{\ignorespaces Aggregation function with Arc\relax }}{40}% 
 \contentsline {figure}{\numberline {3$\cdot $15}{\ignorespaces Aggregation function with deep-copy\relax }}{40}% 

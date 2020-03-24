@@ -1,13 +1,20 @@
 \subsection{Concept}
-The goal of this experiment is to assess efficiency of different reference strategies in Rust, borrowing and reference counting. 
+In Rust programming, a reference is a pointer to reduce unnecessary movement of ownership. 
+One use case is where we pass reference to values to arguments of function. 
+If we pass owner to function, the owner is moved and the corresponding value is deallocated when the call of function ends. 
+To avoid this, the owner should always be returned. This may be an encumbrance while complex software system development. 
+By using reference, we do not have to worry about returning it, because reference is an additional pointer to an owned value. 
+Reference can be used for operation in the same way of owner, but also be moved without deallocation of value by keeping its owner live. 
 
-By levaraging reference counting, a value can be shared like what borrowing plays the role in Rust programming. 
-The difference is that reference counting checks number of reference pointing to the actual data and makes sure the data is not deleted 
-until all the references are dereferenced. Using reference counting is sometimes preferable approach for developers, 
-we do not have care about lifetime which is usually troublesome when we use borrowing approach many times in our code. 
-However, the possible problem regarding to reference counting is the cost for tracking the number of references. 
-Having this assumption, this experiment will show difference of behavior among reference countinig and borrowing.
+Reference is useful to avoid movement of ownership. However, one needs to track its lifetime and explicitly includes it in code, 
+because Rust compiler cannot infer it. This can be another encumbrance. We can instead acquire multiple owners to single value by using Reference Counting (Rc). 
+By leveraging Rc, a value can be shared like what borrowing plays the role in Rust programming. 
+The difference is that Rc checks number of owner pointing to the actual data and makes sure the data is not deleted 
+until all the owners are dereferenced. Using Rc is sometimes preferable approach for developers especially when lifetime planning is extremely difficult.
+However, the possible problem regarding to Rc is the cost for tracking the number of references. 
+Having this assumption, this experiment will show difference of behavior among Rc and simple reference.
 
+\subsection{Evaluation}
 In this experiment, CustomerBorrowed and CustomerRc in figure are used to see difference of dropping time among borrowing and reference counting. 
 In the CustomerRc and OrderRc struct, all fields take reference counting (Rc$<$T$>$). Similaly to the experiment in the last section, 
 vectors of CustomerRc and CustomerBorrowed are created and droped the elements one by one. 
@@ -33,5 +40,7 @@ The result shows the time to drop borrowing reference is significatly faster tha
     \caption{Runtime for Droping to fields of Customer Object}
     \label{fig:Sampling}
 \end{figure}
+
+
 
 \subsection{Discussion}

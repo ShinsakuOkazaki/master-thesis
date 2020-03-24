@@ -9,3 +9,4 @@ edition = "2018"
 [dependencies]
 rand = "0.7"
 regex = "1"
+priority-queue = "0.7.0"

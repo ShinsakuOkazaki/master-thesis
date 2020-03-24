@@ -121,9 +121,9 @@ Rust is a system programming language which provides memory safety without runti
 In addition to characteristic of memory safety, this language also enables a developer to write concurrent code , fearless concurrency. 
 Developers are able to write code with high performance given fair control of hardware and safety forced to follow restrictive pattern.
 
-Main concepts of Memory Management in Rust are ownership, move, and borrowing. In ownership feature or Rust, each value has a variable called its owner.
+Main concepts of Memory Management in Rust are ownership, move, and borrowing. In ownership feature or Rust, each value has a variable called owner.
 This owner has information about the value, such as location in memory, length and capacity of the value. This owner can live on the scope associated with its lifetime.
-When the owner goes out of it’s scope, the value will be dropped. This feature is similar to how RAII in C++ works. 
+When the owner goes out of its scope, the value will be dropped. This feature is similar to how RAII in C++ works. 
 However, acquisition of owner out of the scope where it was constructed is available in Rust with the concept of move. 
 
 With move, a value can be transferred from one owner to another, For example, a value is instantiated in a function. 

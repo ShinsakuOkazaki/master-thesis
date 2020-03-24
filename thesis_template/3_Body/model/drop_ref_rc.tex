@@ -1,3 +1,4 @@
+\subsection{Concept}
 The goal of this experiment is to assess efficiency of different reference strategies in Rust, borrowing and reference counting. 
 
 By levaraging reference counting, a value can be shared like what borrowing plays the role in Rust programming. 
@@ -24,12 +25,13 @@ Considered this assumption, we assess difference of time for dropping reference 
 
 Similally to the last section, we implement struct whose fields are borrowing reference and reference counting and measure the time to drop the struct. 
 
-The result shows the time to drop borrowing reference is significatly faster than reference counting. This says that we should use borrwoing storategies whenever high performance computation is critical.
 
+\subsection{Result}
+The result shows the time to drop borrowing reference is significatly faster than reference counting. This says that we should use borrwoing storategies whenever high performance computation is critical.
 \begin{figure}[htb!]
     \includegraphics[width=15cm]{rust_droptime_borring_rc.eps}
     \caption{Runtime for Droping to fields of Customer Object}
     \label{fig:Sampling}
 \end{figure}
 
-
+\subsection{Discussion}

@@ -5,7 +5,7 @@ cargo build --release
 # for size in 3900000 3910000 3920000 3930000 3940000
 
 
-for size in 3760000 3770000 3780000 
+for size in 1000000 1500000 2000000 2500000 3000000 3500000  
 do
     rm -rf loging.log
     echo "datastructure#size#field#createtime#accesstime#droptime#totaltime" > loging.log
@@ -29,4 +29,5 @@ do
     done
 cat loging.log  >  result/resultRustRc_"$size".txt
 done
-cat string.log  >  result/vectorSize.txt
+
+

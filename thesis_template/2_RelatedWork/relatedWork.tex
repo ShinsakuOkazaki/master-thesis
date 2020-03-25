@@ -138,7 +138,39 @@ Each variable has slightly different use of memory.
 
 \clearpage
 
+\begin{figure}[htb]
+    \begin{lstlisting}
+        struct OrderOwned {
+            order_id: i32,
+            num_items: i32, 
+            payment: f64,
+            order_time: f64,
+            title: String,
+            comment: String
+        }
 
+
+        struct OrderBorrowed<'a> {
+            order_id: &'a i32,
+            num_items: &'a i32, 
+            payment: &'a f64,
+            order_time: &'a f64,
+            title: &'a String,
+            comment: &'a String
+        }
+
+        struct OrderRc {
+            order_id: Rc<i32>,
+            num_items: Rc<i32>, 
+            payment: Rc<f64>,
+            order_time: Rc<f64>,
+            title: Rc<String>,
+            comment: Rc<String>
+        }
+    \end{lstlisting}
+    \caption{Representation of Customer object in Rust.}
+    \label{fig:Sampling}
+\end{figure}
 
 \section{Possible Graph Structure in Rust}
 \label{sec:history}

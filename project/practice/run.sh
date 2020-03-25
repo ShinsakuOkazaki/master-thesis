@@ -1,0 +1,1 @@
+cargo run ~/master-thesis/data/WikipediaPagesOneDocPerLine1000LinesSmall.txt 100

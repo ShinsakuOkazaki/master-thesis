@@ -1,1 +1,1 @@
-cargo run ~/master-thesis/data/WikipediaPagesOneDocPerLine1000LinesSmall.txt 100
+cargo run ~/master-thesis/data/SmallTrainingData.txt 100

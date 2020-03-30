@@ -2,9 +2,11 @@ use std::path::Path;
 use std::env;
 mod module;
 use module::deeptf::*;
+//use module::rctf::*;
 use ndarray::{Array, ArrayView, ArrayViewMut, s, Ix1, Ix2};
 use std::collections::{HashMap, BinaryHeap};
 use std::cmp::{Reverse, Ordering};
+
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -86,7 +88,7 @@ fn get_n_similarity_and_index(all_similarity: &Array<f64, Ix1>, mut similarity: 
     let mut pq = BinaryHeap::with_capacity(n_neighbors);
     let n = all_similarity.shape()[0];
     for i in 0..n {
-        pq.push((i, Reverse(MinNonNan(all_similarity[i]))));
+        pq.push(Reverse(MinNonNan(i, all_similarity[i])));
         if pq.len() > n_neighbors {
             pq.pop();
         }
@@ -94,8 +96,8 @@ fn get_n_similarity_and_index(all_similarity: &Array<f64, Ix1>, mut similarity: 
     let mut pair;
     let mut indices = Array::zeros(n_neighbors);
     for i in 0..n_neighbors {
-        pair = pq.pop().unwrap();
-        similarity[i] = ((pair.1).0).0;
+        pair = pq.pop().unwrap().0;
+        similarity[i] = pair.1;
         indices[i] = pair.0;
     }
     indices
@@ -104,13 +106,13 @@ fn get_n_similarity_and_index(all_similarity: &Array<f64, Ix1>, mut similarity: 
 //type MinNonNan = Reverse<NotNan<f64>>;
 
 #[derive(PartialEq)]
-struct MinNonNan(f64);
+struct MinNonNan(usize, f64);
 
 impl Eq for MinNonNan {}
 
 impl PartialOrd for MinNonNan {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        other.0.partial_cmp(&self.0)
+        other.1.partial_cmp(&self.1)
     }
 }
 

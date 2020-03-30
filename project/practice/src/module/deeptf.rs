@@ -6,6 +6,10 @@ use std::collections::HashMap;
 use priority_queue::PriorityQueue;
 use std::cmp::Reverse;
 use regex::Regex;
+use std::collections::HashSet;
+use stopwords::{Spark, Language, Stopwords};
+
+
 
 pub fn split_documents(path: &Path) -> Vec<(String, Vec<String>)> {
     let partition = read_file(&path).unwrap();
@@ -100,9 +104,10 @@ fn create_wordlist(arr: &[(String, String)]) -> Vec<(String, Vec<String>)> {
     let mut words: Vec<&str>;
     let mut converted: Vec<String>;
     let mut pair;
+    let stops: HashSet<_> = Spark::stopwords(Language::English).unwrap().iter().collect();
     for p in arr {
         words = re.split(&p.1[..]).collect();
-        converted = create_words_lowercase(&words[..]);
+        converted = create_words_lowercase(&words[..], &stops);
         pair = (p.0.clone(), converted);
         res.push(pair);
     }
@@ -110,16 +115,21 @@ fn create_wordlist(arr: &[(String, String)]) -> Vec<(String, Vec<String>)> {
 }
 
 // convert ["Word1",  "WOrd2", ...] -> ["word1", "word2", ....]
-fn create_words_lowercase(words: &[&str]) -> Vec<String>{
+fn create_words_lowercase(words: &[&str], stops: &HashSet<&&str>) -> Vec<String>{
     let n = words.len();
     let mut res = Vec::with_capacity(n);
     let mut lower_word;
     for i in 0..n {
         lower_word = create_string_lowercase(&words[i]);
-        if lower_word.len() != 0 {
+        if lower_word.len() != 0  && !check_stopword(&lower_word[..], stops){
             res.push(lower_word);
         }        
     }
+    res
+}
+
+fn check_stopword(word: &str, stops: &HashSet<&&str>) -> bool{
+    let res = stops.contains(&word);
     res
 }
 

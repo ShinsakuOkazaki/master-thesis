@@ -88,7 +88,8 @@ fn get_n_similarity_and_index(all_similarity: &Array<f64, Ix1>, mut similarity: 
     let mut pq = BinaryHeap::with_capacity(n_neighbors);
     let n = all_similarity.shape()[0];
     for i in 0..n {
-        pq.push(Reverse(MinNonNan(i, all_similarity[i])));
+        //pq.push(Reverse(MinNonNan(i, all_similarity[i])));
+        pq.push(MinNonNan(i, all_similarity[i]));
         if pq.len() > n_neighbors {
             pq.pop();
         }
@@ -96,7 +97,8 @@ fn get_n_similarity_and_index(all_similarity: &Array<f64, Ix1>, mut similarity: 
     let mut pair;
     let mut indices = Array::zeros(n_neighbors);
     for i in 0..n_neighbors {
-        pair = pq.pop().unwrap().0;
+        //pair = pq.pop().unwrap().0;
+        pair = pq.pop().unwrap();
         similarity[i] = pair.1;
         indices[i] = pair.0;
     }

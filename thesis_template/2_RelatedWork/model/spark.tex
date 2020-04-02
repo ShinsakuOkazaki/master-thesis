@@ -1,25 +1,32 @@
 \section{Hadoop MapReduce to Spark}
 \label{sec:history}
 In several Big Data mining tools that have been developed, the most notable ones are MapReduce and Spark. MapReduce is a cluster computing framework 
-which supports locality-aware scheduling, fault tolerance, and load balancing. Spark improves operations that MapReduce does not cover well. 
+which supports locality-aware scheduling, fault tolerance, and load balancing. Spark is designed to improve performance for iterative jobs keeping features of MapReduce. 
 
 MapReduce provides a programming model where the user creates acyclic data flow graphs to pass input data through a set of operations. This 
 data flow programming model is useful for many of query applications. However, MapReduce framework struggles from two of main resent data mining jobs: iterative jobs and interactive analysis. 
 
-Iterative job is especially common in Machine Learning Algorithm, such as Gradient Descent. In traditional MapReduce framework, each iteration can be expressed as single MapReduce job 
+Iterative job is especially common in Machine Learning Algorithm, such as learning a data model using Gradient Descent. In traditional MapReduce framework, each iteration can be expressed as single MapReduce job 
 so that each job must reload the data from disk. This leads I/O overhead and deteriorates performance of iterative algorithms. 
 
-Interactive analysis is also an inevitable task in modern data science. A data scientist want perform exploratory analysis in interactive way. 
+Interactive analysis is also an inevitable task in modern data science. A data scientist wants tp perform exploratory analysis in interactive way. 
 Nevertheless, MapReduce is designed in the way more stable for ad-hoc query, so each analysis can be single MapReduce job. 
 To perform multiple analysis to explore dataset, the data needs to be written to and reload from disk many times. 
 
 To overcome these limitations, Spark has been developed as a new cluster computing framework maintaining the innovative characteristics of MapReduce and improving 
 its iterative and interactive jobs with in-memory data structure.
 
+Some of the notable improvements are shown here\cite{DBLP:journals/pvldb/ShiQMJWRO15}. For aggregation operation, map output selectivity, which is the ration of the map output size to the job input size, 
+can be significantly reduced by using Spark. Spark uses a map side combiner, hash-based aggregation which is more efficient than sort-based aggregation used in MapReduce. 
+For iterative operation, caching the input as Resilient Distributed Datasets (RDDs) can reduce CRU and disk I/O overheads for sequence iteration. 
+This RDD caching takes a significant role to improve iterative job, because it is more efficient than other low-level caching approaches such as OS buffer caches, and HDFS caching. 
+These caching strategy reduces disk I/O overhead, but CPU overhead, such as parsing text to objects.
 
-\section{Resilient Distributed Datasets}
+
+\section{Apache Spark}
 \label{sec:history}
-The major methods in Spark are Resilient Distributed Datasets (RDDs), a data structure that abstracts distributed memory across different clusters. 
+\subsection{Resilient Distributed Datasets}
+Major methods in Spark are Resilient Distributed Datasets (RDDs), a data structure that abstracts distributed memory across different clusters. 
 The immutable coarse-grained transformation, spark-scheduler with lazy-evaluation, and memory management with cacheing achieve computation with fault-tolerance, 
 fast execution, and moderate control on memory efficiency \cite{DBLP:conf/nsdi/ZahariaCDDMMFSS12}.
 
@@ -37,8 +44,7 @@ Other than persisted RDD, Spark generates a lot of intermediate RDDs during exec
 However, persisted RDDs are never collected by GC. This GC might cause significant deterioration of performance of Spark, because GC shows heavy overhead when there are a number of objects.
 
 
-\section{Memory Management in Spark}
-\label{sec:history}
+\subsection{Memory Management in Spark}
 Spark framework allocates multiple executors, JVMs, that run sequence of transformations and actions. As we describe the previous section, data in Spark is mainly stored as Java objects in memory, 
 so that they are allocated on JVM heap and managed by JVM Garbage Collection. The data may form three types \cite{DBLP:journals/pvldb/XuGDWW19}: Cached data, Shuffled data, and Operator-generated data. 
 
@@ -58,7 +64,7 @@ The region for young generation mainly consists of two parts: Eden and Survivor 
 First, Java objects are created in Eden space and promoted to Survivor space when survive from GC. 
 After objects survive several GCs in Survivor space, they are finally promoted to old generation.
 
-In old generation, JVM lunches multi-thread to perform GC. GC with multi-threading suffers from Stop-The-World (STW) pauses; 
+In region of old generation, JVM lunches multi-thread to perform GC. GC with multi-threading suffers from Stop-The-World (STW) pauses; 
 GC may suspend application threads while performing object marking and deallocation. 
 Different GC algorithms try to solve this problem with trade-off between GC frequency and memory utilization. 
 
@@ -78,8 +84,7 @@ Therefore, GC become severe issue in Big Data processing where might produce sig
 \end{figure}
 
 
-\section{Garbage Collection Tuning}
-\label{sec:history}
+\subsection{Garbage Collection Tuning}
 Several solutions are suggested. Main idea is to reduce number of object and execution of GC. 
 One is avoiding pointer-based data structures, such as HashMap and LinkedList. These objects have a "wrapper" object for each entry 
 so that number of object tends to be larger than when when an array is used. Caching serialized object in memory also reduce number of object and memory usage 

@@ -7,6 +7,56 @@ use priority_queue::PriorityQueue;
 use std::cmp::Reverse;
 use regex::Regex;
 use std::rc::Rc;
+use ndarray::{Array,Ix1, Ix2};
+
+pub fn get_id_from_label_with_rc(label: &Array<i32, Ix1>, decode_map: &HashMap<i32, Rc<String>>) -> Vec<Rc<String>> {
+    let n= label.dim();
+    let mut res = Vec::with_capacity(n);
+    for i in 0..n {
+        let id = decode_map.get(&label[i]).unwrap();
+        res.push(Rc::clone(&id));
+    }
+    res
+}
+
+
+pub fn vectorize_x_with_rc(source: &[(Rc<String>, Vec<f64>)]) -> Array<f64, Ix2>{
+
+    let n = source.len();
+    let m = source[0].1.len();
+    let mut vector = Vec::with_capacity(n * m);
+    for i in 0..n {
+        vector.extend_from_slice(&source[i].1[..]);
+    }
+    
+    let x = Array::from_shape_vec((n, m), vector).unwrap();
+    x
+}
+
+pub fn vectorize_y_with_rc(source: &[(Rc<String>, Vec<f64>)]) -> (Array<i32, Ix1>, HashMap<i32, Rc<String>>) {
+    let n = source.len();
+    let mut encode_map = HashMap::new();
+    let mut decode_map = HashMap::new();
+    let mut id1;
+    let mut id2;
+    let mut encode = 0;
+    for i in 0..n {
+        id1 = Rc::clone(&source[i].0);
+        id2 = Rc::clone(&source[i].0); 
+        if !encode_map.contains_key(&id1) {
+            encode_map.insert(id1, encode);
+            decode_map.insert(encode, id2);
+            encode += 1;
+        }
+    }
+
+    let mut y = Array::zeros(n);
+    for i in 0..n {
+        encode = *encode_map.get(&source[i].0).unwrap();
+        y[i] = encode;
+    }
+    (y, decode_map)
+}
 
 
 pub fn split_documents_with_rc(path: &Path) -> Vec<(Rc<String>, Vec<Rc<String>>)> {
@@ -23,14 +73,14 @@ pub fn feature_map_with_rc(id_words: &[(Rc<String>, Vec<Rc<String>>)], k: usize)
     return top_k;
 }
 
-// create id and numeric vector pair [("id1", [3, 1, ,5....]), ("id2", [1, 21,4 ,....]), ....]
-pub fn create_id_numeric(arr: &[(String, Vec<String>)], map: &HashMap<String, usize>) -> Vec<(String, Vec<f64>)>{
+//create id and numeric vector pair [("id1", [3, 1, ,5....]), ("id2", [1, 21,4 ,....]), ....]
+pub fn create_id_numeric_with_rc(arr: &[(Rc<String>, Vec<Rc<String>>)], map: &HashMap<Rc<String>, usize>) -> Vec<(Rc<String>, Vec<f64>)>{
     let n = arr.len();
     let mut res = Vec::with_capacity(n);
     let mut numeric;
     let mut pair;
     for (id, words) in arr {
-        numeric = create_numeric_vector(words, &map);
+        numeric = create_numeric_vector_with_rc(words, &map);
         pair = (id.clone(), numeric);
         res.push(pair);
     }
@@ -38,7 +88,7 @@ pub fn create_id_numeric(arr: &[(String, Vec<String>)], map: &HashMap<String, us
 }
 
 // create numeric vector from vector of words ["safa", "afeaa", ....] -> [3, 1, 2 .....]
-fn create_numeric_vector(words: &[String], map: &HashMap<String, usize>) -> Vec<f64> {
+fn create_numeric_vector_with_rc(words: &[Rc<String>], map: &HashMap<Rc<String>, usize>) -> Vec<f64> {
     let n = words.len();
     let k = map.len();
     let mut res = vec![0.0; k];

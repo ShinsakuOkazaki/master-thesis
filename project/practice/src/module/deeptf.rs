@@ -8,6 +8,56 @@ use std::cmp::Reverse;
 use regex::Regex;
 use std::collections::HashSet;
 use stopwords::{Spark, Language, Stopwords};
+use ndarray::{Array, Ix1, Ix2};
+
+
+pub fn get_id_from_label(label: &Array<i32, Ix1>, decode_map: &HashMap<i32, String>) -> Vec<String> {
+    let n= label.dim();
+    let mut res = Vec::with_capacity(n);
+    for i in 0..n {
+        let id = decode_map.get(&label[i]).unwrap();
+        res.push(id.clone());
+    }
+    res
+}
+
+pub fn vectorize_x(source: &[(String, Vec<f64>)]) -> Array<f64, Ix2>{
+
+    let n = source.len();
+    let m = source[0].1.len();
+    let mut vector = Vec::with_capacity(n * m);
+    for i in 0..n {
+        vector.extend_from_slice(&source[i].1[..]);
+    }
+    
+    let x = Array::from_shape_vec((n, m), vector).unwrap();
+    x
+}
+
+pub fn vectorize_y(source: &[(String, Vec<f64>)]) -> (Array<i32, Ix1>, HashMap<i32, String>) {
+    let n = source.len();
+    let mut encode_map = HashMap::new();
+    let mut decode_map = HashMap::new();
+    let mut id1;
+    let mut id2;
+    let mut encode = 0;
+    for i in 0..n {
+        id1 = source[i].0.clone();
+        id2 = source[i].0.clone(); 
+        if !encode_map.contains_key(&id1) {
+            encode_map.insert(id1, encode);
+            decode_map.insert(encode, id2);
+            encode += 1;
+        }
+    }
+
+    let mut y = Array::zeros(n);
+    for i in 0..n {
+        encode = *encode_map.get(&source[i].0).unwrap();
+        y[i] = encode;
+    }
+    (y, decode_map)
+}
 
 
 

@@ -2,18 +2,51 @@ use std::path::Path;
 use std::env;
 mod module;
 use module::deeptf::*;
-//use module::rctf::*;
+use module::rctf::*;
 use ndarray::{Array, ArrayView, ArrayViewMut, s, Ix1, Ix2};
 use std::collections::{HashMap, BinaryHeap};
-use std::cmp::{Reverse, Ordering};
-
+use std::cmp::{Ordering, max};
+use std::rc::Rc;
+const MAX_THREADS: usize = 4;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let train_file = Path::new(&args[1]);
-    let test_file = Path::new(&args[2]);
-    let k: usize = args[3].parse::<usize>().unwrap();
-    let n_neighbors: usize = args[4].parse::<usize>().unwrap();
+    let method: i32 = args[1].parse::<i32>().unwrap();
+    let train_file = Path::new(&args[2]);
+    let test_file = Path::new(&args[3]);
+    let k: usize = args[4].parse::<usize>().unwrap();
+    let n_neighbors: usize = args[5].parse::<usize>().unwrap();
+    run(method, k, n_neighbors, &train_file, &test_file);
+}
+
+fn run(method: i32, k: usize, n_neighbors: usize, train_file: &Path, test_file: &Path) {
+    match method {
+        1 => run_ex_deepcopy(k, n_neighbors, train_file, test_file), 
+        2 => run_ex_rc(k, n_neighbors, train_file, test_file),
+        _ => println!("Wrong input")
+    }
+}
+
+fn run_ex_deepcopy(k: usize, n_neighbors:usize, train_file: &Path, test_file: &Path) {
+    let prediction = k_nearest_neighbors(k, n_neighbors, train_file, test_file);
+    println!("{:?}", prediction);
+}
+
+fn run_ex_rc(k: usize, n_neighbors:usize, train_file: &Path, test_file: &Path) {
+    let prediction = k_nearest_neighbors_with_rc(k, n_neighbors, train_file, test_file);
+    println!("{:?}", prediction);
+}
+
+//fn knearest_neighbors_multithread(k: usize, n_neighbors:usize, train_files: &[Path], test_file: &[Path]) {
+//
+//}
+
+// fn combine_neighbors(similarities: &[Array<f64, Ix2>], ids: &[Vec<String>]) {
+//     let (n, m) = similarities[0].dim();
+//     let mut res_similarities = Array::zeros((n, m));
+// }
+
+fn k_nearest_neighbors(k: usize, n_neighbors:usize, train_file: &Path, test_file: &Path) -> (Array<f64, Ix2>, Vec<String>) {
     let train_words = split_documents(train_file);
     let test_words = split_documents(test_file);
     let top_k = feature_map(&train_words[..], k);
@@ -21,52 +54,57 @@ fn main() {
     let test = create_id_numeric(&test_words[..], &top_k);
     let x_train = vectorize_x(&train[..]);
     let x_test = vectorize_x(&test[..]);
-    let y_train = vectorize_y(&train[..]);
-    let (similarities, labels) = get_neighbors(&x_train, &y_train, &x_test, n_neighbors);
-    println!("{:?}", similarities);
-    println!("{:?}", labels);
+    let (y_train, decode_map)= vectorize_y(&train[..]);
+    let (similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
+    let label = select_neighbor(&labels);
+    let id = get_id_from_label(&label, &decode_map);
+    (similarities, id)
 }
 
 
 
-fn vectorize_x(source: &[(String, Vec<f64>)]) -> Array<f64, Ix2>{
-
-    let n = source.len();
-    let m = source[0].1.len();
-    let mut vector = Vec::with_capacity(n * m);
-    for i in 0..n {
-        vector.extend_from_slice(&source[i].1[..]);
-    }
-    
-    let x = Array::from_shape_vec((n, m), vector).unwrap();
-    x
+fn k_nearest_neighbors_with_rc(k: usize, n_neighbors: usize, train_file: &Path, test_file: &Path) -> Vec<Rc<String>> {
+    let train_words = split_documents_with_rc(train_file);
+    let test_words = split_documents_with_rc(test_file);
+    let top_k = feature_map_with_rc(&train_words[..], k);
+    let train =  create_id_numeric_with_rc(&train_words[..], &top_k);
+    let test = create_id_numeric_with_rc(&test_words[..], &top_k);
+    let x_train = vectorize_x_with_rc(&train[..]);
+    let x_test = vectorize_x_with_rc(&test[..]);
+    let (y_train, decode_map)= vectorize_y_with_rc(&train[..]); 
+    let (_similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
+    let label = select_neighbor(&labels);
+    let id = get_id_from_label_with_rc(&label, &decode_map);
+    (similarities, id)
 }
 
-fn vectorize_y(source: &[(String, Vec<f64>)]) -> Array<i32, Ix1> {
-    let n = source.len();
-    let mut encode_map = HashMap::new();
-    //let mut decode_map = Vec::new();
-    let mut id;
-    let mut encode = 0;
+fn select_neighbor(labels: &Array<i32, Ix2>) -> Array<i32, Ix1> {
+    let (n, m) = labels.dim();
+    let mut res = Array::zeros(n);
     for i in 0..n {
-        id = source[i].0.clone();
-        if !encode_map.contains_key(&id) {
-            encode_map.insert(id, encode);
-            //decode_map[encode] = id;
-            encode += 1;
+        let mut map_count = HashMap::new();
+        let raw = labels.slice(s![i, ..]);
+        for j in 0..m {
+            let count = map_count.entry(raw[j]).or_insert(0);
+            *count += 1;
         }
+        let mut iter = map_count.iter(); 
+        let (k, v) = iter.next().unwrap();
+        let mut nearest_neighbor = *k;
+        let mut maximum = *v;
+        while let Some((k, v)) = iter.next()  {
+            if maximum < *v {
+                maximum = max(maximum, *v);
+                nearest_neighbor = *k;
+            }
+        }
+        res[i] = nearest_neighbor;
     }
-
-    let mut y = Array::zeros(n);
-    for i in 0..n {
-        encode = *encode_map.get(&source[i].0).unwrap();
-        y[i] = encode;
-    }
-    y
+    res
 }
 
 
-fn get_neighbors(x_train: &Array<f64, Ix2>, y_train: &Array<i32, Ix1>, x_test: &Array<f64, Ix2>, n_neighbors: usize) -> (Array<f64, Ix2>, Array<i32, Ix2>){
+fn knn(x_train: &Array<f64, Ix2>, y_train: &Array<i32, Ix1>, x_test: &Array<f64, Ix2>, n_neighbors: usize) -> (Array<f64, Ix2>, Array<i32, Ix2>){
     let m = x_test.shape()[0];
     let mut labels = Array::zeros((m, n_neighbors));
     let mut similarities = Array::zeros((m, n_neighbors));
@@ -88,7 +126,6 @@ fn get_n_similarity_and_index(all_similarity: &Array<f64, Ix1>, mut similarity: 
     let mut pq = BinaryHeap::with_capacity(n_neighbors);
     let n = all_similarity.shape()[0];
     for i in 0..n {
-        //pq.push(Reverse(MinNonNan(i, all_similarity[i])));
         pq.push(MinNonNan(i, all_similarity[i]));
         if pq.len() > n_neighbors {
             pq.pop();
@@ -97,7 +134,6 @@ fn get_n_similarity_and_index(all_similarity: &Array<f64, Ix1>, mut similarity: 
     let mut pair;
     let mut indices = Array::zeros(n_neighbors);
     for i in 0..n_neighbors {
-        //pair = pq.pop().unwrap().0;
         pair = pq.pop().unwrap();
         similarity[i] = pair.1;
         indices[i] = pair.0;
@@ -105,7 +141,6 @@ fn get_n_similarity_and_index(all_similarity: &Array<f64, Ix1>, mut similarity: 
     indices
 }
 
-//type MinNonNan = Reverse<NotNan<f64>>;
 
 #[derive(PartialEq)]
 struct MinNonNan(usize, f64);

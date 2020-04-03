@@ -1,0 +1,11 @@
+LLVM (Low Level Virtual Machine) is an umbrella project which contains components of compilation of programming language.
+Existing compilers have tightly coupled functionalities so that it is not possible to embed them into other applications.
+However, the abstract framework of LLVM decouples the functionalities into peaces and the peaces of functionalities can be reused.
+
+In structure of a compiler, there are three main components; frontend, optimizer, and backend. 
+In frontend, a developer designs the interface of source programming language in way where it can be optimized by optimizer. 
+Then, backend takes optimized code and produce the native machine code. LLVM has a component called LLVM Intermediate Representation (IR), 
+which places itself across frontend to optimizer. IR is designed to host mid-level analyses and transformations that you find in optimizer section of a compiler.
+High-level language has many common structures and functionalities, so most of all high-level program languages can be represented with IR. 
+Once source code is represented with IR, optimizer can easily find pattern and optimize it in faster time. 
+IR is useful in terms of frontend. This is because developer of language frontend need to know only how the IR works and use the framework to develop a language.

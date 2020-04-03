@@ -205,3 +205,94 @@ Off-heap means that the memory is allocated outside of the Java heap so that it 
 but its pointer is. The Java heap stores pointer to NDArray on off-heap. When a pointer is dereferenced, this pointer can be a target of JVM’s GC and when it is collected, 
 the corresponding NDArray will be deallocated. When using MemoryWorkspaces, NDArray lives only within specific workspace scope. 
 When NDArray leaves the workspace scope, the memory is deallocated unless explicitly calling method to copy the NDArray out of the scope.
+
+
+\section{Possible Graph Structure in Rust}
+\label{sec:history}
+In Rust, there are two essential problems to construct graph structure, lifetime and mutability. 
+
+The first problem is about what kind of pointer to use to point to other nodes. 
+Since graph can be cyclic, so the ownership consept in Rust is violated if we use Box$<$Node$>$.
+
+All of graph structure are immutable at least at creation time. Because graph may have cyclic, 
+we can not create graph at one statement. Although edge of graph has to be mutable to create entire graph structure, 
+we might need multiple references to edges, which violates basic rule of Rust programming.
+
+One solution is to use raw pointers. This is the most flexible approach, but also the most dangerous. 
+By taking this way, we are ignoring all the benefits of Rust.
+
+\section{Experiment for Multithread}
+\label{sec:history}
+Experiment for multithreading in Rust is interesting, because there are many memory allocation and deallocation in each threads.
+This is because each thread offten need to form independent memory state to each other to perform computation concurrently safely.
+In addition, the multithreading strategy can be planned in different ways in Rust using different concurrent computation tools, 
+Mutex, Arc, spawn, channel, scope, and so on.
+
+Currently available plan
+\begin{itemize}
+    \item spawn, channel and sending data (currently deviding data, but we probably do not need to).
+    \item spawn, forkjoin and shared data.(shared data among child and parent).
+    \item scope, forkjoin and slice shared data.
+    \item Use linkedList instead of Vector (Each node can be sharable data structure). When we have complex object of elements in vector, we want to copy the pointer to the object.
+    \item Compare performace on LinkedList which is not contiguous allocation, but do not need additional memory allocation and Vec.
+\end{itemize}
+
+
+
+\section{Note for next}
+\label{sec:history}
+Complex object of elements copy and insertion among vector is worth to experiment. This can be compared with Java,
+because memory layouts of struct in Rust and class in Java are different. Rust stores fieds in the contiguous memory region. 
+However, Java stores field elements to different region.
+
+Complex object whose fields has reference elemenets insertion to vector can be evaluated. Operation to the fields can be little 
+more expensive because the pointer to the value of the field is not stored in contiguous memory region.
+
+Generic type and static type function can be compared. 
+
+To optimise access to String elements of vector, smallstring can be improve the runtime performance. 
+This is because the smallstring optimization enables short length of string on stack as byte array. 
+This string type sets condition where it makes decition where the string is stored on heap or stack as array at certain length.
+
+Comparing operation on reference and owned variable is also interested to examine.
+
+Comparing operation on various smart pointer type. 
+Rc$<$T$>$ enables value to have multiple owners, but the value should be immutable. Rc$<$T$>$ is used in case of single thread. 
+When the situation is multi-thread, Arc$<$T$>$ is used. Arc$<$T$>$ performs atomic operation, so it is more expensive than Rc$<$T$>$. 
+When we need to mutate value of Rc$<$T$>$, RefCell$<$T$>$ can be useful. RefCell$<$T$>$ allow us to have mutiple mutable reference and immutable
+of reference mutable or immutable variable at the same time. When the mutability consistency is voilented, it terminates program during runtime. 
+That is why RefCell$<$T$>$ is expensive so that the state of mutable consistency should tracked. 
+As Cell$<$T$>$, the value is copied in and out of the Cell$<$T$>$ instead of getting refrence to it. 
+In addition, Mutex$<$T$>$ provides intetior mutability across multi-thread.
+
+Comparison between mutable and immutable tree or graph structure can be checked. 
+This is because tree structure requires Rc$<$T$>$ or Week$<$T$>$ and in addition RefCell$<$T$>$ to make it mutable.
+
+Design experiment for Trait object and Generic function. 
+We can have Trait object which is pointer to object which imprements its Trait and use the method of Trait object.
+This object has additional information other than just reference to tye original object. 
+This is because Rust needs the type information to dynamically calll the right method of Trait object depending on the type of 
+original object.
+On the other hand, we can have Generic function whose parameter types are Generic types corresponding to Trait. 
+When Rust compiles the code, it emits independent function corresponding to every types that implements the Trains specified in parameter.
+
+Vector of Trait object (need to put element into Box) vs Vector of concrete type.
+
+
+If we keep first created owner until the last phase, we can use borrowing to operate.
+If we delete first created owner during the operation, we should use Rc$<$T$>$.
+The question would be, we can use Rc$<$T$>$ every where?
+
+Multithread in Rust vs Java
+
+Smart pointer
+\begin{itemize}
+    \item Box$<$T$>$: Box pointer lets value allocated on heap rather than on the stack.
+    \item Rc$<$T$>$: Reference counted pointer lets variable take multiple immutable ownership.
+\end{itemize}
+
+Interier mutability
+\begin{itemize}
+    \item Cell$<$T$>$: For only Copy type, it allows us to mutate variable, even if it is immutable. Howeever, it does not support sharing the variable so that it returns always copy of the value.
+    \item RefCell$<$T$>$: This support sharing and interier immutability for all types. This is done by allowing to get mutable reference from immutable variable and push the error detacting time from compile time to runtime.
+\end{itemize}    

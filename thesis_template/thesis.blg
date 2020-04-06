@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: 0_Prelim/prelim.aux
+A level-1 auxiliary file: 1_Intro/intro.aux
+A level-1 auxiliary file: 2_RelatedWork/RelatedWork.aux
+A level-1 auxiliary file: 3_Body/body.aux
+A level-1 auxiliary file: 4_Conclusion/conclusion.aux
+A level-1 auxiliary file: Appendix/Appendix.aux
+The style file: apalike.bst
+A level-1 auxiliary file: 0_Prelim/cv.aux
+Database file #1: thesis.bib
+Warning--entry type for "ApacheHadoopHomePage" isn't style-file defined
+--line 92 of file thesis.bib
+Warning--to sort, need author or key in ApacheHadoopHomePage
+You've used 8 entries,
+            1935 wiz_defined-function locations,
+            536 strings with 6221 characters,
+and the built_in function-call counts, 4390 in all, are:
+= -- 408
+> -- 270
+< -- 4
++ -- 98
+- -- 96
+* -- 398
+:= -- 747
+add.period$ -- 26
+call.type$ -- 8
+change.case$ -- 83
+chr.to.int$ -- 8
+cite$ -- 10
+duplicate$ -- 147
+empty$ -- 263
+format.name$ -- 103
+if$ -- 861
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 8
+newline$ -- 42
+num.names$ -- 27
+pop$ -- 89
+preamble$ -- 1
+purify$ -- 84
+quote$ -- 0
+skip$ -- 112
+stack$ -- 0
+substring$ -- 276
+swap$ -- 34
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 46
+warning$ -- 1
+while$ -- 32
+width$ -- 0
+write$ -- 104
+(There were 2 warnings)

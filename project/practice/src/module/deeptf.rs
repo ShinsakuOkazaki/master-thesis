@@ -21,20 +21,32 @@ pub fn get_id_from_label(label: &Array<i32, Ix1>, decode_map: &HashMap<i32, Stri
     res
 }
 
-pub fn vectorize_x(source: &[(String, Vec<f64>)]) -> Array<f64, Ix2>{
+
+pub fn split_x_y(source: &[(String, Vec<f64>)]) -> (Vec<String>, Vec<Vec<f64>>) {
+    let n = source.len();
+    let res_x = Vec::with_capacity(n);
+    let res_y = Vec::with_capacity(n);
+    for i in 0..n {
+        res_x.push(source[i].0.clone());
+        res_y.push(source[i].1);
+    }
+    (res_x, res_y)
+}
+
+pub fn vectorize_x(source: &[Vec<f64>]) -> Array<f64, Ix2>{
 
     let n = source.len();
-    let m = source[0].1.len();
+    let m = source[0].len();
     let mut vector = Vec::with_capacity(n * m);
     for i in 0..n {
-        vector.extend_from_slice(&source[i].1[..]);
+        vector.extend_from_slice(&source[i][..]);
     }
     
     let x = Array::from_shape_vec((n, m), vector).unwrap();
     x
 }
 
-pub fn vectorize_y(source: &[(String, Vec<f64>)]) -> (Array<i32, Ix1>, HashMap<i32, String>) {
+pub fn vectorize_y(source: &[String]) -> (Array<i32, Ix1>, HashMap<i32, String>) {
     let n = source.len();
     let mut encode_map = HashMap::new();
     let mut decode_map = HashMap::new();
@@ -42,8 +54,8 @@ pub fn vectorize_y(source: &[(String, Vec<f64>)]) -> (Array<i32, Ix1>, HashMap<i
     let mut id2;
     let mut encode = 0;
     for i in 0..n {
-        id1 = source[i].0.clone();
-        id2 = source[i].0.clone(); 
+        id1 = source[i].clone();
+        id2 = source[i].clone(); 
         if !encode_map.contains_key(&id1) {
             encode_map.insert(id1, encode);
             decode_map.insert(encode, id2);
@@ -53,7 +65,7 @@ pub fn vectorize_y(source: &[(String, Vec<f64>)]) -> (Array<i32, Ix1>, HashMap<i
 
     let mut y = Array::zeros(n);
     for i in 0..n {
-        encode = *encode_map.get(&source[i].0).unwrap();
+        encode = *encode_map.get(&source[i]).unwrap();
         y[i] = encode;
     }
     (y, decode_map)

@@ -1,0 +1,53 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}% 
+\contentsline {section}{\numberline {1.1}Motivataion}{1}% 
+\contentsline {section}{\numberline {1.2}Problem Description}{3}% 
+\contentsline {chapter}{\numberline {2}Related Work}{4}% 
+\contentsline {section}{\numberline {2.1}Hadoop MapReduce to Spark}{4}% 
+\contentsline {section}{\numberline {2.2}Apache Spark}{5}% 
+\contentsline {subsection}{\numberline {2.2.1}Resilient Distributed Datasets}{5}% 
+\contentsline {subsection}{\numberline {2.2.2}Memory Management in Spark}{6}% 
+\contentsline {subsection}{\numberline {2.2.3}Garbage Collection Tuning}{7}% 
+\contentsline {section}{\numberline {2.3}Application to System Language}{9}% 
+\contentsline {section}{\numberline {2.4}Rust Memory Management}{10}% 
+\contentsline {section}{\numberline {2.5}Serialization}{12}% 
+\contentsline {section}{\numberline {2.6}LLVM}{13}% 
+\contentsline {section}{\numberline {2.7}Todos}{13}% 
+\contentsline {chapter}{\numberline {3}Body of my thesis}{14}% 
+\contentsline {section}{\numberline {3.1}Some results}{14}% 
+\contentsline {section}{\numberline {3.2}Experiment of Memory Allocation}{15}% 
+\contentsline {section}{\numberline {3.3}Experiment of Memory Allocation for Different Element Type.}{19}% 
+\contentsline {section}{\numberline {3.4}Assessment of different reference methods in Rust}{25}% 
+\contentsline {subsection}{\numberline {3.4.1}Concept}{25}% 
+\contentsline {subsection}{\numberline {3.4.2}Evaluation}{25}% 
+\contentsline {subsection}{\numberline {3.4.3}Result}{26}% 
+\contentsline {subsection}{\numberline {3.4.4}Discussion}{27}% 
+\contentsline {section}{\numberline {3.5}Experiment for Merge-sort}{28}% 
+\contentsline {subsection}{\numberline {3.5.1}Concept}{28}% 
+\contentsline {subsection}{\numberline {3.5.2}Result}{29}% 
+\contentsline {subsection}{\numberline {3.5.3}Discussion}{29}% 
+\contentsline {section}{\numberline {3.6}Experiment for Tree-aggregation}{31}% 
+\contentsline {subsection}{\numberline {3.6.1}Concept}{31}% 
+\contentsline {subsection}{\numberline {3.6.2}Result}{32}% 
+\contentsline {subsection}{\numberline {3.6.3}Discussion}{32}% 
+\contentsline {section}{\numberline {3.7}Elements Copy and Insertion into Size-initialized Vector in Rust.}{35}% 
+\contentsline {section}{\numberline {3.8}Access time to elements in vector}{37}% 
+\contentsline {section}{\numberline {3.9}Access time to owned, borrowed, and sliced field of object}{37}% 
+\contentsline {chapter}{\numberline {4}Conclusions}{40}% 
+\contentsline {section}{\numberline {4.1}Summary of the thesis}{40}% 
+\contentsline {chapter}{\numberline {A}Proof of xyz}{41}% 
+\contentsline {section}{\numberline {A.1}Memory and Process in Operation Systems}{41}% 
+\contentsline {section}{\numberline {A.2}Multi-threading and Parallelism}{42}% 
+\contentsline {section}{\numberline {A.3}Memory management in Operation System}{42}% 
+\contentsline {section}{\numberline {A.4}Demand Paging}{43}% 
+\contentsline {section}{\numberline {A.5}Copy on Page}{44}% 
+\contentsline {section}{\numberline {A.6}Threads and Concurrency}{44}% 
+\contentsline {section}{\numberline {A.7}BLAS LAPACK}{44}% 
+\contentsline {section}{\numberline {A.8}Netlib-Java}{46}% 
+\contentsline {section}{\numberline {A.9}Create Java interface of CBLAS with JNI}{46}% 
+\contentsline {section}{\numberline {A.10}Matrix Computation and Optimization in Apache Spark}{47}% 
+\contentsline {section}{\numberline {A.11}Memory Management of each Linear Algebra Library}{48}% 
+\contentsline {section}{\numberline {A.12}Possible Graph Structure in Rust}{49}% 
+\contentsline {section}{\numberline {A.13}Experiment for Multithread}{50}% 
+\contentsline {section}{\numberline {A.14}Note for next}{50}% 
+\contentsline {chapter}{References}{53}% 
+\contentsline {chapter}{Curriculum Vitae}{54}% 

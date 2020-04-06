@@ -3,71 +3,86 @@ use std::env;
 mod module;
 use module::deeptf::*;
 use module::rctf::*;
-use ndarray::{Array, ArrayView, ArrayViewMut, s, Ix1, Ix2, stack, Axis};
+use ndarray::{Array, ArrayView, ArrayViewMut, s, Ix1, Ix2};
 use std::collections::{HashMap, BinaryHeap};
 use std::cmp::{Ordering, max};
 use std::rc::Rc;
+use crossbeam;
 const MAX_THREADS: usize = 4;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     let method: i32 = args[1].parse::<i32>().unwrap();
-    let train_file = Path::new(&args[2]);
-    let test_file = Path::new(&args[3]);
+    let train_file = args[2];
+    let test_file = args[3];
     let k: usize = args[4].parse::<usize>().unwrap();
     let n_neighbors: usize = args[5].parse::<usize>().unwrap();
-    run(method, k, n_neighbors, &train_file, &test_file);
+    //run(method, k, n_neighbors, &train_file, &test_file);
 }
 
-fn run(method: i32, k: usize, n_neighbors: usize, train_file: &Path, test_file: &Path) {
+fn run(method: i32, k: usize, n_neighbors: usize, train_files: &[String], test_files: &[String]) {
     match method {
-        1 => run_ex_deepcopy(k, n_neighbors, train_file, test_file), 
-        2 => run_ex_rc(k, n_neighbors, train_file, test_file),
+        1 => run_ex_deepcopy(k, n_neighbors, train_files, test_files), 
+        //2 => run_ex_rc(k, n_neighbors, train_files, test_files),
         _ => println!("Wrong input")
     }
 }
 
-fn run_ex_deepcopy(k: usize, n_neighbors:usize, train_file: &Path, test_file: &Path) {
-    let prediction = k_nearest_neighbors(k, n_neighbors, train_file, test_file);
+fn run_ex_deepcopy(k: usize, n_neighbors:usize, train_files: &[String], test_files: &[String]) {
+    let prediction = k_nearest_neighbors_multithread(k, n_neighbors, train_files, test_files);
     println!("{:?}", prediction);
 }
 
-fn run_ex_rc(k: usize, n_neighbors:usize, train_file: &Path, test_file: &Path) {
-    let prediction = k_nearest_neighbors_with_rc(k, n_neighbors, train_file, test_file);
-    println!("{:?}", prediction);
+// fn run_ex_rc(k: usize, n_neighbors:usize, train_file: &Path, test_file: &Path) {
+//     let prediction = k_nearest_neighbors_with_rc(k, n_neighbors, train_file, test_file);
+//     println!("{:?}", prediction);
+// }
+
+fn k_nearest_neighbors_multithread(k: usize, n_neighbors:usize, train_files: &[String], test_file: &[String]) -> Vec<String>{
+    let (mut similarities, mut ids)= crossbeam::scope(|s| {
+        let mut handlers = Vec::with_capacity(MAX_THREADS);
+        for i in 0..MAX_THREADS { 
+            handlers.push(s.spawn(move |_| {
+                k_nearest_neighbors(k, n_neighbors, &train_files[i], &test_file[i]);
+            }));
+        }
+        let mut local_similarities = Vec::with_capacity(MAX_THREADS);
+        let mut local_ids = Vec::with_capacity(MAX_THREADS); 
+        for handler in handlers {
+            let local = handler.join().unwrap();
+            local_similarities.push(local.0);
+            local_ids.push(local.1);
+        }
+        (local_similarities, local_ids)
+    }).unwrap();
+    let (combined_similarities, combined_ids) = combine_neighbors(similarities, ids);
+    let (combined_labels, decode_map) = vectorize_ids(&combined_ids[..]);
+    let (n_similarities, n_labels) = select_neighbors_combine(&combined_similarities, &combined_labels, n_neighbors);
+    let label = select_neighbor(&n_labels);
+    let id = get_id_from_label(&label, &decode_map);
+    id
 }
 
-fn knearest_neighbors_multithread(k: usize, n_neighbors:usize, train_files: &[Path], test_file: &[Path]) {
-    
-    let mut res = Array::zeros(())
-    let (combined_similarities, combined_ids) = combine_neighbors(&similarities[..], &labels[..]);
-    
-}
-
-fn combine_neighbors(similarities: Vec<Array<f64, Ix2>>, ids: mut Vec<Vec<Vec<String>>>) -> (Array<f64, Ix2>, Vec<Vec<Vec<String>>>){
-     let (n, m) = similarities[0].dim();
-     let l = ids.len();
-     let o = ids[0].len();
-     let mut combined_x = similarities[0]; 
-     let mut combined_y = ids[0];
-     for i in 1..l {
-        combined_x = stack![Axis(1), combined_x, similarities[i]];
-        combined_y = concat_string_vectors(&combined_y[..], ids[i]));
-     }
-     (combined_x, combined_y)
-}
-
-fn concat_string_vectors(source: mut &[Vec<String>], other: mut Vec<Vec<String>>) -> Vec<Vec<String>> {
-    let n = source.len();
+fn select_neighbors_combine(combined_similarities: &Array<f64, Ix2>, combined_labels: &Array<i32, Ix2>, n_neighbors: usize) -> (Array<f64, Ix2>, Array<i32, Ix2>){
+    let (n, _m) = combined_similarities.dim();
+    let mut n_similarities = Array::zeros((n, n_neighbors));
+    let mut n_labels = Array::zeros((n, n_neighbors));
     for i in 0..n {
-        source[i].append(&other[i]);
+        let indices = get_n_similarity_and_index(&combined_similarities, n_similarities.slice_mut(s![i, ..]), n_neighbors);
+        for j in 0..indices.len() {
+            n_labels[[i, j]] = combined_labels.slice(s![i])[indices[j]];
+        }
     }
-    source;
+    (n_similarities, n_labels)
 }
 
-fn k_nearest_neighbors(k: usize, n_neighbors:usize, train_file: &Path, test_file: &Path) -> (Array<f64, Ix2>, Vec<String>) {
-    let train_words = split_documents(train_file);
-    let test_words = split_documents(test_file);
+
+
+fn k_nearest_neighbors(k: usize, n_neighbors:usize, train_file: &str, test_file: &str) -> (Array<f64, Ix2>, Vec<String>) {
+    let train_path = Path::new(train_file);
+    let test_path = Path::new(test_file); 
+    let train_words = split_documents(&train_path);
+    let test_words = split_documents(&test_path);
     let top_k = feature_map(&train_words[..], k);
     let train =  create_id_numeric(&train_words[..], &top_k);
     let test = create_id_numeric(&test_words[..], &top_k);
@@ -77,9 +92,8 @@ fn k_nearest_neighbors(k: usize, n_neighbors:usize, train_file: &Path, test_file
     let x_test = vectorize_x(&x_source_test[..]);
     let (y_train, decode_map)= vectorize_y(&y_source_train[..]);
     let (similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
-    let label = select_neighbor(&labels);
-    let id = get_id_from_label(&label, &decode_map);
-    (similarities, id)
+    let ids = get_ids_from_labels(&labels, &decode_map);
+    (similarities, ids)
 }
 
 
@@ -96,9 +110,8 @@ fn k_nearest_neighbors_with_rc(k: usize, n_neighbors: usize, train_file: &Path, 
     let x_test = vectorize_x_with_rc(&x_source_test[..]);
     let (y_train, decode_map)= vectorize_y_with_rc(&y_source_train[..]); 
     let (similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
-    let label = select_neighbor(&labels);
-    let id = get_id_from_label_with_rc(&label, &decode_map);
-    (similarities, id)
+    let ids = get_ids_from_labels_with_rc(&labels, &decode_map);
+    (similarities, ids)
 }
 
 

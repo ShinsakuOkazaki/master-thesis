@@ -19,6 +19,20 @@ pub fn get_id_from_label_with_rc(label: &Array<i32, Ix1>, decode_map: &HashMap<i
     res
 }
 
+pub fn get_ids_from_labels_with_rc(labels: &Array<i32, Ix2>, decode_map: &HashMap<i32, Rc<String>>) -> Vec<Vec<Rc<String>>> {
+    let (n, m) = labels.dim();
+    let mut res = Vec::with_capacity(n);
+    for i in 0..n {
+        let mut v = Vec::with_capacity(m);
+        for j in 0..m {
+            let id = decode_map.get(&labels[[i, j]]).unwrap();
+            v.push(Rc::clone(&id));
+        }
+        res.push(v);
+    }
+    res
+}
+
 
 
 pub fn split_x_y_with_rc(source: &[(Rc<String>, Vec<f64>)]) -> (Vec<String>, Vec<Vec<f64>>) {

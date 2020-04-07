@@ -35,13 +35,13 @@ pub fn get_ids_from_labels_with_rc(labels: &Array<i32, Ix2>, decode_map: &HashMa
 
 
 
-pub fn split_x_y_with_rc(source: &[(Rc<String>, Vec<f64>)]) -> (Vec<String>, Vec<Vec<f64>>) {
+pub fn split_x_y_with_rc(source: &[(Rc<String>, Vec<f64>)]) -> ( Vec<Vec<f64>>, Vec<Rc<String>>) {
     let n = source.len();
-    let res_x = Vec::with_capacity(n);
-    let res_y = Vec::with_capacity(n);
+    let mut res_x = Vec::with_capacity(n);
+    let mut res_y = Vec::with_capacity(n);
     for i in 0..n {
-        res_x.push(Rc::clone(&source[i].0));
-        res_y.push(source[i].1);
+        res_x.push(source[i].1.clone());
+        res_y.push(Rc::clone(&source[i].0));
     }
     (res_x, res_y)
 }

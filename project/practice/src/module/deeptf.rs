@@ -18,9 +18,9 @@ pub fn vectorize_ids(ids: &[Vec<String>]) -> (Array<i32, Ix2>, HashMap<i32, Stri
     let mut encode = 0;
     for i in 0..n {
         for j in 0..m {
-            if encode_map.contains_key(&ids[i][j]) {
-                encode_map.insert(&ids[i][j].clone(), encode);
-                decode_map.insert(encode, &ids[i][j].clone());
+            if !encode_map.contains_key(&ids[i][j]) {
+                encode_map.insert(ids[i][j].clone(), encode);
+                decode_map.insert(encode, ids[i][j].clone());
                 encode += 1;
             }
         }
@@ -40,11 +40,11 @@ pub fn combine_neighbors(similarities: Vec<Array<f64, Ix2>>, mut ids: Vec<Vec<Ve
      let (n, m) = similarities[0].dim();
      let l = ids.len();
      let o = ids[0].len();
-     let mut combined_x = similarities[0]; 
-     let mut combined_y = ids[0];
+     let mut combined_x = similarities[0].clone(); 
+     let mut combined_y = ids[0].clone();
      for i in 1..l {
         combined_x = stack![Axis(1), combined_x, similarities[i]];
-        concat_string_vectors(&combined_y[..], ids[i]);
+        concat_string_vectors(&mut combined_y[..], ids[i].clone());
      }
      (combined_x, combined_y)
 }
@@ -53,7 +53,7 @@ pub fn combine_neighbors(similarities: Vec<Array<f64, Ix2>>, mut ids: Vec<Vec<Ve
 pub fn concat_string_vectors(source: &mut [Vec<String>], mut other: Vec<Vec<String>>) {
     let n = source.len();
     for i in 0..n {
-        source[i].append(&other[i]);
+        source[i].append(&mut other[i]);
     }
 }
 
@@ -81,13 +81,13 @@ pub fn get_ids_from_labels(labels: &Array<i32, Ix2>, decode_map: &HashMap<i32, S
     res
 }
 
-pub fn split_x_y(source: &[(String, Vec<f64>)]) -> (Vec<String>, Vec<Vec<f64>>) {
+pub fn split_x_y(source: &[(String, Vec<f64>)]) -> (Vec<Vec<f64>>, Vec<String>) {
     let n = source.len();
-    let res_x = Vec::with_capacity(n);
-    let res_y = Vec::with_capacity(n);
+    let mut res_x = Vec::with_capacity(n);
+    let mut res_y = Vec::with_capacity(n);
     for i in 0..n {
-        res_x.push(source[i].0.clone());
-        res_y.push(source[i].1);
+        res_x.push(source[i].1.clone());
+        res_y.push(source[i].0.clone());
     }
     (res_x, res_y)
 }

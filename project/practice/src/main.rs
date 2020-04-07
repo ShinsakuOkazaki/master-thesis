@@ -8,28 +8,32 @@ use std::collections::{HashMap, BinaryHeap};
 use std::cmp::{Ordering, max};
 use std::rc::Rc;
 use crossbeam;
-const MAX_THREADS: usize = 4;
+const MAX_THREADS: usize = 3;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     let method: i32 = args[1].parse::<i32>().unwrap();
-    let train_file = args[2];
-    let test_file = args[3];
-    let k: usize = args[4].parse::<usize>().unwrap();
-    let n_neighbors: usize = args[5].parse::<usize>().unwrap();
-    //run(method, k, n_neighbors, &train_file, &test_file);
+    let k: usize = args[2].parse::<usize>().unwrap();
+    let n_neighbors: usize = args[3].parse::<usize>().unwrap();
+    let mut train_files = Vec::with_capacity(MAX_THREADS);
+    let mut test_file = args[4].clone();
+    for i in 5..5 + MAX_THREADS {
+        train_files.push(args[i].clone());
+    }
+    println!("train files: {:?}", train_files);
+    run(method, k, n_neighbors, &train_files, &test_file);
 }
 
-fn run(method: i32, k: usize, n_neighbors: usize, train_files: &[String], test_files: &[String]) {
+fn run(method: i32, k: usize, n_neighbors: usize, train_files: &[String], test_file: &String) {
     match method {
-        1 => run_ex_deepcopy(k, n_neighbors, train_files, test_files), 
+        1 => run_ex_deepcopy(k, n_neighbors, train_files, test_file), 
         //2 => run_ex_rc(k, n_neighbors, train_files, test_files),
         _ => println!("Wrong input")
     }
 }
 
-fn run_ex_deepcopy(k: usize, n_neighbors:usize, train_files: &[String], test_files: &[String]) {
-    let prediction = k_nearest_neighbors_multithread(k, n_neighbors, train_files, test_files);
+fn run_ex_deepcopy(k: usize, n_neighbors:usize, train_files: &[String], test_file: &String) {
+    let prediction = k_nearest_neighbors_multithread(k, n_neighbors, train_files, test_file);
     println!("{:?}", prediction);
 }
 
@@ -38,20 +42,22 @@ fn run_ex_deepcopy(k: usize, n_neighbors:usize, train_files: &[String], test_fil
 //     println!("{:?}", prediction);
 // }
 
-fn k_nearest_neighbors_multithread(k: usize, n_neighbors:usize, train_files: &[String], test_file: &[String]) -> Vec<String>{
-    let (mut similarities, mut ids)= crossbeam::scope(|s| {
+fn k_nearest_neighbors_multithread(k: usize, n_neighbors:usize, train_files: &[String], test_file: &String) -> Vec<String>{
+    let (mut similarities, mut ids)= crossbeam::scope(|scope| {
         let mut handlers = Vec::with_capacity(MAX_THREADS);
-        for i in 0..MAX_THREADS { 
-            handlers.push(s.spawn(move |_| {
-                k_nearest_neighbors(k, n_neighbors, &train_files[i], &test_file[i]);
-            }));
+        for i in 0..MAX_THREADS {
+            let handler = scope.spawn(move |_| {
+                k_nearest_neighbors(k, n_neighbors, &train_files[i], &test_file)
+            });
+            handlers.push(handler);
         }
         let mut local_similarities = Vec::with_capacity(MAX_THREADS);
         let mut local_ids = Vec::with_capacity(MAX_THREADS); 
         for handler in handlers {
-            let local = handler.join().unwrap();
-            local_similarities.push(local.0);
-            local_ids.push(local.1);
+            let local: (Array<f64, Ix2>, Vec<Vec<String>>) = handler.join().unwrap();
+            let (local_similarity, local_id)= local;
+            local_similarities.push(local_similarity);
+            local_ids.push(local_id);
         }
         (local_similarities, local_ids)
     }).unwrap();
@@ -68,9 +74,9 @@ fn select_neighbors_combine(combined_similarities: &Array<f64, Ix2>, combined_la
     let mut n_similarities = Array::zeros((n, n_neighbors));
     let mut n_labels = Array::zeros((n, n_neighbors));
     for i in 0..n {
-        let indices = get_n_similarity_and_index(&combined_similarities, n_similarities.slice_mut(s![i, ..]), n_neighbors);
+        let indices = get_n_similarity_and_index(&combined_similarities.slice(s![i, ..]), n_similarities.slice_mut(s![i, ..]), n_neighbors);
         for j in 0..indices.len() {
-            n_labels[[i, j]] = combined_labels.slice(s![i])[indices[j]];
+            n_labels[[i, j]] = combined_labels.slice(s![i,..])[indices[j]];
         }
     }
     (n_similarities, n_labels)
@@ -78,7 +84,7 @@ fn select_neighbors_combine(combined_similarities: &Array<f64, Ix2>, combined_la
 
 
 
-fn k_nearest_neighbors(k: usize, n_neighbors:usize, train_file: &str, test_file: &str) -> (Array<f64, Ix2>, Vec<String>) {
+fn k_nearest_neighbors(k: usize, n_neighbors:usize, train_file: &str, test_file: &str) -> (Array<f64, Ix2>, Vec<Vec<String>>) {
     let train_path = Path::new(train_file);
     let test_path = Path::new(test_file); 
     let train_words = split_documents(&train_path);
@@ -93,12 +99,13 @@ fn k_nearest_neighbors(k: usize, n_neighbors:usize, train_file: &str, test_file:
     let (y_train, decode_map)= vectorize_y(&y_source_train[..]);
     let (similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
     let ids = get_ids_from_labels(&labels, &decode_map);
+    println!("Ids at local: {:?}", ids);
     (similarities, ids)
 }
 
 
 
-fn k_nearest_neighbors_with_rc(k: usize, n_neighbors: usize, train_file: &Path, test_file: &Path) -> (Array<f64, Ix2>, Vec<Rc<String>>) {
+fn k_nearest_neighbors_with_rc(k: usize, n_neighbors: usize, train_file: &Path, test_file: &Path) -> (Array<f64, Ix2>, Vec<Vec<Rc<String>>>) {
     let train_words = split_documents_with_rc(train_file);
     let test_words = split_documents_with_rc(test_file);
     let top_k = feature_map_with_rc(&train_words[..], k);
@@ -154,13 +161,13 @@ fn knn(x_train: &Array<f64, Ix2>, y_train: &Array<i32, Ix1>, x_test: &Array<f64,
 
 fn get_neighbors_of_raw(x_train: &Array<f64, Ix2>, y_train: &Array<i32, Ix1>, x_test_raw: ArrayView<f64, Ix1>, similarity: ArrayViewMut<f64, Ix1>, mut label: ArrayViewMut<i32, Ix1>, n_neighbors: usize) {
     let all_similarity = x_train.dot(&x_test_raw);
-    let indices = get_n_similarity_and_index(&all_similarity, similarity, n_neighbors);
+    let indices = get_n_similarity_and_index(&all_similarity.view(), similarity, n_neighbors);
     for i in 0..n_neighbors {
         label[i] = y_train[indices[i]];
     }
 }
 
-fn get_n_similarity_and_index(all_similarity: &Array<f64, Ix1>, mut similarity: ArrayViewMut<f64, Ix1>, n_neighbors: usize) -> Array<usize, Ix1> {
+fn get_n_similarity_and_index(all_similarity: &ArrayView<f64, Ix1>, mut similarity: ArrayViewMut<f64, Ix1>, n_neighbors: usize) -> Array<usize, Ix1> {
     let mut pq = BinaryHeap::with_capacity(n_neighbors);
     let n = all_similarity.shape()[0];
     for i in 0..n {

@@ -138,9 +138,19 @@ Main concepts of Memory Management in Rust are ownership, move, and borrowing.
 \subsection{Ownership}
 In ownership feature or Rust, each value has a variable called owner.
 This owner has information about the value, such as location in memory, length and capacity of the value. 
-For example, the object representation of Vec$<$i32$>$ is shown in Figure. This owner can live on the scope associated with its lifetime.
+For example, the object representation of Vec$<$i32$>$ is shown in Figure~\ref{fig:rustvec}. The upper boxes represent owner variable in stack frame. 
+The lower boxes represent contiguous memory allocated to store i32. Its capacity is specified 10, but 7 values of i32 are stored. 
+Therefore, there are still spaces to store 3 values of i32 without reallocation of memory. This owner can live on the scope associated with its lifetime.
 When the owner is dropped, the value will be dropped too. This feature is similar to how RAII in C++ works. 
 However, acquisition of owner out of the scope where it was constructed is available in Rust with the concept of move. 
+
+\begin{figure}[htb]
+    \includegraphics[width=15cm]{rust_vec.eps}
+    \caption{Representation of Rust Vec$<$i32$>$}
+    \label{fig:rustvec}
+\end{figure}
+
+
 
 \subsection{Move}
 In Rust, for most types. operations like assigning a value to a variable, passing it to a function, or returning it from a function do not copy the value: they move it. 

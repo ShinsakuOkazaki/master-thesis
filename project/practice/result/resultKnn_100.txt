@@ -1,0 +1,7 @@
+datastructure#k#n_neighbors#threadtime#globaltime
+[RustVector]#10000#10#44970#22
+[RustVector]#10000#20#54475#42
+[RustVector]#10000#30#58541#64
+[RustVector]#20000#10#86985#42
+[RustVector]#20000#20#80713#46
+[RustVector]#20000#30#84413#68

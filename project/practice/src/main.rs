@@ -56,7 +56,7 @@ fn run_ex_deepcopy( k: usize, n_neighbors:usize, train_files: &[String], test_fi
 
 fn run_ex_arc(k: usize, n_neighbors:usize, train_files: &[String], test_file: &String) {
      let (prediction, elapsed_threads, elapsed_global) = k_nearest_neighbors_multithread_with_arc(k, n_neighbors, train_files, test_file);
-     write_to_file("Arc", k, n_neighbors, elapsed_threads, elapsed_global);
+     write_to_file("arc", k, n_neighbors, elapsed_threads, elapsed_global);
      println!("{:?}", prediction);
 }
 

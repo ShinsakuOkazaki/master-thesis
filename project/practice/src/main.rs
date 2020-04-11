@@ -12,7 +12,7 @@ use std::time::Instant;
 use std::fs::OpenOptions;
 use std::io::prelude::*;
 
-const MAX_THREADS: usize = 10;
+const MAX_THREADS: usize = 4;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -27,9 +27,9 @@ fn main() {
     run(method, k, n_neighbors, &train_files, &test_file);
 }
 
-fn write_to_file(k: usize, n_neighbors:usize, elapsed_threads: u128, elapsed_global: u128) {
-    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}\n", 
-                         k, n_neighbors, elapsed_threads, elapsed_global);
+fn write_to_file(method: &str, k: usize, n_neighbors:usize, elapsed_threads: u128, elapsed_global: u128) {
+    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}#{:?}\n", 
+                         method, k, n_neighbors, elapsed_threads, elapsed_global);
     println!("{}",output);
     let mut file = OpenOptions::new()
         .append(true)
@@ -48,15 +48,15 @@ fn run(method: i32, k: usize, n_neighbors: usize, train_files: &[String], test_f
     }
 }
 
-fn run_ex_deepcopy(k: usize, n_neighbors:usize, train_files: &[String], test_file: &String) {
+fn run_ex_deepcopy( k: usize, n_neighbors:usize, train_files: &[String], test_file: &String) {
     let (prediction, elapsed_threads, elapsed_global)= k_nearest_neighbors_multithread(k, n_neighbors, train_files, test_file);
-    write_to_file(k, n_neighbors, elapsed_threads, elapsed_global);
+    write_to_file("deepcopy", k, n_neighbors, elapsed_threads, elapsed_global);
     println!("{:?}", prediction);
 }
 
 fn run_ex_arc(k: usize, n_neighbors:usize, train_files: &[String], test_file: &String) {
      let (prediction, elapsed_threads, elapsed_global) = k_nearest_neighbors_multithread_with_arc(k, n_neighbors, train_files, test_file);
-     write_to_file(k, n_neighbors, elapsed_threads, elapsed_global);
+     write_to_file("Arc", k, n_neighbors, elapsed_threads, elapsed_global);
      println!("{:?}", prediction);
 }
 

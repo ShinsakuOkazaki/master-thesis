@@ -14,7 +14,7 @@ use std::cmp::{Ordering, max};
 use crossbeam;
 use std::fmt::Debug;
 
-const MAX_THREADS: usize = 4;
+const MAX_THREADS: usize = 10;
 
 fn main() {
     let args: Vec<String> = env::args().collect();

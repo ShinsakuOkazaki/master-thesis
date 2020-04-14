@@ -175,11 +175,12 @@ fn k_nearest_neighbors(k: usize, n_neighbors:usize, f_train: &str, f_test: &str,
         let test = create_id_numeric(&test_words[..], &top_k);
         let (x_source_train, y_source_train) = split_x_y(&train[..]);
         let (x_source_test, _y_source_test) = split_x_y(&test[..]);
+        println!("Vectorize started");
         let x_train = vectorize_x(&x_source_train[..]);
         let x_test = vectorize_x(&x_source_test[..]);
         let (y_train, decode_map)= vectorize_y(&y_source_train[..]);
         let elapsed_batch_preprocess = start_batch_preproccess.elapsed().as_millis();
-        
+        println!("Vectorize done!");
         let start_batch_query = Instant::now();
         let (_similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
         let elapsed_batch_query = start_batch_query.elapsed().as_millis();

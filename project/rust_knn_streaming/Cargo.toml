@@ -1,0 +1,16 @@
+[package]
+name = "rust_knn_streaming"
+version = "0.1.0"
+authors = ["sinsakuokazaki <golisaku4639@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.7"
+regex = "1"
+priority-queue = "0.7.0"
+ndarray = "0.13.0"
+ordered-float = "1.0"
+stopwords = "0.1.0"
+crossbeam = "0.7.3"

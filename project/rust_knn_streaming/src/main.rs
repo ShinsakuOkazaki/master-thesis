@@ -2,17 +2,19 @@ use std::path::Path;
 use std::env;
 mod module;
 use module::deeptf::*;
+use module::arctf::*;
 use std::time::Instant;
 use std::fs::OpenOptions;
 use std::io::prelude::*;
 use std::fs::File;
-use std::io::{self, BufRead, BufReader, Lines, Read};
+use std::io::{self, BufRead, BufReader, Lines};
 use std::iter::{Peekable, Iterator};
 use ndarray::prelude::*;
 use std::collections::{HashMap, BinaryHeap};
 use std::cmp::{Ordering, max};
 use crossbeam;
 use std::fmt::Debug;
+use std::sync::Arc;
 
 // const MAX_THREADS: usize = 10;
 const MAX_THREADS: usize = 8;
@@ -67,14 +69,21 @@ fn main() {
 fn run(method: i32, k: usize, n_neighbors: usize, f_trains: &[String], f_tests: &[String], n_line_trains: &[usize], n_line_tests: &[usize], n_batch: usize) {
     match method {
         1 => run_ex_deepcopy(k, n_neighbors, f_trains, f_tests, n_line_trains, n_line_tests, n_batch),
+        2 => run_ex_arc(k, n_neighbors, f_trains, f_tests, n_line_trains, n_line_tests, n_batch),
         _ => println!("Wrong input")
     }
 }
 
 fn run_ex_deepcopy(k: usize, n_neighbors: usize, f_trains: &[String], f_tests: &[String], n_line_trains: &[usize], n_line_tests: &[usize], n_batch: usize) {
-    let (predictions, preprocess_times, query_times, prediction_times, elapsed_thread) = k_nearest_neighbors_multithread(k, n_neighbors, f_trains, f_tests, n_line_trains, n_line_tests, n_batch);
+    let (_predictions, preprocess_times, query_times, prediction_times, elapsed_thread) = k_nearest_neighbors_multithread(k, n_neighbors, f_trains, f_tests, n_line_trains, n_line_tests, n_batch);
     println!("{:?}", prediction_times);
-    write_to_file("deepcopy", k, n_neighbors, &n_line_trains[..], &n_line_tests[..], n_batch, &preprocess_times[..], &query_times[..], &prediction_times[..], elapsed_thread)
+    write_to_file("deepcopy", k, n_neighbors, &n_line_trains[..], &n_line_tests[..], n_batch, &preprocess_times[..], &query_times[..], &prediction_times[..], elapsed_thread);
+}
+
+fn run_ex_arc(k: usize, n_neighbors: usize, f_trains: &[String], f_tests: &[String], n_line_trains: &[usize], n_line_tests: &[usize], n_batch: usize) {
+    let (_predictions, preprocess_times, query_times, prediction_times, elapsed_thread) = k_nearest_neighbors_multithread_with_arc(k, n_neighbors, f_trains, f_tests, n_line_trains, n_line_tests, n_batch);
+    println!("{:?}", prediction_times);
+    write_to_file("arc", k, n_neighbors, &n_line_trains[..], &n_line_tests[..], n_batch, &preprocess_times[..], &query_times[..], &prediction_times[..], elapsed_thread);
 }
 
 fn append_output<T>(output: &mut String, results: &[T])
@@ -112,6 +121,34 @@ fn k_nearest_neighbors_multithread(k: usize, n_neighbors:usize, f_trains: &[Stri
         for i in 0..MAX_THREADS {
             let handler = scope.spawn(move |_| {
                 k_nearest_neighbors(k, n_neighbors, &f_trains[i], &f_tests[i], n_line_trains[i], n_line_tests[i], n_batch)
+            });
+            handlers.push(handler);
+        }
+        let mut local_predictions = Vec::with_capacity(MAX_THREADS);
+        let mut batch_preprocess_times = Vec::with_capacity(MAX_THREADS); 
+        let mut batch_query_times = Vec::with_capacity(MAX_THREADS);
+        let mut select_prediction_times = Vec::with_capacity(MAX_THREADS);
+        for handler in handlers {
+            let local = handler.join().unwrap();
+            let (local_prediction, batch_preprocess_time, batch_query_time, select_prediction_time) = local;
+            local_predictions.push(local_prediction);
+            batch_preprocess_times.push(batch_preprocess_time);
+            batch_query_times.push(batch_query_time);
+            select_prediction_times.push(select_prediction_time);
+        }
+        (local_predictions, batch_preprocess_times, batch_query_times, select_prediction_times)
+    }).unwrap();
+    let elapsed_thread = start_thread.elapsed().as_millis();
+    (predictions, preprocess_time, query_time, prediction_time, elapsed_thread)
+}
+
+fn k_nearest_neighbors_multithread_with_arc(k: usize, n_neighbors:usize, f_trains: &[String], f_tests: &[String], n_line_trains: &[usize], n_line_tests: &[usize], n_batch: usize) -> (Vec<Vec<Arc<String>>>, Vec<u128>, Vec<u128>, Vec<u128>, u128){
+    let start_thread = Instant::now();
+    let (predictions, preprocess_time, query_time, prediction_time) = crossbeam::scope(|scope| {
+        let mut handlers = Vec::with_capacity(MAX_THREADS);
+        for i in 0..MAX_THREADS {
+            let handler = scope.spawn(move |_| {
+                k_nearest_neighbors_with_arc(k, n_neighbors, &f_trains[i], &f_tests[i], n_line_trains[i], n_line_tests[i], n_batch)
             });
             handlers.push(handler);
         }
@@ -187,6 +224,57 @@ fn k_nearest_neighbors(k: usize, n_neighbors:usize, f_train: &str, f_test: &str,
         let start_select_prediction = Instant::now();
         let label = select_neighbor(&labels);
         let mut id = get_id_from_label(&label, &decode_map);
+        let elapsed_select_prediction = start_select_prediction.elapsed().as_millis();
+        batch_preprocess_time += elapsed_batch_preprocess;
+        batch_query_time += elapsed_batch_query;
+        select_prediction_time += elapsed_select_prediction;
+
+        prediction.append(&mut id);
+    }
+    (prediction, batch_preprocess_time, batch_query_time, select_prediction_time)
+}
+
+fn k_nearest_neighbors_with_arc(k: usize, n_neighbors:usize, f_train: &str, f_test: &str, n_line_train: usize, n_line_test: usize, n_batch: usize) -> (Vec<Arc<String>>, u128, u128 , u128) {
+
+    let path_train = Path::new(&f_train);
+    let path_test = Path::new(&f_test);
+    let file_train  = File::open(path_train).unwrap();
+    let file_test  = File::open(path_test).unwrap();
+    let buf_reader_train = BufReader::new(file_train);
+    let buf_reader_test = BufReader::new(file_test);
+    let mut lines_train = buf_reader_train.lines().peekable();
+    let mut lines_test = buf_reader_test.lines().peekable();
+
+    let batch_size_trains = get_batch_size(n_line_train, n_batch);
+    let batch_size_tests = get_batch_size(n_line_test, n_batch);
+    let mut prediction = Vec::with_capacity(n_batch);
+
+    let mut batch_preprocess_time = 0;
+    let mut batch_query_time = 0;
+    let mut select_prediction_time = 0;
+    for i in 0..n_batch {
+
+        let start_batch_preproccess = Instant::now();
+        let batch_train = read_n_lines(&mut lines_train, batch_size_trains[i]).unwrap();
+        let batch_test = read_n_lines(&mut lines_test, batch_size_tests[i]).unwrap();
+        let train_words = split_documents_with_arc(&batch_train[..]);
+        let test_words = split_documents_with_arc(&batch_test[..]); 
+        let top_k = feature_map_with_arc(&train_words[..], k);
+        let train = create_id_numeric_with_arc(&train_words[..], &top_k);
+        let test = create_id_numeric_with_arc(&test_words[..], &top_k);
+        let (x_source_train, y_source_train) = split_x_y_with_arc(&train[..]);
+        let (x_source_test, _y_source_test) = split_x_y_with_arc(&test[..]);
+        let x_train = vectorize_x_with_arc(&x_source_train[..]);
+        let x_test = vectorize_x_with_arc(&x_source_test[..]);
+        let (y_train, decode_map)= vectorize_y_with_arc(&y_source_train[..]);
+        let elapsed_batch_preprocess = start_batch_preproccess.elapsed().as_millis();
+        let start_batch_query = Instant::now();
+        let (_similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
+        let elapsed_batch_query = start_batch_query.elapsed().as_millis();
+
+        let start_select_prediction = Instant::now();
+        let label = select_neighbor(&labels);
+        let mut id = get_id_from_label_with_arc(&label, &decode_map);
         let elapsed_select_prediction = start_select_prediction.elapsed().as_millis();
         batch_preprocess_time += elapsed_batch_preprocess;
         batch_query_time += elapsed_batch_query;

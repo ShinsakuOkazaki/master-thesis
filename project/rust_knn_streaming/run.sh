@@ -7,7 +7,7 @@ cargo build --release
 n_thread=8
 # n_thread=4
 
-train_file=../../data/WikipediaPagesOneDocPerLine100k.txt
+train_file=../../data/SmallTrainingData.txt
 test_file=../../data/TestingData.txt
 
 # train_file=../../data/SmallTrainingData.txt
@@ -74,7 +74,7 @@ do
     test_p_sizes+=($(< $test_p wc -l)) 
 done
 
-for method in 1
+for method in 1 2
 do
     for k in 15000 20000 25000
     do

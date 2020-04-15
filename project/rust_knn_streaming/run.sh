@@ -1,9 +1,9 @@
 #!/bin/bash
-#cargo clean
-#cargo build --release
+# cargo clean
+# cargo build --release
 n_thread=10
 
-train_file=../../data/SmallTrainingData.txt
+train_file=../../data/WikipediaPagesOneDocPerLine100k.txt
 test_file=../../data/TestingData.txt
 
 train_p_directory=../../data/trainPartition/
@@ -58,13 +58,13 @@ test_partitions=../../data/testPartition/*
 declare -a train_p_sizes
 for train_p in $train_partitions
 do
-    train_p_sizes+=$(< $train_p wc -l) 
+    train_p_sizes+=($(< $train_p wc -l))
 done
 
 declare -a test_p_sizes
 for test_p in $test_partitions
 do
-    test_p_sizes+=$(< $test_p wc -l) 
+    test_p_sizes+=($(< $test_p wc -l)) 
 done
 
 for method in 1
@@ -77,11 +77,11 @@ do
             do
                 for counter in 1 2 3 4 5
                 do
-                    time cargo run --release $method $k $n_neighbors $n_batch $train_partitions $test_partitions $train_p_sizes $test_p_sizes
-                done
-            done
-        done
-    done
+                    time cargo run --release $method $k $n_neighbors $n_batch $train_partitions $test_partitions "${train_p_sizes[@]}" "${test_p_sizes[@]}"
+               done
+           done
+       done
+   done
 done
 
 rm $train_partitions

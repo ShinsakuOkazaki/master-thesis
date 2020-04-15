@@ -14,7 +14,9 @@ use std::cmp::{Ordering, max};
 use crossbeam;
 use std::fmt::Debug;
 
-const MAX_THREADS: usize = 10;
+// const MAX_THREADS: usize = 10;
+const MAX_THREADS: usize = 8;
+//const MAX_THREADS: usize = 4;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -92,7 +94,7 @@ fn write_to_file(method: &str, k: usize, n_neighbors:usize, n_line_trains: &[usi
     append_output(&mut output, preprocess_times);
     append_output(&mut output, query_times);
     append_output(&mut output, prediction_times);
-    output = format!("{}#{:?}", output, elapsed_thread);
+    output = format!("{}#{:?}\n", output, elapsed_thread);
     println!("{}",output);
     let mut file = OpenOptions::new()
         .append(true)

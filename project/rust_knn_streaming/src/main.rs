@@ -18,7 +18,6 @@ const MAX_THREADS: usize = 10;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    println!("Started");
     let mut idx = 1;
     let method: i32 = args[idx].parse::<i32>().unwrap();
     println!("Method: {:?}", method);
@@ -89,7 +88,7 @@ fn write_to_file(method: &str, k: usize, n_neighbors:usize, n_line_trains: &[usi
                  preprocess_times: &[u128], query_times: &[u128], prediction_times: &[u128], elapsed_thread: u128) {
     let mut output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}", method, k, n_neighbors, n_batch);
     append_output(&mut output, n_line_trains);
-    append_output(&mut output, n_line_trains);
+    append_output(&mut output, n_line_tests);
     append_output(&mut output, preprocess_times);
     append_output(&mut output, query_times);
     append_output(&mut output, prediction_times);
@@ -175,12 +174,10 @@ fn k_nearest_neighbors(k: usize, n_neighbors:usize, f_train: &str, f_test: &str,
         let test = create_id_numeric(&test_words[..], &top_k);
         let (x_source_train, y_source_train) = split_x_y(&train[..]);
         let (x_source_test, _y_source_test) = split_x_y(&test[..]);
-        println!("Vectorize started");
         let x_train = vectorize_x(&x_source_train[..]);
         let x_test = vectorize_x(&x_source_test[..]);
         let (y_train, decode_map)= vectorize_y(&y_source_train[..]);
         let elapsed_batch_preprocess = start_batch_preproccess.elapsed().as_millis();
-        println!("Vectorize done!");
         let start_batch_query = Instant::now();
         let (_similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
         let elapsed_batch_query = start_batch_query.elapsed().as_millis();

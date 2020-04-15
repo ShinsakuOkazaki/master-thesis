@@ -1,9 +1,16 @@
 #!/bin/bash
 # cargo clean
 # cargo build --release
-n_thread=10
 
-train_file=../../data/WikipediaPagesOneDocPerLine100k.txt
+
+# n_thread=10
+n_thread=8
+# n_thread=4
+
+# train_file=../../data/WikipediaPagesOneDocPerLine100k.txt
+# test_file=../../data/TestingData.txt
+
+train_file=../../data/SmallTrainingData.txt
 test_file=../../data/TestingData.txt
 
 train_p_directory=../../data/trainPartition/
@@ -33,7 +40,7 @@ for ((i=0; i<$n_thread; i++))
 do
     header="$header#predicition_time$i"
 done
-
+header="$header#total"
 echo $header > loging.log
 n_base_line_train=$((n_lines_train / n_thread))
 remainder_train=$((n_lines_train % n_thread))

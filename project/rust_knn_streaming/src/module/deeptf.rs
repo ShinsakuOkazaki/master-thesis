@@ -95,7 +95,9 @@ pub fn split_x_y(source: &[(String, Vec<f64>)]) -> (Vec<Vec<f64>>, Vec<String>) 
 pub fn vectorize_x(source: &[Vec<f64>]) -> Array<f64, Ix2>{
 
     let n = source.len();
+    println!("n: {:?}", n);
     let m = source[0].len();
+    println!("m: {:?}", m);
     let mut vector = Vec::with_capacity(n * m);
     for i in 0..n {
         vector.extend_from_slice(&source[i][..]);

@@ -76,15 +76,35 @@ fn run(method: i32, k: usize, n_neighbors: usize, f_trains: &[String], f_tests: 
 }
 
 fn run_ex_deepcopy(k: usize, n_neighbors: usize, f_trains: &[String], f_tests: &[String], n_line_trains: &[usize], n_line_tests: &[usize], n_batch: usize) {
-    let (_predictions, preprocess_times, query_times, prediction_times, elapsed_thread) = k_nearest_neighbors_multithread(k, n_neighbors, f_trains, f_tests, n_line_trains, n_line_tests, n_batch);
-    println!("{:?}", prediction_times);
+    let (predictions, preprocess_times, query_times, prediction_times, elapsed_thread) = k_nearest_neighbors_multithread(k, n_neighbors, f_trains, f_tests, n_line_trains, n_line_tests, n_batch);
+    dump_result(&predictions[..], "deeepcopy", k, n_neighbors, n_batch);
     write_to_file("deepcopy", k, n_neighbors, &n_line_trains[..], &n_line_tests[..], n_batch, &preprocess_times[..], &query_times[..], &prediction_times[..], elapsed_thread);
 }
 
 fn run_ex_arc(k: usize, n_neighbors: usize, f_trains: &[String], f_tests: &[String], n_line_trains: &[usize], n_line_tests: &[usize], n_batch: usize) {
-    let (_predictions, preprocess_times, query_times, prediction_times, elapsed_thread) = k_nearest_neighbors_multithread_with_arc(k, n_neighbors, f_trains, f_tests, n_line_trains, n_line_tests, n_batch);
-    println!("{:?}", prediction_times);
+    let (predictions, preprocess_times, query_times, prediction_times, elapsed_thread) = k_nearest_neighbors_multithread_with_arc(k, n_neighbors, f_trains, f_tests, n_line_trains, n_line_tests, n_batch);
+    dump_result_with_arc(&predictions[..], "arc", k, n_neighbors, n_batch);
     write_to_file("arc", k, n_neighbors, &n_line_trains[..], &n_line_tests[..], n_batch, &preprocess_times[..], &query_times[..], &prediction_times[..], elapsed_thread);
+}
+
+fn dump_result(predictions: &[Vec<String>], method: &str, k: usize, n_neighbors: usize, n_batch: usize) {
+    let serialized = serde_json::to_string(&predictions).unwrap();
+    let mut file = OpenOptions::new()
+            .write(true)
+            .create(true)
+            .open(format!("prediction/method{}_k{}_nneighbors{}_n_batch{}.txt", method, k, n_neighbors, n_batch))
+            .unwrap();
+    file.write_all(serialized.as_bytes()).expect("Fail to write file.");
+}
+
+fn dump_result_with_arc(predictions: &[Vec<Arc<String>>], method: &str, k: usize, n_neighbors: usize, n_batch: usize) {
+    let serialized = serde_json::to_string(&predictions).unwrap();
+    let mut file = OpenOptions::new()
+            .write(true)
+            .create(true)
+            .open(format!("prediction/method{}_k{}_nneighbors{}_n_batch{}.txt", method, k, n_neighbors, n_batch))
+            .unwrap();
+    file.write_all(serialized.as_bytes()).expect("Fail to write file.");
 }
 
 fn append_output<T>(output: &mut String, results: &[T])
@@ -322,6 +342,8 @@ fn k_nearest_neighbors_with_arc(k: usize, n_neighbors:usize, f_train: &str, f_te
     }
     (prediction, batch_preprocess_time, batch_query_time, select_prediction_time)
 }
+
+
 
 fn dump_to_disk<T>(data: &T, object_name: &str, thread: usize, batch: usize)
 where T: Serialize, 

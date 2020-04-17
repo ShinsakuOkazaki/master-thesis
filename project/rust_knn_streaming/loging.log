@@ -1,2 +1,2 @@
 datastructure#method#k#n_neighbors#n_batch#n_line_train0#n_line_train1#n_line_train2#n_line_train3#n_line_test0#n_line_test1#n_line_test2#n_line_test3#preprocess_time0#preprocess_time1#preprocess_time2#preprocess_time3#query_time0#query_time1#query_time2#query_time3#predicition_time0#predicition_time1#predicition_time2#predicition_time3#total
-[RustVector]#"deepcopy"#15000#10#1#861#861#861#859#4681#4681#4681#4681#17803#15870#16301#12559#85785#86841#86992#89776#9#10#13#17#135640
+[RustVector]#"deepcopy"#15000#10#1#861#861#861#859#4681#4681#4681#4681#20684#19028#18839#16655#99109#99327#99827#99950#8#100#27#13#155113

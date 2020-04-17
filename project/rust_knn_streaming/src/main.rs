@@ -15,10 +15,11 @@ use std::cmp::{Ordering, max};
 use crossbeam;
 use std::fmt::Debug;
 use std::sync::Arc;
+use serde::ser::Serialize;
 
-const MAX_THREADS: usize = 10;
+// const MAX_THREADS: usize = 10;
 // const MAX_THREADS: usize = 8;
-// const MAX_THREADS: usize = 4;
+const MAX_THREADS: usize = 4;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -120,7 +121,7 @@ fn k_nearest_neighbors_multithread(k: usize, n_neighbors:usize, f_trains: &[Stri
         let mut handlers = Vec::with_capacity(MAX_THREADS);
         for i in 0..MAX_THREADS {
             let handler = scope.spawn(move |_| {
-                k_nearest_neighbors(k, n_neighbors, &f_trains[i], &f_tests[i], n_line_trains[i], n_line_tests[i], n_batch)
+                k_nearest_neighbors(k, n_neighbors, &f_trains[i], &f_tests[i], n_line_trains[i], n_line_tests[i], n_batch, i)
             });
             handlers.push(handler);
         }
@@ -148,7 +149,7 @@ fn k_nearest_neighbors_multithread_with_arc(k: usize, n_neighbors:usize, f_train
         let mut handlers = Vec::with_capacity(MAX_THREADS);
         for i in 0..MAX_THREADS {
             let handler = scope.spawn(move |_| {
-                k_nearest_neighbors_with_arc(k, n_neighbors, &f_trains[i], &f_tests[i], n_line_trains[i], n_line_tests[i], n_batch)
+                k_nearest_neighbors_with_arc(k, n_neighbors, &f_trains[i], &f_tests[i], n_line_trains[i], n_line_tests[i], n_batch, i)
             });
             handlers.push(handler);
         }
@@ -183,7 +184,7 @@ fn get_batch_size(n_line: usize, n_batch: usize) -> Vec<usize> {
     batch_size_trains
 }
 
-fn k_nearest_neighbors(k: usize, n_neighbors:usize, f_train: &str, f_test: &str, n_line_train: usize, n_line_test: usize, n_batch: usize) -> (Vec<String>, u128, u128 , u128) {
+fn k_nearest_neighbors(k: usize, n_neighbors:usize, f_train: &str, f_test: &str, n_line_train: usize, n_line_test: usize, n_batch: usize, thread_n: usize) -> (Vec<String>, u128, u128 , u128) {
 
     let path_train = Path::new(&f_train);
     let path_test = Path::new(&f_test);
@@ -212,14 +213,31 @@ fn k_nearest_neighbors(k: usize, n_neighbors:usize, f_train: &str, f_test: &str,
         let train = create_id_numeric(&train_words[..], &top_k);
         let test = create_id_numeric(&test_words[..], &top_k);
         let (x_source_train, y_source_train) = split_x_y(&train[..]);
-        let (x_source_test, _y_source_test) = split_x_y(&test[..]);
+        let (x_source_test, y_source_test) = split_x_y(&test[..]);
+        drop(y_source_test);
         let x_train = vectorize_x(&x_source_train[..]);
         let x_test = vectorize_x(&x_source_test[..]);
         let (y_train, decode_map)= vectorize_y(&y_source_train[..]);
         let elapsed_batch_preprocess = start_batch_preproccess.elapsed().as_millis();
         let start_batch_query = Instant::now();
-        let (_similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
+        let (similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
+        drop(similarities);
         let elapsed_batch_query = start_batch_query.elapsed().as_millis();
+
+        dump_to_disk(&batch_train, "batch_train", thread_n, i);
+        dump_to_disk(&batch_test, "batch_test", thread_n, i);
+        dump_to_disk(&train_words, "train_words", thread_n, i);
+        dump_to_disk(&test_words, "test_words", thread_n, i);
+        dump_to_disk(&top_k, "top_k", thread_n, i);
+        dump_to_disk(&train, "train", thread_n, i);
+        dump_to_disk(&test, "test", thread_n, i);
+        dump_to_disk(&x_source_train, "x_source_train", thread_n, i);
+        dump_to_disk(&y_source_train, "y_source_train", thread_n, i);
+        dump_to_disk(&x_source_test, "x_source_test", thread_n, i);
+        dump_to_disk(&x_train, "x_train", thread_n, i);
+        dump_to_disk(&x_test, "x_test", thread_n, i);
+        dump_to_disk(&y_train, "y_train", thread_n, i);
+        dump_to_disk(&labels, "lables", thread_n, i);
 
         let start_select_prediction = Instant::now();
         let label = select_neighbor(&labels);
@@ -229,12 +247,14 @@ fn k_nearest_neighbors(k: usize, n_neighbors:usize, f_train: &str, f_test: &str,
         batch_query_time += elapsed_batch_query;
         select_prediction_time += elapsed_select_prediction;
 
+        dump_to_disk(&label, "lable", thread_n, i);
+        dump_to_disk(&id, "id", thread_n, i);
         prediction.append(&mut id);
     }
     (prediction, batch_preprocess_time, batch_query_time, select_prediction_time)
 }
 
-fn k_nearest_neighbors_with_arc(k: usize, n_neighbors:usize, f_train: &str, f_test: &str, n_line_train: usize, n_line_test: usize, n_batch: usize) -> (Vec<Arc<String>>, u128, u128 , u128) {
+fn k_nearest_neighbors_with_arc(k: usize, n_neighbors:usize, f_train: &str, f_test: &str, n_line_train: usize, n_line_test: usize, n_batch: usize, thread_n: usize) -> (Vec<Arc<String>>, u128, u128 , u128) {
 
     let path_train = Path::new(&f_train);
     let path_test = Path::new(&f_test);
@@ -272,6 +292,21 @@ fn k_nearest_neighbors_with_arc(k: usize, n_neighbors:usize, f_train: &str, f_te
         let (_similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
         let elapsed_batch_query = start_batch_query.elapsed().as_millis();
 
+        dump_to_disk(&batch_train, "batch_train", thread_n, i);
+        dump_to_disk(&batch_test, "batch_test", thread_n, i);
+        dump_to_disk(&train_words, "train_words", thread_n, i);
+        dump_to_disk(&test_words, "test_words", thread_n, i);
+        dump_to_disk(&top_k, "top_k", thread_n, i);
+        dump_to_disk(&train, "train", thread_n, i);
+        dump_to_disk(&test, "test", thread_n, i);
+        dump_to_disk(&x_source_train, "x_source_train", thread_n, i);
+        dump_to_disk(&y_source_train, "y_source_train", thread_n, i);
+        dump_to_disk(&x_source_test, "x_source_test", thread_n, i);
+        dump_to_disk(&x_train, "x_train", thread_n, i);
+        dump_to_disk(&x_test, "x_test", thread_n, i);
+        dump_to_disk(&y_train, "y_train", thread_n, i);
+        dump_to_disk(&labels, "lables", thread_n, i);
+
         let start_select_prediction = Instant::now();
         let label = select_neighbor(&labels);
         let mut id = get_id_from_label_with_arc(&label, &decode_map);
@@ -280,9 +315,24 @@ fn k_nearest_neighbors_with_arc(k: usize, n_neighbors:usize, f_train: &str, f_te
         batch_query_time += elapsed_batch_query;
         select_prediction_time += elapsed_select_prediction;
 
+        dump_to_disk(&label, "lable", thread_n, i);
+        dump_to_disk(&id, "id", thread_n, i);
+
         prediction.append(&mut id);
     }
     (prediction, batch_preprocess_time, batch_query_time, select_prediction_time)
+}
+
+fn dump_to_disk<T>(data: &T, object_name: &str, thread: usize, batch: usize)
+where T: Serialize, 
+{
+    let serialized = serde_json::to_string(&data).unwrap();
+    let mut file = OpenOptions::new()
+            .write(true)
+            .create(true)
+            .open(format!("serialized/{}_{}_{}", object_name, thread, batch))
+            .unwrap();
+    file.write_all(serialized.as_bytes()).expect("Fail to write file.");
 }
 
 fn select_neighbor(labels: &Array<i32, Ix2>) -> Array<i32, Ix1> {

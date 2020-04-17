@@ -1,4 +1,4 @@
-\chapter{Body of my thesis}
+\chapter{Experiment}
 \label{chapter:body}
 \thispagestyle{myheadings}
 
@@ -7,110 +7,14 @@
 % it has a trailing directory separator (i.e., '/')!
 \graphicspath{{3_Body/Figures/}}
 
-\section{Some results}
-\label{sec:results}
-
-Here goes all the important stuff, likely with a lot of graphics like this:
-
-\begin{figure}[htb]
-  \begin{minipage}[t]{0.49\linewidth}\centering
-    \includegraphics[width=7cm]{figure_sampling_view1.eps}
-    \medskip
-    \centerline{(a)}
-  \end{minipage}\hfill
-  \begin{minipage}[t]{0.49\linewidth}\centering
-    \includegraphics[width=7cm]{figure_sampling_view2.eps}
-    \medskip
-    \centerline{(b)}
-  \end{minipage}
-  \caption{Assignment of single-view intensities to RGB components: (a) view
-    \#1; and (b) view \#2. }
-  \label{fig:Sampling}
-\end{figure}
-
-You will also be using a lot of citations. Here is the format required in the dissertation: \cite{lamport1985:latex},\cite{Debr01}.
-
-In all likelihood, you will need to insert tables. See one example on the next page.
+\section{Concept}
+\label{sec:history}
+\input{3_Body/chapter/concept}
 \clearpage
 
-\begin{table}[h]
-	\caption{Absolute disparity error per pixel for the test data from
-		Fig.~\ref{fig:Sampling} and different parameter values. In each experiment one
-		parameter is adjusted while other parameters are unchanged.} 
-	\centering
-	\begin{minipage}[b]{0.30\linewidth}
-		\centerline{$\eta=6000$, $\mu=2000$}\smallskip
-		\centering
-		\begin{tabular}{ccc}
-			\hline
-			$K$ & $u_1$ & $u_2$\\
-			\hline
-			3   & 0.52 &0.46\\
-			7   & 0.47 &0.43\\
-			10  & 0.35 &0.36\\
-			12  & 0.37 &0.36\\
-			\hline
-		\end{tabular}
-	\end{minipage}
-	%
-	\begin{minipage}[b]{0.34\linewidth}
-		\centerline{$K=10$, $\mu=2000$}\smallskip
-		\centering
-		\begin{tabular}{ccc}
-			\hline
-			$\eta$ & $u_1$ & $u_2$\\
-			\hline
-			1000&0.54& 0.45\\
-			3000&0.43& 0.40\\
-			6000&0.35& 0.36\\
-			9000&0.37& 0.37\\
-			\hline
-		\end{tabular}
-	\end{minipage}
-	%
-	\begin{minipage}[b]{0.32\linewidth}
-		\centerline{$K=10$, $\eta=6000$}\smallskip
-		\centering
-		\begin{tabular}{ccc}
-			\hline
-			$\mu$ & $u_1$ & $u_2$\\
-			\hline
-			100 &1.00&1.16\\
-			1000&0.53&0.47\\
-			2000&0.35&0.36\\
-			3000&0.44&0.43\\
-			\hline
-		\end{tabular}
-	\end{minipage}
-	%
-	\label{tab:Parameters}
-\end{table}
-
-\section{Experiment of Memory Allocation}
+\section{Evaluation}
 \label{sec:history}
-\input{3_Body/model/memory_allocation}
+\input{3_Body/chapter/evaluation}
 \clearpage
 
-\section{Experiment of Memory Allocation for Different Element Type.}
-\label{sec:history}
-\input{3_Body/model/different_element}
-\clearpage
 
-\section{Assessment of different reference methods in Rust}
-\label{sec:history}
-\input{3_Body/model/drop_ref_rc}
-\clearpage
-
-\section{Experiment for Merge-sort}
-\label{sec:history}
-\input{3_Body/model/merge_sort_experiment}
-\clearpage
-
-\section{Experiment for Tree-aggregation}
-\label{sec:history}
-\input{3_Body/model/tree_aggregate_experiment}
-\clearpage
-
-\section{Elements Copy and Insertion into Size-initialized Vector in Rust.}
-\label{sec:history}
-\input{3_Body/model/element_copy_initialization}

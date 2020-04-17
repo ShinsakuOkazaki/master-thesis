@@ -9,7 +9,7 @@ As explained in last experiment, deletion of Rc has significant overhead than no
 By learning this result, our assumption is that deletion of Arc has also overhead when we compare to normal reference. 
 In many situation where developer write a multithreading code, Arc is used and the deletion happens multiple times. 
 To assess runtime overhead of algorithm with Arc, We implement merge-sort algorithm in two different ways. 
-One is sharing source vector with Arc. The other is passing slice of source vector to child thread. 
+One is sharing source vector with Arc. The other is passing reference of source vector to child thread. 
 
 Our merge-sort algorithms are implemented with recursion. For each call of recursive function, 
 Arc or slice of the source vector needs to be passed and deleted when the function returns value. 

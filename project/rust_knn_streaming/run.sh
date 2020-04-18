@@ -1,11 +1,11 @@
 #!/bin/bash
-cargo clean
-cargo build --release
+# cargo clean
+# cargo build --release
 
 
-# n_thread=10
+n_thread=10
 # n_thread=8
-n_thread=4
+# n_thread=4
 
 train_file=../../data/SmallTrainingData.txt
 test_file=../../data/TestingData.txt

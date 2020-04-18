@@ -81,19 +81,22 @@ for method in 1 2
 do  
     for n_batch in 1 2 3
     do
-        for k in 15000 20000 25000
+        for strategy in 1 2
         do
-            for n_neighbors in 10 20 30
+            for k in 15000 20000 25000
             do
-                for counter in 1 2 3 4 5
+                for n_neighbors in 10 20 30
                 do
-                    rm -rf profile/nbatch"$n_batch"_k"$k"_nneighbors"$n_neighbors".txt 
-                    time cargo run --release $method $k $n_neighbors $n_batch $train_partitions $test_partitions "${train_p_sizes[@]}" "${test_p_sizes[@]}"
-                    ls -l serialized/ | awk '{if(NR!=1){print $5"#"$9}}' >>  profile/method"$method"_nbatch"$n_batch"_k"$k"_nneighbors"$n_neighbors".txt
-                    rm serialized/*
-               done
-           done
-       done
+                    for counter in 1 2 3 4 5
+                    do
+                        rm -rf profile/nbatch"$n_batch"_k"$k"_nneighbors"$n_neighbors".txt 
+                        time cargo run --release $method $k $n_neighbors $n_batch $train_partitions $test_partitions "${train_p_sizes[@]}" "${test_p_sizes[@]}"
+                        ls -l serialized/ | awk '{if(NR!=1){print $5"#"$9}}' >>  profile/method"$method"_nbatch"$n_batch"_k"$k"_nneighbors"$n_neighbors".txt
+                        rm serialized/*
+                    done
+                done
+            done
+        done
    done
 done
 

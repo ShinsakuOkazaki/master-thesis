@@ -42,15 +42,68 @@ In many situation where developer write a multithreading code, the deletion of A
 Similarly to Rc, our assumption is that deletion of Arc has also overhead when we compare to normal reference. 
 To assess runtime performances of algorithm with Arc vs normal reference, we implement merge-sort algorithm in two different ways. 
 
-\subsection{Algorithm in Big Data}
+\subsection{Tree-aggregate}
 \label{sec:history}
-Finally, we implement some of algorithm common in Big Data processing: Tree-aggregate and K-Nearest-Neighbors (KNN). 
+Finally, we implement some of algorithm common in Big Data processing. One of them is tree-aggregate.
 
 Tree-aggregate is a communication patten heavily used for Machine Learning algorithm in Spark (MLlib). 
+The topology of aggregation patterns in Apache Spark are shown in Figure~\ref{fig:aggregationk_patttern}. 
 In the traditional aggregation function in Spark, results of aggregation in all executor clusters are sent to the driver. 
 That is why this operation suffers from the CPU cost in merging partial results and the network bandwidth limit.
 Tree-aggregate is a communication pattern which overcomes these problems by breaking aggregate operation in multi-level represented like tree structure.
 
-KNN is a traditional Machine Learning algorithm which classify targets into categories. 
-Through experiments with these algorithm, we aim to find algorithm with understandability and efficiency. 
+Spark generates intermediate objects from RDDs. In Tree-aggregation, aggregated HashMap like data structure is created in each thread or node. 
+When it aggregates objects in RDD, copy of objects in source vector should be performed to construct intermediate aggregated data structure.
+In another way, one can use reference to the objects to perform aggregation instead of copying the values themselves.
+In Rust, we can clone or get Arc (Rc if in single thread) of objects to implement these operations.
+
+Since Tree-aggregation algorithm generates and deletes a lot of intermediate data structures, 
+how the data structures are constructed and how they are deallocated is important concern in memory management in this algorithm.
+In our experiment, tree-aggregation algorithms are examined in multi-threading. The detail is described in section 3.2.
+
+\begin{figure}[htb]
+    \begin{minipage}[t]{0.5\linewidth}\centering
+        \includegraphics[width=5cm]{normal_agg.eps}
+        \medskip
+        \centerline{(a)}
+        \end{minipage}\hfill
+        \begin{minipage}[t]{0.5\linewidth}\centering
+        \includegraphics[width=7cm]{tree_agg.eps} 
+        \medskip
+        \centerline{(b)}
+    \end{minipage}\hfill
+    \caption{Representation of aggregation strategies in Apache Spark: (a) Traditional Aggregation, (b) Tree Aggregation}
+    \label{fig:aggregationk_patttern}
+\end{figure}
+
+\subsection{K-Nearest-Neighbors}
+\label{sec:history}
+The other algorithm common in Big Data processing is K-nearest-neighbors (KNN). KNN is a traditional Machine Learning algorithm which classify targets into categories. 
+In training KNN, it simply stores all available training data without calculation. At prediction phase, targets are given and similarity measures are calculated. 
+Based on these similarities, the algorithm selects \(K\) (user-defined number) training observations similar to the each target. 
+Then, it checks corresponding categories of the \(K\) observations to determine predicted category. 
+
+In brute force algorithm, KNN calculates similarity measures for all combinations among training and testing observations. 
+If training data has \(N\) observations and test data has \(M\) observations, KNN needs to calculate \(N \times M\) similarity measures. 
+Sort or binary heap can be used to select the \(K\) most similar training observations.
+
+In our experiment, KNN algorithms performs document classification and implemented in multithread. 
+There are three phases in our algorithm: preprocessing, query, and combine phase. 
+In preprocessing phase, the algorithm calculates Term-frequencies (Tfs) to generate numeric feature vectors and matrices. 
+In query phase, similarity measures are calculated and \(K\) nearest neighbors are selected. 
+For similarity measure, our choice is cosine similarity(~\ref{eq:cosine}). 
+In combine phase, results of query phase are gathered and combined from each threads.
+
+\begin{equation} \label{eq:cosine}
+    Cos(\vec{x}, \vec{t})
+     = \frac{\sum_{i=0}^{n} (x_i t_i)}{\sqrt{\sum_{i=0}^{n} x_i^2}\sqrt{\sum_{i=0}^{n} t_i^2}}
+\end{equation}
+
+Even though preprocessing phase is not specific process for KNN algorithm, 
+it is common in algorithms used in Natural Language Processing. Therefore, better memory management strategy should be applied in this preprocessing phase.
+This preprocessing generates many intermediate data structures and copies of String elements are used in these data structure again and again. 
+We can again either clone or get Arc of String. 
+
+Our KNN algorithms are implemented with batch processing. In query phase, we control batch size to examine how size of objects allocated simultaneously in memory.
+The detail implementation is explained in section3.2.
 \clearpage

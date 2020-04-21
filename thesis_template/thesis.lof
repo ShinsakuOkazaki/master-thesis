@@ -18,10 +18,10 @@
 \contentsline {figure}{\numberline {3$\cdot $7}{\ignorespaces Runtime of Access to Fields of Complex Object with Initialization vs without Initialization\relax }}{29}% 
 \contentsline {figure}{\numberline {3$\cdot $8}{\ignorespaces Runtime for dropping Customer Object\relax }}{31}% 
 \contentsline {figure}{\numberline {3$\cdot $9}{\ignorespaces Representation of Source Vector\relax }}{33}% 
-\contentsline {figure}{\numberline {3$\cdot $10}{\ignorespaces Runtime of Sortting Elements of Customer Vector\relax }}{34}% 
-\contentsline {figure}{\numberline {3$\cdot $11}{\ignorespaces Runtime of Tree-aggregate algorithm\relax }}{37}% 
-\contentsline {figure}{\numberline {3$\cdot $12}{\ignorespaces Aggregation function with Arc\relax }}{38}% 
-\contentsline {figure}{\numberline {3$\cdot $13}{\ignorespaces Aggregation function with deep-copy\relax }}{38}% 
+\contentsline {figure}{\numberline {3$\cdot $10}{\ignorespaces Runtime of Sorting Elements of Customer Vector\relax }}{33}% 
+\contentsline {figure}{\numberline {3$\cdot $11}{\ignorespaces Aggregation function with Arc\relax }}{36}% 
+\contentsline {figure}{\numberline {3$\cdot $12}{\ignorespaces Aggregation function with deep-copy\relax }}{37}% 
+\contentsline {figure}{\numberline {3$\cdot $13}{\ignorespaces Runtime of Tree-aggregate algorithm\relax }}{38}% 
 \contentsline {figure}{\numberline {3$\cdot $14}{\ignorespaces Runtime of elements copy from one vector and insertion to the other vector.\relax }}{40}% 
 \contentsline {figure}{\numberline {3$\cdot $15}{\ignorespaces Runtime of elements copy from one vector and insertion to the other vector.\relax }}{41}% 
 \addvspace {10\p@ }

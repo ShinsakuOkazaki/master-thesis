@@ -34,7 +34,7 @@ The runtime of dropping CustomerBorrowed is about 60 times faster than dropping 
 
 \subsection{Discussion}
 In this experiment, an assessment is conducted to verify whether there is difference between behavior of reference and Rc.
-The reason why dropping Rc is much slower than dropping reference it that Rc requires runtime overhead to check some states of the variable, 
+The reason why dropping Rc is much slower than dropping reference is that Rc requires runtime overhead to check some states of the variable, 
 but when to drop reference is already determined at compile time. When dropping Rc, Rc has to check the number of variable pointing to the actual content and decide 
 deallocate the memory or not. However, memory management and lifetime strategy of reference is already determined at compile time.
 This determination of memory management strategy at compile increases runtime performance of dropping complex object constructed with reference type variable.

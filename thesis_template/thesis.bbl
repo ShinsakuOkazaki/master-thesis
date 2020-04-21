@@ -4,6 +4,10 @@
  (2020).
 \newblock Apache hadoop.
 
+\bibitem[Rus, 2020]{RustArcPage}
+ (2020).
+\newblock Rust arc documentation.
+
 \bibitem[Armbrust et~al., 2015]{DBLP:conf/sigmod/ArmbrustXLHLBMK15}
 Armbrust, M., Xin, R.~S., Lian, C., Huai, Y., Liu, D., Bradley, J.~K., Meng,
   X., Kaftan, T., Franklin, M.~J., Ghodsi, A., and Zaharia, M. (2015).

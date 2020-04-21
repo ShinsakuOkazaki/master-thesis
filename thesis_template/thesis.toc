@@ -33,14 +33,12 @@
 \contentsline {subsection}{\numberline {3.2.5}Result}{30}% 
 \contentsline {subsection}{\numberline {3.2.6}Discussion}{30}% 
 \contentsline {subsection}{\numberline {3.2.7}Experiment for Merge-sort}{32}% 
-\contentsline {subsection}{\numberline {3.2.8}Concept}{32}% 
-\contentsline {subsection}{\numberline {3.2.9}Result}{33}% 
-\contentsline {subsection}{\numberline {3.2.10}Discussion}{33}% 
-\contentsline {subsection}{\numberline {3.2.11}Experiment for Tree-aggregation}{35}% 
-\contentsline {subsection}{\numberline {3.2.12}Concept}{35}% 
-\contentsline {subsection}{\numberline {3.2.13}Result}{36}% 
-\contentsline {subsection}{\numberline {3.2.14}Discussion}{36}% 
-\contentsline {subsection}{\numberline {3.2.15}Elements Copy and Insertion into Size-initialized Vector in Rust.}{39}% 
+\contentsline {subsection}{\numberline {3.2.8}Result}{33}% 
+\contentsline {subsection}{\numberline {3.2.9}Discussion}{34}% 
+\contentsline {subsection}{\numberline {3.2.10}Experiment for Tree-aggregation}{35}% 
+\contentsline {subsection}{\numberline {3.2.11}Result}{37}% 
+\contentsline {subsection}{\numberline {3.2.12}Discussion}{37}% 
+\contentsline {subsection}{\numberline {3.2.13}Elements Copy and Insertion into Size-initialized Vector in Rust.}{39}% 
 \contentsline {section}{\numberline {3.3}Access time to elements in vector}{41}% 
 \contentsline {chapter}{\numberline {4}Conclusions}{42}% 
 \contentsline {section}{\numberline {4.1}Summary of the thesis}{42}% 

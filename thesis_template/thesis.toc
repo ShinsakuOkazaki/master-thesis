@@ -22,23 +22,25 @@
 \contentsline {subsection}{\numberline {3.1.3}Multithreading}{19}% 
 \contentsline {subsection}{\numberline {3.1.4}Tree-aggregate}{20}% 
 \contentsline {subsection}{\numberline {3.1.5}K-Nearest-Neighbors}{21}% 
-\contentsline {section}{\numberline {3.2}Evaluation}{23}% 
-\contentsline {subsection}{\numberline {3.2.1}Experiment for Accessing Object with Different Variable Type}{23}% 
-\contentsline {subsection}{\numberline {3.2.2}Concept}{23}% 
-\contentsline {subsection}{\numberline {3.2.3}Assessment of different reference methods in Rust}{29}% 
-\contentsline {subsection}{\numberline {3.2.4}Concept}{29}% 
-\contentsline {subsection}{\numberline {3.2.5}Evaluation}{29}% 
-\contentsline {subsection}{\numberline {3.2.6}Result}{30}% 
-\contentsline {subsection}{\numberline {3.2.7}Discussion}{31}% 
-\contentsline {subsection}{\numberline {3.2.8}Experiment for Merge-sort}{32}% 
-\contentsline {subsection}{\numberline {3.2.9}Concept}{32}% 
-\contentsline {subsection}{\numberline {3.2.10}Result}{33}% 
-\contentsline {subsection}{\numberline {3.2.11}Discussion}{33}% 
-\contentsline {subsection}{\numberline {3.2.12}Experiment for Tree-aggregation}{35}% 
-\contentsline {subsection}{\numberline {3.2.13}Concept}{35}% 
-\contentsline {subsection}{\numberline {3.2.14}Result}{36}% 
-\contentsline {subsection}{\numberline {3.2.15}Discussion}{36}% 
-\contentsline {subsection}{\numberline {3.2.16}Elements Copy and Insertion into Size-initialized Vector in Rust.}{39}% 
+\contentsline {subsection}{\numberline {3.1.6}Complex Objects}{22}% 
+\contentsline {subsection}{\numberline {3.1.7}Wikipedia Data Sets}{23}% 
+\contentsline {subsection}{\numberline {3.1.8}Experimental Details}{23}% 
+\contentsline {section}{\numberline {3.2}Evaluation}{26}% 
+\contentsline {subsection}{\numberline {3.2.1}Experiment for Accessing Object with Different Variable Type}{26}% 
+\contentsline {subsection}{\numberline {3.2.2}Result}{26}% 
+\contentsline {subsection}{\numberline {3.2.3}Discussion}{27}% 
+\contentsline {subsection}{\numberline {3.2.4}Assessment of different reference methods in Rust}{30}% 
+\contentsline {subsection}{\numberline {3.2.5}Result}{30}% 
+\contentsline {subsection}{\numberline {3.2.6}Discussion}{30}% 
+\contentsline {subsection}{\numberline {3.2.7}Experiment for Merge-sort}{32}% 
+\contentsline {subsection}{\numberline {3.2.8}Concept}{32}% 
+\contentsline {subsection}{\numberline {3.2.9}Result}{33}% 
+\contentsline {subsection}{\numberline {3.2.10}Discussion}{33}% 
+\contentsline {subsection}{\numberline {3.2.11}Experiment for Tree-aggregation}{35}% 
+\contentsline {subsection}{\numberline {3.2.12}Concept}{35}% 
+\contentsline {subsection}{\numberline {3.2.13}Result}{36}% 
+\contentsline {subsection}{\numberline {3.2.14}Discussion}{36}% 
+\contentsline {subsection}{\numberline {3.2.15}Elements Copy and Insertion into Size-initialized Vector in Rust.}{39}% 
 \contentsline {section}{\numberline {3.3}Access time to elements in vector}{41}% 
 \contentsline {chapter}{\numberline {4}Conclusions}{42}% 
 \contentsline {section}{\numberline {4.1}Summary of the thesis}{42}% 

@@ -106,4 +106,187 @@ We can again either clone or get Arc of String.
 
 Our KNN algorithms are implemented with batch processing. In query phase, we control batch size to examine how size of objects allocated simultaneously in memory.
 The detail implementation is explained in section3.2.
+
+\subsection{Complex Objects}
+\label{sec:history}
+To conduct experiments for above concepts, we use the 4 types of complex object: CustomerOwned, CustomerBorrowed, CustomerSlice, and CustomerRc. 
+These object contains other type of object: OrderOwned, OrderBorrowed, OrderSlice, and OrderRc.
+The representation of these objects are shown in Figure~\ref{fig:customer} and Figure~\ref{fig:order}. 
+Three Customer objects have 15 fields: 3 fields for i32, 3 fields for f64, 8 fields for String, and 1 field for Order object.
+All of fields of CustomerOwned and OrderOwned are owned by the object. On the other hand, fields of CustomerBorrowed, CustomerSlice, OrderBorrowed, and OrderSlice are borrowed. 
+Reference of slice of values are used as the fields and owner of actual values are stored differently in source Vec. 
+CustomerRc acquires Rc of values used for its fields from the source Vec.
+
+\begin{figure}[htb]
+    \begin{minipage}[t]{0.2\linewidth}\centering
+        \begin{lstlisting}
+            struct CustomerOwned {
+                key: i32,
+                age: i32,
+                num_purchase: i32,
+                total_purchase: f64,
+                duration_spent: f64, 
+                duration_since: f64,
+                zip_code: String,
+                address: String,
+                country: String,
+                state: String,
+                first_name: String,
+                last_name: String,
+                province: String,
+                comment: String, 
+                order: OrderOwned
+            }
+        \end{lstlisting}
+      \medskip
+      \centerline{(a)}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.6\linewidth}\centering
+        \begin{lstlisting}
+            struct CustomerBorrowed<'a> {
+                key: &'a i32,
+                age: &'a i32,
+                num_purchase: &'a i32,
+                total_purchase: &'a f64,
+                duration_spent: &'a f64, 
+                duration_since: &'a f64,
+                zip_code: &'a String,
+                address: &'a String,
+                country: &'a String,
+                state: &'a String,
+                first_name: &'a String,
+                last_name: &'a String,
+                province: &'a String,
+                comment: &'a String, 
+                order: &'a OrderBorrowed<'a>
+            }
+        \end{lstlisting}
+      \medskip
+      \centerline{(b)}
+    \end{minipage}
+    \begin{minipage}[t]{0.2\linewidth}\centering
+        \begin{lstlisting}
+            struct CustomerSlice<'a> {
+                key: &'a i32,
+                age: &'a i32,
+                num_purchase: &'a i32,
+                total_purchase: &'a f64,
+                duration_spent: &'a f64, 
+                duration_since: &'a f64,
+                zip_code: &'a str,
+                address: &'a str,
+                country: &'a str, 
+                state: &'a str,
+                first_name: &'a str,
+                last_name: &'a str,
+                province: &'a str,
+                comment: &'a str,
+                order: &'a OrderSlice<'a>
+            }
+        \end{lstlisting}
+      \medskip
+      \centerline{(c)}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.6\linewidth}\centering
+        \begin{lstlisting}
+            struct CustomerRc {
+                key: Rc<i32>,
+                age: Rc<i32>,
+                num_purchase: Rc<i32>,
+                total_purchase: Rc<f64>,
+                duration_spent: Rc<f64>,
+                duration_since: Rc<f64>,
+                zip_code: Rc<String>,
+                address: Rc<String>,
+                country: Rc<String>,
+                state: Rc<String>,
+                first_name: Rc<String>,
+                last_name: Rc<String>,
+                province: Rc<String>,
+                comment: Rc<String>,
+                order: Rc<OrderRc>
+            }
+        \end{lstlisting}
+      \medskip
+      \centerline{(c)}
+    \end{minipage}\hfill
+    \caption{Representation of Customer objects Whose fields are different variable type: (a) CustomerOwned struct whose fields are all owned 
+    (b) CustomerBorrowed struct whose fields are borrowed with reference (c) CustomerSlice struct whose fields are borrowed with slice for sequence value, otherwise reference}
+    \label{fig:customer}
+ \end{figure}
+
+ \begin{figure}[htb]
+    \begin{minipage}[t]{0.2\linewidth}\centering
+        \begin{lstlisting}
+            struct OrderOwned {
+                order_id: i32,
+                num_items: i32, 
+                payment: f64,
+                order_time: f64,
+                title: String,
+                comment: String
+            } 
+        \end{lstlisting}
+      \medskip
+      \centerline{(a)}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.6\linewidth}\centering
+        \begin{lstlisting}
+            struct OrderBorrowed<'a> {
+                order_id: &'a i32,
+                num_items: &'a i32, 
+                payment: &'a f64,
+                order_time: &'a f64,
+                title: &'a String,
+                comment: &'a String
+            }
+        \end{lstlisting}
+      \medskip
+      \centerline{(b)}
+    \end{minipage}
+    \begin{minipage}[t]{0.2\linewidth}\centering
+        \begin{lstlisting}
+            struct OrderSlice<'a> {
+                order_id: &'a i32,
+                num_items: &'a i32, 
+                payment: &'a f64,
+                order_time: &'a f64,
+                title: &'a str,
+                comment: &'a str
+            }
+        \end{lstlisting}
+      \medskip
+      \centerline{(c)}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.6\linewidth}\centering
+        \begin{lstlisting}
+            struct OrderRc {
+                order_id: Rc<i32>,
+                num_items: Rc<i32>,
+                payment: Rc<f64>,
+                order_time: Rc<f64>,
+                title: Rc<String>,
+                comment: Rc<String>
+            }
+        \end{lstlisting}
+      \medskip
+      \centerline{(c)}
+    \end{minipage}\hfill
+    \caption{Representation of Order objects Whose fields are different variable type: (a) OrderOwned struct whose fields are all owned 
+    (b) OrderBorrowed struct whose fields are borrowed with reference (c) OrderSlice struct whose fields are borrowed with slice for sequence value, otherwise reference}
+    \label{fig:order}
+ \end{figure}
+
+ \subsection{Wikipedia Data Sets}
+ \label{sec:history}
+ Wikipedia page data sets are used to perform document classification with KNN. 
+ \(10^5\) pages are used for training data set, and 18724 pages are used for target.
+
+ \subsection{Experimental Details}
+ Our experiments are run on three types of VM instances on Google Cloud Platform: 
+ n1-standard-1 which has 1 vCPU, 3.75 GB RAM, and 10 GB Standard persistent disk, 
+ n1-standard-4 which has 2 vCPU, 15 GB RAM, and 10 GB Standard persistent disk, 
+ n1-standard-4 which has 2 vCPU, 15 GB RAM, and 10 GB Standard persistent disk,  
+ All of the experiments described are performed 5 times. 
+ In this thesis, we present the average of 5 separate runs for each experiment.
 \clearpage

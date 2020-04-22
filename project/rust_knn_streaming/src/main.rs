@@ -319,33 +319,35 @@ fn k_nearest_neighbors_dealloc(k: usize, n_neighbors:usize, f_train: &str, f_tes
         
         let train_words = split_documents(&batch_train[..]);
         // subtract_preprocess += dump_and_time(&batch_train, "batch_train", thread_n, i);       
-        
+        drop(batch_train);
         let test_words = split_documents(&batch_test[..]); 
         // subtract_preprocess += dump_and_time(&batch_test, "batch_test", thread_n, i);
-        
+        drop(batch_test); 
         let top_k = feature_map(&train_words[..], k);
         let train = create_id_numeric(&train_words[..], &top_k);
         // subtract_preprocess += dump_and_time(&train_words, "train_words", thread_n, i);
+        drop(train_words);
         let test = create_id_numeric(&test_words[..], &top_k);
         // subtract_preprocess += dump_and_time(&test_words, "test_words", thread_n, i);
         // subtract_preprocess += dump_and_time(&top_k, "top_k", thread_n, i);
-
+        drop(test_words);
+        drop(top_k);
         let (x_source_train, y_source_train) = split_x_y(&train[..]);
         // subtract_preprocess += drop_dump_and_time(&train, "train", thread_n, i);
-
+        drop(train);
         let (x_source_test, y_source_test) = split_x_y(&test[..]);
         drop(y_source_test);
         // subtract_preprocess += drop_dump_and_time(&test, "test", thread_n, i);
-       
+        drop(test);
         let x_train = vectorize_x(&x_source_train[..]);
         // subtract_preprocess += drop_dump_and_time(&x_source_train, "x_source_train", thread_n, i);
-
+        drop(x_source_train);
         let x_test = vectorize_x(&x_source_test[..]);
         // subtract_preprocess += drop_dump_and_time(&x_source_test, "x_source_test", thread_n, i);
-        
+        drop(x_source_test); 
         let (y_train, decode_map)= vectorize_y(&y_source_train[..]);
         // subtract_preprocess += drop_dump_and_time(&y_source_train, "y_source_train", thread_n, i);
-        
+        drop(y_source_train); 
         let elapsed_batch_preprocess = start_batch_preproccess.elapsed().as_millis() - subtract_preprocess; 
         
         let mut subtract_query = 0;
@@ -355,14 +357,19 @@ fn k_nearest_neighbors_dealloc(k: usize, n_neighbors:usize, f_train: &str, f_tes
         // subtract_query += drop_dump_and_time(&x_train, "x_train", thread_n, i);
         // subtract_query += drop_dump_and_time(&x_test, "x_test", thread_n, i);
         // subtract_query += drop_dump_and_time(&y_train, "y_train", thread_n, i);
+        drop(x_train);
+        drop(x_test);
+        drop(y_train);
         let elapsed_batch_query = start_batch_query.elapsed().as_millis() - subtract_query;
 
         let mut subtract_prediction = 0;
         let start_select_prediction = Instant::now();
         let label = select_neighbor(&labels);
         // subtract_prediction += drop_dump_and_time(&labels, "lables", thread_n, i);
+        drop(labels);
         let mut id = get_id_from_label(&label, &decode_map);
         // subtract_prediction += drop_dump_and_time(&label, "lable", thread_n, i);
+        drop(label);
         let elapsed_select_prediction = start_select_prediction.elapsed().as_millis() - subtract_prediction;
         
         batch_preprocess_time += elapsed_batch_preprocess;
@@ -472,33 +479,35 @@ fn k_nearest_neighbors_with_arc_dealloc(k: usize, n_neighbors:usize, f_train: &s
         
         let train_words = split_documents_with_arc(&batch_train[..]);
         // subtract_preprocess += dump_and_time(&batch_train, "batch_train", thread_n, i);       
-        
+        drop(batch_train);
         let test_words = split_documents_with_arc(&batch_test[..]); 
         // subtract_preprocess += dump_and_time(&batch_test, "batch_test", thread_n, i);
-        
+        drop(batch_test);
         let top_k = feature_map_with_arc(&train_words[..], k);
         let train = create_id_numeric_with_arc(&train_words[..], &top_k);
         // subtract_preprocess += dump_and_time(&train_words, "train_words", thread_n, i);
+        drop(train_words);
         let test = create_id_numeric_with_arc(&test_words[..], &top_k);
         // subtract_preprocess += dump_and_time(&test_words, "test_words", thread_n, i);
         // subtract_preprocess += dump_and_time(&top_k, "top_k", thread_n, i);
-
+        drop(test_words);
+        drop(top_k);
         let (x_source_train, y_source_train) = split_x_y_with_arc(&train[..]);
         // subtract_preprocess += drop_dump_and_time(&train, "train", thread_n, i);
-
+        drop(train);
         let (x_source_test, y_source_test) = split_x_y_with_arc(&test[..]);
         drop(y_source_test);
         // subtract_preprocess += drop_dump_and_time(&test, "test", thread_n, i);
-        
+        drop(test);
         let x_train = vectorize_x_with_arc(&x_source_train[..]);
         // subtract_preprocess += drop_dump_and_time(&x_source_train, "x_source_train", thread_n, i);
-
+        drop(x_source_train);
         let x_test = vectorize_x_with_arc(&x_source_test[..]);
         // subtract_preprocess += drop_dump_and_time(&x_source_test, "x_source_test", thread_n, i);
-        
+        drop(x_source_test); 
         let (y_train, decode_map)= vectorize_y_with_arc(&y_source_train[..]);
         // subtract_preprocess += drop_dump_and_time(&y_source_train, "y_source_train", thread_n, i);
-        
+        drop(y_source_train);
         let elapsed_batch_preprocess = start_batch_preproccess.elapsed().as_millis() - subtract_preprocess; 
         
         let mut subtract_query = 0;
@@ -508,14 +517,20 @@ fn k_nearest_neighbors_with_arc_dealloc(k: usize, n_neighbors:usize, f_train: &s
         // subtract_query += drop_dump_and_time(&x_train, "x_train", thread_n, i);
         // subtract_query += drop_dump_and_time(&x_test, "x_test", thread_n, i);
         // subtract_query += drop_dump_and_time(&y_train, "y_train", thread_n, i);
+        drop(x_train);
+        drop(x_test);
+        drop(y_train);
+
         let elapsed_batch_query = start_batch_query.elapsed().as_millis() - subtract_query;
 
         let mut subtract_prediction = 0;
         let start_select_prediction = Instant::now();
         let label = select_neighbor(&labels);
         // subtract_prediction += drop_dump_and_time(&labels, "lables", thread_n, i);
+        drop(labels);
         let mut id = get_id_from_label_with_arc(&label, &decode_map);
         // subtract_prediction += drop_dump_and_time(&label, "lable", thread_n, i);
+        drop(label);
         let elapsed_select_prediction = start_select_prediction.elapsed().as_millis() - subtract_prediction;
         
         batch_preprocess_time += elapsed_batch_preprocess;

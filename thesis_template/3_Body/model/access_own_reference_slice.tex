@@ -6,7 +6,7 @@ Since these variables have different memory representation, there might be diffe
 To evaluate this assumption, we use the three types of complex object: CustomerOwned, CustomerBorrowed and CustomerSlice. 
 At first, we generate source Vecs for all fields, Vecs which contain all elements used for corresponding fields of objects.
 For example, all of i32 elements used for key field in 1 million Customer object are stored in Vec$<$i32$>$ with 1 million i32 elements. 
-Later, these i32 elements are moved to be owned or borrowed by by the object's fields.
+Later, these i32 elements are moved to be owned or borrowed by the object's fields.
 
 Next, 1.5, 1.8, 2.5, 2.8, 3.5, and 3.8 million of Customer objects are created and stored in Vec. 
 When a Customer Vec is created, whether size of Vec is initialized is controlled. 
@@ -21,7 +21,7 @@ Figure~\ref{fig:rustaccessinit} is comparison of the runtime performance among d
 Figure~\ref{fig:rustaccessnoinit} is comparison in the same set of experiment except Vec size is not initialized. 
 The blue, yellow, and green chats represent runtime of access to fields of CustomerOwned, CustomerBorrowed, and CustomerSlice objects respectively.
 
-No matter Vec size initialized or not, differences of runtime for accessing objects among different object types are not remarkable. 
+No matter Vec size initialized or not, differences of runtime for accessing objects are not remarkable among different object types. 
 The percent increase in runtime of accessing to fields of from 1.5 to 3.8 million CustomerOwned objects is 121\% if the Vec is initialized, 554\% if the Vec is not initialized.
 
 Considering the differences of percent increase of runtime whether the Vec is initialized or not, 

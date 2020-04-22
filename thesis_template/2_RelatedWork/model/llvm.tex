@@ -1,11 +1,28 @@
-LLVM (Low Level Virtual Machine) is an umbrella project which contains components of compilation of programming language.
+LLVM (Low Level Virtual Machine) \cite{DBLP:conf/cgo/LattnerA04} is an umbrella project which contains components of compilation of programming language.
 Existing compilers have tightly coupled functionalities so that it is not possible to embed them into other applications.
 However, the abstract framework of LLVM decouples the functionalities into peaces and the peaces of functionalities can be reused.
 
 In structure of a compiler, there are three main components; frontend, optimizer, and backend. 
-In frontend, a developer designs the interface of source programming language in way where it can be optimized by optimizer. 
-Then, backend takes optimized code and produce the native machine code. LLVM has a component called LLVM Intermediate Representation (IR), 
+In frontend, a developer designs the interface of source programming language in a way where it can be optimized by optimizer. 
+Then, backend takes optimized code and produce the native machine code. 
+
+This separation of functionalities gives reusability to parts of compiler. Establishing new programming language requires new front end, 
+but the existing optimizer and back end can be reused. This speeds up processes of developing new programming languages.
+
+The reusability of compiler leads to support multiple programming languages 
+so that broader set of programmers are involved in the development. 
+For open source project like Rust, This ends up larger community of potential contributors to the development.
+
+Since implementation of front end can be independent on optimizer and back end, 
+development of programming language becomes easy for person without skills required to implement optimizer and back end.
+This thrives new language developments.
+
+LLVM has a component called LLVM Intermediate Representation (IR), 
 which places itself across frontend to optimizer. IR is designed to host mid-level analyses and transformations that you find in optimizer section of a compiler.
 High-level language has many common structures and functionalities, so most of all high-level program languages can be represented with IR. 
 Once source code is represented with IR, optimizer can easily find pattern and optimize it in faster time. 
 IR is useful in terms of frontend. This is because developer of language frontend need to know only how the IR works and use the framework to develop a language.
+
+Because of emerging of LLVM, many new programming languages and compilers have been developed. Rust compiler is also developed based on LLVM.
+
+

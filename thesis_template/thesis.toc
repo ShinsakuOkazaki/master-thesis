@@ -12,9 +12,9 @@
 \contentsline {subsection}{\numberline {2.4.1}Ownership}{10}% 
 \contentsline {subsection}{\numberline {2.4.2}Move}{11}% 
 \contentsline {subsection}{\numberline {2.4.3}Borrowing}{14}% 
-\contentsline {section}{\numberline {2.5}Serialization}{16}% 
-\contentsline {section}{\numberline {2.6}LLVM}{17}% 
-\contentsline {section}{\numberline {2.7}Todos}{17}% 
+\contentsline {section}{\numberline {2.5}LLVM}{15}% 
+\contentsline {section}{\numberline {2.6}Serialization}{16}% 
+\contentsline {section}{\numberline {2.7}Todos}{16}% 
 \contentsline {chapter}{\numberline {3}Experiment}{18}% 
 \contentsline {section}{\numberline {3.1}Concept}{18}% 
 \contentsline {subsection}{\numberline {3.1.1}Type of Variable}{18}% 
@@ -38,24 +38,22 @@
 \contentsline {subsection}{\numberline {3.2.10}Experiment for Tree-aggregation}{35}% 
 \contentsline {subsection}{\numberline {3.2.11}Result}{37}% 
 \contentsline {subsection}{\numberline {3.2.12}Discussion}{37}% 
-\contentsline {subsection}{\numberline {3.2.13}Elements Copy and Insertion into Size-initialized Vector in Rust.}{39}% 
-\contentsline {section}{\numberline {3.3}Access time to elements in vector}{41}% 
-\contentsline {chapter}{\numberline {4}Conclusions}{42}% 
-\contentsline {section}{\numberline {4.1}Summary of the thesis}{42}% 
-\contentsline {chapter}{\numberline {A}Proof of xyz}{43}% 
-\contentsline {section}{\numberline {A.1}Memory and Process in Operation Systems}{43}% 
-\contentsline {section}{\numberline {A.2}Multi-threading and Parallelism}{44}% 
-\contentsline {section}{\numberline {A.3}Memory management in Operation System}{44}% 
-\contentsline {section}{\numberline {A.4}Demand Paging}{45}% 
-\contentsline {section}{\numberline {A.5}Copy on Page}{46}% 
-\contentsline {section}{\numberline {A.6}Threads and Concurrency}{46}% 
-\contentsline {section}{\numberline {A.7}BLAS LAPACK}{46}% 
-\contentsline {section}{\numberline {A.8}Netlib-Java}{48}% 
-\contentsline {section}{\numberline {A.9}Create Java interface of CBLAS with JNI}{48}% 
-\contentsline {section}{\numberline {A.10}Matrix Computation and Optimization in Apache Spark}{49}% 
-\contentsline {section}{\numberline {A.11}Memory Management of each Linear Algebra Library}{50}% 
-\contentsline {section}{\numberline {A.12}Possible Graph Structure in Rust}{51}% 
-\contentsline {section}{\numberline {A.13}Experiment for Multithread}{52}% 
-\contentsline {section}{\numberline {A.14}Note for next}{52}% 
-\contentsline {chapter}{References}{55}% 
-\contentsline {chapter}{Curriculum Vitae}{56}% 
+\contentsline {chapter}{\numberline {4}Conclusions}{39}% 
+\contentsline {section}{\numberline {4.1}Summary of the thesis}{39}% 
+\contentsline {chapter}{\numberline {A}Proof of xyz}{40}% 
+\contentsline {section}{\numberline {A.1}Memory and Process in Operation Systems}{40}% 
+\contentsline {section}{\numberline {A.2}Multi-threading and Parallelism}{41}% 
+\contentsline {section}{\numberline {A.3}Memory management in Operation System}{41}% 
+\contentsline {section}{\numberline {A.4}Demand Paging}{42}% 
+\contentsline {section}{\numberline {A.5}Copy on Page}{43}% 
+\contentsline {section}{\numberline {A.6}Threads and Concurrency}{43}% 
+\contentsline {section}{\numberline {A.7}BLAS LAPACK}{43}% 
+\contentsline {section}{\numberline {A.8}Netlib-Java}{45}% 
+\contentsline {section}{\numberline {A.9}Create Java interface of CBLAS with JNI}{45}% 
+\contentsline {section}{\numberline {A.10}Matrix Computation and Optimization in Apache Spark}{46}% 
+\contentsline {section}{\numberline {A.11}Memory Management of each Linear Algebra Library}{47}% 
+\contentsline {section}{\numberline {A.12}Possible Graph Structure in Rust}{48}% 
+\contentsline {section}{\numberline {A.13}Experiment for Multithread}{49}% 
+\contentsline {section}{\numberline {A.14}Note for next}{49}% 
+\contentsline {chapter}{References}{52}% 
+\contentsline {chapter}{Curriculum Vitae}{53}% 

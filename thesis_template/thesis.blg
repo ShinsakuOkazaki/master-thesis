@@ -16,45 +16,45 @@ Warning--entry type for "RustArcPage" isn't style-file defined
 --line 110 of file thesis.bib
 Warning--to sort, need author or key in ApacheHadoopHomePage
 Warning--to sort, need author or key in RustArcPage
-You've used 7 entries,
+You've used 8 entries,
             1935 wiz_defined-function locations,
-            525 strings with 5914 characters,
-and the built_in function-call counts, 3815 in all, are:
-= -- 355
-> -- 235
-< -- 3
-+ -- 86
-- -- 84
-* -- 347
-:= -- 640
-add.period$ -- 22
-call.type$ -- 7
-change.case$ -- 73
-chr.to.int$ -- 7
-cite$ -- 11
-duplicate$ -- 129
-empty$ -- 228
-format.name$ -- 89
-if$ -- 752
+            533 strings with 6240 characters,
+and the built_in function-call counts, 4309 in all, are:
+= -- 409
+> -- 248
+< -- 5
++ -- 90
+- -- 88
+* -- 381
+:= -- 714
+add.period$ -- 26
+call.type$ -- 8
+change.case$ -- 80
+chr.to.int$ -- 8
+cite$ -- 12
+duplicate$ -- 154
+empty$ -- 267
+format.name$ -- 96
+if$ -- 862
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 5
-newline$ -- 36
-num.names$ -- 21
-pop$ -- 78
+missing$ -- 6
+newline$ -- 41
+num.names$ -- 24
+pop$ -- 87
 preamble$ -- 1
-purify$ -- 73
+purify$ -- 80
 quote$ -- 0
-skip$ -- 99
+skip$ -- 118
 stack$ -- 0
-substring$ -- 240
-swap$ -- 32
-text.length$ -- 3
+substring$ -- 276
+swap$ -- 40
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 42
+type$ -- 48
 warning$ -- 2
-while$ -- 26
+while$ -- 31
 width$ -- 0
-write$ -- 88
+write$ -- 102
 (There were 4 warnings)

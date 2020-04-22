@@ -17,6 +17,14 @@ Armbrust, M., Xin, R.~S., Lian, C., Huai, Y., Liu, D., Bradley, J.~K., Meng,
   of Data, Melbourne, Victoria, Australia, May 31 - June 4, 2015}, pages
   1383--1394. {ACM}.
 
+\bibitem[Lattner and Adve, 2004]{DBLP:conf/cgo/LattnerA04}
+Lattner, C. and Adve, V.~S. (2004).
+\newblock {LLVM:} {A} compilation framework for lifelong program analysis {\&}
+  transformation.
+\newblock In {\em 2nd {IEEE} / {ACM} International Symposium on Code Generation
+  and Optimization {(CGO} 2004), 20-24 March 2004, San Jose, CA, {USA}}, pages
+  75--88. {IEEE} Computer Society.
+
 \bibitem[Nguyen et~al., 2015]{DBLP:conf/asplos/NguyenWBFHX15}
 Nguyen, K., Wang, K., Bu, Y., Fang, L., Hu, J., and Xu, G.~H. (2015).
 \newblock {FACADE:} {A} compiler and runtime for (almost) object-bounded big

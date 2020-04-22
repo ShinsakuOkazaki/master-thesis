@@ -1,17 +1,17 @@
 #!/bin/bash
 # cargo clean
-# cargo build --release
+cargo build --release
 
 
 n_thread=10
 # n_thread=8
 # n_thread=4
 
-train_file=../../data/WikipediaPagesOneDocPerLine100k.txt
-test_file=../../data/TestingData.txt
+#train_file=../../data/WikipediaPagesOneDocPerLine100k.txt
+#test_file=../../data/TestingData.txt
 
-# train_file=../../data/SmallTrainingData.txt
-# test_file=../../data/TestingData.txt
+train_file=../../data/SmallTrainingData.txt
+test_file=../../data/TestingData.txt
 
 train_p_directory=../../data/trainPartition/
 test_p_directory=../../data/testPartition/
@@ -86,21 +86,18 @@ done
 
 for method in 1 2
 do  
-    for n_batch in 1 2 3
+    for n_batch in 2 3
     do
         for strategy in 1 2
         do
             for k in 15000 20000 25000
             do
-                for n_neighbors in 10 20 30
+                for counter in 1 2 3 4 5
                 do
-                    for counter in 1 2 3 4 5
-                    do
-                        rm -rf profile/nbatch"$n_batch"_k"$k"_nneighbors"$n_neighbors".txt 
-                        time cargo run --release $method $k $n_neighbors $n_batch $train_partitions $test_partitions "${train_p_sizes[@]}" "${test_p_sizes[@]}"
-                        ls -l serialized/ | awk '{if(NR!=1){print $5"#"$9}}' >>  profile/method"$method"_nbatch"$n_batch"_k"$k"_nneighbors"$n_neighbors".txt
-                        rm serialized/*
-                    done
+                    # rm -rf profile/nbatch"$n_batch"_k"$k"_nneighbors"$n_neighbors".txt 
+                    time cargo run --release $method $strategy $k 30 $n_batch $train_partitions $test_partitions "${train_p_sizes[@]}" "${test_p_sizes[@]}"
+                    # ls -l serialized/ | awk '{if(NR!=1){print $5"#"$9}}' >>  profile/method"$method"_nbatch"$n_batch"_k"$k".txt
+                    # rm serialized/*
                 done
             done
         done

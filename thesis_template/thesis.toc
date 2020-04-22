@@ -1,0 +1,59 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}% 
+\contentsline {section}{\numberline {1.1}Motivataion}{1}% 
+\contentsline {section}{\numberline {1.2}Problem Description}{3}% 
+\contentsline {chapter}{\numberline {2}Related Work}{4}% 
+\contentsline {section}{\numberline {2.1}Hadoop MapReduce to Spark}{4}% 
+\contentsline {section}{\numberline {2.2}Apache Spark}{5}% 
+\contentsline {subsection}{\numberline {2.2.1}Resilient Distributed Datasets}{5}% 
+\contentsline {subsection}{\numberline {2.2.2}Memory Management in Spark}{6}% 
+\contentsline {subsection}{\numberline {2.2.3}Garbage Collection Tuning}{7}% 
+\contentsline {section}{\numberline {2.3}Application to System Language}{9}% 
+\contentsline {section}{\numberline {2.4}Rust Memory Management}{10}% 
+\contentsline {subsection}{\numberline {2.4.1}Ownership}{10}% 
+\contentsline {subsection}{\numberline {2.4.2}Move}{11}% 
+\contentsline {subsection}{\numberline {2.4.3}Borrowing}{14}% 
+\contentsline {section}{\numberline {2.5}LLVM}{15}% 
+\contentsline {section}{\numberline {2.6}Serialization}{16}% 
+\contentsline {section}{\numberline {2.7}Todos}{16}% 
+\contentsline {chapter}{\numberline {3}Experiment}{18}% 
+\contentsline {section}{\numberline {3.1}Concept}{18}% 
+\contentsline {subsection}{\numberline {3.1.1}Type of Variable}{18}% 
+\contentsline {subsection}{\numberline {3.1.2}Reference Count}{18}% 
+\contentsline {subsection}{\numberline {3.1.3}Multithreading}{19}% 
+\contentsline {subsection}{\numberline {3.1.4}Tree-aggregate}{20}% 
+\contentsline {subsection}{\numberline {3.1.5}K-Nearest-Neighbors}{21}% 
+\contentsline {subsection}{\numberline {3.1.6}Complex Objects}{22}% 
+\contentsline {subsection}{\numberline {3.1.7}Wikipedia Data Sets}{23}% 
+\contentsline {subsection}{\numberline {3.1.8}Experimental Details}{23}% 
+\contentsline {section}{\numberline {3.2}Evaluation}{26}% 
+\contentsline {subsection}{\numberline {3.2.1}Experiment for Accessing Object with Different Variable Type}{26}% 
+\contentsline {subsection}{\numberline {3.2.2}Result}{26}% 
+\contentsline {subsection}{\numberline {3.2.3}Discussion}{27}% 
+\contentsline {subsection}{\numberline {3.2.4}Assessment of different reference methods in Rust}{30}% 
+\contentsline {subsection}{\numberline {3.2.5}Result}{30}% 
+\contentsline {subsection}{\numberline {3.2.6}Discussion}{30}% 
+\contentsline {subsection}{\numberline {3.2.7}Experiment for Merge-sort}{32}% 
+\contentsline {subsection}{\numberline {3.2.8}Result}{33}% 
+\contentsline {subsection}{\numberline {3.2.9}Discussion}{34}% 
+\contentsline {subsection}{\numberline {3.2.10}Experiment for Tree-aggregation}{35}% 
+\contentsline {subsection}{\numberline {3.2.11}Result}{37}% 
+\contentsline {subsection}{\numberline {3.2.12}Discussion}{37}% 
+\contentsline {chapter}{\numberline {4}Conclusions}{39}% 
+\contentsline {section}{\numberline {4.1}Summary of the thesis}{39}% 
+\contentsline {chapter}{\numberline {A}Proof of xyz}{40}% 
+\contentsline {section}{\numberline {A.1}Memory and Process in Operation Systems}{40}% 
+\contentsline {section}{\numberline {A.2}Multi-threading and Parallelism}{41}% 
+\contentsline {section}{\numberline {A.3}Memory management in Operation System}{41}% 
+\contentsline {section}{\numberline {A.4}Demand Paging}{42}% 
+\contentsline {section}{\numberline {A.5}Copy on Page}{43}% 
+\contentsline {section}{\numberline {A.6}Threads and Concurrency}{43}% 
+\contentsline {section}{\numberline {A.7}BLAS LAPACK}{43}% 
+\contentsline {section}{\numberline {A.8}Netlib-Java}{45}% 
+\contentsline {section}{\numberline {A.9}Create Java interface of CBLAS with JNI}{45}% 
+\contentsline {section}{\numberline {A.10}Matrix Computation and Optimization in Apache Spark}{46}% 
+\contentsline {section}{\numberline {A.11}Memory Management of each Linear Algebra Library}{47}% 
+\contentsline {section}{\numberline {A.12}Possible Graph Structure in Rust}{48}% 
+\contentsline {section}{\numberline {A.13}Experiment for Multithread}{49}% 
+\contentsline {section}{\numberline {A.14}Note for next}{49}% 
+\contentsline {chapter}{References}{52}% 
+\contentsline {chapter}{Curriculum Vitae}{53}% 

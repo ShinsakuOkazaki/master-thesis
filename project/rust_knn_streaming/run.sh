@@ -7,7 +7,7 @@ n_thread=10
 # n_thread=8
 # n_thread=4
 
-train_file=../../data/SmallTrainingData.txt
+train_file=../../data/WikipediaPagesOneDocPerLine100k.txt
 test_file=../../data/TestingData.txt
 
 # train_file=../../data/SmallTrainingData.txt
@@ -15,6 +15,13 @@ test_file=../../data/TestingData.txt
 
 train_p_directory=../../data/trainPartition/
 test_p_directory=../../data/testPartition/
+
+rm -f ../../data/trainPartition/* 
+rm -f ../../data/testPartition/*
+rm -f result/*
+rm -f prediction/*
+rm -f serialized/*
+
 n_lines_train=$(< $train_file wc -l)
 n_lines_test=$(< $test_file wc -l) 
 
@@ -97,8 +104,6 @@ do
    done
 done
 
-rm $train_partitions
-rm $test_partitions
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  22 APR 2020 23:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  22 APR 2020 23:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -625,20 +625,20 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 30.
  [11 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <2_RelatedWork/Figures/python_list_copied.eps>
-(epstopdf)                    date: 2020-04-11 14:57:53
-(epstopdf)                    size: 24970 bytes
-(epstopdf)             Output file: <2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-11 15:02:32
-(epstopdf)                    size: 7782 bytes
-(epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf 2_RelatedWork/Figures/python_list_copied.eps>
+Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_array.eps>
+(epstopdf)                    date: 2020-04-22 23:43:20
+(epstopdf)                    size: 25289 bytes
+(epstopdf)             Output file: <2_RelatedWork/Figures/java_array-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-04-22 23:45:02
+(epstopdf)                    size: 7904 bytes
+(epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_array-eps-converted-to.pdf 2_RelatedWork/Figures/java_array.eps>
 (epstopdf)             \includegraphics on input line 39.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf, id=488, 292.09125pt x 346.29375pt>
-File: 2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf Graphic file (type pdf)
-<use 2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf>
-Package pdftex.def Info: 2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf  used on input line 39.
-(pdftex.def)             Requested size: 284.52756pt x 337.35762pt.
+<2_RelatedWork/Figures/java_array-eps-converted-to.pdf, id=488, 288.07625pt x 346.29375pt>
+File: 2_RelatedWork/Figures/java_array-eps-converted-to.pdf Graphic file (type pdf)
+<use 2_RelatedWork/Figures/java_array-eps-converted-to.pdf>
+Package pdftex.def Info: 2_RelatedWork/Figures/java_array-eps-converted-to.pdf  used on input line 39.
+(pdftex.def)             Requested size: 284.52756pt x 342.03926pt.
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/python_list.eps>
 (epstopdf)                    date: 2020-04-11 14:58:21
 (epstopdf)                    size: 27461 bytes
@@ -683,7 +683,7 @@ File: 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf Graphic
 <use 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf  used on input line 67.
 (pdftex.def)             Requested size: 426.79134pt x 128.78758pt.
- [12 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf>]
+ [12 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_array-eps-converted-to.pdf>]
 Overfull \hbox (59.13513pt too wide) in paragraph at lines 75--76
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1218,14 +1218,14 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
  10477 strings out of 492616
- 163028 string characters out of 6129482
+ 162986 string characters out of 6129482
  484390 words of memory out of 5000000
  13781 multiletter control sequences out of 15000+600000
  11316 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,8n,53p,547b,1286s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (64 pages, 447572 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (64 pages, 447724 bytes).
 PDF statistics:
  1295 PDF objects out of 1440 (max. 8388607)
  932 compressed objects within 10 object streams

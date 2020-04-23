@@ -1,0 +1,54 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Motivation}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Problem Description}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Related Work}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Hadoop MapReduce to Spark}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{Apache Spark}{chapter.2}% 6
+\BOOKMARK [2][-]{subsection.2.2.1}{Resilient Distributed Datasets}{section.2.2}% 7
+\BOOKMARK [2][-]{subsection.2.2.2}{Memory Management in Spark}{section.2.2}% 8
+\BOOKMARK [2][-]{subsection.2.2.3}{Garbage Collection Tuning}{section.2.2}% 9
+\BOOKMARK [1][-]{section.2.3}{Application to System Language}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.4}{Rust Memory Management}{chapter.2}% 11
+\BOOKMARK [2][-]{subsection.2.4.1}{Ownership}{section.2.4}% 12
+\BOOKMARK [2][-]{subsection.2.4.2}{Move}{section.2.4}% 13
+\BOOKMARK [2][-]{subsection.2.4.3}{Borrowing}{section.2.4}% 14
+\BOOKMARK [1][-]{section.2.5}{LLVM}{chapter.2}% 15
+\BOOKMARK [0][-]{chapter.3}{Experiment}{}% 16
+\BOOKMARK [1][-]{section.3.1}{Concept}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.1.1}{Type of Variable}{section.3.1}% 18
+\BOOKMARK [2][-]{subsection.3.1.2}{Reference Count}{section.3.1}% 19
+\BOOKMARK [2][-]{subsection.3.1.3}{Multithreading}{section.3.1}% 20
+\BOOKMARK [2][-]{subsection.3.1.4}{Tree-aggregate}{section.3.1}% 21
+\BOOKMARK [2][-]{subsection.3.1.5}{K-Nearest-Neighbors}{section.3.1}% 22
+\BOOKMARK [2][-]{subsection.3.1.6}{Complex Objects}{section.3.1}% 23
+\BOOKMARK [2][-]{subsection.3.1.7}{Wikipedia Data Sets}{section.3.1}% 24
+\BOOKMARK [2][-]{subsection.3.1.8}{Experimental Details}{section.3.1}% 25
+\BOOKMARK [1][-]{section.3.2}{Evaluation}{chapter.3}% 26
+\BOOKMARK [2][-]{subsection.3.2.1}{Experiment for Accessing Object with Different Variable Type}{section.3.2}% 27
+\BOOKMARK [2][-]{subsection.3.2.2}{Result}{section.3.2}% 28
+\BOOKMARK [2][-]{subsection.3.2.3}{Discussion}{section.3.2}% 29
+\BOOKMARK [2][-]{subsection.3.2.4}{Assessment of different reference methods in Rust}{section.3.2}% 30
+\BOOKMARK [2][-]{subsection.3.2.5}{Result}{section.3.2}% 31
+\BOOKMARK [2][-]{subsection.3.2.6}{Discussion}{section.3.2}% 32
+\BOOKMARK [2][-]{subsection.3.2.7}{Experiment for Merge-sort}{section.3.2}% 33
+\BOOKMARK [2][-]{subsection.3.2.8}{Result}{section.3.2}% 34
+\BOOKMARK [2][-]{subsection.3.2.9}{Discussion}{section.3.2}% 35
+\BOOKMARK [2][-]{subsection.3.2.10}{Experiment for Tree-aggregation}{section.3.2}% 36
+\BOOKMARK [2][-]{subsection.3.2.11}{Result}{section.3.2}% 37
+\BOOKMARK [2][-]{subsection.3.2.12}{Discussion}{section.3.2}% 38
+\BOOKMARK [0][-]{chapter.4}{Conclusions}{}% 39
+\BOOKMARK [1][-]{section.4.1}{Summary of the thesis}{chapter.4}% 40
+\BOOKMARK [0][-]{Appendix.a.A}{Operating Systems}{}% 41
+\BOOKMARK [1][-]{section.a.A.1}{Memory and Process in Operating Systems}{Appendix.a.A}% 42
+\BOOKMARK [1][-]{section.a.A.2}{Multi-threading and Parallelism}{Appendix.a.A}% 43
+\BOOKMARK [1][-]{section.a.A.3}{Memory management in Operating System}{Appendix.a.A}% 44
+\BOOKMARK [1][-]{section.a.A.4}{Demand Paging}{Appendix.a.A}% 45
+\BOOKMARK [1][-]{section.a.A.5}{Copy on Page}{Appendix.a.A}% 46
+\BOOKMARK [0][-]{Appendix.a.B}{Linear Algebra Computation}{}% 47
+\BOOKMARK [1][-]{section.a.B.1}{BLAS LAPACK}{Appendix.a.B}% 48
+\BOOKMARK [1][-]{section.a.B.2}{Netlib-Java}{Appendix.a.B}% 49
+\BOOKMARK [1][-]{section.a.B.3}{Create Java interface of CBLAS with JNI}{Appendix.a.B}% 50
+\BOOKMARK [1][-]{section.a.B.4}{Matrix Computation and Optimization in Apache Spark}{Appendix.a.B}% 51
+\BOOKMARK [1][-]{section.a.B.5}{Memory Management of each Linear Algebra Library}{Appendix.a.B}% 52
+\BOOKMARK [0][-]{chapter*.28}{References}{}% 53
+\BOOKMARK [0][-]{chapter*.28}{Curriculum Vitae}{}% 54

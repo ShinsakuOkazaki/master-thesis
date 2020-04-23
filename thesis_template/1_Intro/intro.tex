@@ -3,46 +3,41 @@
 \thispagestyle{myheadings}
 
 
-\section{Motivataion}
+\section{Motivation}
 \label{sec:history}
 Importance of cluster computing tool for Big Data Analysis has been increasing as amount, value, use of data has increased. 
 Recently, almost all businesses stand on data, from web marketing analysis to factory automations and leverage of data is ubiquitous, because 
-there are many open source tools to analyze data and cloud computer infractrustures which can support computation for massive amount of data. 
-The improvement of accessability to these technologies to deal with big data democratized data driven businesses by 
+there are many open source tools to analyze data and cloud computer infrastructure which can support computation for massive amount of data. 
+The improvement of accessibility to these technologies democratized data driven businesses by 
 eliminating significant amount of initial investment. 
 
-However these technologies do not come for free; we need to pay for it. Ususally, user needs to pay depending on use of computational resources. 
-If your process of data analysis is too long or need to use a number of cluster with high speck specification, the cost will end up significantly hight.
+However these technologies do not come for free; we need to pay money for use of these resources. Usually, user needs to pay depending on use of computational resources. 
+If your process of data analysis is too long or need to use a number of cluster with high speck specification, the cost may end up significantly hight.
 To address these problems, the quality of analysis tool is critical. If the tool can optimize the runtime performance and usage of computational resources, 
-the cost for runing the businesses can be efficient.
+the cost for running the businesses can become efficient.
 
-Multiple cluster computing analysis tools have been developed, such as Hadoop MapReduce\footnote{\cite{ApacheHadoopHomePage}}, Apache Spark, and Apache Flink. These tools have brought reliable and scalable ways to deal massive data. 
+Multiple cluster computing analysis tools have been developed, such as Hadoop MapReduce \cite{ApacheHadoopHomePage}, 
+Apache Spark \cite{ApacheSparkHomePage}, and Apache Flink \cite{ApacheFlinkHomePage}. 
+These tools have brought reliable and scalable ways to deal massive data. 
 These has become widely popular, in which data-parallel computations are executed on clusters of unreliable machines by systems that automatically provide locality-aware scheduling, 
 fault tolerance, and load balancing. 
 
-These tools are constructed on top of Java Virtual Machine (JVM). JVM abstracts hardware and memory management from the developper so that the development is fairly easy. 
+These tools are constructed on top of Java Virtual Machine (JVM). JVM abstracts hardware and memory management from the developer so that the development is fairly easy. 
 In addition, Java or Scala compiled code is platform-independent, which can run on any machine with JVM. However, these advantages may be really critical weakness when it comes to 
-processing big data. JVM abstract away most detail regarding memeory management from the system designer, including memory deallocation, reuse, and movement, as well as pointers, 
-object serialization and deserialization. Since managing and utilizing memory is one of the most important factors determining Big Data systems performance, 
-reliance on a managed environment can mean an ordeer-of-magnitude increase in CPU cost for some computations. This cost may be unacceptable for high-perfomance tool development by an expert.
+processing big data. JVM abstract away most detail regarding memory management from the system designer, including memory deallocation, reuse, and movement, as well as pointers, 
+object serialization and deserialization. Since managing and utilizing memory is one of the most important factors determining Big Data systems' performance, 
+reliance on a managed environment can mean an order-of-magnitude increase in CPU cost for some computations. This cost may be unacceptable for high-performance tool development by an expert.
 
-To overcome these problems, one can use programming languages with more contoral on hardware, system languages, for development of Big Data tools. For example, C++ is a general-purpose, statically typed, 
-compiled programming language which supports multiple programming paradcigm. It is also a system language which gives full control over hardware. There are several researches or projects where developers and 
+To overcome these problems, one can use programming languages with more control on hardware, system languages, for development of Big Data tools. For example, C++ is a general-purpose, statically typed, 
+compiled programming language which supports multiple programming paradigm. It is also a system language which gives full control over hardware. 
+There are several researches or projects \cite{DBLP:conf/sigmod/0001BLLMSTYJ18} where developers and 
 researchers implement Big Data tools with this language. These tools shows significantly better performances than those developed with application languages. 
-Although the evidence of the advantage of building high speed computational tools with C++ has been discovered, the steep learning curve and difficulty of writing memory safe codes are bariiers to technology diffusion.
+Although the evidence of the advantage of building high speed computational tools with C++ has been discovered, the steep learning curve and difficulty of writing memory safe codes are barrier to technology diffusion.
 
-Rust is a system language which gives the similar performance and control of hardware to C++ or C and safety of runtime. Unique memory management strategy of Rust, ownership and borrowing, and fearless concurrenry 
-make the language one of the ideal candidate for development of Big Data tools. There are several existing Big Data tools developed with Rust. Inspired by these activity
-
-Write about some development and research for Big Data tools with system language. 
-
-Platform depenedance is no longer disadvantage, because of docker and kubernets.
-
-Rust safe language advantage
-
-
-
-
+Rust is a system language which gives the similar performance and control of hardware to C++ or C and safety of runtime. The memory-safety, and fearless concurrently in Rust programming 
+make the language one of the ideal candidate for development of Big Data tools. 
+Since the design of the language is different from any other programming languages, implementations that can be selected for algorithms can differ from existing ones.
+In this dissertation, we focus on memory management strategy for Big Data processing algorithms in development with Rust. 
 
 
 \section{Problem Description}
@@ -56,9 +51,9 @@ One of the fundamental tasks for recent big data analysis is analysis using Mach
 which require iterative process. As the amount of data increases, memory is required to keep many objects. 
 Therefore, memory management plays a critical role in this task. 
 
-Memory management in Java and Scala is performed by garbage collection. 
+One of the memory management tool on JVM is garbage collection. 
 The garbage collection brings a significant advantage for programmers by removing responsibility
-for planning memory management by themselves. Instead, JVM monitors the state of memory and performs garbage
+for planning memory management by themselves manually. Instead, JVM monitors the state of memory and performs garbage
 collection at certain points. However, these monitoring and auto-execution of garbage collection cost additional 
 computation and might consume computation resources which should be used for data processing. This can significantly decrease performance of the computation. 
 
@@ -66,9 +61,10 @@ In contrast, memory management in system language, such as C++, relies on progra
 The functions, malloc/free consume most of the memory management. Proper implementation of system language for big data processing can be overperform the implementation in host language.
 Nevertheless, implementing C++ performing proper memory management and guaranteeing security can be unproductive and complicated. 
 
-Considering the issue of memory management, we introduce solution based on unique memory management methods implemented in Rust, ownership and borrowing.
-This unique concepts in Rust secure codes and perform memory management without monitoring memory or calling functions. We introduce implementations of
-machine learning algorithms in both Java and Rust to assess performances of each memory management system for iterative big data processing tasks.
+Considering the issue of memory management, we introduces solution based on unique memory management methods implemented in Rust, ownership , move and borrowing.
+This unique concepts in Rust secure codes and perform memory management without monitoring memory. 
+Since developer can select variety of memory management strategies to implement Big Data processing algorithms in Rust.
+We develop such algorithms with different strategies and compare their runtime performance to study the best algorithm implementation.
 
 
 

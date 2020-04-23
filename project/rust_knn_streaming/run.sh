@@ -3,8 +3,8 @@
 cargo build --release
 
 
-n_thread=10
-# n_thread=8
+# n_thread=10
+n_thread=8
 # n_thread=4
 
 train_file=../../data/WikipediaPagesOneDocPerLine100k.txt

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  21 APR 2020 21:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  22 APR 2020 23:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -85,11 +85,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-) (/usr/local/texlive/2019/texmf-dist/tex/generic/bibtex/apalike.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip46
+\bibsep=\skip47
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count101
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count101
+\c@float@type=\count102
 \float@exts=\toks19
 \float@box=\box29
 \@float@everytoks=\toks20
@@ -111,20 +115,20 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \caption@parindent=\dimen117
 \caption@hangindent=\dimen118
 )
-\c@caption@flags=\count102
-\c@ContinuedFloat=\count103
+\c@caption@flags=\count103
+\c@ContinuedFloat=\count104
 Package caption Info: float package is loaded.
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
-\f@nch@headwidth=\skip47
-\f@nch@O@elh=\skip48
-\f@nch@O@erh=\skip49
-\f@nch@O@olh=\skip50
-\f@nch@O@orh=\skip51
-\f@nch@O@elf=\skip52
-\f@nch@O@erf=\skip53
-\f@nch@O@olf=\skip54
-\f@nch@O@orf=\skip55
+\f@nch@headwidth=\skip48
+\f@nch@O@elh=\skip49
+\f@nch@O@erh=\skip50
+\f@nch@O@olh=\skip51
+\f@nch@O@orh=\skip52
+\f@nch@O@elf=\skip53
+\f@nch@O@erf=\skip54
+\f@nch@O@olf=\skip55
+\f@nch@O@orf=\skip56
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/fancybox/fancybox.sty
 Package: fancybox 2010/05/15 1.4
 
@@ -143,8 +147,8 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 ) (/Users/sinsakuokazaki/master-thesis/thesis_template/bu_ece_thesis.sty (/usr/local/texlive/2019/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-\degree=\count104
-\numadvisors=\count105
+\degree=\count105
+\numadvisors=\count106
 \@approvalreader=\box33
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
@@ -207,36 +211,36 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))) (/usr/local/texlive/2019/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
-\c@KVtest=\count106
-\sf@farskip=\skip56
+\c@KVtest=\count107
+\sf@farskip=\skip57
 \sf@captopadj=\dimen120
-\sf@capskip=\skip57
-\sf@nearskip=\skip58
-\c@subfigure=\count107
-\c@subfigure@save=\count108
-\c@lofdepth=\count109
-\c@subtable=\count110
-\c@subtable@save=\count111
-\c@lotdepth=\count112
-\sf@top=\skip59
-\sf@bottom=\skip60
+\sf@capskip=\skip58
+\sf@nearskip=\skip59
+\c@subfigure=\count108
+\c@subfigure@save=\count109
+\c@lofdepth=\count110
+\c@subtable=\count111
+\c@subtable@save=\count112
+\c@lotdepth=\count113
+\sf@top=\skip60
+\sf@bottom=\skip61
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count113
+\lst@mode=\count114
 \lst@gtempboxa=\box36
 \lst@token=\toks27
-\lst@length=\count114
+\lst@length=\count115
 \lst@currlwidth=\dimen121
-\lst@column=\count115
-\lst@pos=\count116
+\lst@column=\count116
+\lst@pos=\count117
 \lst@lostspace=\dimen122
 \lst@width=\dimen123
-\lst@newlines=\count117
-\lst@lineno=\count118
+\lst@newlines=\count118
+\lst@lineno=\count119
 \lst@maxwidth=\dimen124
  (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2019/02/27 1.8b (Carsten Heinz)
-\c@lstnumber=\count119
-\lst@skipnumbers=\count120
+\c@lstnumber=\count120
+\lst@skipnumbers=\count121
 \lst@framebox=\box37
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2019/02/27 1.8b listings configuration
@@ -248,20 +252,99 @@ Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 \Gin@req@width=\dimen126
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
-\c@@pps=\count121
-\c@@ppsavesec=\count122
-\c@@ppsaveapp=\count123
+\c@@pps=\count122
+\c@@ppsavesec=\count123
+\c@@ppsaveapp=\count124
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
+ (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+ (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package hobsub Info: Skipping package `ifluatex' (already loaded).
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package hobsub Info: Skipping package `etexcmds' (already loaded).
+Package hobsub Info: Skipping package `kvsetkeys' (already loaded).
+Package hobsub Info: Skipping package `kvdefinekeys' (already loaded).
+Package hobsub Info: Skipping package `pdftexcmds' (already loaded).
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \AP@enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+) (/usr/local/texlive/2019/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+\@linkdim=\dimen127
+\Hy@linkcounter=\count125
+\Hy@pagecounter=\count126
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count127
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4519.
+Package hyperref Info: Link nesting OFF on input line 4524.
+Package hyperref Info: Hyper index ON on input line 4527.
+Package hyperref Info: Plain pages OFF on input line 4534.
+Package hyperref Info: Backreferencing OFF on input line 4539.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4772.
+\c@Hy@tempcnt=\count128
+LaTeX Info: Redefining \url on input line 5125.
+\XeTeXLinkMargin=\dimen128
+\Fld@menulength=\count129
+\Field@Width=\dimen129
+\Fld@charsize=\dimen130
+Package hyperref Info: Hyper figures OFF on input line 6380.
+Package hyperref Info: Link nesting OFF on input line 6385.
+Package hyperref Info: Hyper index ON on input line 6388.
+Package hyperref Info: backreferencing OFF on input line 6395.
+Package hyperref Info: Link coloring OFF on input line 6400.
+Package hyperref Info: Link coloring with OCG OFF on input line 6405.
+Package hyperref Info: PDF/A mode OFF on input line 6410.
+LaTeX Info: Redefining \ref on input line 6450.
+LaTeX Info: Redefining \pageref on input line 6454.
+\Hy@abspage=\count130
+\c@Item=\count131
+\c@Hfootnote=\count132
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
+\Fld@listcount=\count133
+\c@bookmark@seq@number=\count134
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 282.
+)
+\Hy@SectionHShift=\skip62
 ) (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.aux (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/prelim.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/1_Intro/intro.aux
 
 LaTeX Warning: Label `sec:history' multiply defined.
 
 ) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.aux
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
 
 LaTeX Warning: Label `sec:history' multiply defined.
 
@@ -340,16 +423,7 @@ LaTeX Warning: Label `sec:history' multiply defined.
 LaTeX Warning: Label `sec:history' multiply defined.
 
 
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
-
-
-LaTeX Warning: Label `sec:history' multiply defined.
+LaTeX Warning: Label `appendix' multiply defined.
 
 
 LaTeX Warning: Label `sec:history' multiply defined.
@@ -369,37 +443,56 @@ LaTeX Warning: Label `sec:history' multiply defined.
 ) (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count124
-\scratchdimen=\dimen127
+\scratchcounter=\count135
+\scratchdimen=\dimen131
 \scratchbox=\box38
-\nofMPsegments=\count125
-\nofMParguments=\count126
+\nofMPsegments=\count136
+\nofMParguments=\count137
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count127
-\MPscratchDim=\dimen128
-\MPnumerator=\count128
-\makeMPintoPDFobject=\count129
+\MPscratchCnt=\count138
+\MPscratchDim=\dimen132
+\MPnumerator=\count139
+\makeMPintoPDFobject=\count140
 \everyMPtoPDFconversion=\toks29
 )
-\c@lstlisting=\count130
+\c@lstlisting=\count141
+\AtBeginShipoutBox=\box39
+Package hyperref Info: Link coloring OFF on input line 62.
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+ (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count142
+)
+LaTeX Info: Redefining \ref on input line 62.
+LaTeX Info: Redefining \pageref on input line 62.
+LaTeX Info: Redefining \nameref on input line 62.
+ (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.out) (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.out)
+\@outlinefile=\write4
+\openout4 = `thesis.out'.
+
 \openout2 = `0_Prelim/prelim.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/prelim.tex [1
@@ -434,12 +527,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ] [8])
-\tf@toc=\write4
-\openout4 = `thesis.toc'.
+\tf@toc=\write5
+\openout5 = `thesis.toc'.
 
  [9] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.lot)
-\tf@lot=\write5
-\openout5 = `thesis.lot'.
+\tf@lot=\write6
+\openout6 = `thesis.lot'.
 
  [10
 
@@ -448,8 +541,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ])
-\tf@lof=\write6
-\openout6 = `thesis.lof'.
+\tf@lof=\write7
+\openout7 = `thesis.lof'.
 
  [12]
 Overfull \hbox (36.51718pt too wide) in paragraph at lines 132--143
@@ -490,7 +583,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_heap.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_heap-eps-converted-to.pdf 2_RelatedWork/Figures/java_heap.eps>
 (epstopdf)             \includegraphics on input line 49.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/java_heap-eps-converted-to.pdf, id=74, 514.92375pt x 150.5625pt>
+<2_RelatedWork/Figures/java_heap-eps-converted-to.pdf, id=437, 514.92375pt x 150.5625pt>
 File: 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf  used on input line 49.
@@ -504,7 +597,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_gc.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_gc-eps-converted-to.pdf 2_RelatedWork/Figures/java_gc.eps>
 (epstopdf)             \includegraphics on input line 55.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/java_gc-eps-converted-to.pdf, id=75, 1158.3275pt x 832.10875pt>
+<2_RelatedWork/Figures/java_gc-eps-converted-to.pdf, id=438, 1158.3275pt x 832.10875pt>
 File: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf  used on input line 55.
@@ -519,7 +612,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_vec.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf 2_RelatedWork/Figures/rust_vec.eps>
 (epstopdf)             \includegraphics on input line 17.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf, id=95, 321.2pt x 176.66pt>
+<2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf, id=466, 321.2pt x 176.66pt>
 File: 2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf  used on input line 17.
@@ -541,7 +634,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/python_list_copied.ep
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf 2_RelatedWork/Figures/python_list_copied.eps>
 (epstopdf)             \includegraphics on input line 39.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf, id=107, 292.09125pt x 346.29375pt>
+<2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf, id=488, 292.09125pt x 346.29375pt>
 File: 2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf  used on input line 39.
@@ -555,7 +648,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/python_list.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/python_list-eps-converted-to.pdf 2_RelatedWork/Figures/python_list.eps>
 (epstopdf)             \includegraphics on input line 45.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/python_list-eps-converted-to.pdf, id=108, 255.95625pt x 346.29375pt>
+<2_RelatedWork/Figures/python_list-eps-converted-to.pdf, id=489, 255.95625pt x 346.29375pt>
 File: 2_RelatedWork/Figures/python_list-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/python_list-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/python_list-eps-converted-to.pdf  used on input line 45.
@@ -571,7 +664,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/cplusplus_vector.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf 2_RelatedWork/Figures/cplusplus_vector.eps>
 (epstopdf)             \includegraphics on input line 60.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf, id=109, 374.39874pt x 202.7575pt>
+<2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf, id=492, 374.39874pt x 202.7575pt>
 File: 2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf  used on input line 60.
@@ -585,14 +678,14 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/cplusplus_vector_copi
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf 2_RelatedWork/Figures/cplusplus_vector_copied.eps>
 (epstopdf)             \includegraphics on input line 67.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf, id=110, 518.93875pt x 156.585pt>
+<2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf, id=493, 518.93875pt x 156.585pt>
 File: 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf  used on input line 67.
 (pdftex.def)             Requested size: 426.79134pt x 128.78758pt.
  [12 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/python_list_copied-eps-converted-to.pdf>]
 Overfull \hbox (59.13513pt too wide) in paragraph at lines 75--76
-[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_vec_moved.eps>
@@ -604,12 +697,12 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_vec_moved.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf 2_RelatedWork/Figures/rust_vec_moved.eps>
 (epstopdf)             \includegraphics on input line 84.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf, id=120, 370.38374pt x 168.63pt>
+<2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf, id=509, 370.38374pt x 168.63pt>
 File: 2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf  used on input line 84.
 (pdftex.def)             Requested size: 426.79134pt x 194.31409pt.
-[13 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/python_list-eps-converted-to.pdf>]) [14 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/llvm.tex [15 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf>]) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/serialization.tex) [16] [17])
+[13 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/python_list-eps-converted-to.pdf>]) [14 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/llvm.tex [15 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf>]) [16])
 \openout2 = `3_Body/body.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.tex
@@ -624,18 +717,18 @@ Package epstopdf Info: Source file: <3_Body/Figures/own_ref_slice.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/own_ref_slice-eps-converted-to.pdf 3_Body/Figures/own_ref_slice.eps>
 (epstopdf)             \includegraphics on input line 15.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/own_ref_slice-eps-converted-to.pdf, id=156, 305.14pt x 284.06125pt>
+<3_Body/Figures/own_ref_slice-eps-converted-to.pdf, id=553, 305.14pt x 284.06125pt>
 File: 3_Body/Figures/own_ref_slice-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/own_ref_slice-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/own_ref_slice-eps-converted-to.pdf  used on input line 15.
 (pdftex.def)             Requested size: 284.52756pt x 264.88072pt.
- [18
+ [17
 
 
 
 
 
-] [19 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/own_ref_slice-eps-converted-to.pdf>]
+] [18 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/own_ref_slice-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <3_Body/Figures/normal_agg.eps>
 (epstopdf)                    date: 2020-04-18 16:39:53
 (epstopdf)                    size: 8443 bytes
@@ -645,7 +738,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/normal_agg.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/normal_agg-eps-converted-to.pdf 3_Body/Figures/normal_agg.eps>
 (epstopdf)             \includegraphics on input line 66.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/normal_agg-eps-converted-to.pdf, id=169, 236.885pt x 377.41pt>
+<3_Body/Figures/normal_agg-eps-converted-to.pdf, id=569, 236.885pt x 377.41pt>
 File: 3_Body/Figures/normal_agg-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/normal_agg-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/normal_agg-eps-converted-to.pdf  used on input line 66.
@@ -659,282 +752,282 @@ Package epstopdf Info: Source file: <3_Body/Figures/tree_agg.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/tree_agg-eps-converted-to.pdf 3_Body/Figures/tree_agg.eps>
 (epstopdf)             \includegraphics on input line 71.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/tree_agg-eps-converted-to.pdf, id=170, 313.17pt x 247.92625pt>
+<3_Body/Figures/tree_agg-eps-converted-to.pdf, id=570, 313.17pt x 247.92625pt>
 File: 3_Body/Figures/tree_agg-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/tree_agg-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/tree_agg-eps-converted-to.pdf  used on input line 71.
 (pdftex.def)             Requested size: 199.16928pt x 157.68109pt.
- [20] [21 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/normal_agg-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/tree_agg-eps-converted-to.pdf>]
+ [19] [20 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/normal_agg-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/tree_agg-eps-converted-to.pdf>]
 Overfull \hbox (136.65965pt too wide) in paragraph at lines 123--124
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (77.52904pt too wide) in paragraph at lines 124--125
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (77.52904pt too wide) in paragraph at lines 125--126
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (136.65965pt too wide) in paragraph at lines 126--127
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (149.79979pt too wide) in paragraph at lines 127--128
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (149.79979pt too wide) in paragraph at lines 128--129
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (149.79979pt too wide) in paragraph at lines 129--130
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (130.08958pt too wide) in paragraph at lines 130--131
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (123.51952pt too wide) in paragraph at lines 131--132
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (123.51952pt too wide) in paragraph at lines 132--133
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (110.37938pt too wide) in paragraph at lines 133--134
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (143.22972pt too wide) in paragraph at lines 134--135
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (136.65965pt too wide) in paragraph at lines 135--136
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (130.08958pt too wide) in paragraph at lines 136--137
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (123.51952pt too wide) in paragraph at lines 137--138
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (130.08958pt too wide) in paragraph at lines 138--139
-[][][][][][][] 
+[][][][][][][][] 
  []
 
 
 Overfull \hbox (9.19817pt too wide) in paragraph at lines 146--147
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (2.6281pt too wide) in paragraph at lines 150--151
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (2.6281pt too wide) in paragraph at lines 151--152
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (2.6281pt too wide) in paragraph at lines 152--153
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (28.90837pt too wide) in paragraph at lines 161--162
-[][][][][][][][][][][][][] 
+[][][][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (162.93993pt too wide) in paragraph at lines 169--170
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (103.80931pt too wide) in paragraph at lines 170--171
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (103.80931pt too wide) in paragraph at lines 171--172
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (162.93993pt too wide) in paragraph at lines 172--173
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (176.08006pt too wide) in paragraph at lines 173--174
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (176.08006pt too wide) in paragraph at lines 174--175
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (176.08006pt too wide) in paragraph at lines 175--176
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (136.65965pt too wide) in paragraph at lines 176--177
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (130.08958pt too wide) in paragraph at lines 177--178
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (130.08958pt too wide) in paragraph at lines 178--179
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (116.94945pt too wide) in paragraph at lines 179--180
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (149.79979pt too wide) in paragraph at lines 180--181
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (143.22972pt too wide) in paragraph at lines 181--182
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (136.65965pt too wide) in paragraph at lines 182--183
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (130.08958pt too wide) in paragraph at lines 183--184
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (182.65013pt too wide) in paragraph at lines 184--185
-[][][][][][][][][][][][][] 
+[][][][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (2.6281pt too wide) in paragraph at lines 196--197
-[][][][][][][][][][] 
+[][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (2.6281pt too wide) in paragraph at lines 197--198
-[][][][][][][][][][] 
+[][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (2.6281pt too wide) in paragraph at lines 198--199
-[][][][][][][][][][] 
+[][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (116.94945pt too wide) in paragraph at lines 221--222
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (110.37938pt too wide) in paragraph at lines 222--223
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (116.94945pt too wide) in paragraph at lines 223--224
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (103.80931pt too wide) in paragraph at lines 224--225
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (123.51952pt too wide) in paragraph at lines 225--226
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (110.37938pt too wide) in paragraph at lines 226--227
-[][][][][][][][] 
+[][][][][][][][][] 
  []
 
 
 Overfull \hbox (116.94945pt too wide) in paragraph at lines 227--228
-[][][][][][][] 
+[][][][][][][][] 
  []
 
 
 Overfull \hbox (143.22972pt too wide) in paragraph at lines 249--250
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (136.65965pt too wide) in paragraph at lines 250--251
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (143.22972pt too wide) in paragraph at lines 251--252
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (130.08958pt too wide) in paragraph at lines 252--253
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (149.79979pt too wide) in paragraph at lines 253--254
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (116.94945pt too wide) in paragraph at lines 254--255
-[][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (123.51952pt too wide) in paragraph at lines 255--256
-[][][][][][][][][][] 
+[][][][][][][][][][][] 
  []
 
-[22] [23] [24] [25]) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/chapter/evaluation.tex (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/access_own_reference_slice.tex [26
+[21] [22] [23] [24]) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/chapter/evaluation.tex (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/access_own_reference_slice.tex [25
 
 
 ]
@@ -947,7 +1040,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_access_different_ponite
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf 3_Body/Figures/rust_access_different_poniter_init.eps>
 (epstopdf)             \includegraphics on input line 32.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf, id=206, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf, id=731, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf  used on input line 32.
@@ -961,7 +1054,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_access_different_ponite
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf 3_Body/Figures/rust_access_different_poniter_noinit.eps>
 (epstopdf)             \includegraphics on input line 38.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf, id=207, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf, id=732, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf  used on input line 38.
@@ -975,12 +1068,12 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_access_init_vs_noint.ep
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf 3_Body/Figures/rust_access_init_vs_noint.eps>
 (epstopdf)             \includegraphics on input line 44.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf, id=208, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf, id=733, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf  used on input line 44.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [27 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf>]) [28 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf>] [29 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/drop_ref_rc.tex
+ [26 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf>]) [27 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf>] [28 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/drop_ref_rc.tex
 Package epstopdf Info: Source file: <3_Body/Figures/rust_droptime_borring_rc.eps>
 (epstopdf)                    date: 2020-04-21 00:28:38
 (epstopdf)                    size: 37168 bytes
@@ -990,14 +1083,14 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_droptime_borring_rc.eps
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf 3_Body/Figures/rust_droptime_borring_rc.eps>
 (epstopdf)             \includegraphics on input line 29.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf, id=355, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf, id=885, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf  used on input line 29.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [30
+ [29
 
-]) [31 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/merge_sort_experiment.tex [32
+]) [30 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/merge_sort_experiment.tex [31
 
 ]
 Package epstopdf Info: Source file: <3_Body/Figures/rust_merge_sort.eps>
@@ -1009,24 +1102,24 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_merge_sort.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_merge_sort-eps-converted-to.pdf 3_Body/Figures/rust_merge_sort.eps>
 (epstopdf)             \includegraphics on input line 43.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_merge_sort-eps-converted-to.pdf, id=413, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_merge_sort-eps-converted-to.pdf, id=948, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf  used on input line 43.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [33 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>]) [34] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/tree_aggregate_experiment.tex [35
+ [32 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>]) [33] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/tree_aggregate_experiment.tex [34
 
 ]
 Overfull \hbox (59.13513pt too wide) in paragraph at lines 46--47
-[][][][][][][][][][][][][][][][][][][][][] 
+[][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
 Overfull \hbox (59.13513pt too wide) in paragraph at lines 66--67
-[][][][][][][][][][][][][][][][][][][][][] 
+[][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[36]
+[35]
 Package epstopdf Info: Source file: <3_Body/Figures/rust_tree_aggregate.eps>
 (epstopdf)                    date: 2020-04-21 14:14:48
 (epstopdf)                    size: 29510 bytes
@@ -1036,17 +1129,17 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_tree_aggregate.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf 3_Body/Figures/rust_tree_aggregate.eps>
 (epstopdf)             \includegraphics on input line 82.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf, id=475, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf, id=1038, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf  used on input line 82.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [37]) [38 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>]))
+ [36]) [37 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>]))
 \openout2 = `4_Conclusion/conclusion.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.tex
 Chapter 4.
-) [39
+) [38
 
 
 
@@ -1058,22 +1151,26 @@ Chapter 4.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.tex
 Appendix A.
-[40
+(/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/model/os.tex [39
 
 
 
 
-] [41] [42] [43] [44] (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
+] [40] [41]) [42]
+Appendix B.
+(/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/model/linalg.tex [43
+
+] [44] (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/02/27 1.8b listings language file
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/02/27 1.8b listings language file
 )
-Overfull \hbox (112.79047pt too wide) in paragraph at lines 147--148
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+Overfull \hbox (112.79047pt too wide) in paragraph at lines 53--54
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[45]
-Overfull \hbox (17.6728pt too wide) in paragraph at lines 149--150
+
+Overfull \hbox (17.6728pt too wide) in paragraph at lines 55--56
 []\OT1/cmr/m/n/10.95 Compile shared li-brary link-ing li-brary (libcblas.a or libcblas.dylib) ob-ject file (CBLASJ.o). 
  []
 
@@ -1084,40 +1181,54 @@ Package epstopdf Info: Source file: <Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)                    date: 2020-03-02 15:19:58
 (epstopdf)                    size: 19412 bytes
 (epstopdf)             Command: <repstopdf --outfile=Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Appendix/Figures/cblas_with_jni.eps>
-(epstopdf)             \includegraphics on input line 156.
+(epstopdf)             \includegraphics on input line 62.
 Package epstopdf Info: Output file is already uptodate.
-<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=549, 756.8275pt x 427.5975pt>
+<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=1136, 756.8275pt x 427.5975pt>
 File: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Graphic file (type pdf)
 <use Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>
-Package pdftex.def Info: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf  used on input line 156.
+Package pdftex.def Info: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf  used on input line 62.
 (pdftex.def)             Requested size: 426.79134pt x 241.12979pt.
-[46 </Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>] [47] [48] [49] [50]) [51] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl) [52
+[45] [46 </Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>]) [47]) [48] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl
+Overfull \hbox (1.0579pt too wide) in paragraph at lines 56--64
+[]\OT1/cmr/m/sc/10.95 Zaharia, M., Chowd-hury, M., Das, T., Dave, A., Ma, J., Mc-Cauly, M., Franklin,
+ []
+
+[49
+
+
+]) [50]
+\openout2 = `0_Prelim/cv.aux'.
+
+ (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [51
 
 
 ]
-\openout2 = `0_Prelim/cv.aux'.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 111.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
+ (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.aux (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/prelim.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/1_Intro/intro.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 111.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
+Package rerunfilecheck Info: File `thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 04C4FE8317170BCE709FB8B1C5D811EF;3716.
 
- (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [53
-
-
-] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.aux (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/prelim.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/1_Intro/intro.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 6344 strings out of 492616
- 100180 string characters out of 6129482
- 395381 words of memory out of 5000000
- 10008 multiletter control sequences out of 15000+600000
- 13205 words of font info for 50 fonts, out of 8000000 for 9000
+ 10477 strings out of 492616
+ 163028 string characters out of 6129482
+ 484390 words of memory out of 5000000
+ 13781 multiletter control sequences out of 15000+600000
+ 11316 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,53p,528b,1235s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (66 pages, 435748 bytes).
+ 42i,8n,53p,547b,1286s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (64 pages, 447572 bytes).
 PDF statistics:
- 625 PDF objects out of 1000 (max. 8388607)
- 266 compressed objects within 3 object streams
- 0 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1295 PDF objects out of 1440 (max. 8388607)
+ 932 compressed objects within 10 object streams
+ 322 named destinations out of 1000 (max. 500000)
+ 523 words of extra memory for PDF output out of 10000 (max. 10000000)
 

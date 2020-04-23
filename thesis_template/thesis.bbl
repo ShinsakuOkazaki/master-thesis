@@ -1,60 +1,75 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
 
-\bibitem[Apa, 2020]{ApacheHadoopHomePage}
- (2020).
-\newblock Apache hadoop.
+\bibitem{ApacheFlinkHomePage}
+Apache flink, 2020.
 
-\bibitem[Rus, 2020]{RustArcPage}
- (2020).
-\newblock Rust arc documentation.
+\bibitem{ApacheHadoopHomePage}
+Apache hadoop, 2020.
 
-\bibitem[Armbrust et~al., 2015]{DBLP:conf/sigmod/ArmbrustXLHLBMK15}
-Armbrust, M., Xin, R.~S., Lian, C., Huai, Y., Liu, D., Bradley, J.~K., Meng,
-  X., Kaftan, T., Franklin, M.~J., Ghodsi, A., and Zaharia, M. (2015).
+\bibitem{ApacheSparkHomePage}
+Apache spark, 2020.
+
+\bibitem{RustArcPage}
+Rust arc documentation, 2020.
+
+\bibitem{DBLP:conf/sigmod/ArmbrustXLHLBMK15}
+{\sc Armbrust, M., Xin, R.~S., Lian, C., Huai, Y., Liu, D., Bradley, J.~K.,
+  Meng, X., Kaftan, T., Franklin, M.~J., Ghodsi, A., and Zaharia, M.}
 \newblock Spark {SQL:} relational data processing in spark.
-\newblock In Sellis, T.~K., Davidson, S.~B., and Ives, Z.~G., editors, {\em
-  Proceedings of the 2015 {ACM} {SIGMOD} International Conference on Management
-  of Data, Melbourne, Victoria, Australia, May 31 - June 4, 2015}, pages
-  1383--1394. {ACM}.
+\newblock In {\em Proceedings of the 2015 {ACM} {SIGMOD} International
+  Conference on Management of Data, Melbourne, Victoria, Australia, May 31 -
+  June 4, 2015\/} (2015), T.~K. Sellis, S.~B. Davidson, and Z.~G. Ives, Eds.,
+  {ACM}, pp.~1383--1394.
 
-\bibitem[Lattner and Adve, 2004]{DBLP:conf/cgo/LattnerA04}
-Lattner, C. and Adve, V.~S. (2004).
+\bibitem{DBLP:conf/cgo/LattnerA04}
+{\sc Lattner, C., and Adve, V.~S.}
 \newblock {LLVM:} {A} compilation framework for lifelong program analysis {\&}
   transformation.
 \newblock In {\em 2nd {IEEE} / {ACM} International Symposium on Code Generation
-  and Optimization {(CGO} 2004), 20-24 March 2004, San Jose, CA, {USA}}, pages
-  75--88. {IEEE} Computer Society.
+  and Optimization {(CGO} 2004), 20-24 March 2004, San Jose, CA, {USA}\/}
+  (2004), {IEEE} Computer Society, pp.~75--88.
 
-\bibitem[Nguyen et~al., 2015]{DBLP:conf/asplos/NguyenWBFHX15}
-Nguyen, K., Wang, K., Bu, Y., Fang, L., Hu, J., and Xu, G.~H. (2015).
+\bibitem{DBLP:conf/asplos/NguyenWBFHX15}
+{\sc Nguyen, K., Wang, K., Bu, Y., Fang, L., Hu, J., and Xu, G.~H.}
 \newblock {FACADE:} {A} compiler and runtime for (almost) object-bounded big
   data applications.
-\newblock In {\"{O}}zturk, {\"{O}}., Ebcioglu, K., and Dwarkadas, S., editors,
-  {\em Proceedings of the Twentieth International Conference on Architectural
-  Support for Programming Languages and Operating Systems, {ASPLOS} '15,
-  Istanbul, Turkey, March 14-18, 2015}, pages 675--690. {ACM}.
+\newblock In {\em Proceedings of the Twentieth International Conference on
+  Architectural Support for Programming Languages and Operating Systems,
+  {ASPLOS} '15, Istanbul, Turkey, March 14-18, 2015\/} (2015),
+  {\"{O}}.~{\"{O}}zturk, K.~Ebcioglu, and S.~Dwarkadas, Eds., {ACM},
+  pp.~675--690.
 
-\bibitem[Shi et~al., 2015]{DBLP:journals/pvldb/ShiQMJWRO15}
-Shi, J., Qiu, Y., Minhas, U.~F., Jiao, L., Wang, C., Reinwald, B., and
-  {\"{O}}zcan, F. (2015).
+\bibitem{DBLP:journals/pvldb/ShiQMJWRO15}
+{\sc Shi, J., Qiu, Y., Minhas, U.~F., Jiao, L., Wang, C., Reinwald, B., and
+  {\"{O}}zcan, F.}
 \newblock Clash of the titans: Mapreduce vs. spark for large scale data
   analytics.
-\newblock {\em {PVLDB}}, 8(13):2110--2121.
+\newblock {\em {PVLDB} 8}, 13 (2015), 2110--2121.
 
-\bibitem[Xu et~al., 2019]{DBLP:journals/pvldb/XuGDWW19}
-Xu, L., Guo, T., Dou, W., Wang, W., and Wei, J. (2019).
+\bibitem{DBLP:journals/pvldb/XuGDWW19}
+{\sc Xu, L., Guo, T., Dou, W., Wang, W., and Wei, J.}
 \newblock An experimental evaluation of garbage collectors on big data
   applications.
-\newblock {\em {PVLDB}}, 12(5):570--583.
+\newblock {\em {PVLDB} 12}, 5 (2019), 570--583.
 
-\bibitem[Zaharia et~al., 2012]{DBLP:conf/nsdi/ZahariaCDDMMFSS12}
-Zaharia, M., Chowdhury, M., Das, T., Dave, A., Ma, J., McCauly, M., Franklin,
-  M.~J., Shenker, S., and Stoica, I. (2012).
+\bibitem{DBLP:conf/nsdi/ZahariaCDDMMFSS12}
+{\sc Zaharia, M., Chowdhury, M., Das, T., Dave, A., Ma, J., McCauly, M.,
+  Franklin, M.~J., Shenker, S., and Stoica, I.}
 \newblock Resilient distributed datasets: {A} fault-tolerant abstraction for
   in-memory cluster computing.
-\newblock In Gribble, S.~D. and Katabi, D., editors, {\em Proceedings of the
-  9th {USENIX} Symposium on Networked Systems Design and Implementation, {NSDI}
-  2012, San Jose, CA, USA, April 25-27, 2012}, pages 15--28. {USENIX}
-  Association.
+\newblock In {\em Proceedings of the 9th {USENIX} Symposium on Networked
+  Systems Design and Implementation, {NSDI} 2012, San Jose, CA, USA, April
+  25-27, 2012\/} (2012), S.~D. Gribble and D.~Katabi, Eds., {USENIX}
+  Association, pp.~15--28.
+
+\bibitem{DBLP:conf/sigmod/0001BLLMSTYJ18}
+{\sc Zou, J., Barnett, R.~M., Lorido{-}Botran, T., Luo, S., Monroy, C., Sikdar,
+  S., Teymourian, K., Yuan, B., and Jermaine, C.}
+\newblock Plinycompute: {A} platform for high-performance, distributed,
+  data-intensive tool development.
+\newblock In {\em Proceedings of the 2018 International Conference on
+  Management of Data, {SIGMOD} Conference 2018, Houston, TX, USA, June 10-15,
+  2018\/} (2018), G.~Das, C.~M. Jermaine, and P.~A. Bernstein, Eds., {ACM},
+  pp.~1189--1204.
 
 \end{thebibliography}

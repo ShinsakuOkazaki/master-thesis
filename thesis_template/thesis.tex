@@ -8,8 +8,8 @@
 \usepackage[intlimits]{amsmath}
 \usepackage{amsfonts,amssymb}
 \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
-%\usepackage{natbib}
-\usepackage{apalike}
+\usepackage[square,numbers]{natbib}
+% \usepackage{apalike}
 \usepackage{float}
 \usepackage[bf]{caption}       
 \setcaptionmargin{0.5in}
@@ -29,6 +29,7 @@
 %%% graphicx and pdf creation
 \usepackage{graphicx}
 \usepackage{appendix}
+\usepackage{hyperref}
 %\usepackage{psfrag}
 %\DeclareGraphicsExtensions{.eps}   % extension for included graphics
 %\usepackage{thumbpdf}              % thumbnails for ps2pdf
@@ -96,7 +97,7 @@
 % Bibliography
 \newpage
 \singlespace
-\bibliographystyle{apalike}
+\bibliographystyle{acm}
 
 % each subdirectory can have its own BiBTeX file
 \bibliography{thesis}

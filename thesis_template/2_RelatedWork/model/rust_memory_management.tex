@@ -29,16 +29,16 @@ Below a few lines of code are initialization of list of string and reassigning i
 \begin{lstlisting}
     List<String >s = new ArrayList<>(
                      Arrays.asList("lemon", "orange", "apple"))
-    String t = s
-    String u = s
+    List<String> t = s
+    List<String> u = s
  \end{lstlisting}
-Figure~\ref{fig:pythonlist} represents the memory allocated after a Java ArrayList of strings is initialized and assigned to variable called s. After assigning s to t and to u, 
+Figure~\ref{fig:javalist} represents the memory allocated after a Java ArrayList of strings is initialized and assigned to variable called s. After assigning s to t and to u, 
 the memory representation become Figure~\ref{fig:pythonlistcopied}. The assignments are simply setting pointers to the ArrayList object and increment reference count. 
 
 \begin{figure}[htb]
-    \includegraphics[width=10cm]{python_list_copied.eps}
+    \includegraphics[width=10cm]{java_array.eps}
     \caption{Representation of Java ArrayList of String}
-    \label{fig:pythonlist}
+    \label{fig:javalist}
 \end{figure}
 
 \begin{figure}[htb]

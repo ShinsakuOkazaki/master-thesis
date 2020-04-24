@@ -560,17 +560,17 @@ fn k_nearest_neighbors_with_arc_dealloc(k: usize, n_neighbors:usize, f_train: &s
 //     elapsed
 // }
 
-fn dump_to_disk<T>(data: &T, object_name: &str, thread: usize, batch: usize)
-where T: Serialize, 
-{
-    let serialized = serde_json::to_string(&data).unwrap();
-    let mut file = OpenOptions::new()
-            .write(true)
-            .create(true)
-            .open(format!("serialized/{}_{}_{}", object_name, thread, batch))
-            .unwrap();
-    file.write_all(serialized.as_bytes()).expect("Fail to write file.");
-}
+// fn dump_to_disk<T>(data: &T, object_name: &str, thread: usize, batch: usize)
+// where T: Serialize, 
+// {
+//     let serialized = serde_json::to_string(&data).unwrap();
+//     let mut file = OpenOptions::new()
+//             .write(true)
+//             .create(true)
+//             .open(format!("serialized/{}_{}_{}", object_name, thread, batch))
+//             .unwrap();
+//     file.write_all(serialized.as_bytes()).expect("Fail to write file.");
+// }
 
 fn select_neighbor(labels: &Array<i32, Ix2>) -> Array<i32, Ix1> {
     let (n, m) = labels.dim();

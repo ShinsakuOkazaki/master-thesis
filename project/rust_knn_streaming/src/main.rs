@@ -423,7 +423,7 @@ fn k_nearest_neighbors_with_arc_keep(k: usize, n_neighbors:usize, f_train: &str,
         let (_similarities, labels) = knn(&x_train, &y_train, &x_test, n_neighbors);
         let elapsed_batch_query = start_batch_query.elapsed().as_millis();
 
-        dump_to_disk(&batch_train, "batch_train", thread_n, i);
+        // dump_to_disk(&batch_train, "batch_train", thread_n, i);
         // dump_to_disk(&batch_test, "batch_test", thread_n, i);
         // dump_to_disk(&train_words, "train_words", thread_n, i);
         // dump_to_disk(&test_words, "test_words", thread_n, i);

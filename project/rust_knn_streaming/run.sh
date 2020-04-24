@@ -3,15 +3,15 @@
 cargo build --release
 
 
-# n_thread=10
-n_thread=8
+n_thread=10
+# n_thread=8
 # n_thread=4
 
-train_file=../../data/WikipediaPagesOneDocPerLine100k.txt
-test_file=../../data/TestingData.txt
+# train_file=../../data/WikipediaPagesOneDocPerLine100k.txt
+#test_file=../../data/TestingData.txt
 
-# train_file=../../data/SmallTrainingData.txt
-# test_file=../../data/TestingData.txt
+train_file=../../data/SmallTrainingData.txt
+test_file=../../data/TestingData.txt
 
 train_p_directory=../../data/trainPartition/
 test_p_directory=../../data/testPartition/
@@ -35,6 +35,11 @@ for ((i=0; i<$n_thread; i++))
 do
     header="$header#n_line_test$i"
 done
+
+for ((i=0; i<$n_thread; i++))
+do 
+    header="$header#load_time$i"
+done
 for ((i=0; i<$n_thread; i++))
 do
     header="$header#preprocess_time$i"
@@ -45,7 +50,7 @@ do
 done
 for ((i=0; i<$n_thread; i++))
 do
-    header="$header#predicition_time$i"
+    header="$header#combine_time$i"
 done
 
 header="$header#total"

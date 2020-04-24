@@ -4,10 +4,66 @@ use std::cmp::Reverse;
 use regex::Regex;
 use std::collections::HashSet;
 use stopwords::{Spark, Language, Stopwords};
-use ndarray::{Array, Ix1, Ix2};
+use ndarray::{Array, Ix1, Ix2, stack, Axis};
 
 
+pub fn vectorize_ids(ids: &[Vec<String>]) -> (Array<i32, Ix2>, HashMap<i32, String>) {
+    let n = ids.len();
+    let m = ids[0].len();
+    let mut encode_map = HashMap::new();
+    let mut decode_map = HashMap::new();
+    let mut encode = 0;
+    for i in 0..n {
+        for j in 0..m {
+            if !encode_map.contains_key(&ids[i][j]) {
+                encode_map.insert(ids[i][j].clone(), encode);
+                decode_map.insert(encode, ids[i][j].clone());
+                encode += 1;
+            }
+        }
+    }
+    let mut vectorized = Array::zeros((n, m));
+    for i in 0..n {
+        for j in 0..m {
+            encode = *encode_map.get(&ids[i][j]).unwrap();
+            vectorized[[i, j]] = encode;
+        }
+    }
+    (vectorized, decode_map)
+}
 
+pub fn get_ids_from_labels(labels: &Array<i32, Ix2>, decode_map: &HashMap<i32, String>) -> Vec<Vec<String>> {
+    let (n, m) = labels.dim();
+    let mut res = Vec::with_capacity(n);
+    for i in 0..n {
+        let mut v = Vec::with_capacity(m);
+        for j in 0..m {
+            let id = decode_map.get(&labels[[i, j]]).unwrap();
+            v.push(id.clone());
+        }
+        res.push(v);
+    }
+    res
+}
+
+pub fn combine_neighbors(similarities: Vec<Array<f64, Ix2>>, ids: Vec<Vec<Vec<String>>>) -> (Array<f64, Ix2>, Vec<Vec<String>>){
+    let l = ids.len();
+    let mut combined_x = similarities[0].clone(); 
+    let mut combined_y = ids[0].clone();
+    for i in 1..l {
+       combined_x = stack![Axis(1), combined_x, similarities[i]];
+       concat_string_vectors(&mut combined_y[..], ids[i].clone());
+    }
+    (combined_x, combined_y)
+}
+
+
+pub fn concat_string_vectors(source: &mut [Vec<String>], mut other: Vec<Vec<String>>) {
+   let n = source.len();
+   for i in 0..n {
+       source[i].append(&mut other[i]);
+   }
+}
 
 pub fn get_id_from_label(label: &Array<i32, Ix1>, decode_map: &HashMap<i32, String>) -> Vec<String> {
     let n= label.dim();

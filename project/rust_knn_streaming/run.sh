@@ -25,7 +25,7 @@ rm -f serialized/*
 n_lines_train=$(< $train_file wc -l)
 n_lines_test=$(< $test_file wc -l) 
 
-header="datastructure#method#k#n_neighbors#n_batch"
+header="datastructure#method#strategy#k#n_neighbors#n_batch"
 for ((i=0; i<$n_thread; i++))
 do
     header="$header#n_line_train$i"

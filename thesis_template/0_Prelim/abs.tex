@@ -1,4 +1,25 @@
 % ABSTRACT
 
-Existing big data processing tools are developed on A
+Many existing big data processing tools are developed with application languages. 
+Dataflow platform such as Hadoop MapReduce,  Apache Spark, and Apache Flink 
+developed on Java Virtual Machine (JVM). JVM abstracts hardware and memory management from the developer. 
+This eases development processes and distribution of these tools and gives by eliminating manual memory management and 
+platform dependency. 
+
+However, the automated memory strategy, such as Garbage Collection (GC), may lead significant overhead in Big Data processing. 
+Apache Spark and Apache Flink use complex objects to manipulate and transfer data. 
+Generating many of these complex objects in memory forces GC to rearrange states of memory frequently waisting computation. 
+Keeping these objects in memory for long period of time may trigger stop-the-world where the JVM stops application from running to
+execute a GC. 
+
+Considered these problems in memory management in JVM, developing Big Data processing tools with system language can be the solution.
+By using system language, a developer has control on memory management, so that one can implement systems with better optimized memory management strategies.
+We selects Rust as good candidate for development of Big Data processing tools, due to its ability to write memory-safe and fearless concurrent codes.
+
+To implement optimal memory management in Rust for such tools, there may be variety of strategies and tools. 
+In this dissertation, we conduct experiments to examine the best memory management strategies in Rust for Big Data processing. 
+
+
+
+
 

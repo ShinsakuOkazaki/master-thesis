@@ -294,7 +294,7 @@ fn de_serialize<T>(customer: &T)
 {
     let serialized = serde_json::to_string(&customer).unwrap();
     let mut file = OpenOptions::new()
-            .append(true)
+            .append(false)
             .create(true)
             .open("string.log")
             .unwrap();

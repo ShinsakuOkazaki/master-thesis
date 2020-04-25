@@ -9,3 +9,7 @@ datastructure#init#size#field#createtime#accesstime#totaltime
 [RustVector]#false#3750000#"slice"#466#68047#73061
 [RustVector]#false#3750000#"slice"#470#70730#75858
 [RustVector]#false#3750000#"slice"#467#69727#74820
+[RustVector]#true#3750000#"own"#1635#25582#32192
+[RustVector]#true#3700000#"own"#1600#27176#33222
+[RustVector]#true#3700000#"own"#874#23770#29130
+[RustVector]#false#3700000#"own"#886#23940#29350

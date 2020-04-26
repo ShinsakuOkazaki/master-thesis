@@ -2,53 +2,54 @@
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}% 
 \contentsline {section}{\numberline {1.2}Problem Description}{2}{section.1.2}% 
 \contentsline {chapter}{\numberline {2}Related Work}{4}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Hadoop MapReduce to Spark}{4}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Apache Spark}{5}{section.2.2}% 
-\contentsline {subsection}{\numberline {2.2.1}Resilient Distributed Datasets}{5}{subsection.2.2.1}% 
-\contentsline {subsection}{\numberline {2.2.2}Memory Management in Spark}{6}{subsection.2.2.2}% 
-\contentsline {subsection}{\numberline {2.2.3}Garbage Collection Tuning}{7}{subsection.2.2.3}% 
-\contentsline {section}{\numberline {2.3}Application to System Language}{9}{section.2.3}% 
-\contentsline {section}{\numberline {2.4}Rust Memory Management}{10}{section.2.4}% 
-\contentsline {subsection}{\numberline {2.4.1}Ownership}{10}{subsection.2.4.1}% 
-\contentsline {subsection}{\numberline {2.4.2}Move}{11}{subsection.2.4.2}% 
-\contentsline {subsection}{\numberline {2.4.3}Borrowing}{14}{subsection.2.4.3}% 
-\contentsline {section}{\numberline {2.5}LLVM}{15}{section.2.5}% 
-\contentsline {chapter}{\numberline {3}Experiment}{17}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Concept}{17}{section.3.1}% 
-\contentsline {subsection}{\numberline {3.1.1}Type of Variable}{17}{subsection.3.1.1}% 
-\contentsline {subsection}{\numberline {3.1.2}Reference Count}{17}{subsection.3.1.2}% 
-\contentsline {subsection}{\numberline {3.1.3}Multithread}{18}{subsection.3.1.3}% 
-\contentsline {subsection}{\numberline {3.1.4}Tree-aggregate}{19}{subsection.3.1.4}% 
-\contentsline {subsection}{\numberline {3.1.5}K-Nearest-Neighbors}{20}{subsection.3.1.5}% 
-\contentsline {subsection}{\numberline {3.1.6}Complex Objects}{21}{subsection.3.1.6}% 
-\contentsline {subsection}{\numberline {3.1.7}Wikipedia Data Sets}{22}{subsection.3.1.7}% 
-\contentsline {subsection}{\numberline {3.1.8}Experimental Details}{22}{subsection.3.1.8}% 
-\contentsline {section}{\numberline {3.2}Evaluation}{25}{section.3.2}% 
-\contentsline {subsection}{\numberline {3.2.1}Experiment for Accessing Object with Different Variable Type}{25}{subsection.3.2.1}% 
-\contentsline {subsection}{\numberline {3.2.2}Result}{25}{subsection.3.2.2}% 
-\contentsline {subsection}{\numberline {3.2.3}Discussion}{26}{subsection.3.2.3}% 
-\contentsline {subsection}{\numberline {3.2.4}Assessment of different reference methods in Rust}{29}{subsection.3.2.4}% 
-\contentsline {subsection}{\numberline {3.2.5}Result}{29}{subsection.3.2.5}% 
-\contentsline {subsection}{\numberline {3.2.6}Discussion}{29}{subsection.3.2.6}% 
-\contentsline {subsection}{\numberline {3.2.7}Experiment for Merge-sort}{31}{subsection.3.2.7}% 
-\contentsline {subsection}{\numberline {3.2.8}Result}{32}{subsection.3.2.8}% 
-\contentsline {subsection}{\numberline {3.2.9}Discussion}{33}{subsection.3.2.9}% 
-\contentsline {subsection}{\numberline {3.2.10}Experiment for Tree-aggregation}{34}{subsection.3.2.10}% 
-\contentsline {subsection}{\numberline {3.2.11}Result}{36}{subsection.3.2.11}% 
-\contentsline {subsection}{\numberline {3.2.12}Discussion}{36}{subsection.3.2.12}% 
-\contentsline {chapter}{\numberline {4}Conclusions}{38}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Summary of the thesis}{38}{section.4.1}% 
-\contentsline {chapter}{\numberline {A}Operating Systems}{39}{Appendix.a.A}% 
-\contentsline {section}{\numberline {A.1}Memory and Process in Operating Systems}{39}{section.a.A.1}% 
-\contentsline {section}{\numberline {A.2}Multi-threading and Parallelism}{40}{section.a.A.2}% 
-\contentsline {section}{\numberline {A.3}Memory management in Operating System}{40}{section.a.A.3}% 
-\contentsline {section}{\numberline {A.4}Demand Paging}{41}{section.a.A.4}% 
-\contentsline {section}{\numberline {A.5}Copy on Page}{42}{section.a.A.5}% 
-\contentsline {chapter}{\numberline {B}Linear Algebra Computation}{43}{Appendix.a.B}% 
-\contentsline {section}{\numberline {B.1}BLAS LAPACK}{43}{section.a.B.1}% 
-\contentsline {section}{\numberline {B.2}Netlib-Java}{44}{section.a.B.2}% 
-\contentsline {section}{\numberline {B.3}Create Java interface of CBLAS with JNI}{45}{section.a.B.3}% 
-\contentsline {section}{\numberline {B.4}Matrix Computation and Optimization in Apache Spark}{45}{section.a.B.4}% 
-\contentsline {section}{\numberline {B.5}Memory Management of each Linear Algebra Library}{47}{section.a.B.5}% 
-\contentsline {chapter}{References}{49}{chapter*.28}% 
-\contentsline {chapter}{Curriculum Vitae}{51}{chapter*.28}% 
+\contentsline {section}{\numberline {2.1}Operating Systems}{4}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}Memory and Process in Operating Systems}{4}{subsection.2.1.1}% 
+\contentsline {subsection}{\numberline {2.1.2}Multi-threading and Parallelism}{5}{subsection.2.1.2}% 
+\contentsline {subsection}{\numberline {2.1.3}Memory management in Operating System}{5}{subsection.2.1.3}% 
+\contentsline {subsection}{\numberline {2.1.4}Demand Paging}{6}{subsection.2.1.4}% 
+\contentsline {subsection}{\numberline {2.1.5}Copy on Page}{7}{subsection.2.1.5}% 
+\contentsline {section}{\numberline {2.2}Linear Algebra Computation}{7}{section.2.2}% 
+\contentsline {subsection}{\numberline {2.2.1}BLAS LAPACK}{7}{subsection.2.2.1}% 
+\contentsline {subsection}{\numberline {2.2.2}Netlib-Java}{9}{subsection.2.2.2}% 
+\contentsline {subsection}{\numberline {2.2.3}Matrix Computation and Optimization in Apache Spark}{9}{subsection.2.2.3}% 
+\contentsline {subsection}{\numberline {2.2.4}Memory Management of each Linear Algebra Library}{10}{subsection.2.2.4}% 
+\contentsline {section}{\numberline {2.3}Hadoop MapReduce to Spark}{11}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Apache Spark}{12}{section.2.4}% 
+\contentsline {subsection}{\numberline {2.4.1}Resilient Distributed Datasets}{12}{subsection.2.4.1}% 
+\contentsline {subsection}{\numberline {2.4.2}Memory Management in Spark}{13}{subsection.2.4.2}% 
+\contentsline {subsection}{\numberline {2.4.3}Garbage Collection Tuning}{14}{subsection.2.4.3}% 
+\contentsline {section}{\numberline {2.5}Application to System Language}{15}{section.2.5}% 
+\contentsline {section}{\numberline {2.6}Rust Memory Management}{17}{section.2.6}% 
+\contentsline {subsection}{\numberline {2.6.1}Ownership}{17}{subsection.2.6.1}% 
+\contentsline {subsection}{\numberline {2.6.2}Move}{18}{subsection.2.6.2}% 
+\contentsline {subsection}{\numberline {2.6.3}Borrowing}{22}{subsection.2.6.3}% 
+\contentsline {section}{\numberline {2.7}LLVM}{22}{section.2.7}% 
+\contentsline {chapter}{\numberline {3}Conceptual Design of Experience}{24}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Type of Variable}{24}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Reference Count}{24}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Multithread}{25}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}Tree-aggregate}{26}{section.3.4}% 
+\contentsline {section}{\numberline {3.5}K-Nearest-Neighbors}{27}{section.3.5}% 
+\contentsline {section}{\numberline {3.6}Complex Objects}{28}{section.3.6}% 
+\contentsline {chapter}{\numberline {4}Evaluation Result}{31}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Experimental Set and Detail}{31}{section.4.1}% 
+\contentsline {subsection}{\numberline {4.1.1}Wikipedia Data Sets}{31}{subsection.4.1.1}% 
+\contentsline {subsection}{\numberline {4.1.2}Experimental Details}{31}{subsection.4.1.2}% 
+\contentsline {section}{\numberline {4.2}Experiment 1: Accessing Object with Different Variable Type}{32}{section.4.2}% 
+\contentsline {subsection}{\numberline {4.2.1}Result}{32}{subsection.4.2.1}% 
+\contentsline {subsection}{\numberline {4.2.2}Discussion}{33}{subsection.4.2.2}% 
+\contentsline {section}{\numberline {4.3}Experiment 2: Assessment of different reference methods in Rust}{36}{section.4.3}% 
+\contentsline {subsection}{\numberline {4.3.1}Result}{36}{subsection.4.3.1}% 
+\contentsline {subsection}{\numberline {4.3.2}Discussion}{36}{subsection.4.3.2}% 
+\contentsline {section}{\numberline {4.4}Experiment 2: Merge-sort}{38}{section.4.4}% 
+\contentsline {subsection}{\numberline {4.4.1}Result}{39}{subsection.4.4.1}% 
+\contentsline {subsection}{\numberline {4.4.2}Discussion}{40}{subsection.4.4.2}% 
+\contentsline {section}{\numberline {4.5}Experiment 4: Tree-aggregation}{41}{section.4.5}% 
+\contentsline {subsection}{\numberline {4.5.1}Result}{43}{subsection.4.5.1}% 
+\contentsline {subsection}{\numberline {4.5.2}Discussion}{43}{subsection.4.5.2}% 
+\contentsline {chapter}{\numberline {5}Conclusions}{45}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Summary of the thesis}{45}{section.5.1}% 
+\contentsline {chapter}{\numberline {A}Linear Algebra Computation}{46}{Appendix.a.A}% 
+\contentsline {section}{\numberline {A.1}Create Java interface of CBLAS with JNI}{46}{section.a.A.1}% 
+\contentsline {chapter}{References}{48}{chapter*.28}% 
+\contentsline {chapter}{Curriculum Vitae}{50}{chapter*.28}% 

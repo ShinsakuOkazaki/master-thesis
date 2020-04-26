@@ -1,4 +1,4 @@
-\subsection{Type of Variable}
+\section{Type of Variable}
 \label{sec:concept_diffval}
 In Rust, there are three variable types: owner, reference, and slice (only for sequence of values). 
 A developer is sometimes forced to use specific variable types. For example, some of methods are only implemented to specific variable types.
@@ -17,7 +17,7 @@ We examine this by constructing complex objects whose fields are these variable 
     \label{fig:own_ref_slice}
 \end{figure}
 
-\subsection{Reference Count}
+\section{Reference Count}
 \label{sec:concept_refcount}
 Reference is useful to avoid movement of ownership. However, one needs to track its lifetime and explicitly includes it in code, 
 because Rust compiler cannot infer it. This can be another encumbrance. We can instead acquire multiple owners to single value by using Reference Counting (Rc). 
@@ -29,7 +29,7 @@ However, the possible problems regarding to Rc are the cost for tracking the num
 Having these assumption, an experiment is conducted to examine difference of runtime performance of dropping reference and Rc. 
 This is explained in section 3.2.
 
-\subsection{Multithread}
+\section{Multithread}
 \label{sec:concenpt_multithreading}
 In Rust programming, writing concurrent code is relatively easy. The care Rust takes with reference, mutability, and lifetimes is valuable enough in single-threaded programs, 
 but it also is in concurrent programming. Rust has tools to write concurrent code, such as threads, locks, atomic reference. 
@@ -42,7 +42,7 @@ In many situation where developer write a multithreading code, the deletion of A
 Similarly to Rc, our assumption is that deletion of Arc has also overhead when we compare to normal reference. 
 To assess runtime performances of algorithm with Arc vs normal reference, we implement merge-sort algorithm in two different ways. 
 
-\subsection{Tree-aggregate}
+\section{Tree-aggregate}
 \label{sec:concept_treeagg}
 Finally, we implement some of algorithm common in Big Data processing. One of them is tree-aggregate.
 
@@ -76,7 +76,7 @@ In our experiment, tree-aggregation algorithms are examined in multi-threading. 
     \label{fig:aggregationk_patttern}
 \end{figure}
 
-\subsection{K-Nearest-Neighbors}
+\section{K-Nearest-Neighbors}
 \label{sec:concept_history}
 The other algorithm common in Big Data processing is K-nearest-neighbors (KNN). KNN is a traditional Machine Learning algorithm which classify targets into categories. 
 In training KNN, it simply stores all available training data without calculation. At prediction phase, targets are given and similarity measures are calculated. 
@@ -107,7 +107,7 @@ We can again either clone or get Arc of String.
 Our KNN algorithms are implemented with batch processing. In query phase, we control batch size to examine how size of objects allocated simultaneously in memory has impact to algorithm's runtime performance.
 The detail implementation is explained in section3.2.
 
-\subsection{Complex Objects}
+\section{Complex Objects}
 \label{sec:concept_history}
 To conduct experiments for above concepts, we use the 4 types of complex object: CustomerOwned, CustomerBorrowed, CustomerSlice, and CustomerRc. 
 These object contains other type of object: OrderOwned, OrderBorrowed, OrderSlice, and OrderRc.
@@ -277,17 +277,4 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
     \label{fig:order}
  \end{figure}
 
- \subsection{Wikipedia Data Sets}
- \label{sec:concept_dataset}
- Wikipedia page data sets are used to perform document classification with KNN. 
- \(10^5\) pages are used for training data set, and 18724 pages are used for target.
-
- \subsection{Experimental Details}
- \label{sec:concept_expdetail}
- Our experiments are run on three types of VM instances on Google Cloud Platform: 
- n1-standard-1 which has 1 vCPU, 3.75 GB RAM, and 10 GB Standard persistent disk, 
- n1-standard-4 which has 4 vCPU, 15 GB RAM, and 10 GB Standard persistent disk, 
- n1-standard-8 which has 8 vCPU, 30 GB RAM, and 10 GB Standard persistent disk,  
- All of the experiments described are performed 5 times. 
- In this thesis, we present the average of 5 separate runs for each experiment.
 \clearpage

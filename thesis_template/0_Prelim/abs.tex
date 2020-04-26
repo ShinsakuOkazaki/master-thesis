@@ -1,14 +1,14 @@
 % ABSTRACT
 
-Many existing big data processing tools are developed with application languages. 
+Many existing Big Data processing tools are developed with application languages. 
 Dataflow platform such as Hadoop MapReduce,  Apache Spark, and Apache Flink 
 developed on Java Virtual Machine (JVM). JVM abstracts hardware and memory management from the developer. 
-This eases development processes and distribution of these tools and gives by eliminating manual memory management and 
+This eases development processes and distribution of these tools by eliminating manual memory management and 
 platform dependency. 
 
 However, the automated memory strategy, such as Garbage Collection (GC), may lead significant overhead in Big Data processing. 
-Apache Spark and Apache Flink use complex objects to manipulate and transfer data. 
-Generating many of these complex objects in memory forces GC to rearrange states of memory frequently waisting computation. 
+Apache Spark and Apache Flink use complex objects to manipulate and transfer tremendous amount of data. 
+Generating many of these complex objects in memory forces GC to rearrange the objects in memory frequently waisting computation. 
 Keeping these objects in memory for long period of time may trigger stop-the-world where the JVM stops application from running to
 execute a GC. 
 

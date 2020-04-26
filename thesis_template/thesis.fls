@@ -410,7 +410,6 @@ INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas_with_jni-eps-converted-to.pdf
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 OUTPUT /Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.aux
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex
@@ -433,7 +432,6 @@ INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.out
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.out
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb

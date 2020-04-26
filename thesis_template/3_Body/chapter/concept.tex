@@ -1,5 +1,5 @@
 \subsection{Type of Variable}
-\label{sec:history}
+\label{sec:concept_diffval}
 In Rust, there are three variable types: owner, reference, and slice (only for sequence of values). 
 A developer is sometimes forced to use specific variable types. For example, some of methods are only implemented to specific variable types.
 However, one can select any variable types for operation in most case.
@@ -18,22 +18,22 @@ We examine this by constructing complex objects whose fields are these variable 
 \end{figure}
 
 \subsection{Reference Count}
-\label{sec:history}
+\label{sec:concept_refcount}
 Reference is useful to avoid movement of ownership. However, one needs to track its lifetime and explicitly includes it in code, 
 because Rust compiler cannot infer it. This can be another encumbrance. We can instead acquire multiple owners to single value by using Reference Counting (Rc). 
 By leveraging Rc, a value can be shared like what borrowing plays the role in Rust programming. 
 
 The difference is that Rc checks number of owner pointing to the actual data and makes sure the data is not deleted 
 until all the owners are dereferenced. Using Rc is sometimes preferable approach for developers especially when lifetime planning is extremely difficult.
-However, the possible problem regarding to Rc is the cost for tracking the number of references. 
-Having this assumption, an experiment is conducted to examine difference of runtime performance of dropping reference and Rc. 
+However, the possible problems regarding to Rc are the cost for tracking the number of references and allocating memory on heap instead of stack.
+Having these assumption, an experiment is conducted to examine difference of runtime performance of dropping reference and Rc. 
 This is explained in section 3.2.
 
-\subsection{Multithreading}
-\label{sec:history}
+\subsection{Multithread}
+\label{sec:concenpt_multithreading}
 In Rust programming, writing concurrent code is relatively easy. The care Rust takes with reference, mutability, and lifetimes is valuable enough in single-threaded programs, 
 but it also is in concurrent programming. Rust has tools to write concurrent code, such as threads, locks, atomic reference. 
-Therefore, one can implement various concurrent codes for the same purpose with different memory management strategies. 
+One can implement various concurrent codes for the same purpose with different memory management strategies. 
 The most ubiquitous tool used in Rust concurrent code is Atomic Reference Counting (Arc). 
 
 Arc is a simple interface that allows threads to share data. Arc allows multiple variable to have ownerships of a particular value similarly to Rc, 
@@ -43,18 +43,18 @@ Similarly to Rc, our assumption is that deletion of Arc has also overhead when w
 To assess runtime performances of algorithm with Arc vs normal reference, we implement merge-sort algorithm in two different ways. 
 
 \subsection{Tree-aggregate}
-\label{sec:history}
+\label{sec:concept_treeagg}
 Finally, we implement some of algorithm common in Big Data processing. One of them is tree-aggregate.
 
-Tree-aggregate is a communication patten heavily used for Machine Learning algorithm in Spark (MLlib). 
+Tree-aggregate is a communication patten heavily used for Machine Learning algorithm in Spark (MLlib \cite{DBLP:journals/jmlr/MengBYSVLFTAOXX16}). 
 The topology of aggregation patterns in Apache Spark are shown in Figure~\ref{fig:aggregationk_patttern}. 
 In the traditional aggregation function in Spark, results of aggregation in all executor clusters are sent to the driver. 
 That is why this operation suffers from the CPU cost in merging partial results and the network bandwidth limit.
 Tree-aggregate is a communication pattern which overcomes these problems by breaking aggregate operation in multi-level represented like tree structure.
 
 Spark generates intermediate objects from RDDs. In Tree-aggregation, aggregated HashMap like data structure is created in each thread or node. 
-When it aggregates objects in RDD, copy of objects in source vector should be performed to construct intermediate aggregated data structure.
-In another way, one can use reference to the objects to perform aggregation instead of copying the values themselves.
+When it aggregates objects in RDD, copy of objects should be performed to construct intermediate aggregated data structure.
+In another possible way that might be implemented, one can use reference to the objects to perform aggregation instead of copying the values themselves.
 In Rust, we can clone or get Arc (Rc if in single thread) of objects to implement these operations.
 
 Since Tree-aggregation algorithm generates and deletes a lot of intermediate data structures, 
@@ -77,7 +77,7 @@ In our experiment, tree-aggregation algorithms are examined in multi-threading. 
 \end{figure}
 
 \subsection{K-Nearest-Neighbors}
-\label{sec:history}
+\label{sec:concept_history}
 The other algorithm common in Big Data processing is K-nearest-neighbors (KNN). KNN is a traditional Machine Learning algorithm which classify targets into categories. 
 In training KNN, it simply stores all available training data without calculation. At prediction phase, targets are given and similarity measures are calculated. 
 Based on these similarities, the algorithm selects \(K\) (user-defined number) training observations similar to the each target. 
@@ -108,7 +108,7 @@ Our KNN algorithms are implemented with batch processing. In query phase, we con
 The detail implementation is explained in section3.2.
 
 \subsection{Complex Objects}
-\label{sec:history}
+\label{sec:concept_history}
 To conduct experiments for above concepts, we use the 4 types of complex object: CustomerOwned, CustomerBorrowed, CustomerSlice, and CustomerRc. 
 These object contains other type of object: OrderOwned, OrderBorrowed, OrderSlice, and OrderRc.
 The representation of these objects are shown in Figure~\ref{fig:customer} and Figure~\ref{fig:order}. 
@@ -278,11 +278,12 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
  \end{figure}
 
  \subsection{Wikipedia Data Sets}
- \label{sec:history}
+ \label{sec:concept_dataset}
  Wikipedia page data sets are used to perform document classification with KNN. 
  \(10^5\) pages are used for training data set, and 18724 pages are used for target.
 
  \subsection{Experimental Details}
+ \label{sec:concept_expdetail}
  Our experiments are run on three types of VM instances on Google Cloud Platform: 
  n1-standard-1 which has 1 vCPU, 3.75 GB RAM, and 10 GB Standard persistent disk, 
  n1-standard-4 which has 4 vCPU, 15 GB RAM, and 10 GB Standard persistent disk, 

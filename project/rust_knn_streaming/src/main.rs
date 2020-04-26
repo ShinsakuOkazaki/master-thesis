@@ -16,8 +16,8 @@ use crossbeam;
 use std::fmt::Debug;
 use std::sync::Arc;
 
-const MAX_THREADS: usize = 10;
-// const MAX_THREADS: usize = 8;
+// const MAX_THREADS: usize = 10;
+const MAX_THREADS: usize = 8;
 // const MAX_THREADS: usize = 4;
 
 fn main() {

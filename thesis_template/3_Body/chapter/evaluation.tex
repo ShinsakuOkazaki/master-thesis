@@ -1,28 +1,37 @@
+\section{Introduction}
+\label{sec:eval_intro}
+In this chapter, detail setting, result, and analysis of our experiments are discussed.
+Section~\ref{sec:eval_setdetail} details hardware configurations and data set we use. 
+There are 5 experiments conducted. In Section~\ref{sec:eval_diffval}, we discuss the experiment 
+where we assess runtime to access object's field with different variable types. 
+Section~\ref{sec:eval_refcount} shows details to examine how behaviors of normal reference and Reference Count are different. 
+Section~\ref{sec:eval_sort} describes our Merge-sort experiment to examine behavior of Atomic Reference Counting.
+Two algorithms are discussed used in Big Data processing and examined in our experiments: 
+Tree-aggregate in Section~\ref{sec:concept_treeagg} and K-Nearest-Neighbors in Section~\ref{sec:concept_knn}.
 
 \section{Experimental Set and Detail}
 \label{sec:eval_setdetail}
 \input{3_Body/model/experimental_set_detail}
-\clearpage
 
 \section{Experiment 1: Accessing Object with Different Variable Type}
 \label{sec:eval_diffval}
 \input{3_Body/model/access_own_reference_slice}
-\clearpage
 
 \section{Experiment 2: Assessment of different reference methods in Rust}
 \label{sec:eval_refcount}
 \input{3_Body/model/drop_ref_rc}
-\clearpage
 
 \section{Experiment 2: Merge-sort}
 \label{sec:eval_sort}
 \input{3_Body/model/merge_sort_experiment}
-\clearpage
+\
 
 \section{Experiment 4: Tree-aggregation}
 \label{sec:eval_treeagg}
 \input{3_Body/model/tree_aggregate_experiment}
-\clearpage
+
+\section{Summary}
+\label{sec:eval_summary}
 
 % \section{Elements Copy and Insertion into Size-initialized Vector in Rust.}
 % \label{sec:history}

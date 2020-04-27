@@ -1,3 +1,13 @@
+\section{Introduction}
+\label{sec::concept_intro}
+This chapter discusses the concepts studied in our experiments. 
+Section~\ref{sec:concept_diffval} explains different variable type we can use in Rust programming.
+In Section~\ref{sec:concept_refcount}, we explain the advantage and disadvantage of Reference Count in Rust. 
+Multithread programming in Rust is studied in Section~\ref{sec:concenpt_multithreading}. 
+Two algorithms are discussed used in Big Data processing and examined in our experiments: 
+Tree-aggregate in Section~\ref{sec:concept_treeagg} and K-Nearest-Neighbors in Section~\ref{sec:concept_knn}.
+Finally, Section~\ref{sec:concept_compobj} shows complex object representations used in our experiments. 
+
 \section{Type of Variable}
 \label{sec:concept_diffval}
 In Rust, there are three variable types: owner, reference, and slice (only for sequence of values). 
@@ -9,7 +19,7 @@ The owner has a pointer pointing to the memory address of sequence values, lengt
 Reference and Slice are variables borrowing value owned by other variable. The reference is a pointer that points to the owner. 
 The slice is a pointer that points to memory address of sequence values. It has value such as length of sequence values stored in the memory. 
 Since they have different memory representation, an assumption is that it takes different time to access to the contents of the memory among these pointer types.
-We examine this by constructing complex objects whose fields are these variable types. The details are explained in section 3.2.
+We examine this by constructing complex objects whose fields are these variable types. The details are explained in Section~\ref{sec:eval_diffval}.
 
 \begin{figure}[htb]
     \includegraphics[width=10cm]{own_ref_slice.eps}
@@ -77,7 +87,7 @@ In our experiment, tree-aggregation algorithms are examined in multi-threading. 
 \end{figure}
 
 \section{K-Nearest-Neighbors}
-\label{sec:concept_history}
+\label{sec:concept_knn}
 The other algorithm common in Big Data processing is K-nearest-neighbors (KNN). KNN is a traditional Machine Learning algorithm which classify targets into categories. 
 In training KNN, it simply stores all available training data without calculation. At prediction phase, targets are given and similarity measures are calculated. 
 Based on these similarities, the algorithm selects \(K\) (user-defined number) training observations similar to the each target. 
@@ -108,7 +118,7 @@ Our KNN algorithms are implemented with batch processing. In query phase, we con
 The detail implementation is explained in section3.2.
 
 \section{Complex Objects}
-\label{sec:concept_history}
+\label{sec:concept_compobj}
 To conduct experiments for above concepts, we use the 4 types of complex object: CustomerOwned, CustomerBorrowed, CustomerSlice, and CustomerRc. 
 These object contains other type of object: OrderOwned, OrderBorrowed, OrderSlice, and OrderRc.
 The representation of these objects are shown in Figure~\ref{fig:customer} and Figure~\ref{fig:order}. 
@@ -276,5 +286,12 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
     (b) OrderBorrowed struct whose fields are borrowed with reference (c) OrderSlice struct whose fields are borrowed with slice for sequence value, otherwise reference}
     \label{fig:order}
  \end{figure}
+
+\section{Summary}
+\label{sec:concept_summary}
+We discussed some of concepts to understand goals of our experiments. 
+Theoretical discussions are noted in this chapter, such as assumptions where behavior of different variable types differ from each other, the impact of use of Reference Counting and Atomic Reference Counting, 
+and the best practice to implement algorithms used in Big Data processing. In Chapter\ref{chapter:evaluation}, it discusses details setting of our experiments, their results and analysis.
+
 
 \clearpage

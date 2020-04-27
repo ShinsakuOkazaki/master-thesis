@@ -11,15 +11,15 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3$\cdot $1}{\ignorespaces Memory Representation of Owner, Reference, and Slice Type\relax }}{26}{figure.caption.14}% 
 \contentsline {figure}{\numberline {3$\cdot $2}{\ignorespaces Representation of aggregation strategies in Apache Spark: (a) Traditional Aggregation, (b) Tree Aggregation\relax }}{28}{figure.caption.15}% 
-\contentsline {figure}{\numberline {3$\cdot $3}{\ignorespaces Representation of Customer objects Whose fields are different variable type: (a) CustomerOwned struct whose fields are all owned (b) CustomerBorrowed struct whose fields are borrowed with reference (c) CustomerSlice struct whose fields are borrowed with slice for sequence value, otherwise reference\relax }}{30}{figure.caption.16}% 
-\contentsline {figure}{\numberline {3$\cdot $4}{\ignorespaces Representation of Order objects Whose fields are different variable type: (a) OrderOwned struct whose fields are all owned (b) OrderBorrowed struct whose fields are borrowed with reference (c) OrderSlice struct whose fields are borrowed with slice for sequence value, otherwise reference\relax }}{31}{figure.caption.17}% 
+\contentsline {figure}{\numberline {3$\cdot $3}{\ignorespaces Representation of Customer objects Whose fields are different variable type: (a) CustomerOwned struct whose fields are all owned (b) CustomerBorrowed struct whose fields are borrowed with reference (c) CustomerSlice struct whose fields are borrowed with slice for sequence value, otherwise reference\relax }}{31}{figure.caption.16}% 
+\contentsline {figure}{\numberline {3$\cdot $4}{\ignorespaces Representation of Order objects Whose fields are different variable type: (a) OrderOwned struct whose fields are all owned (b) OrderBorrowed struct whose fields are borrowed with reference (c) OrderSlice struct whose fields are borrowed with slice for sequence value, otherwise reference\relax }}{32}{figure.caption.17}% 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4$\cdot $1}{\ignorespaces Runtime of Access to Different Pointer Types with Vec Size Initialization\relax }}{34}{figure.caption.18}% 
-\contentsline {figure}{\numberline {4$\cdot $2}{\ignorespaces Runtime of Access to Different Pointer Types without Vec Size Initialization\relax }}{35}{figure.caption.19}% 
-\contentsline {figure}{\numberline {4$\cdot $3}{\ignorespaces Runtime of Access to Fields of Complex Object with Initialization vs without Initialization\relax }}{36}{figure.caption.20}% 
+\contentsline {figure}{\numberline {4$\cdot $1}{\ignorespaces Runtime of Access to Different Pointer Types with Vec Size Initialization\relax }}{35}{figure.caption.18}% 
+\contentsline {figure}{\numberline {4$\cdot $2}{\ignorespaces Runtime of Access to Different Pointer Types without Vec Size Initialization\relax }}{36}{figure.caption.19}% 
+\contentsline {figure}{\numberline {4$\cdot $3}{\ignorespaces Runtime of Access to Fields of Complex Object with Initialization vs without Initialization\relax }}{37}{figure.caption.20}% 
 \contentsline {figure}{\numberline {4$\cdot $4}{\ignorespaces Runtime for dropping Customer Object\relax }}{38}{figure.caption.21}% 
 \contentsline {figure}{\numberline {4$\cdot $5}{\ignorespaces Representation of Source Vector\relax }}{40}{figure.caption.22}% 
-\contentsline {figure}{\numberline {4$\cdot $6}{\ignorespaces Runtime of Sorting Elements of Customer Vector\relax }}{40}{figure.caption.23}% 
+\contentsline {figure}{\numberline {4$\cdot $6}{\ignorespaces Runtime of Sorting Elements of Customer Vector\relax }}{41}{figure.caption.23}% 
 \contentsline {figure}{\numberline {4$\cdot $7}{\ignorespaces Aggregation function with Arc\relax }}{43}{figure.caption.24}% 
 \contentsline {figure}{\numberline {4$\cdot $8}{\ignorespaces Aggregation function with deep-copy\relax }}{44}{figure.caption.25}% 
 \contentsline {figure}{\numberline {4$\cdot $9}{\ignorespaces Runtime of Tree-aggregate algorithm\relax }}{45}{figure.caption.26}% 

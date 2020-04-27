@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  27 APR 2020 02:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  27 APR 2020 17:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -342,9 +342,6 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip62
 ) (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.aux (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/prelim.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/1_Intro/intro.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/body.aux
 
-LaTeX Warning: Label `sec:concept_history' multiply defined.
-
-
 LaTeX Warning: Label `sec:history' multiply defined.
 
 ) (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.aux
@@ -497,7 +494,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_heap.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_heap-eps-converted-to.pdf 2_RelatedWork/Figures/java_heap.eps>
 (epstopdf)             \includegraphics on input line 49.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/java_heap-eps-converted-to.pdf, id=493, 514.92375pt x 150.5625pt>
+<2_RelatedWork/Figures/java_heap-eps-converted-to.pdf, id=513, 514.92375pt x 150.5625pt>
 File: 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf  used on input line 49.
@@ -511,7 +508,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_gc.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_gc-eps-converted-to.pdf 2_RelatedWork/Figures/java_gc.eps>
 (epstopdf)             \includegraphics on input line 55.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/java_gc-eps-converted-to.pdf, id=494, 1158.3275pt x 832.10875pt>
+<2_RelatedWork/Figures/java_gc-eps-converted-to.pdf, id=514, 1158.3275pt x 832.10875pt>
 File: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf  used on input line 55.
@@ -526,7 +523,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_vec.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf 2_RelatedWork/Figures/rust_vec.eps>
 (epstopdf)             \includegraphics on input line 17.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf, id=522, 321.2pt x 176.66pt>
+<2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf, id=542, 321.2pt x 176.66pt>
 File: 2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf  used on input line 17.
@@ -547,7 +544,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_array.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_array-eps-converted-to.pdf 2_RelatedWork/Figures/java_array.eps>
 (epstopdf)             \includegraphics on input line 39.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/java_array-eps-converted-to.pdf, id=530, 288.07625pt x 346.29375pt>
+<2_RelatedWork/Figures/java_array-eps-converted-to.pdf, id=550, 288.07625pt x 346.29375pt>
 File: 2_RelatedWork/Figures/java_array-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/java_array-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/java_array-eps-converted-to.pdf  used on input line 39.
@@ -561,7 +558,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/python_list.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/python_list-eps-converted-to.pdf 2_RelatedWork/Figures/python_list.eps>
 (epstopdf)             \includegraphics on input line 45.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/python_list-eps-converted-to.pdf, id=531, 255.95625pt x 346.29375pt>
+<2_RelatedWork/Figures/python_list-eps-converted-to.pdf, id=551, 255.95625pt x 346.29375pt>
 File: 2_RelatedWork/Figures/python_list-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/python_list-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/python_list-eps-converted-to.pdf  used on input line 45.
@@ -576,7 +573,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/cplusplus_vector.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf 2_RelatedWork/Figures/cplusplus_vector.eps>
 (epstopdf)             \includegraphics on input line 60.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf, id=552, 374.39874pt x 202.7575pt>
+<2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf, id=572, 374.39874pt x 202.7575pt>
 File: 2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf  used on input line 60.
@@ -590,7 +587,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/cplusplus_vector_copi
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf 2_RelatedWork/Figures/cplusplus_vector_copied.eps>
 (epstopdf)             \includegraphics on input line 67.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf, id=553, 518.93875pt x 156.585pt>
+<2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf, id=573, 518.93875pt x 156.585pt>
 File: 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf  used on input line 67.
@@ -610,7 +607,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_vec_moved.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf 2_RelatedWork/Figures/rust_vec_moved.eps>
 (epstopdf)             \includegraphics on input line 84.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf, id=568, 370.38374pt x 168.63pt>
+<2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf, id=589, 370.38374pt x 168.63pt>
 File: 2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf  used on input line 84.
@@ -628,12 +625,12 @@ Package epstopdf Info: Source file: <3_Body/Figures/own_ref_slice.eps>
 (epstopdf)                    date: 2020-04-16 18:49:42
 (epstopdf)                    size: 7237 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/own_ref_slice-eps-converted-to.pdf 3_Body/Figures/own_ref_slice.eps>
-(epstopdf)             \includegraphics on input line 15.
+(epstopdf)             \includegraphics on input line 25.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/own_ref_slice-eps-converted-to.pdf, id=610, 305.14pt x 284.06125pt>
+<3_Body/Figures/own_ref_slice-eps-converted-to.pdf, id=637, 305.14pt x 284.06125pt>
 File: 3_Body/Figures/own_ref_slice-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/own_ref_slice-eps-converted-to.pdf>
-Package pdftex.def Info: 3_Body/Figures/own_ref_slice-eps-converted-to.pdf  used on input line 15.
+Package pdftex.def Info: 3_Body/Figures/own_ref_slice-eps-converted-to.pdf  used on input line 25.
 (pdftex.def)             Requested size: 284.52756pt x 264.88072pt.
  [25
 
@@ -641,7 +638,7 @@ Package pdftex.def Info: 3_Body/Figures/own_ref_slice-eps-converted-to.pdf  used
 
 
 
-] [26 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/own_ref_slice-eps-converted-to.pdf>]
+] [26 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/own_ref_slice-eps-converted-to.pdf>] [27]
 Package epstopdf Info: Source file: <3_Body/Figures/normal_agg.eps>
 (epstopdf)                    date: 2020-04-18 16:39:53
 (epstopdf)                    size: 8443 bytes
@@ -649,12 +646,12 @@ Package epstopdf Info: Source file: <3_Body/Figures/normal_agg.eps>
 (epstopdf)                    date: 2020-04-18 16:46:41
 (epstopdf)                    size: 4134 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/normal_agg-eps-converted-to.pdf 3_Body/Figures/normal_agg.eps>
-(epstopdf)             \includegraphics on input line 66.
+(epstopdf)             \includegraphics on input line 76.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/normal_agg-eps-converted-to.pdf, id=626, 236.885pt x 377.41pt>
+<3_Body/Figures/normal_agg-eps-converted-to.pdf, id=658, 236.885pt x 377.41pt>
 File: 3_Body/Figures/normal_agg-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/normal_agg-eps-converted-to.pdf>
-Package pdftex.def Info: 3_Body/Figures/normal_agg-eps-converted-to.pdf  used on input line 66.
+Package pdftex.def Info: 3_Body/Figures/normal_agg-eps-converted-to.pdf  used on input line 76.
 (pdftex.def)             Requested size: 142.26378pt x 226.66081pt.
 Package epstopdf Info: Source file: <3_Body/Figures/tree_agg.eps>
 (epstopdf)                    date: 2020-04-18 16:39:54
@@ -663,292 +660,290 @@ Package epstopdf Info: Source file: <3_Body/Figures/tree_agg.eps>
 (epstopdf)                    date: 2020-04-18 16:46:41
 (epstopdf)                    size: 4161 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/tree_agg-eps-converted-to.pdf 3_Body/Figures/tree_agg.eps>
-(epstopdf)             \includegraphics on input line 71.
+(epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/tree_agg-eps-converted-to.pdf, id=627, 313.17pt x 247.92625pt>
+<3_Body/Figures/tree_agg-eps-converted-to.pdf, id=659, 313.17pt x 247.92625pt>
 File: 3_Body/Figures/tree_agg-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/tree_agg-eps-converted-to.pdf>
-Package pdftex.def Info: 3_Body/Figures/tree_agg-eps-converted-to.pdf  used on input line 71.
+Package pdftex.def Info: 3_Body/Figures/tree_agg-eps-converted-to.pdf  used on input line 81.
 (pdftex.def)             Requested size: 199.16928pt x 157.68109pt.
- [27] [28 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/normal_agg-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/tree_agg-eps-converted-to.pdf>]
-Overfull \hbox (136.65965pt too wide) in paragraph at lines 123--124
+ [28 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/normal_agg-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/tree_agg-eps-converted-to.pdf>] [29]
+Overfull \hbox (136.65965pt too wide) in paragraph at lines 133--134
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (77.52904pt too wide) in paragraph at lines 124--125
+Overfull \hbox (77.52904pt too wide) in paragraph at lines 134--135
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (77.52904pt too wide) in paragraph at lines 125--126
+Overfull \hbox (77.52904pt too wide) in paragraph at lines 135--136
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (136.65965pt too wide) in paragraph at lines 126--127
+Overfull \hbox (136.65965pt too wide) in paragraph at lines 136--137
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (149.79979pt too wide) in paragraph at lines 127--128
+Overfull \hbox (149.79979pt too wide) in paragraph at lines 137--138
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (149.79979pt too wide) in paragraph at lines 128--129
+Overfull \hbox (149.79979pt too wide) in paragraph at lines 138--139
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (149.79979pt too wide) in paragraph at lines 129--130
+Overfull \hbox (149.79979pt too wide) in paragraph at lines 139--140
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (130.08958pt too wide) in paragraph at lines 130--131
+Overfull \hbox (130.08958pt too wide) in paragraph at lines 140--141
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (123.51952pt too wide) in paragraph at lines 131--132
+Overfull \hbox (123.51952pt too wide) in paragraph at lines 141--142
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (123.51952pt too wide) in paragraph at lines 132--133
+Overfull \hbox (123.51952pt too wide) in paragraph at lines 142--143
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (110.37938pt too wide) in paragraph at lines 133--134
+Overfull \hbox (110.37938pt too wide) in paragraph at lines 143--144
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (143.22972pt too wide) in paragraph at lines 134--135
+Overfull \hbox (143.22972pt too wide) in paragraph at lines 144--145
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (136.65965pt too wide) in paragraph at lines 135--136
+Overfull \hbox (136.65965pt too wide) in paragraph at lines 145--146
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (130.08958pt too wide) in paragraph at lines 136--137
+Overfull \hbox (130.08958pt too wide) in paragraph at lines 146--147
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (123.51952pt too wide) in paragraph at lines 137--138
+Overfull \hbox (123.51952pt too wide) in paragraph at lines 147--148
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (130.08958pt too wide) in paragraph at lines 138--139
+Overfull \hbox (130.08958pt too wide) in paragraph at lines 148--149
 [][][][][][][][] 
  []
 
 
-Overfull \hbox (9.19817pt too wide) in paragraph at lines 146--147
+Overfull \hbox (9.19817pt too wide) in paragraph at lines 156--157
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (2.6281pt too wide) in paragraph at lines 150--151
+Overfull \hbox (2.6281pt too wide) in paragraph at lines 160--161
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (2.6281pt too wide) in paragraph at lines 151--152
+Overfull \hbox (2.6281pt too wide) in paragraph at lines 161--162
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (2.6281pt too wide) in paragraph at lines 152--153
+Overfull \hbox (2.6281pt too wide) in paragraph at lines 162--163
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (28.90837pt too wide) in paragraph at lines 161--162
+Overfull \hbox (28.90837pt too wide) in paragraph at lines 171--172
 [][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (162.93993pt too wide) in paragraph at lines 169--170
+Overfull \hbox (162.93993pt too wide) in paragraph at lines 179--180
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (103.80931pt too wide) in paragraph at lines 170--171
+Overfull \hbox (103.80931pt too wide) in paragraph at lines 180--181
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (103.80931pt too wide) in paragraph at lines 171--172
+Overfull \hbox (103.80931pt too wide) in paragraph at lines 181--182
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (162.93993pt too wide) in paragraph at lines 172--173
+Overfull \hbox (162.93993pt too wide) in paragraph at lines 182--183
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (176.08006pt too wide) in paragraph at lines 173--174
+Overfull \hbox (176.08006pt too wide) in paragraph at lines 183--184
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (176.08006pt too wide) in paragraph at lines 174--175
+Overfull \hbox (176.08006pt too wide) in paragraph at lines 184--185
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (176.08006pt too wide) in paragraph at lines 175--176
+Overfull \hbox (176.08006pt too wide) in paragraph at lines 185--186
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (136.65965pt too wide) in paragraph at lines 176--177
+Overfull \hbox (136.65965pt too wide) in paragraph at lines 186--187
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (130.08958pt too wide) in paragraph at lines 177--178
+Overfull \hbox (130.08958pt too wide) in paragraph at lines 187--188
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (130.08958pt too wide) in paragraph at lines 178--179
+Overfull \hbox (130.08958pt too wide) in paragraph at lines 188--189
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (116.94945pt too wide) in paragraph at lines 179--180
+Overfull \hbox (116.94945pt too wide) in paragraph at lines 189--190
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (149.79979pt too wide) in paragraph at lines 180--181
+Overfull \hbox (149.79979pt too wide) in paragraph at lines 190--191
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (143.22972pt too wide) in paragraph at lines 181--182
+Overfull \hbox (143.22972pt too wide) in paragraph at lines 191--192
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (136.65965pt too wide) in paragraph at lines 182--183
+Overfull \hbox (136.65965pt too wide) in paragraph at lines 192--193
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (130.08958pt too wide) in paragraph at lines 183--184
+Overfull \hbox (130.08958pt too wide) in paragraph at lines 193--194
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (182.65013pt too wide) in paragraph at lines 184--185
+Overfull \hbox (182.65013pt too wide) in paragraph at lines 194--195
 [][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (2.6281pt too wide) in paragraph at lines 196--197
+Overfull \hbox (2.6281pt too wide) in paragraph at lines 206--207
 [][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (2.6281pt too wide) in paragraph at lines 197--198
+Overfull \hbox (2.6281pt too wide) in paragraph at lines 207--208
 [][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (2.6281pt too wide) in paragraph at lines 198--199
+Overfull \hbox (2.6281pt too wide) in paragraph at lines 208--209
 [][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (116.94945pt too wide) in paragraph at lines 221--222
+Overfull \hbox (116.94945pt too wide) in paragraph at lines 231--232
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (110.37938pt too wide) in paragraph at lines 222--223
+Overfull \hbox (110.37938pt too wide) in paragraph at lines 232--233
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (116.94945pt too wide) in paragraph at lines 223--224
+Overfull \hbox (116.94945pt too wide) in paragraph at lines 233--234
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (103.80931pt too wide) in paragraph at lines 224--225
+Overfull \hbox (103.80931pt too wide) in paragraph at lines 234--235
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (123.51952pt too wide) in paragraph at lines 225--226
+Overfull \hbox (123.51952pt too wide) in paragraph at lines 235--236
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (110.37938pt too wide) in paragraph at lines 226--227
+Overfull \hbox (110.37938pt too wide) in paragraph at lines 236--237
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (116.94945pt too wide) in paragraph at lines 227--228
+Overfull \hbox (116.94945pt too wide) in paragraph at lines 237--238
 [][][][][][][][] 
  []
 
 
-Overfull \hbox (143.22972pt too wide) in paragraph at lines 249--250
+Overfull \hbox (143.22972pt too wide) in paragraph at lines 259--260
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (136.65965pt too wide) in paragraph at lines 250--251
+Overfull \hbox (136.65965pt too wide) in paragraph at lines 260--261
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (143.22972pt too wide) in paragraph at lines 251--252
+Overfull \hbox (143.22972pt too wide) in paragraph at lines 261--262
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (130.08958pt too wide) in paragraph at lines 252--253
+Overfull \hbox (130.08958pt too wide) in paragraph at lines 262--263
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (149.79979pt too wide) in paragraph at lines 253--254
+Overfull \hbox (149.79979pt too wide) in paragraph at lines 263--264
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (116.94945pt too wide) in paragraph at lines 254--255
+Overfull \hbox (116.94945pt too wide) in paragraph at lines 264--265
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (123.51952pt too wide) in paragraph at lines 255--256
+Overfull \hbox (123.51952pt too wide) in paragraph at lines 265--266
 [][][][][][][][][][][] 
  []
 
-[29] [30] [31])
+[30] [31] [32])
 Chapter 4.
-(/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/chapter/evaluation.tex (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/experimental_set_detail.tex) [32
+(/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/chapter/evaluation.tex (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/experimental_set_detail.tex) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/access_own_reference_slice.tex [33
 
 
 
-] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/access_own_reference_slice.tex [33
-
-]
+] [34]
 Package epstopdf Info: Source file: <3_Body/Figures/rust_access_different_poniter_init.eps>
 (epstopdf)                    date: 2020-04-16 14:08:38
 (epstopdf)                    size: 35262 bytes
@@ -958,7 +953,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_access_different_ponite
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf 3_Body/Figures/rust_access_different_poniter_init.eps>
 (epstopdf)             \includegraphics on input line 32.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf, id=788, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf, id=827, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf  used on input line 32.
@@ -972,7 +967,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_access_different_ponite
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf 3_Body/Figures/rust_access_different_poniter_noinit.eps>
 (epstopdf)             \includegraphics on input line 38.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf, id=789, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf, id=828, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf  used on input line 38.
@@ -986,12 +981,12 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_access_init_vs_noint.ep
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf 3_Body/Figures/rust_access_init_vs_noint.eps>
 (epstopdf)             \includegraphics on input line 44.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf, id=790, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf, id=829, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf  used on input line 44.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [34 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf>]) [35 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf>] [36 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/drop_ref_rc.tex
+ [35 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf>]) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/drop_ref_rc.tex [36 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <3_Body/Figures/rust_droptime_borring_rc.eps>
 (epstopdf)                    date: 2020-04-21 00:28:38
 (epstopdf)                    size: 37168 bytes
@@ -1001,16 +996,12 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_droptime_borring_rc.eps
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf 3_Body/Figures/rust_droptime_borring_rc.eps>
 (epstopdf)             \includegraphics on input line 29.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf, id=944, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf, id=927, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf  used on input line 29.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [37
-
-]) [38 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/merge_sort_experiment.tex [39
-
-]
+ [37 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf>] [38 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>]) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/merge_sort_experiment.tex [39]
 Package epstopdf Info: Source file: <3_Body/Figures/rust_merge_sort.eps>
 (epstopdf)                    date: 2020-04-21 00:29:17
 (epstopdf)                    size: 31090 bytes
@@ -1020,14 +1011,12 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_merge_sort.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_merge_sort-eps-converted-to.pdf 3_Body/Figures/rust_merge_sort.eps>
 (epstopdf)             \includegraphics on input line 43.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_merge_sort-eps-converted-to.pdf, id=1006, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_merge_sort-eps-converted-to.pdf, id=1040, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf  used on input line 43.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [40 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>]) [41] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/tree_aggregate_experiment.tex [42
-
-]
+ [40]) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/tree_aggregate_experiment.tex [41 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>] [42]
 Overfull \hbox (59.13513pt too wide) in paragraph at lines 46--47
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1037,7 +1026,6 @@ Overfull \hbox (59.13513pt too wide) in paragraph at lines 66--67
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[43]
 Package epstopdf Info: Source file: <3_Body/Figures/rust_tree_aggregate.eps>
 (epstopdf)                    date: 2020-04-21 14:14:48
 (epstopdf)                    size: 29510 bytes
@@ -1047,18 +1035,17 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_tree_aggregate.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf 3_Body/Figures/rust_tree_aggregate.eps>
 (epstopdf)             \includegraphics on input line 82.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf, id=1096, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf, id=1114, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf  used on input line 82.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [44]) [45 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>]))
+[43] [44])) [45 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>])
 \openout2 = `4_Conclusion/conclusion.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.tex
 Chapter 5.
 ) [46
-
 
 
 
@@ -1092,7 +1079,7 @@ Package epstopdf Info: Source file: <Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)             Command: <repstopdf --outfile=Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
-<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=1168, 756.8275pt x 427.5975pt>
+<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=1202, 756.8275pt x 427.5975pt>
 File: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Graphic file (type pdf)
 <use Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>
 Package pdftex.def Info: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf  used on input line 22.
@@ -1118,7 +1105,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 111.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 2B894F7038CB1834B9805EEEAD1EA3E3;3900.
+(rerunfilecheck)             Checksum: 891548B3552ECAA596A70153BB1DB2A6;4126.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1126,18 +1113,18 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 10528 strings out of 492616
- 164461 string characters out of 6129482
- 486398 words of memory out of 5000000
- 13819 multiletter control sequences out of 15000+600000
+ 10541 strings out of 492616
+ 164649 string characters out of 6129482
+ 484595 words of memory out of 5000000
+ 13828 multiletter control sequences out of 15000+600000
  11015 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,8n,53p,547b,1284s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (64 pages, 434767 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (64 pages, 438043 bytes).
 PDF statistics:
- 1317 PDF objects out of 1440 (max. 8388607)
- 955 compressed objects within 10 object streams
- 326 named destinations out of 1000 (max. 500000)
- 547 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1351 PDF objects out of 1440 (max. 8388607)
+ 989 compressed objects within 10 object streams
+ 330 named destinations out of 1000 (max. 500000)
+ 579 words of extra memory for PDF output out of 10000 (max. 10000000)
 

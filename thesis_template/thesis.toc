@@ -26,29 +26,33 @@
 \contentsline {subsection}{\numberline {2.7.3}Borrowing}{21}{subsection.2.7.3}% 
 \contentsline {section}{\numberline {2.8}LLVM}{22}{section.2.8}% 
 \contentsline {section}{\numberline {2.9}Summary}{24}{section.2.9}% 
-\contentsline {chapter}{\numberline {3}Conceptual Design of Experience}{25}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Type of Variable}{25}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Reference Count}{25}{section.3.2}% 
-\contentsline {section}{\numberline {3.3}Multithread}{26}{section.3.3}% 
-\contentsline {section}{\numberline {3.4}Tree-aggregate}{27}{section.3.4}% 
-\contentsline {section}{\numberline {3.5}K-Nearest-Neighbors}{28}{section.3.5}% 
-\contentsline {section}{\numberline {3.6}Complex Objects}{29}{section.3.6}% 
-\contentsline {chapter}{\numberline {4}Evaluation Result}{32}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Experimental Set and Detail}{32}{section.4.1}% 
-\contentsline {subsection}{\numberline {4.1.1}Wikipedia Data Sets}{32}{subsection.4.1.1}% 
-\contentsline {subsection}{\numberline {4.1.2}Experimental Details}{32}{subsection.4.1.2}% 
-\contentsline {section}{\numberline {4.2}Experiment 1: Accessing Object with Different Variable Type}{33}{section.4.2}% 
-\contentsline {subsection}{\numberline {4.2.1}Result}{33}{subsection.4.2.1}% 
-\contentsline {subsection}{\numberline {4.2.2}Discussion}{34}{subsection.4.2.2}% 
-\contentsline {section}{\numberline {4.3}Experiment 2: Assessment of different reference methods in Rust}{37}{section.4.3}% 
-\contentsline {subsection}{\numberline {4.3.1}Result}{37}{subsection.4.3.1}% 
-\contentsline {subsection}{\numberline {4.3.2}Discussion}{37}{subsection.4.3.2}% 
-\contentsline {section}{\numberline {4.4}Experiment 2: Merge-sort}{39}{section.4.4}% 
-\contentsline {subsection}{\numberline {4.4.1}Result}{40}{subsection.4.4.1}% 
-\contentsline {subsection}{\numberline {4.4.2}Discussion}{41}{subsection.4.4.2}% 
-\contentsline {section}{\numberline {4.5}Experiment 4: Tree-aggregation}{42}{section.4.5}% 
-\contentsline {subsection}{\numberline {4.5.1}Result}{44}{subsection.4.5.1}% 
-\contentsline {subsection}{\numberline {4.5.2}Discussion}{44}{subsection.4.5.2}% 
+\contentsline {chapter}{\numberline {3}Conceptual Design of Experiment}{25}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Introduction}{25}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Type of Variable}{25}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Reference Count}{26}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}Multithread}{27}{section.3.4}% 
+\contentsline {section}{\numberline {3.5}Tree-aggregate}{27}{section.3.5}% 
+\contentsline {section}{\numberline {3.6}K-Nearest-Neighbors}{28}{section.3.6}% 
+\contentsline {section}{\numberline {3.7}Complex Objects}{29}{section.3.7}% 
+\contentsline {section}{\numberline {3.8}Summary}{30}{section.3.8}% 
+\contentsline {chapter}{\numberline {4}Evaluation Result}{33}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Introduction}{33}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Experimental Set and Detail}{33}{section.4.2}% 
+\contentsline {subsection}{\numberline {4.2.1}Wikipedia Data Sets}{33}{subsection.4.2.1}% 
+\contentsline {subsection}{\numberline {4.2.2}Experimental Details}{33}{subsection.4.2.2}% 
+\contentsline {section}{\numberline {4.3}Experiment 1: Accessing Object with Different Variable Type}{34}{section.4.3}% 
+\contentsline {subsection}{\numberline {4.3.1}Result}{34}{subsection.4.3.1}% 
+\contentsline {subsection}{\numberline {4.3.2}Discussion}{35}{subsection.4.3.2}% 
+\contentsline {section}{\numberline {4.4}Experiment 2: Assessment of different reference methods in Rust}{36}{section.4.4}% 
+\contentsline {subsection}{\numberline {4.4.1}Result}{37}{subsection.4.4.1}% 
+\contentsline {subsection}{\numberline {4.4.2}Discussion}{37}{subsection.4.4.2}% 
+\contentsline {section}{\numberline {4.5}Experiment 2: Merge-sort}{39}{section.4.5}% 
+\contentsline {subsection}{\numberline {4.5.1}Result}{40}{subsection.4.5.1}% 
+\contentsline {subsection}{\numberline {4.5.2}Discussion}{40}{subsection.4.5.2}% 
+\contentsline {section}{\numberline {4.6}Experiment 4: Tree-aggregation}{41}{section.4.6}% 
+\contentsline {subsection}{\numberline {4.6.1}Result}{43}{subsection.4.6.1}% 
+\contentsline {subsection}{\numberline {4.6.2}Discussion}{43}{subsection.4.6.2}% 
+\contentsline {section}{\numberline {4.7}Summary}{45}{section.4.7}% 
 \contentsline {chapter}{\numberline {5}Conclusions}{46}{chapter.5}% 
 \contentsline {section}{\numberline {5.1}Summary of the thesis}{46}{section.5.1}% 
 \contentsline {chapter}{\numberline {A}Linear Algebra Computation}{47}{Appendix.a.A}% 

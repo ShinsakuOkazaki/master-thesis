@@ -51,7 +51,7 @@
 \contentsline {subsection}{\numberline {4.5.2}Discussion}{40}{subsection.4.5.2}% 
 \contentsline {section}{\numberline {4.6}Experiment 4: Tree-aggregation}{41}{section.4.6}% 
 \contentsline {subsection}{\numberline {4.6.1}Result}{43}{subsection.4.6.1}% 
-\contentsline {subsection}{\numberline {4.6.2}Discussion}{43}{subsection.4.6.2}% 
+\contentsline {subsection}{\numberline {4.6.2}Discussion}{44}{subsection.4.6.2}% 
 \contentsline {section}{\numberline {4.7}Summary}{45}{section.4.7}% 
 \contentsline {chapter}{\numberline {5}Conclusions}{46}{chapter.5}% 
 \contentsline {section}{\numberline {5.1}Summary of the thesis}{46}{section.5.1}% 

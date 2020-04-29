@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  27 APR 2020 17:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  29 APR 2020 18:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -344,6 +344,9 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 
 LaTeX Warning: Label `sec:history' multiply defined.
 
+
+LaTeX Warning: Label `sec:history' multiply defined.
+
 ) (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.aux) (/Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Appendix.aux
 
 LaTeX Warning: Label `sec:history' multiply defined.
@@ -494,7 +497,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_heap.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_heap-eps-converted-to.pdf 2_RelatedWork/Figures/java_heap.eps>
 (epstopdf)             \includegraphics on input line 49.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/java_heap-eps-converted-to.pdf, id=513, 514.92375pt x 150.5625pt>
+<2_RelatedWork/Figures/java_heap-eps-converted-to.pdf, id=531, 514.92375pt x 150.5625pt>
 File: 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf  used on input line 49.
@@ -508,7 +511,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_gc.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_gc-eps-converted-to.pdf 2_RelatedWork/Figures/java_gc.eps>
 (epstopdf)             \includegraphics on input line 55.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/java_gc-eps-converted-to.pdf, id=514, 1158.3275pt x 832.10875pt>
+<2_RelatedWork/Figures/java_gc-eps-converted-to.pdf, id=532, 1158.3275pt x 832.10875pt>
 File: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf  used on input line 55.
@@ -523,7 +526,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_vec.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf 2_RelatedWork/Figures/rust_vec.eps>
 (epstopdf)             \includegraphics on input line 17.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf, id=542, 321.2pt x 176.66pt>
+<2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf, id=560, 321.2pt x 176.66pt>
 File: 2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf  used on input line 17.
@@ -544,7 +547,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_array.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_array-eps-converted-to.pdf 2_RelatedWork/Figures/java_array.eps>
 (epstopdf)             \includegraphics on input line 39.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/java_array-eps-converted-to.pdf, id=550, 288.07625pt x 346.29375pt>
+<2_RelatedWork/Figures/java_array-eps-converted-to.pdf, id=568, 288.07625pt x 346.29375pt>
 File: 2_RelatedWork/Figures/java_array-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/java_array-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/java_array-eps-converted-to.pdf  used on input line 39.
@@ -558,7 +561,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/python_list.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/python_list-eps-converted-to.pdf 2_RelatedWork/Figures/python_list.eps>
 (epstopdf)             \includegraphics on input line 45.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/python_list-eps-converted-to.pdf, id=551, 255.95625pt x 346.29375pt>
+<2_RelatedWork/Figures/python_list-eps-converted-to.pdf, id=569, 255.95625pt x 346.29375pt>
 File: 2_RelatedWork/Figures/python_list-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/python_list-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/python_list-eps-converted-to.pdf  used on input line 45.
@@ -573,7 +576,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/cplusplus_vector.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf 2_RelatedWork/Figures/cplusplus_vector.eps>
 (epstopdf)             \includegraphics on input line 60.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf, id=572, 374.39874pt x 202.7575pt>
+<2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf, id=590, 374.39874pt x 202.7575pt>
 File: 2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf  used on input line 60.
@@ -587,7 +590,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/cplusplus_vector_copi
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf 2_RelatedWork/Figures/cplusplus_vector_copied.eps>
 (epstopdf)             \includegraphics on input line 67.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf, id=573, 518.93875pt x 156.585pt>
+<2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf, id=591, 518.93875pt x 156.585pt>
 File: 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf  used on input line 67.
@@ -607,7 +610,7 @@ Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_vec_moved.eps>
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf 2_RelatedWork/Figures/rust_vec_moved.eps>
 (epstopdf)             \includegraphics on input line 84.
 Package epstopdf Info: Output file is already uptodate.
-<2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf, id=589, 370.38374pt x 168.63pt>
+<2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf, id=607, 370.38374pt x 168.63pt>
 File: 2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf Graphic file (type pdf)
 <use 2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf>
 Package pdftex.def Info: 2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf  used on input line 84.
@@ -627,7 +630,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/own_ref_slice.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/own_ref_slice-eps-converted-to.pdf 3_Body/Figures/own_ref_slice.eps>
 (epstopdf)             \includegraphics on input line 25.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/own_ref_slice-eps-converted-to.pdf, id=637, 305.14pt x 284.06125pt>
+<3_Body/Figures/own_ref_slice-eps-converted-to.pdf, id=655, 305.14pt x 284.06125pt>
 File: 3_Body/Figures/own_ref_slice-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/own_ref_slice-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/own_ref_slice-eps-converted-to.pdf  used on input line 25.
@@ -648,7 +651,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/normal_agg.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/normal_agg-eps-converted-to.pdf 3_Body/Figures/normal_agg.eps>
 (epstopdf)             \includegraphics on input line 76.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/normal_agg-eps-converted-to.pdf, id=658, 236.885pt x 377.41pt>
+<3_Body/Figures/normal_agg-eps-converted-to.pdf, id=676, 236.885pt x 377.41pt>
 File: 3_Body/Figures/normal_agg-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/normal_agg-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/normal_agg-eps-converted-to.pdf  used on input line 76.
@@ -662,7 +665,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/tree_agg.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/tree_agg-eps-converted-to.pdf 3_Body/Figures/tree_agg.eps>
 (epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/tree_agg-eps-converted-to.pdf, id=659, 313.17pt x 247.92625pt>
+<3_Body/Figures/tree_agg-eps-converted-to.pdf, id=677, 313.17pt x 247.92625pt>
 File: 3_Body/Figures/tree_agg-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/tree_agg-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/tree_agg-eps-converted-to.pdf  used on input line 81.
@@ -953,7 +956,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_access_different_ponite
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf 3_Body/Figures/rust_access_different_poniter_init.eps>
 (epstopdf)             \includegraphics on input line 32.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf, id=827, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf, id=845, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf  used on input line 32.
@@ -967,7 +970,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_access_different_ponite
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf 3_Body/Figures/rust_access_different_poniter_noinit.eps>
 (epstopdf)             \includegraphics on input line 38.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf, id=828, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf, id=846, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf  used on input line 38.
@@ -981,7 +984,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_access_init_vs_noint.ep
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf 3_Body/Figures/rust_access_init_vs_noint.eps>
 (epstopdf)             \includegraphics on input line 44.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf, id=829, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf, id=847, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_access_init_vs_noint-eps-converted-to.pdf  used on input line 44.
@@ -996,7 +999,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_droptime_borring_rc.eps
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf 3_Body/Figures/rust_droptime_borring_rc.eps>
 (epstopdf)             \includegraphics on input line 29.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf, id=927, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf, id=945, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf  used on input line 29.
@@ -1011,7 +1014,7 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_merge_sort.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_merge_sort-eps-converted-to.pdf 3_Body/Figures/rust_merge_sort.eps>
 (epstopdf)             \includegraphics on input line 43.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_merge_sort-eps-converted-to.pdf, id=1040, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_merge_sort-eps-converted-to.pdf, id=1058, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_merge_sort-eps-converted-to.pdf  used on input line 43.
@@ -1035,17 +1038,60 @@ Package epstopdf Info: Source file: <3_Body/Figures/rust_tree_aggregate.eps>
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf 3_Body/Figures/rust_tree_aggregate.eps>
 (epstopdf)             \includegraphics on input line 82.
 Package epstopdf Info: Output file is already uptodate.
-<3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf, id=1114, 1084.05pt x 722.7pt>
+<3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf, id=1132, 1084.05pt x 722.7pt>
 File: 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf  used on input line 82.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
-[43] [44])) [45 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>])
+[43] [44]) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/knn.tex [45 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>] [46]
+Package epstopdf Info: Source file: <3_Body/Figures/total.eps>
+(epstopdf)                    date: 2020-04-29 13:28:38
+(epstopdf)                    size: 42063 bytes
+(epstopdf)             Output file: <3_Body/Figures/total-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-04-29 18:26:39
+(epstopdf)                    size: 17046 bytes
+(epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/total-eps-converted-to.pdf 3_Body/Figures/total.eps>
+(epstopdf)             \includegraphics on input line 56.
+Package epstopdf Info: Output file is already uptodate.
+<3_Body/Figures/total-eps-converted-to.pdf, id=1223, 1084.05pt x 722.7pt>
+File: 3_Body/Figures/total-eps-converted-to.pdf Graphic file (type pdf)
+<use 3_Body/Figures/total-eps-converted-to.pdf>
+Package pdftex.def Info: 3_Body/Figures/total-eps-converted-to.pdf  used on input line 56.
+(pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
+Package epstopdf Info: Source file: <3_Body/Figures/preprocessing.eps>
+(epstopdf)                    date: 2020-04-29 13:28:23
+(epstopdf)                    size: 42414 bytes
+(epstopdf)             Output file: <3_Body/Figures/preprocessing-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-04-29 18:23:58
+(epstopdf)                    size: 16910 bytes
+(epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/preprocessing-eps-converted-to.pdf 3_Body/Figures/preprocessing.eps>
+(epstopdf)             \includegraphics on input line 62.
+Package epstopdf Info: Output file is already uptodate.
+<3_Body/Figures/preprocessing-eps-converted-to.pdf, id=1224, 1084.05pt x 722.7pt>
+File: 3_Body/Figures/preprocessing-eps-converted-to.pdf Graphic file (type pdf)
+<use 3_Body/Figures/preprocessing-eps-converted-to.pdf>
+Package pdftex.def Info: 3_Body/Figures/preprocessing-eps-converted-to.pdf  used on input line 62.
+(pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
+Package epstopdf Info: Source file: <3_Body/Figures/query.eps>
+(epstopdf)                    date: 2020-04-29 13:28:31
+(epstopdf)                    size: 42582 bytes
+(epstopdf)             Output file: <3_Body/Figures/query-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-04-29 18:25:14
+(epstopdf)                    size: 17224 bytes
+(epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/query-eps-converted-to.pdf 3_Body/Figures/query.eps>
+(epstopdf)             \includegraphics on input line 69.
+Package epstopdf Info: Output file is already uptodate.
+<3_Body/Figures/query-eps-converted-to.pdf, id=1225, 1084.05pt x 722.7pt>
+File: 3_Body/Figures/query-eps-converted-to.pdf Graphic file (type pdf)
+<use 3_Body/Figures/query-eps-converted-to.pdf>
+Package pdftex.def Info: 3_Body/Figures/query-eps-converted-to.pdf  used on input line 69.
+(pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
+)) [47] [48 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/total-eps-converted-to.pdf>] [49 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/preprocessing-eps-converted-to.pdf>] [50 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/query-eps-converted-to.pdf>])
 \openout2 = `4_Conclusion/conclusion.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.tex
 Chapter 5.
-) [46
+) [51
 
 
 
@@ -1079,23 +1125,23 @@ Package epstopdf Info: Source file: <Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)             Command: <repstopdf --outfile=Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
-<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=1202, 756.8275pt x 427.5975pt>
+<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=1376, 756.8275pt x 427.5975pt>
 File: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Graphic file (type pdf)
 <use Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>
 Package pdftex.def Info: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf  used on input line 22.
 (pdftex.def)             Requested size: 426.79134pt x 241.12979pt.
-)) [47
+)) [52
 
 
 
 
-] [48 </Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl [49
+] [53 </Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl [54
 
 
-]) [50]
+]) [55]
 \openout2 = `0_Prelim/cv.aux'.
 
- (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [51
+ (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [56
 
 
 ]
@@ -1105,7 +1151,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 111.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 891548B3552ECAA596A70153BB1DB2A6;4126.
+(rerunfilecheck)             Checksum: 559562DA357EE4A1F07212D32DC8FDF0;4266.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1113,18 +1159,18 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 10541 strings out of 492616
- 164649 string characters out of 6129482
- 484595 words of memory out of 5000000
- 13828 multiletter control sequences out of 15000+600000
+ 10578 strings out of 492616
+ 165728 string characters out of 6129482
+ 485122 words of memory out of 5000000
+ 13848 multiletter control sequences out of 15000+600000
  11015 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,53p,547b,1284s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,13n,53p,547b,1284s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (64 pages, 438078 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (69 pages, 485490 bytes).
 PDF statistics:
- 1351 PDF objects out of 1440 (max. 8388607)
- 989 compressed objects within 10 object streams
- 330 named destinations out of 1000 (max. 500000)
- 579 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1527 PDF objects out of 1728 (max. 8388607)
+ 1040 compressed objects within 11 object streams
+ 341 named destinations out of 1000 (max. 500000)
+ 610 words of extra memory for PDF output out of 10000 (max. 10000000)
 

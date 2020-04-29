@@ -51,11 +51,13 @@
 \contentsline {subsection}{\numberline {4.5.2}Discussion}{40}{subsection.4.5.2}% 
 \contentsline {section}{\numberline {4.6}Experiment 4: Tree-aggregation}{41}{section.4.6}% 
 \contentsline {subsection}{\numberline {4.6.1}Result}{43}{subsection.4.6.1}% 
-\contentsline {subsection}{\numberline {4.6.2}Discussion}{44}{subsection.4.6.2}% 
-\contentsline {section}{\numberline {4.7}Summary}{45}{section.4.7}% 
-\contentsline {chapter}{\numberline {5}Conclusions}{46}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Summary of the thesis}{46}{section.5.1}% 
-\contentsline {chapter}{\numberline {A}Linear Algebra Computation}{47}{Appendix.a.A}% 
-\contentsline {section}{\numberline {A.1}Create Java interface of CBLAS with JNI}{47}{section.a.A.1}% 
-\contentsline {chapter}{References}{49}{chapter*.28}% 
-\contentsline {chapter}{Curriculum Vitae}{51}{chapter*.28}% 
+\contentsline {subsection}{\numberline {4.6.2}Discussion}{43}{subsection.4.6.2}% 
+\contentsline {section}{\numberline {4.7}Experiment 5: K-Nearest-Neighbors}{45}{section.4.7}% 
+\contentsline {subsection}{\numberline {4.7.1}Result}{47}{subsection.4.7.1}% 
+\contentsline {section}{\numberline {4.8}Summary}{47}{section.4.8}% 
+\contentsline {chapter}{\numberline {5}Conclusions}{51}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Summary of the thesis}{51}{section.5.1}% 
+\contentsline {chapter}{\numberline {A}Linear Algebra Computation}{52}{Appendix.a.A}% 
+\contentsline {section}{\numberline {A.1}Create Java interface of CBLAS with JNI}{52}{section.a.A.1}% 
+\contentsline {chapter}{References}{54}{chapter*.32}% 
+\contentsline {chapter}{Curriculum Vitae}{56}{chapter*.32}% 

@@ -1,0 +1,16 @@
+datastructure#init#size#field#createtime#accesstime#totaltime
+[RustVector]#true#23000000#"own"#12883#124358#168080
+[RustVector]#true#23000000#"own"#5166#124589#159550
+[RustVector]#true#23000000#"own"#5203#129509#164187
+[RustVector]#true#23000000#"own"#6904#124293#160788
+[RustVector]#true#23000000#"own"#5514#127672#162939
+[RustVector]#true#23000000#"reference"#1671#131485#162978
+[RustVector]#true#23000000#"reference"#1748#127894#159607
+[RustVector]#true#23000000#"reference"#1740#127018#158579
+[RustVector]#true#23000000#"reference"#2080#128528#160437
+[RustVector]#true#23000000#"reference"#1666#129548#161026
+[RustVector]#true#23000000#"slice"#3764#126099#160295
+[RustVector]#true#23000000#"slice"#2950#123332#156579
+[RustVector]#true#23000000#"slice"#3011#134345#168502
+[RustVector]#true#23000000#"slice"#2886#125756#158715
+[RustVector]#true#23000000#"slice"#3208#124444#158952

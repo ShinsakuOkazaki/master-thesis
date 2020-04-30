@@ -23,6 +23,9 @@
 \contentsline {figure}{\numberline {4$\cdot $7}{\ignorespaces Aggregation function with Arc\relax }}{43}{figure.caption.24}% 
 \contentsline {figure}{\numberline {4$\cdot $8}{\ignorespaces Aggregation function with deep-copy\relax }}{44}{figure.caption.25}% 
 \contentsline {figure}{\numberline {4$\cdot $9}{\ignorespaces Runtime of Tree-aggregate algorithm\relax }}{45}{figure.caption.26}% 
+\contentsline {figure}{\numberline {4$\cdot $10}{\ignorespaces Total runtime whole KNN algorithm (seconds)\relax }}{48}{figure.caption.28}% 
+\contentsline {figure}{\numberline {4$\cdot $11}{\ignorespaces Total runtime of preprocessing phase in KNN (seconds)\relax }}{49}{figure.caption.29}% 
+\contentsline {figure}{\numberline {4$\cdot $12}{\ignorespaces Total runtime of query phase in KNN (seconds)\relax }}{50}{figure.caption.30}% 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A$\cdot $1}{\ignorespaces Integration of Native Methods \relax }}{48}{figure.caption.27}% 
+\contentsline {figure}{\numberline {A$\cdot $1}{\ignorespaces Integration of Native Methods \relax }}{53}{figure.caption.31}% 

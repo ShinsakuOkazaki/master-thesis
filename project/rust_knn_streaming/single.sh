@@ -34,6 +34,10 @@ done
 
 
 
+# time cargo run --release 1 1 25000 30 3 $train_partitions $test_partitions "${train_p_sizes[@]}" "${test_p_sizes[@]}"
+# sleep 10m
+# time cargo run --release 2 1 25000 30 3 $train_partitions $test_partitions "${train_p_sizes[@]}" "${test_p_sizes[@]}"
+#sleep 10m
+# time cargo run --release 1 2 25000 30 3 $train_partitions $test_partitions "${train_p_sizes[@]}" "${test_p_sizes[@]}"
+#sleep 10m
 time cargo run --release 2 2 25000 30 3 $train_partitions $test_partitions "${train_p_sizes[@]}" "${test_p_sizes[@]}"
-
-

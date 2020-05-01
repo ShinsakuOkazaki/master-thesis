@@ -49,6 +49,18 @@ By controlling these parameter, we compare runtime and memory usage of KNN algor
 
 \subsection{Result}
 \label{sec:history}
+Figure~\ref{fig:total}, ~\ref{fig:preprocess}, and ~\ref{fig:query} show the runtime performance of our KNN algorithms in total, preprocess, and query phase respectively. 
+The algorithms whose runtime is showing 0 seconds are algorithms that are terminated during execution due to fail of memory allocation.
+The algorithm with 2 batches, strategy 1, Arc method, and 20K and 25K dimension, 
+and the algorithm with 2 batches, strategy 1, deep-copy method, 25K dimension are such algorithms whose memory capacity get over during execution time.
+
+As shown in Figure~\ref{fig:preprocess}, the algorithms using Arc is much slower than using deep-copy in preprocessing phase. 
+If we set algorithm's parameter in 3 batches , strategy 2, and 25K dimension, the algorithm with Arc is about 38\% slower than the one with deep-copy. 
+In addition, the algorithms with strategy 2 are slower than with strategy 1. When the parameters are set in 3 batches, deep-copy method, and 25K dimension, 
+runtime performance of the algorithm with strategy 2 is about 85\% slower than one with strategy 1. 
+Furthermore, as we increase the number of dimension, the number of batch becomes more and more critical to runtime performance of the algorithms with deep-copy.
+The runtime differences among different number of batch are about 44\%, 28\%, and 39\% for the algorithms whose parameters are set in strategy 2 and Arc method. 
+However, those for the algorithms with strategy 2 and deep-copy method are about 11\%, 28\%, and 54\%. The ratios of difference increase proportionally to the number of dimension. 
 
 
 
@@ -72,3 +84,5 @@ By controlling these parameter, we compare runtime and memory usage of KNN algor
 \end{figure}
 
 
+\subsection{Discussion}
+\label{sec:history}

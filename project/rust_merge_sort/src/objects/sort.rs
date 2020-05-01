@@ -8,7 +8,7 @@ use std::collections::VecDeque;
 use std::default::Default;
 use std::time::Instant;
 
-const MAX_THREADS: usize = 4;
+const MAX_THREADS: usize = 8;
 
 // pub fn mergesort_vecdeque<T: 'static>(arr:VecDeque<T>, left: usize, right: usize) -> (u128, VecDeque<T>) 
 //     where T: Clone + Customer + PartialOrd + Send + Sync + Default

@@ -54,7 +54,8 @@
 \contentsline {subsection}{\numberline {4.6.2}Discussion}{43}{subsection.4.6.2}% 
 \contentsline {section}{\numberline {4.7}Experiment 5: K-Nearest-Neighbors}{45}{section.4.7}% 
 \contentsline {subsection}{\numberline {4.7.1}Result}{47}{subsection.4.7.1}% 
-\contentsline {section}{\numberline {4.8}Summary}{47}{section.4.8}% 
+\contentsline {subsection}{\numberline {4.7.2}Discussion}{48}{subsection.4.7.2}% 
+\contentsline {section}{\numberline {4.8}Summary}{48}{section.4.8}% 
 \contentsline {chapter}{\numberline {5}Conclusions}{51}{chapter.5}% 
 \contentsline {section}{\numberline {5.1}Summary of the thesis}{51}{section.5.1}% 
 \contentsline {chapter}{\numberline {A}Linear Algebra Computation}{52}{Appendix.a.A}% 

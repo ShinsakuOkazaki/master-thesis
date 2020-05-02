@@ -1,15 +1,15 @@
 #!/bin/bash
 
-cargo clean
-cargo build --release
+# cargo clean
+# cargo build --release
 
 
-for size in 1000000 2000000 3000000 4000000
+for size in 2000000  4000000 6000000 8000000 
 do
     rm -rf loging.log
     echo "datastructure#size#partnumber#method#aggtime#accesstime" > loging.log
 
-    for partnumber in 7 31 127 511 2047 8191
+    for partnumber in 8 16 32 64 
     do
         for method in 1 2
         do

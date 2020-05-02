@@ -7,7 +7,7 @@ use std::collections::HashMap;
 
 
 
-const MAX_THREADS: usize = 4;
+const MAX_THREADS: usize = 8;
 
 pub fn tree_aggregate_run(paths: Arc<Vec<String>>) -> (u128, HashMap<String, Vec<Arc<CustomerOwned>>>)
 {

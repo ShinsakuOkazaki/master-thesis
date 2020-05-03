@@ -31,8 +31,7 @@ The difference of the both algorithm codes are represented in Figure~\ref{fig:ar
 If we glance the codes, the notable difference is only when we acquire an element from CustomerOwned Vec to construct an aggregated data structure.
 Therefore, there is few difference between two kinds of tree-aggregate algorithm in terms of code appearance.
 
-Numbers of CustomerOwned objects aggregated in our experiment are 1, 2, 3, 4 million. 
-This experiment is run on n1-standard-4.
+Numbers of CustomerOwned objects aggregated in our experiment are 2, 4, 6, 8 million. 
 
 \begin{figure}[htb]
     \begin{lstlisting}
@@ -76,7 +75,7 @@ This experiment is run on n1-standard-4.
 
 \subsection{Result}
 Figure~\ref{fig:ex_tree_agg} shows runtime performance of two tree-aggregate algorithms. 
-The runtime of algorithm with deep-copy is about 33\% slower than algorithm with Arc for every vector size. 
+The runtime of algorithm with deep-copy is about 40 to 50\% slower than algorithm with Arc for every vector size. 
 
 \begin{figure}[htb]
     \includegraphics[width=15cm]{rust_tree_aggregate.eps}

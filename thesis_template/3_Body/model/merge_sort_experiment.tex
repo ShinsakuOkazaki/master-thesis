@@ -17,9 +17,8 @@ We use scope method from crossbeam crate to perform multithread programming.
 Scoped thread can have reference to value from its parent thread by ensuring children threads are joined before their parent thread returns value. 
 By using scoped thread, we can implement two merge-sort algorithms in identical way except whether the function receives Arc or reference of source vector.
 The representations of source vector for each algorithm are shown in Figure~\ref{fig:source_merge_sort}.
-The elements of source vector are CustomerOwned objects. We generates source vectors in size of 1, 2, 3 and 4 million.
+The elements of source vector are CustomerOwned objects. We generates source vectors in size of 4, 8, 12 and 16 million.
 Finally, merge-sort is performed based on value of key field. The figure shows the result for runtime performance of merge-sort algorithms on difference size of vectors. 
-This experiment is run on n1-standard-4 and generates 4 threads to perform multithreading.
 
 \begin{figure}[htb]
     \begin{lstlisting}
@@ -37,7 +36,7 @@ This experiment is run on n1-standard-4 and generates 4 threads to perform multi
 \subsection{Result}
 Figure~\ref{fig:source_merge_sort} shows the runtime performance of our merge-sort algorithm with specified Vec sizes. 
 The blue and yellow bar charts represent the runtime performance of merge-sort algorithm using reference and Arc respectively. 
-The result says that algorithms with Arc is about 24\% slower than algorithms with reference.
+The result says that algorithms with Arc is about 21\% slower than algorithms with reference.
 
 \begin{figure}[htb]
     \includegraphics[width=15cm]{rust_merge_sort.eps}

@@ -8,7 +8,7 @@ At first, we generate source Vecs for all fields, Vecs which contain all element
 For example, all of i32 elements used for key field in 1 million Customer object are stored in Vec$<$i32$>$ with 1 million i32 elements. 
 Later, these i32 elements are moved to be owned or borrowed by the object's fields.
 
-Next, 1.5, 1.8, 2.5, 2.8, 3.5, and 3.8 million of Customer objects are created and stored in Vec. 
+Next, 3, 13, 23, 33 million of Customer objects are created and stored in Vec. 
 When a Customer Vec is created, whether size of Vec is initialized is controlled. 
 Finally, serialization of Customer object is performed as an operation forcing program to access all of fields in the object.
 This serialization is performed each Customer objects in the Vec. We measure total runtime to serialize all of Customer objects 
@@ -22,11 +22,7 @@ Figure~\ref{fig:rustaccessnoinit} is comparison in the same set of experiment ex
 The blue, yellow, and green chats represent runtime of access to fields of CustomerOwned, CustomerBorrowed, and CustomerSlice objects respectively.
 
 No matter Vec size initialized or not, differences of runtime for accessing objects are not remarkable among different object types. 
-The percent increase in runtime of accessing to fields of from 1.5 to 3.8 million CustomerOwned objects is 121\% if the Vec is initialized, 554\% if the Vec is not initialized.
 
-Considering the differences of percent increase of runtime whether the Vec is initialized or not, 
-Figure\ref{fig:init_vs_noinit} the comparison of runtime access to fields of CustomerOwned object with and without Vec Initialization.
-For 3.8 million of objects, the difference of runtime to access to the objects is 38745 secounds; program without Vec initialization is 60\% slower than one with the initialization.
 
 \begin{figure}[htb]
     \includegraphics[width=15cm]{rust_access_different_poniter_init.eps}
@@ -40,11 +36,12 @@ For 3.8 million of objects, the difference of runtime to access to the objects i
     \label{fig:rustaccessnoinit}
 \end{figure}
 
-\begin{figure}[htb]
-    \includegraphics[width=15cm]{rust_access_init_vs_noint.eps}
-    \caption{Runtime of Access to Fields of Complex Object with Initialization vs without Initialization}
-    \label{fig:init_vs_noinit}
-\end{figure}
+
+% \begin{figure}[htb]
+%     \includegraphics[width=15cm]{rust_access_init_vs_noint.eps}
+%     \caption{Runtime of Access to Fields of Complex Object with Initialization vs without Initialization}
+%     \label{fig:init_vs_noinit}
+% \end{figure}
 
 \subsection{Discussion}
 \label{sec:history}
@@ -54,6 +51,6 @@ close to each other. As shown in Figure~\ref{fig:own_ref_slice}, the representat
 Reference is pointer pointing to owner, so it has an additional step to access actual value. 
 However, the result shows this additional step does not have huge impact for runtime to access memory region of the value.
 
-Whether initializing Vec size results in disparity of runtime performance to access objects' fields. 
-This is because when Vec uninitialized, the elements of Vec are allocated across different virtual memory pages.
+% Whether initializing Vec size results in disparity of runtime performance to access objects' fields. 
+% This is because when Vec uninitialized, the elements of Vec are allocated across different virtual memory pages.
 

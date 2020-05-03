@@ -18,7 +18,7 @@ In the CustomerRc and OrderRc struct, all fields take Rc (Rc$<$T$>$). Similarly 
 sets of integer, float, and String vector are created and their elements are borrowed or reference counted to create CustomerBorrowed or CustomerRc objects.
 The dropping of objects deletes references or Rcs used for fields of the objects. However, it does not deallocate values to which they are pointing. 
 Therefore, the evaluated runtime of dropping objects only consists of dropping time of reference or Rc, but deallocation time.
-We generated 1, 1.5, 2, 2.5, 3, 3.5 million of CustomerBorrowed and CustomerRc objects and performed drop one by one. 
+We generated 3, 13, 23, and 33 million of CustomerBorrowed and CustomerRc objects and performed drop one by one. 
 
 \subsection{Result}
 Figure\ref{fig:rc_ref} shows comparison of runtime dropping CustomerBorrowed and CustomerRc objects. 

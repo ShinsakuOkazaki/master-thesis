@@ -110,12 +110,12 @@ Algorithm 7 starts to slow down as number of dimension is increased.
 
 \subsection{Discussion}
 \label{sec:history}
-In preprocess phase, the algorithms using Arc method performs worse that one with deep-copy method. 
+In preprocess phase, the algorithms using Arc method performs worse than ones with deep-copy method. 
 This result may seem to contradict to the result of Experiment 4 in Section~\ref{sec:eval_treeagg}.
 In Experiment 4, complex objects, CustomerOwned, are cloned with Arc or deep-copied. 
 In this Experiment 5, we however get Arc or deep-copy of String instead of complex object.
 The result explains deep-copying String is much inexpensive than deep-copying the complex object and 
-actually efficient than using Arc to share String. 
+using deep-copy method is actually efficient than using Arc to share String. 
 Therefore, we need to make decision which method to use depending on size and complexity of objects.
 
 In addition, use of different strategies in preprocess phase explains how deallocations of intermediate data structures and drops of their variables impact algorithm's runtime performance.
@@ -128,8 +128,25 @@ The impact of number of batch can explain how frequency of memory de/allocation 
 Dealing with more number of batch has negative impacts to runtime performance, because it triggers more frequent memory de/allocation.
 In addition, as we increase the number of dimension, the ration of runtime difference among different numbers of batch for the algorithms with deep-copy, but not for ones with Arc.
 This is because algorithm with Arc does not de/allocate memory as much frequent as ones with deep-copy.
-The intermediate datas mealy get reference to String values without actually allocating memory for copied Strings.
+The intermediate data structures mealy get reference to String values without actually allocating memory for copied Strings.
 
+In query phase, most of our algorithms shows similar runtime performance among the same number of dimension. 
+Why such differences seen in preprocess phase are not shown in query phase? This is because the data structures processed in this phase are numeric matrices and vectors. 
+These data structures do not contain String so that the selection of method parameter does not have direct impact to algorithm's runtime performance.
 
+Furthermore, numeric matrices and vectors are contiguously allocated initializing their size, so they are easy to be de/allocated. 
+The computation needed for these de/allocations is fairly fast. Therefore, setting parameters, such as number of batch and strategy, does not impacts runtime performance.
 
+However, we can see significant degradation in Algorithm 7 with 20K and 25K dimension and Algorithm 8 with 15K, 20K, and 25K dimension. 
+By using strategy 2, we deallocate the numeric matrices and vectors in query phase. However, it is difficult to think that these contiguous memory deallocations cause the degradation. 
+If that is so, Algorithm 5 and 6 should also show some overheads. No page-swapping does not happen during the execution. 
+One possible reason is that these algorithms suffer from the allocation of numeric matrices and vectors due to previous deallocation of intermediate data structures in preprocess phase. 
+The frequent deallocations and low locality of Arc may lead long free-space-list making difficult to search enough spaces to allocate numeric matrices and vectors.
+The other possibility is that the frequent deallocations and low locality of Arc cause cache of numeric matrices and vectors. 
+The computation on these numeric objects may slow down due to their caching levels. 
+To conclude these discussion, we need to conduct more experiments and deeper analysis. 
+However, we push those discussion in next paper.
 
+In a part of conclusion, using Arc to String may be overhead. Considered the result from Experiment 4, we need careful consideration which object to use which strategy, deep-copy and Arc.
+In addition, frequent memory deallocation can lead to slower runtime performance. 
+Therefore, we need to decide when to deallocate unused values taking account of memory capacity. 

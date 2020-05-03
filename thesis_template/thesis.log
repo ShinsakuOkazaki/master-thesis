@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  2 MAY 2020 01:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  2 MAY 2020 21:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1089,12 +1089,12 @@ File: 3_Body/Figures/query-eps-converted-to.pdf Graphic file (type pdf)
 <use 3_Body/Figures/query-eps-converted-to.pdf>
 Package pdftex.def Info: 3_Body/Figures/query-eps-converted-to.pdf  used on input line 105.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
- [48])) [49 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/total-eps-converted-to.pdf>] [50 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/preprocessing-eps-converted-to.pdf>] [51 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/query-eps-converted-to.pdf>])
+ [48] [49 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/total-eps-converted-to.pdf>] [50 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/preprocessing-eps-converted-to.pdf>]) [51 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/query-eps-converted-to.pdf>]) [52])
 \openout2 = `4_Conclusion/conclusion.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/4_Conclusion/conclusion.tex
 Chapter 5.
-) [52
+) [53
 
 
 
@@ -1128,23 +1128,23 @@ Package epstopdf Info: Source file: <Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)             Command: <repstopdf --outfile=Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
-<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=1394, 756.8275pt x 427.5975pt>
+<Appendix/Figures/cblas_with_jni-eps-converted-to.pdf, id=1399, 756.8275pt x 427.5975pt>
 File: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Graphic file (type pdf)
 <use Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>
 Package pdftex.def Info: Appendix/Figures/cblas_with_jni-eps-converted-to.pdf  used on input line 22.
 (pdftex.def)             Requested size: 426.79134pt x 241.12979pt.
-)) [53
+)) [54
 
 
 
 
-] [54 </Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl [55
+] [55 </Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl [56
 
 
-]) [56]
+]) [57]
 \openout2 = `0_Prelim/cv.aux'.
 
- (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [57
+ (/Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/cv.tex) [58
 
 
 ]
@@ -1162,18 +1162,18 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 10583 strings out of 492616
- 165800 string characters out of 6129482
- 485174 words of memory out of 5000000
+ 10584 strings out of 492616
+ 165807 string characters out of 6129482
+ 485176 words of memory out of 5000000
  13850 multiletter control sequences out of 15000+600000
  11015 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,13n,53p,547b,1284s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (70 pages, 490110 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (71 pages, 493032 bytes).
 PDF statistics:
- 1546 PDF objects out of 1728 (max. 8388607)
- 1058 compressed objects within 11 object streams
- 344 named destinations out of 1000 (max. 500000)
+ 1551 PDF objects out of 1728 (max. 8388607)
+ 1062 compressed objects within 11 object streams
+ 345 named destinations out of 1000 (max. 500000)
  618 words of extra memory for PDF output out of 10000 (max. 10000000)
 

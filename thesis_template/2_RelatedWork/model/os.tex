@@ -1,6 +1,6 @@
 \subsection{Memory and Process in Operating Systems}
 \label{sec:os_mem_process}
-A process is a subsection of computation job. A process can work on a CPU core. We can divide process as well.
+A process is a subsection of computation job. A process can work on a CPU core, we can divide process as well.
 Basically, each process does not share their memory. However, for multiprocessing, we could avoid this restriction.
 Processes can be represented as tree structure, because a process may create other child processes.
 Process has 4 states, new, running, waiting, and ready. 
@@ -79,10 +79,10 @@ If the page or frame is modified, when we swap page we need to update the conten
 
 
 
-\subsection{Copy on Page}
-\label{sec:os_copypage}
-When a parent process creates child process and if these process shares contents on particular page and modify it, 
-only the page which has the context will be copied.
+% \subsection{Copy on Page}
+% \label{sec:os_copypage}
+% When a parent process creates child process and if these process shares contents on particular page and modify it, 
+% only the page which has the context will be copied.
 
 
 % \subsection{Threads and Concurrency}

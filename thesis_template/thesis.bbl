@@ -9,6 +9,9 @@ Apache hadoop, 2020.
 \bibitem{ApacheSparkHomePage}
 Apache spark, 2020.
 
+\bibitem{nd4j}
+Nd4j, 2020.
+
 \bibitem{RustArcPage}
 Rust arc documentation, 2020.
 
@@ -21,6 +24,13 @@ Michael Armbrust, Reynold~S. Xin, Cheng Lian, Yin Huai, Davies Liu, Joseph~K.
   {\em Proceedings of the 2015 {ACM} {SIGMOD} International Conference on
   Management of Data, Melbourne, Victoria, Australia, May 31 - June 4, 2015},
   pages 1383--1394. {ACM}, 2015.
+
+\bibitem{DBLP:journals/debu/CarboneKEMHT15}
+Paris Carbone, Asterios Katsifodimos, Stephan Ewen, Volker Markl, Seif Haridi,
+  and Kostas Tzoumas.
+\newblock Apache flink{\texttrademark}: Stream and batch processing in a single
+  engine.
+\newblock {\em {IEEE} Data Eng. Bull.}, 38(4):28--38, 2015.
 
 \bibitem{DBLP:conf/cgo/LattnerA04}
 Chris Lattner and Vikram~S. Adve.
@@ -55,11 +65,31 @@ Juwei Shi, Yunjie Qiu, Umar~Farooq Minhas, Limei Jiao, Chen Wang, Berthold
   analytics.
 \newblock {\em {PVLDB}}, 8(13):2110--2121, 2015.
 
+\bibitem{DBLP:conf/pldi/WangCCZVML0X19}
+Chenxi Wang, Huimin Cui, Ting Cao, John Zigman, Haris Volos, Onur Mutlu, Fang
+  Lv, Xiaobing Feng, and Guoqing~Harry Xu.
+\newblock Panthera: holistic memory management for big data processing over
+  hybrid memories.
+\newblock In Kathryn~S. McKinley and Kathleen Fisher, editors, {\em Proceedings
+  of the 40th {ACM} {SIGPLAN} Conference on Programming Language Design and
+  Implementation, {PLDI} 2019, Phoenix, AZ, USA, June 22-26, 2019}, pages
+  347--362. {ACM}, 2019.
+
 \bibitem{DBLP:journals/pvldb/XuGDWW19}
 Lijie Xu, Tian Guo, Wensheng Dou, Wei Wang, and Jun Wei.
 \newblock An experimental evaluation of garbage collectors on big data
   applications.
 \newblock {\em {PVLDB}}, 12(5):570--583, 2019.
+
+\bibitem{DBLP:conf/kdd/ZadehMUYPVSSZ16}
+Reza~Bosagh Zadeh, Xiangrui Meng, Alexander Ulanov, Burak Yavuz, Li~Pu,
+  Shivaram Venkataraman, Evan~R. Sparks, Aaron Staple, and Matei Zaharia.
+\newblock Matrix computations and optimization in apache spark.
+\newblock In Balaji Krishnapuram, Mohak Shah, Alexander~J. Smola, Charu~C.
+  Aggarwal, Dou Shen, and Rajeev Rastogi, editors, {\em Proceedings of the 22nd
+  {ACM} {SIGKDD} International Conference on Knowledge Discovery and Data
+  Mining, San Francisco, CA, USA, August 13-17, 2016}, pages 31--38. {ACM},
+  2016.
 
 \bibitem{DBLP:conf/nsdi/ZahariaCDDMMFSS12}
 Matei Zaharia, Mosharaf Chowdhury, Tathagata Das, Ankur Dave, Justin Ma, Murphy

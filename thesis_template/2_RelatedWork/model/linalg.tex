@@ -18,19 +18,12 @@ When the matrix is symmetric it reduces to a variant of the Lanczos process call
 Therefore, this method can be applied to distributed matrix operations required in big data analysis.
 
 
-The original BLAS and LAPACK are written in Fortran90. Linear algebra library used for Spark is netlib-java, which is a Java wrapper library for Netlib, C API of BLAS and LAPACK. 
-The reason why the developers addressed to use this package is that the BLAS and LAPACK are already bug free and implementing linear algebra library from scratch can usually buggy. 
-
-However, the main advantage of use of BLAS and LAPACK is system optimized implementation. So if we implement original Fortran linear algebra library, it cannot perform as well as BLAS and LAPACK. 
-And the performance would not be such different from one of implementation in Java or Rust.  If we want to test only memory management between Rust and Java, 
-it can be enough implementation of linear algebra operation from  pure Java and Rust sacrificing the best performance taking advantage of system optimization. 
-
 
 \subsection{Netlib-Java}
 \label{sec:linalg_netlib}
 
 Netlib-java is a Java wrapper of BLAS, LAPACK, and ARPACK. Netlib-java choose  implementation of linear algebra depending on installation of the libraries. 
-First, if we have installed machine optimised system libraries, such as Intel MKL and OpenBLAS, netlib-java will use these as the implementation to use. 
+First, if we have installed machine optimized system libraries, such as Intel MKL and OpenBLAS, netlib-java will use these as the implementation to use. 
 Next, it try to load netlib references which netlib-java use CBLAS and LAPCKE interface to perform BLAS and LAPACK native call. 
 The last option is to use f2j which is intended to translate the BLAS and LAPACK libraries from their Fortran77 reference source code to Java class files, 
 instead of calling native libraries by using Java Native Interface (JNI). 
@@ -42,7 +35,7 @@ to interoperate with applications and libraries written in other programming lan
 \subsection{Matrix Computation and Optimization in Apache Spark}
 \label{sec:linalg_spark_marix}
 
-Matrix operation is a fundamental part of machine learning. Apache Spark provides implementation for distributed and local matrix operation. 
+Matrix operation is a fundamental part of machine learning. Apache Spark provides implementation for distributed and local matrix operation \cite{DBLP:conf/kdd/ZadehMUYPVSSZ16}. 
 To translate single-node algorithms to run on a distributed cluster, Spark addresses separating matrix operations from vector operations and run matrix operations on the cluster, 
 while keeping vector operations local to the driver. 
 
@@ -78,7 +71,7 @@ Netlib-java, Jblas or other simple Java wrapper of BLAS, LAPACK, and ARPACK with
 This is because the native code deals with Java array by obtaining a reference to it. After the operation, 
 the native method releases the reference to the Java array with or without returning new Java array or Java primitive type object. 
 
-ND4J has two types of  its own memory management methods, GC to pointer of off-heap NDArray, and MemoryWorkspaces. 
+ND4J \cite{nd4j} has two types of  its own memory management methods, GC to pointer of off-heap NDArray, and MemoryWorkspaces. 
 ND4J used off-heap memory to store NDArrats, to provide better performance while working with NDArrays from vative code such as BLAS and CUDA libraries. 
 Off-heap means that the memory is allocated outside of the Java heap so that it is not managed by the JVM’s GC. NDArray itself is not tracked by JVM, 
 but its pointer is. The Java heap stores pointer to NDArray on off-heap. When a pointer is dereferenced, this pointer can be a target of JVM’s GC and when it is collected, 

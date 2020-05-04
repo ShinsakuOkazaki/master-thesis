@@ -2,12 +2,12 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2$\cdot $1}{\ignorespaces Java Heap Structure\relax }}{15}{figure.caption.6}% 
 \contentsline {figure}{\numberline {2$\cdot $2}{\ignorespaces Java Garbage Collection\relax }}{16}{figure.caption.7}% 
-\contentsline {figure}{\numberline {2$\cdot $3}{\ignorespaces Representation of Rust Vec$<$i32$>$\relax }}{19}{figure.caption.8}% 
-\contentsline {figure}{\numberline {2$\cdot $4}{\ignorespaces Representation of Java ArrayList of String\relax }}{20}{figure.caption.9}% 
-\contentsline {figure}{\numberline {2$\cdot $5}{\ignorespaces Representation of Java ArrayList of String after assignment to another variable\relax }}{21}{figure.caption.10}% 
-\contentsline {figure}{\numberline {2$\cdot $6}{\ignorespaces Representation of C++ vector of string\relax }}{22}{figure.caption.11}% 
-\contentsline {figure}{\numberline {2$\cdot $7}{\ignorespaces Representation of C++ vector of string after assignment to another variable\relax }}{22}{figure.caption.12}% 
-\contentsline {figure}{\numberline {2$\cdot $8}{\ignorespaces Representation of Rust Vec$<$String$>$ after assignment to another variable\relax }}{23}{figure.caption.13}% 
+\contentsline {figure}{\numberline {2$\cdot $3}{\ignorespaces Representation of Rust Vec$<$i32$>$\relax }}{18}{figure.caption.8}% 
+\contentsline {figure}{\numberline {2$\cdot $4}{\ignorespaces Representation of Java ArrayList of String\relax }}{19}{figure.caption.9}% 
+\contentsline {figure}{\numberline {2$\cdot $5}{\ignorespaces Representation of Java ArrayList of String after assignment to another variable\relax }}{20}{figure.caption.10}% 
+\contentsline {figure}{\numberline {2$\cdot $6}{\ignorespaces Representation of C++ vector of string\relax }}{21}{figure.caption.11}% 
+\contentsline {figure}{\numberline {2$\cdot $7}{\ignorespaces Representation of C++ vector of string after assignment to another variable\relax }}{21}{figure.caption.12}% 
+\contentsline {figure}{\numberline {2$\cdot $8}{\ignorespaces Representation of Rust Vec$<$String$>$ after assignment to another variable\relax }}{22}{figure.caption.13}% 
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3$\cdot $1}{\ignorespaces Memory Representation of Owner, Reference, and Slice Type\relax }}{26}{figure.caption.14}% 
 \contentsline {figure}{\numberline {3$\cdot $2}{\ignorespaces Representation of aggregation strategies in Apache Spark: (a) Traditional Aggregation, (b) Tree Aggregation\relax }}{28}{figure.caption.15}% 

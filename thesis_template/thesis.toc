@@ -8,24 +8,23 @@
 \contentsline {subsection}{\numberline {2.2.2}Multi-threading and Parallelism}{5}{subsection.2.2.2}% 
 \contentsline {subsection}{\numberline {2.2.3}Memory management in Operating System}{5}{subsection.2.2.3}% 
 \contentsline {subsection}{\numberline {2.2.4}Demand Paging}{7}{subsection.2.2.4}% 
-\contentsline {subsection}{\numberline {2.2.5}Copy on Page}{8}{subsection.2.2.5}% 
 \contentsline {section}{\numberline {2.3}Linear Algebra Computation}{8}{section.2.3}% 
 \contentsline {subsection}{\numberline {2.3.1}BLAS LAPACK}{8}{subsection.2.3.1}% 
 \contentsline {subsection}{\numberline {2.3.2}Netlib-Java}{9}{subsection.2.3.2}% 
 \contentsline {subsection}{\numberline {2.3.3}Matrix Computation and Optimization in Apache Spark}{9}{subsection.2.3.3}% 
-\contentsline {subsection}{\numberline {2.3.4}Memory Management of each Linear Algebra Library}{11}{subsection.2.3.4}% 
+\contentsline {subsection}{\numberline {2.3.4}Memory Management of each Linear Algebra Library}{10}{subsection.2.3.4}% 
 \contentsline {section}{\numberline {2.4}Hadoop MapReduce to Spark}{11}{section.2.4}% 
-\contentsline {section}{\numberline {2.5}Apache Spark}{13}{section.2.5}% 
-\contentsline {subsection}{\numberline {2.5.1}Resilient Distributed Datasets}{13}{subsection.2.5.1}% 
-\contentsline {subsection}{\numberline {2.5.2}Memory Management in Spark}{14}{subsection.2.5.2}% 
-\contentsline {subsection}{\numberline {2.5.3}Garbage Collection Tuning}{15}{subsection.2.5.3}% 
-\contentsline {section}{\numberline {2.6}Application to System Language}{16}{section.2.6}% 
-\contentsline {section}{\numberline {2.7}Rust Memory Management}{18}{section.2.7}% 
-\contentsline {subsection}{\numberline {2.7.1}Ownership}{18}{subsection.2.7.1}% 
+\contentsline {section}{\numberline {2.5}Apache Spark}{12}{section.2.5}% 
+\contentsline {subsection}{\numberline {2.5.1}Resilient Distributed Datasets}{12}{subsection.2.5.1}% 
+\contentsline {subsection}{\numberline {2.5.2}Memory Management in Spark}{13}{subsection.2.5.2}% 
+\contentsline {subsection}{\numberline {2.5.3}Garbage Collection Tuning}{14}{subsection.2.5.3}% 
+\contentsline {section}{\numberline {2.6}Application to System Language}{15}{section.2.6}% 
+\contentsline {section}{\numberline {2.7}Rust Memory Management}{17}{section.2.7}% 
+\contentsline {subsection}{\numberline {2.7.1}Ownership}{17}{subsection.2.7.1}% 
 \contentsline {subsection}{\numberline {2.7.2}Move}{18}{subsection.2.7.2}% 
-\contentsline {subsection}{\numberline {2.7.3}Borrowing}{21}{subsection.2.7.3}% 
+\contentsline {subsection}{\numberline {2.7.3}Borrowing}{22}{subsection.2.7.3}% 
 \contentsline {section}{\numberline {2.8}LLVM}{22}{section.2.8}% 
-\contentsline {section}{\numberline {2.9}Summary}{24}{section.2.9}% 
+\contentsline {section}{\numberline {2.9}Summary}{23}{section.2.9}% 
 \contentsline {chapter}{\numberline {3}Conceptual Design of Experiment}{25}{chapter.3}% 
 \contentsline {section}{\numberline {3.1}Introduction}{25}{section.3.1}% 
 \contentsline {section}{\numberline {3.2}Type of Variable}{25}{section.3.2}% 

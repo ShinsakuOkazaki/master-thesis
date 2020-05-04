@@ -11,56 +11,59 @@ The style file: plain.bst
 A level-1 auxiliary file: 0_Prelim/cv.aux
 Database file #1: thesis.bib
 Warning--entry type for "ApacheHadoopHomePage" isn't style-file defined
---line 68 of file thesis.bib
+--line 166 of file thesis.bib
+Warning--entry type for "nd4j" isn't style-file defined
+--line 172 of file thesis.bib
 Warning--entry type for "ApacheSparkHomePage" isn't style-file defined
---line 74 of file thesis.bib
+--line 178 of file thesis.bib
 Warning--entry type for "ApacheFlinkHomePage" isn't style-file defined
---line 80 of file thesis.bib
+--line 204 of file thesis.bib
 Warning--entry type for "RustArcPage" isn't style-file defined
---line 86 of file thesis.bib
+--line 210 of file thesis.bib
 Warning--to sort, need author or key in ApacheHadoopHomePage
 Warning--to sort, need author or key in ApacheSparkHomePage
 Warning--to sort, need author or key in ApacheFlinkHomePage
+Warning--to sort, need author or key in nd4j
 Warning--to sort, need author or key in RustArcPage
-You've used 12 entries,
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            581 strings with 7616 characters,
-and the built_in function-call counts, 5713 in all, are:
-= -- 523
-> -- 394
-< -- 5
-+ -- 154
-- -- 141
-* -- 462
-:= -- 903
-add.period$ -- 33
-call.type$ -- 12
-change.case$ -- 101
+            604 strings with 8911 characters,
+and the built_in function-call counts, 7766 in all, are:
+= -- 706
+> -- 552
+< -- 7
++ -- 214
+- -- 197
+* -- 634
+:= -- 1236
+add.period$ -- 45
+call.type$ -- 16
+change.case$ -- 137
 chr.to.int$ -- 0
-cite$ -- 16
-duplicate$ -- 176
-empty$ -- 386
-format.name$ -- 141
-if$ -- 1198
+cite$ -- 21
+duplicate$ -- 238
+empty$ -- 515
+format.name$ -- 197
+if$ -- 1624
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 8
-newline$ -- 55
-num.names$ -- 24
-pop$ -- 129
+int.to.str$ -- 16
+missing$ -- 11
+newline$ -- 73
+num.names$ -- 34
+pop$ -- 173
 preamble$ -- 1
-purify$ -- 89
+purify$ -- 121
 quote$ -- 0
-skip$ -- 149
+skip$ -- 200
 stack$ -- 0
-substring$ -- 308
-swap$ -- 62
-text.length$ -- 5
+substring$ -- 403
+swap$ -- 84
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
-warning$ -- 4
-while$ -- 41
-width$ -- 14
-write$ -- 119
-(There were 8 warnings)
+type$ -- 64
+warning$ -- 5
+while$ -- 57
+width$ -- 18
+write$ -- 160
+(There were 10 warnings)

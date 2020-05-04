@@ -45,7 +45,7 @@
 \contentsline {section}{\numberline {4.4}Experiment 2: Assessment of different reference methods in Rust}{35}{section.4.4}% 
 \contentsline {subsection}{\numberline {4.4.1}Result}{36}{subsection.4.4.1}% 
 \contentsline {subsection}{\numberline {4.4.2}Discussion}{37}{subsection.4.4.2}% 
-\contentsline {section}{\numberline {4.5}Experiment 2: Merge-sort}{38}{section.4.5}% 
+\contentsline {section}{\numberline {4.5}Experiment 3: Merge-sort}{38}{section.4.5}% 
 \contentsline {subsection}{\numberline {4.5.1}Result}{39}{subsection.4.5.1}% 
 \contentsline {subsection}{\numberline {4.5.2}Discussion}{39}{subsection.4.5.2}% 
 \contentsline {section}{\numberline {4.6}Experiment 4: Tree-aggregation}{40}{section.4.6}% 

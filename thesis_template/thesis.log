@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  3 MAY 2020 22:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  4 MAY 2020 13:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1140,7 +1140,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 111.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 096F616613D8B7F919C8D5D2DA5B8180;4196.
+(rerunfilecheck)             Checksum: 67D57F99A60A82316254BB9794A155F6;4196.
 
 
 LaTeX Warning: There were multiply-defined labels.

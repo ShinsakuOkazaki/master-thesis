@@ -5,13 +5,13 @@
 
 \section{Motivation}
 \label{sec:motivation}
-Importance of cluster computing tool for Big Data Analysis has been increasing as amount, value, use of data has increased. 
+Cluster computing tool for Big Data Analysis has been more important as magnitude and quality of data that we can obtain increases. 
 Recently, almost all businesses stand on data, from web marketing analysis to factory automations. The leverage of data is ubiquitous, because 
 there are many open source tools to analyze data and cloud computer infrastructure which can support computation for massive amount of data. 
 The improvement of accessibility to these technologies has democratized data driven businesses by 
 eliminating significant amount of initial investment. 
 
-However these technologies do not come for free; we need to pay money for use of these resources. Usually, user needs to pay depending on use of computational resources. 
+However these computation resources do not come for free; we need to pay money to use these resources. Usually, user needs to pay depending on usage of computational resources. 
 If your process of data analysis is too long or need to use number of clusters with high speck specification, the cost may end up significantly hight.
 To address these problems, the quality of analysis tool is critical. If the tool can optimize the runtime performance and usage of computational resources, 
 the cost for running the businesses can become efficient.
@@ -37,34 +37,54 @@ Although the evidence of the advantage of building high speed computational tool
 Rust is a system language which gives the similar performance and control of hardware to C++ or C and safety of runtime. The memory-safety, and fearless concurrently in Rust programming 
 make the language one of the ideal candidate for development of Big Data tools. 
 Since the design of the language is different from any other programming languages, implementations that can be selected for algorithms can differ from existing ones.
-In this dissertation, we focus on memory management strategy for Big Data processing algorithms in development with Rust. 
+In this thesis, we focus on memory management strategy for Big Data processing algorithms in development with Rust. 
 
 
 \section{Problem Description}
 \label{sec:probdesc}
 
-Many of popular open source cluster computing frameworks for large scale data analysis, 
-such as Hadoop and Spark, allow programmers to define objects in a host languages, such as Java.
-The objects are then managed in RAM by the language and its runtime, Java Virtual Machine 
-in the case of Java and Scala. Storing objects in memory enables machine to process iterative computation. 
-One of the fundamental tasks for recent big data analysis is analysis using Machine Learning Algorithms, 
-which require iterative process. As the amount of data increases, memory is required to keep many objects. 
-Therefore, memory management plays a critical role in this task. 
+% Many of popular open source cluster computing frameworks for large scale data analysis, 
+% such as Hadoop and Spark, allow programmers to define objects in a host languages, such as Java.
+% The objects are then managed in RAM by the language and its runtime, Java Virtual Machine 
+% in the case of Java and Scala. Storing objects in memory enables machine to process iterative computation. 
+% One of the fundamental tasks for recent big data analysis is analysis using Machine Learning Algorithms, 
+% which require iterative process. As the amount of data increases, memory is required to keep many objects. 
+% Therefore, memory management plays a critical role in this task. 
 
-One of the memory management tool on JVM is garbage collection. 
-The garbage collection brings a significant advantage for programmers by removing responsibility
-for planning memory management by themselves manually. Instead, JVM monitors the state of memory and performs garbage
-collection at certain points. However, these monitoring and auto-execution of garbage collection cost additional 
-computation and might consume computation resources which should be used for data processing. This can significantly decrease performance of the computation. 
+% One of the memory management tool on JVM is garbage collection. 
+% The garbage collection brings a significant advantage for programmers by removing responsibility
+% for planning memory management by themselves manually. Instead, JVM monitors the state of memory and performs garbage
+% collection at certain points. However, these monitoring and auto-execution of garbage collection cost additional 
+% computation and might consume computation resources which should be used for data processing. This can significantly decrease performance of the computation. 
 
-In contrast, memory management in system language, such as C++, relies on programmers’ decision for when to allocate and deallocate memory. 
-The functions, malloc/free consume most of the memory management. Proper implementation of system language for big data processing can be overperform the implementation in host language.
-Nevertheless, implementing C++ performing proper memory management and guaranteeing security can be unproductive and complicated. 
+% In contrast, memory management in system language, such as C++, relies on programmers’ decision for when to allocate and deallocate memory. 
+% The functions, malloc/free consume most of the memory management. Proper implementation of system language for big data processing can be overperform the implementation in host language.
+% Nevertheless, implementing C++ performing proper memory management and guaranteeing security can be unproductive and complicated. 
 
-Considering the issue of memory management, we introduces solution based on unique memory management methods implemented in Rust, ownership , move and borrowing.
-This unique concepts in Rust secure codes and perform memory management without monitoring memory. 
-Since developer can select variety of memory management strategies to implement Big Data processing algorithms in Rust.
-We develop such algorithms with different strategies and compare their runtime performance to study the best algorithm implementation.
+Even though Rust can be a great candidate to develop Big Data processing tools, there are few study for development on such tools with Rust programming. 
+
+Rust has various ways to manage memory. Rust has different variable types for values allocated in sequence of memory region. 
+Each variables take different memory representation that can produce variation of operation time on the variable types.
+
+In addition, Reference Counting takes important role in Rust ownership concept. By using Reference Counting, a value is able to have multiple owners.
+This situation may happen quite often, when we want to acquire complex values from contiguous memory regions. 
+Reference Counting has both advantage and disadvantage. 
+Reference count can share data which might decrease unnecessary copy of data, but checking reference count might be a overhead. 
+
+Atomic Reference Counting is ubiquitous in Rust multithreading program. Atomic Reference Count also has similar features to Reference Counting. 
+In addition, it is allowed to use among different threads. This may lead additional overhead from atomic operation.
+
+As we can see, we can choose various memory management strategies in Rust programming.
+Therefore, we assess following research question in this thesis.
+\begin{itemize}
+    \item What are better memory management strategies for complex object processing to perform faster runtime performance.
+    \item How much impact do different variable types in Rust have in order to algorithms' runtime performance?
+    \item How much can algorithms runtime be improved or degraded, if we use Reference Count?
+    \item What are better memory management strategies for faster Big Data processing in Rust multithreading?
+    \item How can we improve runtime performance of common Big Data algorithms by Rust memory management?
+\end{itemize}
+
+To answer these question, we conduct 5 experiments. 
 
 
 

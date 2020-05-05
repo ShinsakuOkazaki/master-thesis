@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  4 MAY 2020 13:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  5 MAY 2020 17:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -477,7 +477,10 @@ Chapter 1.
 
 
 
-] [2]) [3]
+] [2]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
+) [3]
 \openout2 = `2_RelatedWork/RelatedWork.aux'.
 
  (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/RelatedWork.tex
@@ -487,10 +490,7 @@ Chapter 2.
 
 
 
-] [5] [6]) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/linalg.tex [7] [8] [9]
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
-) [10] (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/hadoop_to_spark.tex [11]) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/spark.tex [12] [13]
+] [5] [6]) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/linalg.tex [7] [8] [9]) [10] (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/hadoop_to_spark.tex [11]) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/spark.tex [12] [13]
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_heap.eps>
 (epstopdf)                    date: 2019-11-14 18:46:46
 (epstopdf)                    size: 12541 bytes
@@ -1156,7 +1156,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  42i,13n,53p,547b,1754s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (71 pages, 477571 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (71 pages, 477389 bytes).
 PDF statistics:
  1495 PDF objects out of 1728 (max. 8388607)
  1051 compressed objects within 11 object streams

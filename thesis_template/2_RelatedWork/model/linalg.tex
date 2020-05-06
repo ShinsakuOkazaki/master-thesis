@@ -3,16 +3,16 @@
 \subsection{BLAS LAPACK}
 \label{sec:linalg_blas_lapack}
 
-Basic Linear Algebra Subprograms (BLAS) are standard building blocks for basic vector and matrix operations. There are 3 levels of operation. The level 1 BLAS performs scalar, 
+Basic Linear Algebra Subprograms (BLAS) \cite{DBLP:journals/toms/LawsonHKK79} are standard building blocks for basic vector and matrix operations. There are 3 levels of operation. The level 1 BLAS performs scalar, 
 vector and vector-vector operations, the level 2 BLAS performs matrix-vector operation, and the level 3 BLAS performs matrix-matrix operation. 
 
-LAPACK is developed on BLAS and has advanced functionalities such as LU decomposition and Singular Value Decomposition (SVD). Dense and banded matrices are handled, but not general 
-sparse matrices. The initial motivation of development of LAPACK was to make the widely used EISPACK and LINPACK libraries run efficiently on shared-memory vector and parallel processors. 
+LAPACK \cite{laug} is developed on BLAS and has advanced functionalities such as LU decomposition and Singular Value Decomposition (SVD). Dense and banded matrices are handled, but not general 
+sparse matrices. The initial motivation of development of LAPACK was to make the widely used EISPACK \cite{DBLP:books/sp/SmithB76} and LINPACK \cite{DBLP:journals/sigarch/Dongarra92} libraries run efficiently on shared-memory vector and parallel processors. 
 LINPACK and EISPACK are inefficient because their memory access patterns disregard the multi-layered memory hierarchies of the machines, thereby spending too much time moving data. 
 LAPACK addresses this problem by recognizing the algorithms to use block matrix operations, such as matrix multiplication, in the innermost loops. These block operations can be optimized for each architecture to account for the memory hierarchy, 
 and so provide a portable way to achieve high efficiency on diverse modern machines. However, LAPACK requires that highly optimized block matrix operations be already implemented on each machine. 
 
-ARPACK is also a collection of linear algebra subroutines which is designed to compute a few eigenvalues and corresponding eigenvectors from large scale matrix. 
+ARPACK \cite{DBLP:books/daglib/0000896} is also a collection of linear algebra subroutines which is designed to compute a few eigenvalues and corresponding eigenvectors from large scale matrix. 
 ARPACK is based upon an algorithmic variant of the Arnoldi process called the Implicitly Restarted Arnoldi Method (IRAM). 
 When the matrix is symmetric it reduces to a variant of the Lanczos process called the Implicitly Restarted Lanczos Method(IRLM). The Arnoldi process only interacts with the matrix via matrix-vector multiplies. 
 Therefore, this method can be applied to distributed matrix operations required in big data analysis.
@@ -21,8 +21,7 @@ Therefore, this method can be applied to distributed matrix operations required 
 
 \subsection{Netlib-Java}
 \label{sec:linalg_netlib}
-
-Netlib-java is a Java wrapper of BLAS, LAPACK, and ARPACK. Netlib-java choose  implementation of linear algebra depending on installation of the libraries. 
+Netlib-java \cite{netlib} is a Java wrapper of BLAS, LAPACK, and ARPACK. Netlib-java choose  implementation of linear algebra depending on installation of the libraries. 
 First, if we have installed machine optimized system libraries, such as Intel MKL and OpenBLAS, netlib-java will use these as the implementation to use. 
 Next, it try to load netlib references which netlib-java use CBLAS and LAPCKE interface to perform BLAS and LAPACK native call. 
 The last option is to use f2j which is intended to translate the BLAS and LAPACK libraries from their Fortran77 reference source code to Java class files, 

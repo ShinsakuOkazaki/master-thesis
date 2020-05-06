@@ -18,6 +18,6 @@ This is result of dereferencing object without deallocation. Memory leak consume
 Some solutions are established to address these problems. Actually GC is a high-level solution that guarantees memory safety. 
 C++ has a different solution called Resource Acquisition is Initialization (RAII). In RAII, objects can live within the scope where they are created. 
 The memory is released when the object goes out of scope. This solution is more predictable and deterministic than GC. 
-However, it is problematic When we need the object out of the scope, returning a value from a function. 
+However, it is problematic when we need the object out of the scope, returning a value from a function. 
 There are several ways to go around this problems, such as smart pointers, copy constructors, and move semantics. 
 Nevertheless, these non-orthogonal concepts makes code in disorganize and leads to error prone implementation. 

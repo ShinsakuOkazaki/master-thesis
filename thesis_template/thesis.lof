@@ -19,12 +19,12 @@
 \contentsline {figure}{\numberline {4$\cdot $3}{\ignorespaces Runtime for dropping Customer Object\relax }}{37}{figure.caption.20}% 
 \contentsline {figure}{\numberline {4$\cdot $4}{\ignorespaces Representation of Source Vector\relax }}{39}{figure.caption.21}% 
 \contentsline {figure}{\numberline {4$\cdot $5}{\ignorespaces Runtime of Sorting Elements of Customer Vector\relax }}{40}{figure.caption.22}% 
-\contentsline {figure}{\numberline {4$\cdot $6}{\ignorespaces Aggregation function with Arc\relax }}{42}{figure.caption.23}% 
+\contentsline {figure}{\numberline {4$\cdot $6}{\ignorespaces Aggregation function with Arc\relax }}{43}{figure.caption.23}% 
 \contentsline {figure}{\numberline {4$\cdot $7}{\ignorespaces Aggregation function with deep-copy\relax }}{43}{figure.caption.24}% 
 \contentsline {figure}{\numberline {4$\cdot $8}{\ignorespaces Runtime of Tree-aggregate algorithm\relax }}{44}{figure.caption.25}% 
-\contentsline {figure}{\numberline {4$\cdot $9}{\ignorespaces Total runtime whole KNN algorithm (seconds)\relax }}{48}{figure.caption.28}% 
-\contentsline {figure}{\numberline {4$\cdot $10}{\ignorespaces Total runtime of preprocessing phase in KNN (seconds)\relax }}{49}{figure.caption.29}% 
-\contentsline {figure}{\numberline {4$\cdot $11}{\ignorespaces Total runtime of query phase in KNN (seconds)\relax }}{50}{figure.caption.30}% 
+\contentsline {figure}{\numberline {4$\cdot $9}{\ignorespaces Total runtime whole KNN algorithm (seconds)\relax }}{49}{figure.caption.28}% 
+\contentsline {figure}{\numberline {4$\cdot $10}{\ignorespaces Total runtime of preprocessing phase in KNN (seconds)\relax }}{50}{figure.caption.29}% 
+\contentsline {figure}{\numberline {4$\cdot $11}{\ignorespaces Total runtime of query phase in KNN (seconds)\relax }}{51}{figure.caption.30}% 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {A$\cdot $1}{\ignorespaces Integration of Native Methods \relax }}{55}{figure.caption.31}% 

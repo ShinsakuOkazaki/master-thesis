@@ -4,6 +4,7 @@ We employ K-Nearest-Neighbors (KNN) for ML algorithm to be studied in our experi
 Our KNN algorithms perform document classification on Wikipedia page data set described in Section~\ref{sec:eval_setdetail}. 
 
 The algorithms have 4 phase; load, preprocess, query, and combine phase. 
+Before these phase, we separate data sets into 8 partitions to run these in different threads. 
 The algorithms spawn threads at the beginning ,and in the load phase partition of files are loaded in each threads. 
 In preprocessing phase, the algorithm process document strings to generate Term-frequencies (Tfs) matrices and other data structures. 
 In query phase, it calculates cosine similarities between all combination of train and test observations and select to top \(K\) nearest neighbors. 
@@ -21,7 +22,7 @@ We parametrize these memory management and some other values. These parameters a
     Parameter Name  & \multicolumn{4}{l|}{Values and Description}                                                                                                                                                                                \\ \hline
     Method          & \multicolumn{4}{l|}{\begin{tabular}[c]{@{}l@{}}deep-copy:  use deep-copy to generate intermediate objects\\ arc: use atomic reference count to generate intermediate objects\end{tabular}}                                 \\ \hline
     Strategy        & \multicolumn{4}{l|}{\begin{tabular}[c]{@{}l@{}}1: keep intermediate objects in memory until owner is changed\\ 2: remove intermediate objects as soon as it is not needed\end{tabular}}                                    \\ \hline
-    Number of batch & \multicolumn{4}{l|}{\begin{tabular}[c]{@{}l@{}}2: generate 2 batch from each partition\\ 3: generate 3 batch from each partition\end{tabular}}                                                                             \\ \hline
+    Number of batch & \multicolumn{4}{l|}{\begin{tabular}[c]{@{}l@{}}2: generate 2 batches from each partition\\ 3: generate 3 batches from each partition\end{tabular}}                                                                             \\ \hline
     k               & \multicolumn{4}{l|}{\begin{tabular}[c]{@{}l@{}}15K: dimension of feature matrices is 15 thousands \\ 20K: dimension of feature matrices is 20 thousands\\ 25K: dimension of feature matrices is 25 thousands\end{tabular}} \\ \hline
     \end{tabular}
     \caption{Parameter of KNN algorithms}
@@ -43,6 +44,7 @@ These may cause significant runtime difference of the algorithms.
 
 Number of batch controls number and size of batch for each partition. This parameter varies size of intermediate data structures and numeric matrices, and 
 frequency of memory deallocations. 
+The size of each batch is defined in 6250 pages when we have 2 batches, and 4166 or 4167 when we have 3 batches. 
 The parameter k specifies number of dimension of feature matrices created out of preprocess phase. 
 By controlling this, it determines size of intermediate data structures and numeric matrices. 
 
@@ -124,8 +126,8 @@ This may be more severe bottleneck for algorithms using Arc; Algorithm 8 is 102\
 This is the same reason explained in Experiment 4. 
 Arc has to check reference count and its atomic operation is expensive. 
 
-The impact of number of batch can explain how frequency of memory de/allocation affects runtime performance. 
-Dealing with more number of batch has negative impacts to runtime performance, because it triggers more frequent memory de/allocation.
+The impact of batch number can explain how frequency of memory de/allocation affects runtime performance. 
+Dealing with more number of batch has negative impacts on runtime performance because it triggers more frequent memory de/allocation.
 In addition, as we increase the number of dimension, the ration of runtime difference among different numbers of batch for the algorithms with deep-copy, but not for ones with Arc.
 This is because algorithm with Arc does not de/allocate memory as much frequent as ones with deep-copy.
 The intermediate data structures mealy get reference to String values without actually allocating memory for copied Strings.

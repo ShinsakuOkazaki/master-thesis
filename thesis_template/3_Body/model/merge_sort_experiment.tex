@@ -1,4 +1,8 @@
-As explained in last experiment, deletion of Rc has significant overhead than normal reference. 
+Sorting algorithm like merge-sort is a very ubiquitous algorithm in any computation. 
+Especially in Big Data processing, merge-sort algorithm de/allocates contiguous memory for partitions of sorted vector multiple times.
+We are interested in memory de/allocation pattern in merge-sort algorithm, because it generates many intermediate data structures and delete them many times.
+
+As explained in Experiment 2 in Section~\ref{sec:eval_refcount}, deletion of Rc has significant overhead than normal reference. 
 By learning this result, our assumption here is that deletion of Arc has also overhead when we compare to normal reference. 
 In many situation where developer writes a multithreading code, Arc is used and the deletion happens multiple times. 
 To assess runtime overhead of algorithm with Arc, We implement merge-sort algorithm in two different ways. 

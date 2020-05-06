@@ -91,4 +91,4 @@ The value is moved to t from s so that the source variable s is uninitialized. T
 Borrowing lets code use a value temporarily without affecting its ownership so that it reduces unnecessary movement of ownership. 
 One use case is when value is used in function and needed to be passed to the argument. If the argument takes ownership and the function does not return the value, 
 the ownership of value goes out of scope and the memory is deallocated. One can pass reference of the value to the argument instead of owner. 
-The reference goes out of scope, but ownership remains the same. 
+The reference goes out of scope, but ownership remains the same.

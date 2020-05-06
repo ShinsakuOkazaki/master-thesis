@@ -10,60 +10,63 @@ A level-1 auxiliary file: Appendix/Appendix.aux
 The style file: plain.bst
 A level-1 auxiliary file: 0_Prelim/cv.aux
 Database file #1: thesis.bib
+Warning--entry type for "netlib" isn't style-file defined
+--line 1 of file thesis.bib
 Warning--entry type for "ApacheHadoopHomePage" isn't style-file defined
---line 166 of file thesis.bib
+--line 252 of file thesis.bib
 Warning--entry type for "nd4j" isn't style-file defined
---line 172 of file thesis.bib
+--line 258 of file thesis.bib
 Warning--entry type for "ApacheSparkHomePage" isn't style-file defined
---line 178 of file thesis.bib
+--line 264 of file thesis.bib
 Warning--entry type for "ApacheFlinkHomePage" isn't style-file defined
---line 204 of file thesis.bib
+--line 290 of file thesis.bib
 Warning--entry type for "RustArcPage" isn't style-file defined
---line 210 of file thesis.bib
+--line 296 of file thesis.bib
 Warning--to sort, need author or key in ApacheHadoopHomePage
 Warning--to sort, need author or key in ApacheSparkHomePage
 Warning--to sort, need author or key in ApacheFlinkHomePage
+Warning--to sort, need author or key in netlib
 Warning--to sort, need author or key in nd4j
 Warning--to sort, need author or key in RustArcPage
-You've used 16 entries,
+You've used 22 entries,
             2118 wiz_defined-function locations,
-            604 strings with 8911 characters,
-and the built_in function-call counts, 7766 in all, are:
-= -- 706
-> -- 552
-< -- 7
-+ -- 214
-- -- 197
-* -- 634
-:= -- 1236
-add.period$ -- 45
-call.type$ -- 16
-change.case$ -- 137
+            642 strings with 10151 characters,
+and the built_in function-call counts, 9852 in all, are:
+= -- 892
+> -- 697
+< -- 8
++ -- 272
+- -- 249
+* -- 805
+:= -- 1593
+add.period$ -- 62
+call.type$ -- 22
+change.case$ -- 179
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 238
-empty$ -- 515
-format.name$ -- 197
-if$ -- 1624
+cite$ -- 28
+duplicate$ -- 304
+empty$ -- 657
+format.name$ -- 249
+if$ -- 2041
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 11
-newline$ -- 73
-num.names$ -- 34
-pop$ -- 173
+int.to.str$ -- 22
+missing$ -- 19
+newline$ -- 101
+num.names$ -- 44
+pop$ -- 226
 preamble$ -- 1
-purify$ -- 121
+purify$ -- 159
 quote$ -- 0
-skip$ -- 200
+skip$ -- 240
 stack$ -- 0
-substring$ -- 403
-swap$ -- 84
-text.length$ -- 7
+substring$ -- 477
+swap$ -- 92
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 64
-warning$ -- 5
-while$ -- 57
-width$ -- 18
-write$ -- 160
-(There were 10 warnings)
+type$ -- 82
+warning$ -- 6
+while$ -- 71
+width$ -- 24
+write$ -- 222
+(There were 12 warnings)

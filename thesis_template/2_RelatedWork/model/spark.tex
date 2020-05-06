@@ -58,20 +58,5 @@ Therefore, GC become severe issue in Big Data processing where might produce sig
 \end{figure}
 
 
-\subsection{Garbage Collection Tuning}
-There are many different ways that one can improve the performance of GC in Java. One of these is for example avoiding pointer-based data structures, such as HashMap and LinkedList. 
-These objects have a "wrapper" object for each entry so that number of object tends to be larger than when when an array is used.
 
-Caching serialized object in memory also reduce number of object and memory usage since the set of objects become a byte or binary array. 
-Spark SQL applications use DataFrames\cite{DBLP:conf/sigmod/ArmbrustXLHLBMK15}, 
-whose intermediate data are managed by an optimized memory manager named Tungsten.
-Tungsten stores the intermediate data in a serialized binary form and performs aggregation functions directly on he serialized objects.
-Therefore, the number of Java objects in memory is reduced and it reduces the DC frequency and object marking/sweeping. 
-
-In addition, developers can allocate data off-heap of JVM to avoid tracking by GC. 
-Facade\cite{DBLP:conf/asplos/NguyenWBFHX15} proposed a compiler and runtime system to bound the number of in-memory data objects, through storing data in an off-heap region and 
-manipulating the data with control interfaces.
-
-Although these memory management solution for GC help developer improve performance of Spark applications, 
-the effort to discover the best GC tuning afflicts developers.
 

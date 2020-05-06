@@ -12,8 +12,18 @@ Apache spark, 2020.
 \bibitem{nd4j}
 Nd4j, 2020.
 
+\bibitem{netlib}
+netlib, 2020.
+
 \bibitem{RustArcPage}
 Rust arc documentation, 2020.
+
+\bibitem{laug}
+E.~Anderson, Z.~Bai, C.~Bischof, S.~Blackford, J.~Demmel, J.~Dongarra,
+  J.~Du~Croz, A.~Greenbaum, S.~Hammarling, A.~McKenney, and D.~Sorensen.
+\newblock {\em {LAPACK} Users' Guide}.
+\newblock Society for Industrial and Applied Mathematics, Philadelphia, PA,
+  third edition, 1999.
 
 \bibitem{DBLP:conf/sigmod/ArmbrustXLHLBMK15}
 Michael Armbrust, Reynold~S. Xin, Cheng Lian, Yin Huai, Davies Liu, Joseph~K.
@@ -32,6 +42,12 @@ Paris Carbone, Asterios Katsifodimos, Stephan Ewen, Volker Markl, Seif Haridi,
   engine.
 \newblock {\em {IEEE} Data Eng. Bull.}, 38(4):28--38, 2015.
 
+\bibitem{DBLP:journals/sigarch/Dongarra92}
+Jack~J. Dongarra.
+\newblock Performance of various computers using standard linear equations
+  software.
+\newblock {\em {SIGARCH} Computer Architecture News}, 20(3):22--44, 1992.
+
 \bibitem{DBLP:conf/cgo/LattnerA04}
 Chris Lattner and Vikram~S. Adve.
 \newblock {LLVM:} {A} compilation framework for lifelong program analysis {\&}
@@ -39,6 +55,17 @@ Chris Lattner and Vikram~S. Adve.
 \newblock In {\em 2nd {IEEE} / {ACM} International Symposium on Code Generation
   and Optimization {(CGO} 2004), 20-24 March 2004, San Jose, CA, {USA}}, pages
   75--88. {IEEE} Computer Society, 2004.
+
+\bibitem{DBLP:journals/toms/LawsonHKK79}
+Charles~L. Lawson, Richard~J. Hanson, D.~R. Kincaid, and Fred~T. Krogh.
+\newblock Basic linear algebra subprograms for fortran usage.
+\newblock {\em {ACM} Trans. Math. Softw.}, 5(3):308--323, 1979.
+
+\bibitem{DBLP:books/daglib/0000896}
+Richard~B. Lehoucq, Danny~C. Sorensen, and Chao Yang.
+\newblock {\em {ARPACK} users' guide - solution of large-scale eigenvalue
+  problems with implicitly restarted Arnoldi methods}.
+\newblock Software, environments, tools. {SIAM}, 1998.
 
 \bibitem{DBLP:journals/jmlr/MengBYSVLFTAOXX16}
 Xiangrui Meng, Joseph~K. Bradley, Burak Yavuz, Evan~R. Sparks, Shivaram
@@ -64,6 +91,13 @@ Juwei Shi, Yunjie Qiu, Umar~Farooq Minhas, Limei Jiao, Chen Wang, Berthold
 \newblock Clash of the titans: Mapreduce vs. spark for large scale data
   analytics.
 \newblock {\em {PVLDB}}, 8(13):2110--2121, 2015.
+
+\bibitem{DBLP:books/sp/SmithB76}
+Brian~T. Smith, James~M. Boyle, Jack~J. Dongarra, Burton~S. Garbow, Yasuhiko
+  Ikebe, Virginia~C. Klema, and Cleve~B. Moler.
+\newblock {\em Matrix Eigensystem Routines - {EISPACK} Guide, Second Edition},
+  volume~6 of {\em Lecture Notes in Computer Science}.
+\newblock Springer, 1976.
 
 \bibitem{DBLP:conf/pldi/WangCCZVML0X19}
 Chenxi Wang, Huimin Cui, Ting Cao, John Zigman, Haris Volos, Onur Mutlu, Fang

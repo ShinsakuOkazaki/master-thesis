@@ -12,41 +12,32 @@
 % - Experiment that we conducted
 In this thesis, we have presented a number of experiments to assess better implementation of algorithms 
 when one develops Big Data analysis tools with Rust programming. 
-Those experiments examine how different variable types, Reference Count (Rc), and different memory management strategies in Rust affect performance of algorithms.
 
-% What we find 
-% - The result of our experiments
-The results show useful benchmark when one implements Big Data analysis tools.
-The different variable types in Rust have similar access time to the memory address of their value. 
-Therefore, we do not need to consider such access overheads. 
-The drop on Rc or Arc is more expensive than ordinal variables, 
-because these shared variables need to check count of reference to its actual value. 
-The atomic operation used by Arc may be a cause of overhead in multithread programming in Rust. 
+Difference of variable types does not have impact on operation to access memory address where a value is located. 
+This result gives us freedom of choices for variable types to construct complex objects in terms of runtime performance. 
+When we however use borrowed types, such as references and slices, their lifetime should be explicitly defined. 
+Therefore, we may use owner type variables to construct construct complex objects in order to facilitate lifetime tracking.
 
-% What is the most significant
-% - Use of Reference is depending on Complex object type
-% - When we have complex object, we should use Reference count
-% - Frequency of memory de/allocation has impact
-One of the most notable discussion is selection of whether developers should use sharing (Rc or Arc) or deep-copy. 
-In algorithms used to process Big Data, the same elements are used over and over agin. 
-In Experiment 4 and 5, we implement the algorithms in different strategies and assess which implementations performs better in runtime.
-The result is that the algorithms sharing elements using Arc is more efficient strategy when the shared elements are very complex objects. 
-On the other hand, when the elements have light complexity, such as String, the algorithms deep-copying the elements is more faster.
-Therefore, the decision of which strategy to use is dependent on how complex element objects are.
+Runtime to drop Rc is much 60 times slower than normal reference. This is because Rc needs to check reference count to determine whether to deallocate its value. 
+This result may say that we should use normal reference whenever it is possible. 
+Again, tracking lifetime of references used in complex objects can be cumbersome. 
+Choice of Rc and reference is dependent on complexity of object implemented.
 
-% Conclusion acquired from that
-% - the design of algorithm is depend on implemetation of complex objects
-% - Rust ownership memory management seem to work well
-% - We can manually de/allocate memory and compiler can still ensure memory safety.
-The other important discussion is how Rust ownership memory management can impact performance of algorithm.
-Even though the main concept of ownership is safety of memory, programming patterns using this ownership may determine the frequency and timing of de/allocation. 
-Experiment 5 shows the ownership memory management works well; the frequency and timing of de/allocation is fairly reasonable for algorithms to result good runtime performance and memory usage. 
-However, when the situation is memory intensive and needs more fast runtime performance, developers need to perform more careful memory managements,such as manually specifying when to deallocate memory.
-Rust can check memory-safety of these manual operation at compile time, so such optimizations can be done fairly easy.
+In Rust, we can implement multithread programming with sharing data using Arc. In simple multithread algorithms, 
+one can write code where shares data with Arc and simple reference among different threads.
+Merge-sort algorithms sharing data with Arc is 21\% slower than normal reference. 
+In this situation, sharing data with normal reference require relatively easy lifetime tracking, 
+so we should use normal reference to share data among different thread whenever it is possible.
 
-% How our conclusion can be applied in real world 
-% - Decide data structure implementation that used in Big Data Systems then
-% conduct experiment that fits for the best runtime performance.
+For more complex algorithms, like tree-aggregate and preprocess phase in KNN, one can implement algorithms sharing data with Arc or simply deep-copy the values.
+The algorithms with deep-copy is about 40 to 50\% slower than the algorithm with Arc for complex objects.
+When we however deal with String, the algorithms with deep-copy is faster than Arc. 
+Therefore, the decision which to use deep-copy or Arc method should be determined based on complexity of objects.
+
+Decreasing frequency of memory de/allocation may be an effective solution to improve runtime performance of Big Data processing algorithms. 
+There is a trade-off between memory usage and frequency of memory de/allocation. 
+That is why developers should conduct careful analysis of algorithms' memory usage pattern and timing of memory de/allocation.
+
 As we can see in the results of experiment, different memory strategy varies the performance of algorithms in Rust programming.
 Which memory management strategy to take depends on what objects to deal with. 
 Therefore, development of Big Data analysis tools in Rust programming should be started with objects implementation used in the systems.

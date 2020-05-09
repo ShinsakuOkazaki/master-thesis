@@ -1,0 +1,8 @@
+\frametitle{Conclusion}
+\begin{itemize}
+        \item Use normal reference rather than Reference Counting whenever it is possible.
+        \item Trade-off between \blueb{runtime performance} and \blueb{lifetime tracking}.
+        \item \blueb{Avoid using Arc} when we can use reference.
+        \item Use Arc instead of deep-copy, when \blueb{complexity of objects is large}.
+        \item Use deep-copy, when \blueb{complexity of objects is small}, like String.
+    \end{itemize}

@@ -15,20 +15,20 @@
 % - some notable result
 
 Planning optimized memory management is critical for Big Data analysis tools to perform faster runtime and efficient use of computation resources.
-Modern Big Data analysis tools are developed with application languages that abstract their memory management, so that developers do not have to pay extreme attention to memory management strategies.
+Modern Big Data analysis tools use application languages that abstract their memory management so that developers do not have to pay extreme attention to memory management strategies.
 
-Many existing Big Data processing tools are developed on Java Virtual Machine (JVM). 
-Memory strategies in JVM, such as Garbage Collection (GC), may lead significant overhead in Big Data processing. 
-Apache Spark and Apache Flink use complex objects to manipulate and transfer tremendous amount of data. 
+Many existing Big Data processing tools use Java Virtual Machine (JVM). 
+Memory strategies in JVM, such as Garbage Collection (GC), may lead to significant overhead in Big Data processing. 
+Apache Spark and Apache Flink use complex objects to manipulate and transfer a tremendous amount of data. 
 Generating many of these complex objects in memory forces GC to rearrange the objects in memory frequently waisting computation. 
 
-Considered the problems in memory management in JVM, developing Big Data processing tools with system languages can be the solution.
-By using a system language, a developer has control on memory management, so that one can implement systems with better optimized memory management strategies.
-We selects Rust as good candidate for development of Big Data processing tools, due to its ability to write memory-safe and fearless concurrent codes with its concept of ownership.
+Considered problems in memory management in JVM, developing Big Data processing tools with system languages can be the solution.
+By using a system language, a developer has control on the memory management. Therefore, one can implement systems with more optimized memory management strategies.
+We selectRust as a good candidate for the development of Big Data processing tools, due to its ability to write memory-safe and fearless concurrent codes with its concept of ownership.
 
 There may be many possible strategies to optimize memory management for Big Data processing in Rust programming: 
 selection of different variable types, use of Reference Counting, and multithreading with Atomic Reference Counting.
 We conduct several experiments to assess how much these different memory management strategies differ runtime performance of algorithms.
 
-Our experiments focus complex object manipulation and common algorithms for Big Data processing with various memory management.
-The results show significant difference among the algorithms using these different memory strategies.
+Our experiments focus complex object manipulation and common Big Data processing with various memory management.
+The results show significant different runtime hits among these different memory strategies.

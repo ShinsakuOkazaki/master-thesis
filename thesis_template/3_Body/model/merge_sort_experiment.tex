@@ -23,7 +23,7 @@ By using scoped thread, we can implement two merge-sort algorithms in identical 
 The representations of source vector for each algorithm are shown in Figure~\ref{fig:source_merge_sort}.
 The elements of source vector are CustomerOwned objects. We generates source vectors in size of 4, 8, 12 and 16 million.
 Finally, merge-sort is performed based on value of key field. The figure shows the result for runtime performance of merge-sort algorithms on difference size of vectors. 
-
+The memory usage for algorithms with 16 million of Customer objects are about 26G bytes. 
 \begin{figure}[htb]
     \begin{lstlisting}
         // Source vector for algorithm with Arc.
@@ -41,6 +41,7 @@ Finally, merge-sort is performed based on value of key field. The figure shows t
 Figure~\ref{fig:source_merge_sort} shows the runtime performance of our merge-sort algorithm with specified Vec sizes. 
 The blue and yellow bar charts represent the runtime performance of merge-sort algorithm using reference and Arc respectively. 
 The result says that algorithms with Arc is about 21\% slower than algorithms with reference.
+
 
 \begin{figure}[htb]
     \includegraphics[width=15cm]{rust_merge_sort.eps}

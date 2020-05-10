@@ -47,16 +47,16 @@
 \contentsline {subsection}{\numberline {4.4.2}Discussion}{37}{subsection.4.4.2}% 
 \contentsline {section}{\numberline {4.5}Experiment 3: Merge-sort}{38}{section.4.5}% 
 \contentsline {subsection}{\numberline {4.5.1}Result}{40}{subsection.4.5.1}% 
-\contentsline {subsection}{\numberline {4.5.2}Discussion}{40}{subsection.4.5.2}% 
+\contentsline {subsection}{\numberline {4.5.2}Discussion}{41}{subsection.4.5.2}% 
 \contentsline {section}{\numberline {4.6}Experiment 4: Tree-aggregation}{41}{section.4.6}% 
-\contentsline {subsection}{\numberline {4.6.1}Result}{42}{subsection.4.6.1}% 
-\contentsline {subsection}{\numberline {4.6.2}Discussion}{43}{subsection.4.6.2}% 
+\contentsline {subsection}{\numberline {4.6.1}Result}{43}{subsection.4.6.1}% 
+\contentsline {subsection}{\numberline {4.6.2}Discussion}{44}{subsection.4.6.2}% 
 \contentsline {section}{\numberline {4.7}Experiment 5: K-Nearest-Neighbors}{45}{section.4.7}% 
 \contentsline {subsection}{\numberline {4.7.1}Result}{47}{subsection.4.7.1}% 
-\contentsline {subsection}{\numberline {4.7.2}Discussion}{47}{subsection.4.7.2}% 
+\contentsline {subsection}{\numberline {4.7.2}Discussion}{48}{subsection.4.7.2}% 
 \contentsline {section}{\numberline {4.8}Summary}{51}{section.4.8}% 
-\contentsline {chapter}{\numberline {5}Conclusions}{52}{chapter.5}% 
-\contentsline {chapter}{\numberline {A}Linear Algebra Computation}{54}{Appendix.a.A}% 
-\contentsline {section}{\numberline {A.1}Create Java interface of CBLAS with JNI}{54}{section.a.A.1}% 
-\contentsline {chapter}{References}{56}{chapter*.32}% 
-\contentsline {chapter}{Curriculum Vitae}{59}{chapter*.32}% 
+\contentsline {chapter}{\numberline {5}Conclusions}{53}{chapter.5}% 
+\contentsline {chapter}{\numberline {A}Linear Algebra Computation}{55}{Appendix.a.A}% 
+\contentsline {section}{\numberline {A.1}Create Java interface of CBLAS with JNI}{55}{section.a.A.1}% 
+\contentsline {chapter}{References}{57}{chapter*.32}% 
+\contentsline {chapter}{Curriculum Vitae}{60}{chapter*.32}% 

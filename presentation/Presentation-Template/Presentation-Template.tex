@@ -36,16 +36,15 @@
 
 \begin{frame}[fragile]{Motivation}
 
-Development of modern Big Data processing tools has some problems!
+    Many of data-flow based Big Data Processing systems like Apache Spark and Flink have the following weaknesses! 
+    \vspace{0.5cm}
+    \begin{itemize}
 
-\begin{itemize}
-
-  \item \textcolor{blue}{Generative Garbage Collection}
-  \item \textcolor{blue}{Stop-The-World}
-  \item \textcolor{blue}{Memory Safe impelementation} 
-\end{itemize}
-
-\textcolor{blue}{Rust} can be a ideal candidate for development of Big Data processing tools.
+    \item \textcolor{blue}{Java Virtual Machine (JVM)}
+    \item \textcolor{blue}{Automated Memory Management}
+    \end{itemize}
+    \vspace{0.5cm}
+\textcolor{blue}{Rust} is a promising candidate for development of Big Data processing tools.
 
 
 
@@ -57,12 +56,13 @@ Development of modern Big Data processing tools has some problems!
 
 \begin{frame}[fragile]{Rust}
 
-    \textcolor{blue}{Rust} is a system language which has unique memory management concept.
-    
+    \textcolor{blue}{Rust} is a \blueb{"system language"} which has unique memory management concept.
+    \vspace{0.5cm}
     \begin{itemize}
-        \item \blueb{A system language does not have Garbage Collection.} 
-        \item \blueb{Rust ensures memory safety.}
-        \item \blueb{It is easy to write safe multithreading code in Rust.}
+        \item \blue{A system language does not have Garbage Collection.} 
+        \item \blue{Rust ensures memory safety.}
+        \item \blue{It is easy to write safe multithreading code in Rust.}
+        \item \blue{Rust uses LLVM and provides high performance.} 
     \end{itemize}
 \end{frame}
 
@@ -71,57 +71,93 @@ Development of modern Big Data processing tools has some problems!
 
 \begin{frame}[fragile]{Problem Description}
 
-    
-    Do following concepts have impact on runtime performance of algorithms?
+    Our goal is to determine the magnitude of performance change regarding the following aspects. 
+    \vspace{0.5cm}
     \begin{itemize}
-        \item \blueb{Complex object} 
-        \item \blueb{Different  variable  types}
-        \item \blueb{Reference Count}
-        \item \blueb{Multithreading}
-        \item \blueb{Common Big Data algorithms}
+        \item \blue{Memory Management for High Complex Nested Objects}
+        \item \blue{Different Rust Memory Management Strategies}
+        \item \blue{Automated Reference Counting (Rc) vs. Reference}
+        \item \blue{Multithreading using Atomic Reference Counting (Arc)}
+        \item \blue{Arc vs. Deep Copy on Overall Performance of Big Data Processing}
     \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Complex Object}
+\begin{frame}[t,fragile]{Complex Object}
 
     In Big Data processing, data is represented by complex objects.
     
-    \begin{minipage}[t]{0.2\linewidth}\centering
-        \begin{lstlisting}
-            struct CustomerOwned {
-                key: i32,
-                age: i32,
-                num_purchase: i32,
-                total_purchase: f64,
-                duration_spent: f64, 
-                duration_since: f64,
-                zip_code: String,
-                address: String,
-                country: String,
-                state: String,
-                first_name: String,
-                last_name: String,
-                province: String,
-                comment: String, 
-                order: OrderOwned
+    \begin{figure}[htbp]
+        \hbox{
+            \hspace*{-3.5cm}
+            \begin{minipage}[b]{0.5\textwidth}\centering
+                \begin{lstlisting}
+                    struct CustomerOwned {
+                        key: i32,
+                        total_purchase: f64,
+                        zip_code: String,
+                        order: OrderOwned
+                    }
+                \end{lstlisting}
+            \medskip
+            \end{minipage}\hfill
+        \hspace*{-1cm}
+            \begin{minipage}[b]{0.5\textwidth}\centering
+                \begin{lstlisting}
+                    struct CustomerBorrowed<'a> {
+                        key: &'a i32,
+                        total_purchase: &'a f64,
+                        zip_code: &'a String,
+                        order: &'a OrderBorrowed<'a>
+                    }
+                \end{lstlisting}
+            \medskip
+            \end{minipage}\hfill
+        }
+        \hbox{
+            \hspace*{-3.5cm}
+            \begin{minipage}[b]{0.5\textwidth}\centering
+                \begin{lstlisting}
+                    struct CustomerSlice<'a> {
+                        key: &'a i32,
+                        total_purchase: &'a f64,
+                        zip_code: &'a str,
+                        order: &'a OrderSlice<'a>
+                    }
+                \end{lstlisting}
+            \medskip
+            \end{minipage}\hfill
+            % \hspace*{-2cm}
+            \begin{minipage}[b]{0.5\textwidth}\centering
+                \begin{lstlisting}
+                    struct CustomerRc {
+                        key: Rc<i32>,
+                        total_purchase: Rc<f64>,
+                        zip_code: Rc<String>,
+                        order: Rc<OrderRc>
+                    }
+                \end{lstlisting}
+            \medskip
+            \end{minipage}\hfill
+            \label{fig:customer}
             }
-        \end{lstlisting}
-    \end{minipage}\hfill
+       \end{figure}
     
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Different Variable Types}
+\begin{frame}[fragile]{Different Rust Memory Management Strategies}
 
     Each one has \textcolor{blue}{different memory representation.}
+    \vspace{0.5cm}
     \begin{itemize}
-        \item \blueb{Owner} 
-        \item \blueb{Reference}
-        \item \blueb{Slice}
+        \item \blue{Owner} 
+        \item \blue{Reference}
+        \item \blue{Slice}
+    \vspace{0.5cm}
     \end{itemize}
 
     Each one may have \textcolor{blue}{different memory access time.} 
@@ -132,16 +168,16 @@ Development of modern Big Data processing tools has some problems!
 
 \begin{frame}[fragile]{Reference Counting}
 
-    Advantage
+    \textbf{Advantage}
     \begin{itemize}
-        \item \blueb{Sharing ownership} 
-        \item \blueb{Dinamic memory de/allocation}
+        \item \blue{Sharing ownership} 
+        \item \blue{Dinamic memory de/allocation}
     \end{itemize}
 
-    Disadvantage
+    \textbf{Disadvantage}
     \begin{itemize}
-        \item \blueb{Need to check reference count} 
-        \item \blueb{Heap allocation}
+        \item \blue{Need to check reference count} 
+        \item \blue{Heap allocation}
     \end{itemize}
 
 
@@ -153,20 +189,19 @@ Development of modern Big Data processing tools has some problems!
 \begin{frame}[fragile]{Multithreading}
     Atomic Reference Counting
 
-
-    Advantage
+    \textbf{Advantage}
     \begin{itemize}
-        \item \blueb{Sharing ownership} 
-        \item \blueb{Dinamic memory de/allocation}
-        \item \blueb{Sharing among multithreads}
+        \item \blue{Sharing ownership} 
+        \item \blue{Dinamic memory de/allocation}
+        \item \blue{Sharing among multithreads}
         
     \end{itemize}
 
-    Disadvantage
+    \textbf{Disadvantage}
     \begin{itemize}
-        \item \blueb{Need to check reference count} 
-        \item \blueb{Heap allocation}
-        \item \blueb{Atomic operation} 
+        \item \blue{Need to check reference count} 
+        \item \blue{Heap allocation}
+        \item \blue{Atomic operation} 
     \end{itemize}
 
 \end{frame}

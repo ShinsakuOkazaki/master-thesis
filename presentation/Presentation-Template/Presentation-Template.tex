@@ -10,9 +10,9 @@
 % \subtitle{Gradient Descent}
 % \date{\today}
 \date{May, 2020}
-\author[]{Shinsaku Okazaki}
-% \institute{Boston University}
-\institute{}
+\author[Shinsaku Okazaki]{Shinsaku Okazaki}
+\institute{Boston University}
+% \institute{}
 
 \begin{document}
 
@@ -36,12 +36,19 @@
 
 \begin{frame}[fragile]{Motivation}
 
+
     Many of data-flow based Big Data Processing systems like Apache Spark and Flink have the following weaknesses! 
     \vspace{0.5cm}
     \begin{itemize}
-
-    \item \textcolor{blue}{Java Virtual Machine (JVM)}
-    \item \textcolor{blue}{Automated Memory Management}
+        \item \textcolor{blue}{Java Virtual Machine (JVM)}
+        \begin{itemize}
+            \item Waisting CPU cycle
+        \end{itemize}
+        \item \textcolor{blue}{Automated Memory Management}
+        \begin{itemize}
+            \item Generative Garbage Collection
+            \item Stop-The-World
+        \end{itemize}
     \end{itemize}
     \vspace{0.5cm}
 \textcolor{blue}{Rust} is a promising candidate for development of Big Data processing tools.
@@ -54,8 +61,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Rust}
-
+\begin{frame}[t, fragile]{Rust}
     \textcolor{blue}{Rust} is a \blueb{"system language"} which has unique memory management concept.
     \vspace{0.5cm}
     \begin{itemize}
@@ -70,7 +76,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Problem Description}
-
     Our goal is to determine the magnitude of performance change regarding the following aspects. 
     \vspace{0.5cm}
     \begin{itemize}
@@ -152,15 +157,24 @@
 \begin{frame}[fragile]{Different Rust Memory Management Strategies}
 
     Each one has \textcolor{blue}{different memory representation.}
-    \vspace{0.5cm}
     \begin{itemize}
         \item \blue{Owner} 
         \item \blue{Reference}
         \item \blue{Slice}
-    \vspace{0.5cm}
     \end{itemize}
 
-    Each one may have \textcolor{blue}{different memory access time.} 
+    \pause
+
+    \begin{figure}[hp]
+        \centering
+        \begin{center}
+                \includegraphics[width=0.5\textwidth]{images/own_ref_slice.eps}
+                \captionsetup{labelformat=empty}
+                % \caption{\textbf{}}
+        \end{center}
+    \end{figure}
+
+    Each one may have \textcolor{blue}{different memory access time.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -174,6 +188,8 @@
         \item \blue{Dinamic memory de/allocation}
     \end{itemize}
 
+    \vspace{0.5cm}
+
     \textbf{Disadvantage}
     \begin{itemize}
         \item \blue{Need to check reference count} 
@@ -186,16 +202,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Multithreading}
+\begin{frame}[fragile]{Multithreading with Atomic Reference Counting}
     Atomic Reference Counting
 
+    \vspace{0.5cm}
     \textbf{Advantage}
     \begin{itemize}
         \item \blue{Sharing ownership} 
         \item \blue{Dinamic memory de/allocation}
         \item \blue{Sharing among multithreads}
-        
     \end{itemize}
+
+    \vspace{0.5cm}
 
     \textbf{Disadvantage}
     \begin{itemize}
@@ -209,12 +227,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Common Big Data algorithms}
+\begin{frame}[fragile]{Impact of Memory Management on performance of Big Data Processing}
 
     \begin{itemize}
-        \item \blueb{Merge-sort} 
+        \item \blueb{Merge-sort}
+        \begin{itemize}
+            \item Many contiguous memory de/allocations
+        \end{itemize}
+        \vspace{0.5cm}
         \item \blueb{Tree-aggtegate}
-        \item \blueb{K-Nearest-Neighbors (KNN)} 
+        \begin{itemize}
+            \item Many intermediate HashMap like data structures
+        \end{itemize}
+        \vspace{0.5cm}
+        \item \blueb{K-Nearest-Neighbors (KNN)}
+        \begin{itemize}
+            \item Document preprocessing 
+        \end{itemize}    
     \end{itemize}
 
 \end{frame}
@@ -223,16 +252,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 1: Accessing Object with Different Variable Type}
-    
-    Question
-    \begin{itemize}
-        \item How much are memory access times different among different variable types used in complex objects? 
-    \end{itemize} 
 
-    Evaluation
+    \textbf{Question}
     \begin{itemize}
-        \item \blueb{Custruct complext objects} 
-        \item With different variable types: \blueb{Owner, Reference, Slice}
+        \item How much are memory access times different among different memory management strategies used in complex objects?
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \textbf{Evaluation}
+    \begin{itemize}
+        \item \blueb{Custruct complext objects}
+        \item With different memory management strategies: \blueb{Owner, Reference, Slice}
+        \item CustomerOwned vs. CustomerBorrowed vs. CustomerSlice
         \item Measure time to \blueb{access to fields of complex objects}
     \end{itemize}
 
@@ -241,7 +273,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Experiment 1: Accessing Object with Different Variable Type}
+\begin{frame}[t, fragile]{Experiment 1: Accessing Object with Different Variable Type}
 
     \begin{figure}[hp]
         \centering
@@ -257,16 +289,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 2: Assessment of different reference methods in Rust}
-    
-    Question
-    \begin{itemize}
-        \item How much does Reference Counting slowdown time for dropping its variable? 
-    \end{itemize} 
 
-    Evaluation
+    \textbf{Question}
     \begin{itemize}
-        \item \blueb{Custruct complext objects} 
+        \item How much does Reference Counting slowdown time for dropping its variable?
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \textbf{Evaluation}
+    \begin{itemize}
+        \item \blueb{Custruct complext objects}
         \item \blueb{Reference Counting} vs \blueb{reference}
+        \item CustomerRc vs. CustomerBorrowed
         \item Measure time to \blueb{drop variables of complex objects}
     \end{itemize}
 
@@ -281,25 +316,43 @@
     \begin{figure}[hp]
         \centering
         \begin{center}
-                \includegraphics[width=0.8\textwidth]{images/rust_droptime_borring_rc.eps}
+                \includegraphics[width=1\textwidth]{images/rust_droptime_borring_rc.eps}
                 \captionsetup{labelformat=empty}
                 % \caption{\textbf{}}
         \end{center}
     \end{figure}
-    Dropping Reference Counting is about \blueb{60 times slower} than normal reference. 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Experiment 2: Assessment of different reference methods in Rust}
+    \textbf{Result}
+    \begin{itemize}
+        \item Dropping Reference Counting is about \blueb{60 times slower} than normal reference.
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \textbf{Discussion}
+    \begin{itemize}
+        \item Reference Counting needs to check reference count.
+        \item In complex objects, overhead is significant.
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 3: Merge-sort}
-    
-    Question
+
+    \textbf{Question}
     \begin{itemize}
         \item How much does sharing set of data with Atomic Reference Counting slowdown merge-sort algorithms?
-    \end{itemize} 
+    \end{itemize}
 
-    Evaluation
+    \vspace{0.5cm}
+
+    \textbf{Evaluation}
     \begin{itemize}
         \item Share \blueb{vector} of complex objects
         \item \blueb{Atomic Reference Counting (Arc)} vs \blueb{normal reference}
@@ -313,30 +366,50 @@
 
 
 \begin{frame}[fragile]{Experiment 3: Merge-sort}
-
+    \vspace{-0.7cm}
     \begin{figure}[hp]
         \centering
         \begin{center}
-                \includegraphics[width=0.8\textwidth]{images/rust_merge_sort.eps}
+                \includegraphics[width=1.1\textwidth]{images/rust_merge_sort.eps}
                 \captionsetup{labelformat=empty}
                 % \caption{\textbf{}}
         \end{center}
     \end{figure}
-    \vspace{-.1 cm}
-    Algorithms with Arc are about \blueb{21\%  slower.}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Experiment 3: Merge-sort}
+
+    \textbf{Result}
+    \begin{itemize}
+        \item Arc are about \blueb{21\%  slower} than normal reference.
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \textbf{Discussion}
+    \begin{itemize}
+        \item Atomic Reference Counting needs to check reference count.
+        \item Atomic operations are more expensive than ordinal operations.
+    \end{itemize}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 4: Tree-aggregate}
-    
-    Question
+
+    \textbf{Question}
     \begin{itemize}
         \item How much are runtime differences between sharing elements of data with Arc and deep-copying elements of data?
-    \end{itemize} 
+    \end{itemize}
 
-    Evaluation
+    \vspace{0.5cm}
+
+    \textbf{Evaluation}
     \begin{itemize}
         \item Share \blueb{elements} of complex object
         \item \blueb{Atomic Reference Counting (ARC)} vs \blueb{Deep copy}
@@ -348,45 +421,58 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Experiment 4: Tree-aggregate}
-
+\begin{frame}[t, fragile]{Experiment 4: Tree-aggregate}
+    \vspace{-0.7cm}
     \begin{figure}[hp]
         \centering
         \begin{center}
-                \includegraphics[width=0.8\textwidth]{images/rust_tree_aggregate.eps}
+                \includegraphics[width=1.1\textwidth]{images/rust_tree_aggregate.eps}
                 \captionsetup{labelformat=empty}
                 % \caption{\textbf{}}
         \end{center}
     \end{figure}
-    \vspace{-.1 cm}
-    Algorithms with deep-copy are from \blueb{40 to 50\% slower.} 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}[fragile]{Experiment 4: Tree-aggregate}
+
+    \textbf{Result}
+    \begin{itemize}
+        \item Deep-copies are from \blueb{40 to 50\% slower} than Arc.
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \textbf{Discussion}
+    \begin{itemize}
+        \item Deep-copy of complex object is expensive.
+        \item Performing deep-copy many times may lead significant overhead.
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors (KNN)}
-    
-    Question
+
+    \textbf{Question}
     \begin{itemize}
         \item What are better memory management strategies for common Machine Learning Algorithms?
-    \end{itemize} 
+    \end{itemize}
 
-    Evaluation
+    \vspace{0.5cm}
+
+    \textbf{Evaluation}
     \begin{itemize}
         \item Document classification on Wikipedia page dataset
-        \item Preprocessing phase: calculating \blueb{Term-frequencies (Tfs)}
-        \item String manipulation
-        \item \blueb{Atomic Reference Counting (Arc)} vs \blueb{Deep copy}
-        \item \blueb{Frequency of memory de/allocation}
         \begin{itemize}
-            \item batch number
-            \item strategy
-            \begin{itemize}
-                \item 1: keep intermediate objects in memory until owner is changed
-                \item 2: remove intermediate objects as soon as it is not needed 
-            \end{itemize}  
+            \item train set: \(100 \times 10^3 \) pages
+            \item test set: \(18 \times  10^3\) pages
         \end{itemize}
+        \item Preprocessing phase: calculating \blueb{Term-Frequencies (TFs)}
+        \item String manipulation
         \item Measure runtime of \blueb{preprocessing time of KNN algorithms}
     \end{itemize}
 \end{frame}
@@ -394,35 +480,114 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors}
+\begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors (KNN)}
 
-    \begin{figure}[hp]
-        \centering
-        \begin{center}
-                \includegraphics[width=0.8\textwidth]{images/preprocessing.eps}
-                \captionsetup{labelformat=empty}
-                % \caption{\textbf{}}
-        \end{center}
-    \end{figure}
-    \begin{itemize} 
-        \item Algorithms with \blueb{Arc} are \blueb{at most 38 \% slower} than deep-copy. 
-        \item Algorithms with \blueb{strategy 2} are \blueb{at most 85 \% slower} than strategy 1.
-        \item Algorithms with \blueb{3 batches} are \blueb{at most 40 \% slower} than 2 batches.
+    \blueb{Parameters}
+    \begin{itemize}
+        \item Data Acquisition
+        \begin{itemize}
+            \item \blueb{Atomic Reference Counting} (Arc)
+            \item \blueb{Deep-copy}
+        \end{itemize} 
+        \vspace{0.5cm}
+        \item Strategy
+        \begin{itemize}
+            \item keep intermediate objects in memory until owner is changed
+            \item remove intermediate objects as soon as it is not needed
+        \end{itemize}
+        \vspace{0.5cm}
+        \item Dimensions of feature matrices
+        \begin{itemize}
+            \item 15K
+            \item 20K
+            \item 25K
+        \end{itemize} 
     \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors}
+    \vspace{-0.7cm}
+    \begin{figure}[hp]
+        \centering
+        \begin{center}
+                \includegraphics[width=1.1\textwidth]{images/deepcopy_vs_arc.eps}
+                \captionsetup{labelformat=empty}
+                % \caption{\textbf{}}
+        \end{center}
+    \end{figure}
+    
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors}
+    \vspace{-0.7cm}
+    \begin{figure}[hp]
+        \centering
+        \begin{center}
+                \includegraphics[width=1.1\textwidth]{images/strategy1_vs_strategy2.eps}
+                \captionsetup{labelformat=empty}
+                % \caption{\textbf{}}
+        \end{center}
+    \end{figure}
+    
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors}
+    
+    \textbf{Result}
+    \begin{itemize}
+        \item \blueb{Arc} is \blueb{at most 38\% slower} than deep-copy.
+        \item Removing intermediate objects is \blueb{at most 85\% slower} than keeping the objects.
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \textbf{Discussion}
+    \begin{itemize}
+        \item Deep-copying String is cheaper operation than Arc: 
+        \begin{itemize}
+            \item reference checking
+            \item atomic operation
+        \end{itemize}
+        \item More frequent deallocation of intermediate objects may lead to overhead.
+    \end{itemize} 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}[fragile]{Conclusion}
-    \begin{itemize} 
+    \begin{itemize}
+        \item There are \blue{not notable differences} among times to access memory with different memory management strategies.
+        \item When we drop complex objects constructed with Reference Counting, \blue{additional computation for counting reference results in huge overhead}. 
+        \item \blue{Sharing set of data with Arc is more expensive than reference.}
+        \item \blue{Deep-copying complex objects is more expensive than sharing them with Arc.}
+        \item \blue{Sharing Strings with Arc is faster than deep-copying them.}
+    \end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Findings}
+    \begin{itemize}
         \item Use normal reference rather than Reference Counting whenever it is possible.
         \item Trade-off between \blueb{runtime performance} and \blueb{lifetime tracking}.
         \item \blueb{Avoid using Arc} when we can use reference.
         \item Use Arc instead of deep-copy, when \blueb{complexity of objects is large}.
         \item Use deep-copy, when \blueb{complexity of objects is small}, like String.
     \end{itemize}
-\end{frame}   
+\end{frame}
 
 
 % \section{Some Terminology}

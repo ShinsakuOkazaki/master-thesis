@@ -1,4 +1,4 @@
-\frametitle{Conclusion}
+\frametitle{Findings}
 \begin{itemize}
         \item Use normal reference rather than Reference Counting whenever it is possible.
         \item Trade-off between \blueb{runtime performance} and \blueb{lifetime tracking}.

@@ -10,9 +10,9 @@
 % \subtitle{Gradient Descent}
 % \date{\today}
 \date{May, 2020}
-\author[]{Shinsaku Okazaki}
-% \institute{Boston University}
-\institute{}
+\author[Shinsaku Okazaki]{Shinsaku Okazaki}
+\institute{Boston University}
+% \institute{}
 
 \begin{document}
 
@@ -42,7 +42,7 @@ Development of modern Big Data processing tools has some problems!
 
   \item \textcolor{blue}{Generative Garbage Collection}
   \item \textcolor{blue}{Stop-The-World}
-  \item \textcolor{blue}{Memory Safe impelementation} 
+  \item \textcolor{blue}{Memory Safe impelementation}
 \end{itemize}
 
 \textcolor{blue}{Rust} can be a ideal candidate for development of Big Data processing tools.
@@ -55,12 +55,12 @@ Development of modern Big Data processing tools has some problems!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Rust}
+\begin{frame}[t, fragile]{Rust}
 
     \textcolor{blue}{Rust} is a system language which has unique memory management concept.
-    
+
     \begin{itemize}
-        \item \blueb{A system language does not have Garbage Collection.} 
+        \item \blueb{A system language does not have Garbage Collection.}
         \item \blueb{Rust ensures memory safety.}
         \item \blueb{It is easy to write safe multithreading code in Rust.}
     \end{itemize}
@@ -71,10 +71,10 @@ Development of modern Big Data processing tools has some problems!
 
 \begin{frame}[fragile]{Problem Description}
 
-    
+
     Do following concepts have impact on runtime performance of algorithms?
     \begin{itemize}
-        \item \blueb{Complex object} 
+        \item \blueb{Complex object}
         \item \blueb{Different  variable  types}
         \item \blueb{Reference Count}
         \item \blueb{Multithreading}
@@ -88,7 +88,7 @@ Development of modern Big Data processing tools has some problems!
 \begin{frame}[fragile]{Complex Object}
 
     In Big Data processing, data is represented by complex objects.
-    
+
     \begin{minipage}[t]{0.2\linewidth}\centering
         \begin{lstlisting}
             struct CustomerOwned {
@@ -96,7 +96,7 @@ Development of modern Big Data processing tools has some problems!
                 age: i32,
                 num_purchase: i32,
                 total_purchase: f64,
-                duration_spent: f64, 
+                duration_spent: f64,
                 duration_since: f64,
                 zip_code: String,
                 address: String,
@@ -105,26 +105,34 @@ Development of modern Big Data processing tools has some problems!
                 first_name: String,
                 last_name: String,
                 province: String,
-                comment: String, 
+                comment: String,
                 order: OrderOwned
             }
         \end{lstlisting}
     \end{minipage}\hfill
-    
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Different Variable Types}
+\begin{frame}[t, fragile]{Different Variable Types}
 
     Each one has \textcolor{blue}{different memory representation.}
     \begin{itemize}
-        \item \blueb{Owner} 
+        \item \blueb{Owner}
         \item \blueb{Reference}
         \item \blueb{Slice}
     \end{itemize}
 
-    Each one may have \textcolor{blue}{different memory access time.} 
+    Each one may have \textcolor{blue}{different memory access time.}
+
+\pause
+
+
+Text
+
+
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -134,14 +142,14 @@ Development of modern Big Data processing tools has some problems!
 
     Advantage
     \begin{itemize}
-        \item \blueb{Sharing ownership} 
+        \item \blueb{Sharing ownership}
         \item \blueb{Dinamic memory de/allocation}
     \end{itemize}
 
     Disadvantage
     \begin{itemize}
-        \item \blueb{Need to check reference count} 
-        \item \blueb{Heap allocation}
+        \item \blue{Need to check reference count}
+        \item \blue{Heap allocation}
     \end{itemize}
 
 
@@ -156,17 +164,17 @@ Development of modern Big Data processing tools has some problems!
 
     Advantage
     \begin{itemize}
-        \item \blueb{Sharing ownership} 
+        \item \blueb{Sharing ownership}
         \item \blueb{Dinamic memory de/allocation}
         \item \blueb{Sharing among multithreads}
-        
+
     \end{itemize}
 
     Disadvantage
     \begin{itemize}
-        \item \blueb{Need to check reference count} 
+        \item \blueb{Need to check reference count}
         \item \blueb{Heap allocation}
-        \item \blueb{Atomic operation} 
+        \item \blueb{Atomic operation}
     \end{itemize}
 
 \end{frame}
@@ -177,9 +185,9 @@ Development of modern Big Data processing tools has some problems!
 \begin{frame}[fragile]{Common Big Data algorithms}
 
     \begin{itemize}
-        \item \blueb{Merge-sort} 
+        \item \blueb{Merge-sort}
         \item \blueb{Tree-aggtegate}
-        \item \blueb{K-Nearest-Neighbors (KNN)} 
+        \item \blueb{K-Nearest-Neighbors (KNN)}
     \end{itemize}
 
 \end{frame}
@@ -188,15 +196,15 @@ Development of modern Big Data processing tools has some problems!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 1: Accessing Object with Different Variable Type}
-    
+
     Question
     \begin{itemize}
-        \item How much are memory access times different among different variable types used in complex objects? 
-    \end{itemize} 
+        \item How much are memory access times different among different variable types used in complex objects?
+    \end{itemize}
 
     Evaluation
     \begin{itemize}
-        \item \blueb{Custruct complext objects} 
+        \item \blueb{Custruct complext objects}
         \item With different variable types: \blueb{Owner, Reference, Slice}
         \item Measure time to \blueb{access to fields of complex objects}
     \end{itemize}
@@ -222,15 +230,15 @@ Development of modern Big Data processing tools has some problems!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 2: Assessment of different reference methods in Rust}
-    
+
     Question
     \begin{itemize}
-        \item How much does Reference Counting slowdown time for dropping its variable? 
-    \end{itemize} 
+        \item How much does Reference Counting slowdown time for dropping its variable?
+    \end{itemize}
 
     Evaluation
     \begin{itemize}
-        \item \blueb{Custruct complext objects} 
+        \item \blueb{Custruct complext objects}
         \item \blueb{Reference Counting} vs \blueb{reference}
         \item Measure time to \blueb{drop variables of complex objects}
     \end{itemize}
@@ -251,18 +259,18 @@ Development of modern Big Data processing tools has some problems!
                 % \caption{\textbf{}}
         \end{center}
     \end{figure}
-    Dropping Reference Counting is about \blueb{60 times slower} than normal reference. 
+    Dropping Reference Counting is about \blueb{60 times slower} than normal reference.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 3: Merge-sort}
-    
+
     Question
     \begin{itemize}
         \item How much does sharing set of data with Atomic Reference Counting slowdown merge-sort algorithms?
-    \end{itemize} 
+    \end{itemize}
 
     Evaluation
     \begin{itemize}
@@ -295,11 +303,11 @@ Development of modern Big Data processing tools has some problems!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 4: Tree-aggregate}
-    
+
     Question
     \begin{itemize}
         \item How much are runtime differences between sharing elements of data with Arc and deep-copying elements of data?
-    \end{itemize} 
+    \end{itemize}
 
     Evaluation
     \begin{itemize}
@@ -324,18 +332,18 @@ Development of modern Big Data processing tools has some problems!
         \end{center}
     \end{figure}
     \vspace{-.1 cm}
-    Algorithms with deep-copy are from \blueb{40 to 50\% slower.} 
+    Algorithms with deep-copy are from \blueb{40 to 50\% slower.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors (KNN)}
-    
+
     Question
     \begin{itemize}
         \item What are better memory management strategies for common Machine Learning Algorithms?
-    \end{itemize} 
+    \end{itemize}
 
     Evaluation
     \begin{itemize}
@@ -349,8 +357,8 @@ Development of modern Big Data processing tools has some problems!
             \item strategy
             \begin{itemize}
                 \item 1: keep intermediate objects in memory until owner is changed
-                \item 2: remove intermediate objects as soon as it is not needed 
-            \end{itemize}  
+                \item 2: remove intermediate objects as soon as it is not needed
+            \end{itemize}
         \end{itemize}
         \item Measure runtime of \blueb{preprocessing time of KNN algorithms}
     \end{itemize}
@@ -369,8 +377,8 @@ Development of modern Big Data processing tools has some problems!
                 % \caption{\textbf{}}
         \end{center}
     \end{figure}
-    \begin{itemize} 
-        \item Algorithms with \blueb{Arc} are \blueb{at most 38 \% slower} than deep-copy. 
+    \begin{itemize}
+        \item Algorithms with \blueb{Arc} are \blueb{at most 38 \% slower} than deep-copy.
         \item Algorithms with \blueb{strategy 2} are \blueb{at most 85 \% slower} than strategy 1.
         \item Algorithms with \blueb{3 batches} are \blueb{at most 40 \% slower} than 2 batches.
     \end{itemize}
@@ -380,14 +388,14 @@ Development of modern Big Data processing tools has some problems!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Conclusion}
-    \begin{itemize} 
+    \begin{itemize}
         \item Use normal reference rather than Reference Counting whenever it is possible.
         \item Trade-off between \blueb{runtime performance} and \blueb{lifetime tracking}.
         \item \blueb{Avoid using Arc} when we can use reference.
         \item Use Arc instead of deep-copy, when \blueb{complexity of objects is large}.
         \item Use deep-copy, when \blueb{complexity of objects is small}, like String.
     \end{itemize}
-\end{frame}   
+\end{frame}
 
 
 % \section{Some Terminology}

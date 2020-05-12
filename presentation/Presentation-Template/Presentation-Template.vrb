@@ -1,9 +1,0 @@
-\frametitle{Conclusion}
-\begin{itemize}
-        \item We have seen that impact of memory memory Management is very large,
-              Specially when working on High Complex Object structures and Large Volume of Data Set.
-
-        \item Using a System Language like Rust is very promising to avoid using large CPU computation for memory management.
-        \item By using Rust, writing memory-safe code in multithreading is fairly easy.
-
-    \end{itemize}

@@ -1,8 +1,9 @@
-\frametitle{Findings}
+\frametitle{Conclusion}
 \begin{itemize}
-        \item Use normal reference rather than Reference Counting whenever it is possible.
-        \item Trade-off between \blueb{runtime performance} and \blueb{lifetime tracking}.
-        \item \blueb{Avoid using Arc} when we can use reference.
-        \item Use Arc instead of deep-copy, when \blueb{complexity of objects is large}.
-        \item Use deep-copy, when \blueb{complexity of objects is small}, like String.
+        \item We have seen that impact of memory memory Management is very large,
+              Specially when working on High Complex Object structures and Large Volume of Data Set.
+
+        \item Using a System Language like Rust is very promising to avoid using large CPU computation for memory management.
+        \item By using Rust, writing memory-safe code in multithreading is fairly easy.
+
     \end{itemize}

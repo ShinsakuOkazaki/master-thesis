@@ -2,6 +2,12 @@
 
 \input{MainTop.tex}
 
+\usepackage{listings-rust}
+\usepackage[T1]{fontenc}
+
+\usepackage{hyperref}
+\lstset{language=Rust, style=boxed}
+
 
 \usepackage{algpseudocode}
 
@@ -37,17 +43,18 @@
 \begin{frame}[fragile]{Motivation}
 
 
-    Many of data-flow based Big Data Processing systems like Apache Spark and Flink have the following weaknesses! 
+Many of existing data-flow based Big Data Processing systems like Apache Spark and Flink have the following weaknesses! 
     \vspace{0.5cm}
     \begin{itemize}
-        \item \textcolor{blue}{Java Virtual Machine (JVM)}
+        \item \textcolor{blue}{Using Java Virtual Machine (JVM)}
         \begin{itemize}
-            \item Waisting CPU cycle
+            \item Using additional computation 
         \end{itemize}
         \item \textcolor{blue}{Automated Memory Management}
         \begin{itemize}
             \item Generative Garbage Collection
-            \item Stop-The-World
+%            \item Stop-The-World 
+% https://stackoverflow.com/questions/16695874/why-does-the-jvm-full-gc-need-to-stop-the-world
         \end{itemize}
     \end{itemize}
     \vspace{0.5cm}
@@ -67,8 +74,8 @@
     \begin{itemize}
         \item \blue{A system language does not have Garbage Collection.} 
         \item \blue{Rust ensures memory safety.}
-        \item \blue{It is easy to write safe multithreading code in Rust.}
-        \item \blue{Rust uses LLVM and provides high performance.} 
+        \item \blue{It is easy to write safe threaded code in Rust.}
+        \item \blue{Rust uses LLVM compiler infrastructure and provides high performance.} 
     \end{itemize}
 \end{frame}
 
@@ -87,70 +94,6 @@
     \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[t,fragile]{Complex Object}
-
-    In Big Data processing, data is represented by complex objects.
-    
-    \begin{figure}[htbp]
-        \hbox{
-            \hspace*{-3.5cm}
-            \begin{minipage}[b]{0.5\textwidth}\centering
-                \begin{lstlisting}
-                    struct CustomerOwned {
-                        key: i32,
-                        total_purchase: f64,
-                        zip_code: String,
-                        order: OrderOwned
-                    }
-                \end{lstlisting}
-            \medskip
-            \end{minipage}\hfill
-        \hspace*{-1cm}
-            \begin{minipage}[b]{0.5\textwidth}\centering
-                \begin{lstlisting}
-                    struct CustomerBorrowed<'a> {
-                        key: &'a i32,
-                        total_purchase: &'a f64,
-                        zip_code: &'a String,
-                        order: &'a OrderBorrowed<'a>
-                    }
-                \end{lstlisting}
-            \medskip
-            \end{minipage}\hfill
-        }
-        \hbox{
-            \hspace*{-3.5cm}
-            \begin{minipage}[b]{0.5\textwidth}\centering
-                \begin{lstlisting}
-                    struct CustomerSlice<'a> {
-                        key: &'a i32,
-                        total_purchase: &'a f64,
-                        zip_code: &'a str,
-                        order: &'a OrderSlice<'a>
-                    }
-                \end{lstlisting}
-            \medskip
-            \end{minipage}\hfill
-            % \hspace*{-2cm}
-            \begin{minipage}[b]{0.5\textwidth}\centering
-                \begin{lstlisting}
-                    struct CustomerRc {
-                        key: Rc<i32>,
-                        total_purchase: Rc<f64>,
-                        zip_code: Rc<String>,
-                        order: Rc<OrderRc>
-                    }
-                \end{lstlisting}
-            \medskip
-            \end{minipage}\hfill
-            \label{fig:customer}
-            }
-       \end{figure}
-    
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -196,6 +139,81 @@
         \item \blue{Heap allocation}
     \end{itemize}
 
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Complex Object - Memory Ownership and Borrowing}
+
+A Complex Object like a nested Customer Object like those defined in the complete Web-based shop. 
+ 
+\centering
+\begin{minipage}{0.8\linewidth}
+\begin{lstlisting}[title={Memory Ownership},language=Rust] 
+struct CustomerOwned {
+		key: i32,
+		total_purchase: f64,
+		zip_code: String,
+		order: OrderOwned
+		... 10 more 
+        }
+\end{lstlisting}
+\end{minipage}    
+ 
+
+\begin{minipage}{0.8\linewidth}
+\begin{lstlisting}[title={Memory Borrowing},language=Rust] 
+struct CustomerBorrowed<'a> {
+		key: &'a i32,
+		total_purchase: &'a f64,
+		zip_code: &'a String,
+		order: &'a OrderBorrowed<'a>
+		... 10 more 
+        }
+\end{lstlisting}
+\end{minipage}    
+    
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t,fragile]{Complex Object - Slicing and Reference Counting }
+
+Memory Slicing and Atomic Reference Counting 
+   
+\centering
+    
+\begin{minipage}{0.8\linewidth}
+\begin{lstlisting}[title={Memory Slicing},language=Rust] 
+struct CustomerSlice<'a> {
+		key: &'a i32,
+		total_purchase: &'a f64,
+		zip_code: &'a str,
+		order: &'a OrderSlice<'a>
+        		... 10 more 
+         }
+\end{lstlisting}
+\end{minipage}    
+
+
+\begin{minipage}{0.8\linewidth}
+\begin{lstlisting}[title={Atomic Reference Counting },language=Rust] 
+struct CustomerRc {
+		key: Rc<i32>,
+		total_purchase: Rc<f64>,
+		zip_code: Rc<String>,
+		order: Rc<OrderRc>
+		      		... 10 more 
+        }
+\end{lstlisting}
+\end{minipage}   
 
 \end{frame}
 
@@ -255,17 +273,17 @@
 
     \textbf{Question}
     \begin{itemize}
-        \item How much are memory access times different among different memory management strategies used in complex objects?
+        \item How much memory access time are different among different memory management strategies used in complex objects specification?
     \end{itemize}
 
     \vspace{0.5cm}
 
     \textbf{Evaluation}
     \begin{itemize}
-        \item \blueb{Custruct complext objects}
+        \item \blueb{Construct Complex objects}
         \item With different memory management strategies: \blueb{Owner, Reference, Slice}
-        \item CustomerOwned vs. CustomerBorrowed vs. CustomerSlice
-        \item Measure time to \blueb{access to fields of complex objects}
+        \item \textbf{CustomerOwned} vs. \textbf{CustomerBorrowed} vs. \textbf{CustomerSlice}
+        \item Measure access time of different \blueb{fields of complex objects}
     \end{itemize}
 
 \end{frame}
@@ -292,7 +310,7 @@
 
     \textbf{Question}
     \begin{itemize}
-        \item How much does Reference Counting slowdown time for dropping its variable?
+        \item How much does Reference Counting hits performance?
     \end{itemize}
 
     \vspace{0.5cm}
@@ -335,7 +353,7 @@
 
     \textbf{Discussion}
     \begin{itemize}
-        \item Reference Counting needs to check reference count.
+        \item Reference Counting needs some CPU cycles to check reference count.
         \item In complex objects, overhead is significant.
     \end{itemize}
 \end{frame}
@@ -562,19 +580,6 @@
     \end{itemize} 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]{Conclusion}
-    \begin{itemize}
-        \item There are \blue{not notable differences} among times to access memory with different memory management strategies.
-        \item When we drop complex objects constructed with Reference Counting, \blue{additional computation for counting reference results in huge overhead}. 
-        \item \blue{Sharing set of data with Arc is more expensive than reference.}
-        \item \blue{Deep-copying complex objects is more expensive than sharing them with Arc.}
-        \item \blue{Sharing Strings with Arc is faster than deep-copying them.}
-    \end{itemize}
-\end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -588,6 +593,20 @@
         \item Use deep-copy, when \blueb{complexity of objects is small}, like String.
     \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Conclusion}
+    \begin{itemize}
+        \item There are \blue{not notable differences} among times to access memory with different memory management strategies.
+        \item When we drop complex objects constructed with Reference Counting, \blue{additional computation for counting reference results in huge overhead}. 
+        \item \blue{Sharing set of data with Arc is more expensive than reference.}
+        \item \blue{Deep-copying complex objects is more expensive than sharing them with Arc.}
+        \item \blue{Sharing Strings with Arc is faster than deep-copying them.}
+    \end{itemize}
+\end{frame}
+
 
 
 % \section{Some Terminology}

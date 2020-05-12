@@ -1,8 +1,8 @@
-\frametitle{Findings}
+\frametitle{Conclusion}
 \begin{itemize}
-        \item Use normal reference rather than Reference Counting whenever it is possible.
-        \item Trade-off between \blueb{runtime performance} and \blueb{lifetime tracking}.
-        \item \blueb{Avoid using Arc} when we can use reference.
-        \item Use Arc instead of deep-copy, when \blueb{complexity of objects is large}.
-        \item Use deep-copy, when \blueb{complexity of objects is small}, like String.
+        \item There are \blue{not notable differences} among times to access memory with different memory management strategies.
+        \item When we drop complex objects constructed with Reference Counting, \blue{additional computation for counting reference results in huge overhead}.
+        \item \blue{Sharing set of data with Arc is more expensive than reference.}
+        \item \blue{Deep-copying complex objects is more expensive than sharing them with Arc.}
+        \item \blue{Sharing Strings with Arc is faster than deep-copying them.}
     \end{itemize}

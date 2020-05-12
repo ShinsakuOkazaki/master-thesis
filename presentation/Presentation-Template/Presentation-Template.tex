@@ -104,6 +104,8 @@
                         total_purchase: f64,
                         zip_code: String,
                         order: OrderOwned
+                        .
+                        .
                     }
                 \end{lstlisting}
             \medskip
@@ -116,6 +118,8 @@
                         total_purchase: &'a f64,
                         zip_code: &'a String,
                         order: &'a OrderBorrowed<'a>
+                        .
+                        .
                     }
                 \end{lstlisting}
             \medskip
@@ -130,6 +134,8 @@
                         total_purchase: &'a f64,
                         zip_code: &'a str,
                         order: &'a OrderSlice<'a>
+                        .
+                        .
                     }
                 \end{lstlisting}
             \medskip
@@ -142,6 +148,8 @@
                         total_purchase: Rc<f64>,
                         zip_code: Rc<String>,
                         order: Rc<OrderRc>
+                        .
+                        .
                     }
                 \end{lstlisting}
             \medskip
@@ -292,7 +300,7 @@
 
     \textbf{Question}
     \begin{itemize}
-        \item How much does Reference Counting slowdown time for dropping its variable?
+        \item How much does Reference Counting have impact on time for dropping its variable?
     \end{itemize}
 
     \vspace{0.5cm}
@@ -347,7 +355,7 @@
 
     \textbf{Question}
     \begin{itemize}
-        \item How much does sharing set of data with Atomic Reference Counting slowdown merge-sort algorithms?
+        \item How much does sharing set of data with Atomic Reference Counting have impact on performance of merge-sort algorithms?
     \end{itemize}
 
     \vspace{0.5cm}
@@ -524,18 +532,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors}
-    \vspace{-0.7cm}
-    \begin{figure}[hp]
-        \centering
-        \begin{center}
-                \includegraphics[width=1.1\textwidth]{images/strategy1_vs_strategy2.eps}
-                \captionsetup{labelformat=empty}
-                % \caption{\textbf{}}
-        \end{center}
-    \end{figure}
+% \begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors}
+%     \vspace{-0.7cm}
+%     \begin{figure}[hp]
+%         \centering
+%         \begin{center}
+%                 \includegraphics[width=1.1\textwidth]{images/strategy1_vs_strategy2.eps}
+%                 \captionsetup{labelformat=empty}
+%                 % \caption{\textbf{}}
+%         \end{center}
+%     \end{figure}
     
-\end{frame}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -546,7 +554,7 @@
     \textbf{Result}
     \begin{itemize}
         \item \blueb{Arc} is \blueb{at most 38\% slower} than deep-copy.
-        \item Removing intermediate objects is \blueb{at most 85\% slower} than keeping the objects.
+        % \item Removing intermediate objects is \blueb{at most 85\% slower} than keeping the objects.
     \end{itemize}
 
     \vspace{0.5cm}
@@ -558,7 +566,7 @@
             \item reference checking
             \item atomic operation
         \end{itemize}
-        \item More frequent deallocation of intermediate objects may lead to overhead.
+        % \item More frequent deallocation of intermediate objects may lead to overhead.
     \end{itemize} 
 \end{frame}
 

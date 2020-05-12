@@ -46,8 +46,8 @@
 \contentsline {subsection}{\numberline {4.4.1}Result}{37}{subsection.4.4.1}% 
 \contentsline {subsection}{\numberline {4.4.2}Discussion}{37}{subsection.4.4.2}% 
 \contentsline {section}{\numberline {4.5}Experiment 3: Merge-sort}{38}{section.4.5}% 
-\contentsline {subsection}{\numberline {4.5.1}Result}{40}{subsection.4.5.1}% 
-\contentsline {subsection}{\numberline {4.5.2}Discussion}{41}{subsection.4.5.2}% 
+\contentsline {subsection}{\numberline {4.5.1}Result}{39}{subsection.4.5.1}% 
+\contentsline {subsection}{\numberline {4.5.2}Discussion}{40}{subsection.4.5.2}% 
 \contentsline {section}{\numberline {4.6}Experiment 4: Tree-aggregation}{41}{section.4.6}% 
 \contentsline {subsection}{\numberline {4.6.1}Result}{43}{subsection.4.6.1}% 
 \contentsline {subsection}{\numberline {4.6.2}Discussion}{44}{subsection.4.6.2}% 

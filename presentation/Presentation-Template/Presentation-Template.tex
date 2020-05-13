@@ -442,11 +442,40 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}[fragile]{Experimental Setting}
+    
+    \textbf{Machine Specification}
+    \begin{itemize}
+        \item Google Cloud Platform: n1-standard-8
+        \item CPU : 8 cores
+        \item RAM: 30 GB
+        \item Standard persistent disk: 10 GB
+    \end{itemize}
+    \textbf{Data Set}
+    \begin{itemize}
+        \item Customer object
+        \begin{itemize}
+            \item CustomerOwned
+            \item CustomerBorrowed
+            \item CustomerSlice
+            \item CustomerRc
+        \end{itemize} 
+        \item Wikipedia page data set
+        \begin{itemize}
+            \item training set: \(100 \times 10^3 \) pages
+            \item testing set: \(18 \times  10^3\) pages
+        \end{itemize} 
+    \end{itemize} 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}[fragile]{Experiment 1: Accessing Object with Different Variable Type}
 
     \textbf{Question}
     \begin{itemize}
-        \item How much memory access time are different among different memory management strategies used in complex objects specification?
+        \item How much does selection of different memory management strategies differ memory access time?
     \end{itemize}
 
     \vspace{0.5cm}
@@ -465,7 +494,7 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[t, fragile]{Experiment 1: Accessing Object with Different Variable Type}
-
+    \vspace{-0.7cm}
     \begin{figure}[hp]
         \centering
         \begin{center}
@@ -474,6 +503,32 @@ struct CustomerRc {
                 % \caption{\textbf{}}
         \end{center}
     \end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t, fragile]{Experiment 1: Accessing Object with Different Variable Type}
+    \vspace{-0.7cm}
+    \begin{figure}[hp]
+        \centering
+        \begin{center}
+                \includegraphics[width=0.8\textwidth]{images/rust_access_different_poniter_init.eps}
+                \captionsetup{labelformat=empty}
+                % \caption{\textbf{}}
+        \end{center}
+    \end{figure}
+    \vspace{-0.5cm}
+    \textbf{Result}
+    \begin{itemize}
+        \item No differences of memory access time among Customer objects using different memory management strategies.
+    \end{itemize}
+    \textbf{Discussion}
+    \begin{itemize}
+        \item Selection of different memory management strategies does not have impact on memory access time.
+    \end{itemize}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -490,7 +545,7 @@ struct CustomerRc {
 
     \textbf{Evaluation}
     \begin{itemize}
-        \item \blueb{Custruct complext objects}
+        \item \blueb{Construct complex objects}
         \item \blueb{Reference Counting} vs \blueb{reference}
         \item CustomerRc vs. CustomerBorrowed
         \item Measure time to \blueb{drop variables of complex objects}
@@ -503,7 +558,7 @@ struct CustomerRc {
 
 
 \begin{frame}[fragile]{Experiment 2: Assessment of different reference methods in Rust}
-
+    \vspace{-0.5cm}
     \begin{figure}[hp]
         \centering
         \begin{center}
@@ -517,12 +572,20 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 2: Assessment of different reference methods in Rust}
+    \vspace{-0.5cm}
+    \begin{figure}[hp]
+        \centering
+        \begin{center}
+                \includegraphics[width=0.7\textwidth]{images/rust_droptime_borring_rc.eps}
+                \captionsetup{labelformat=empty}
+                % \caption{\textbf{}}
+        \end{center}
+    \end{figure}
+
     \textbf{Result}
     \begin{itemize}
         \item Dropping Reference Counting is about \blueb{60 times slower} than normal reference.
     \end{itemize}
-
-    \vspace{0.5cm}
 
     \textbf{Discussion}
     \begin{itemize}
@@ -538,15 +601,15 @@ struct CustomerRc {
 
     \textbf{Question}
     \begin{itemize}
-        \item How much does sharing set of data with Atomic Reference Counting have impact on performance of merge-sort algorithms?
+        \item What is performance hit of Merge-sort algorithm using Arc vs, normal reference?
     \end{itemize}
 
     \vspace{0.5cm}
 
     \textbf{Evaluation}
     \begin{itemize}
-        \item Share \blueb{vector} of complex objects
-        \item \blueb{Atomic Reference Counting (Arc)} vs \blueb{normal reference}
+        \item Share \blueb{vector} of complex objects in multithreads
+        \item \blueb{Atomic Reference Counting (Arc)} vs. \blueb{normal reference}
         \item Measure \blueb{runtime of merge-sort algorithms}
     \end{itemize}
 \end{frame}
@@ -571,14 +634,20 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 3: Merge-sort}
-
+    \vspace{-0.5cm}
+    \begin{figure}[hp]
+        \centering
+        \begin{center}
+                \includegraphics[width=0.8\textwidth]{images/rust_merge_sort.eps}
+                \captionsetup{labelformat=empty}
+                % \caption{\textbf{}}
+        \end{center}
+    \end{figure}
+    \vspace{-0.5cm}
     \textbf{Result}
     \begin{itemize}
         \item Arc are about \blueb{21\%  slower} than normal reference.
     \end{itemize}
-
-    \vspace{0.5cm}
-
     \textbf{Discussion}
     \begin{itemize}
         \item Atomic Reference Counting needs to check reference count.
@@ -594,16 +663,16 @@ struct CustomerRc {
 
     \textbf{Question}
     \begin{itemize}
-        \item How much are runtime differences between sharing elements of data with Arc and deep-copying elements of data?
+        \item - What is performance hit of Tree-aggregate using Arc vs. deep-copy?
     \end{itemize}
 
     \vspace{0.5cm}
 
     \textbf{Evaluation}
     \begin{itemize}
-        \item Share \blueb{elements} of complex object
-        \item \blueb{Atomic Reference Counting (ARC)} vs \blueb{Deep copy}
-        \item Measure \blueb{runtime of Tree-aggregate algorithms}
+        \item Share \blueb{elements} of complex object in multithreads
+        \item \blueb{Atomic Reference Counting (Arc)} vs. \blueb{Deep copy}
+        \item Measure \blueb{runtime of Tree-aggregate algorithm}
     \end{itemize}
 
 \end{frame}
@@ -627,18 +696,26 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 4: Tree-aggregate}
+    \vspace{-0.5cm}
+    \begin{figure}[hp]
+        \centering
+        \begin{center}
+                \includegraphics[width=0.8\textwidth]{images/rust_tree_aggregate.eps}
+                \captionsetup{labelformat=empty}
+                % \caption{\textbf{}}
+        \end{center}
+    \end{figure}
 
+    \vspace{-0.5cm}
     \textbf{Result}
     \begin{itemize}
-        \item Deep-copies are from \blueb{40 to 50\% slower} than Arc.
+        \item Deep-copies are from \blueb{40\% to 50\% slower} than Arc.
     \end{itemize}
-
-    \vspace{0.5cm}
 
     \textbf{Discussion}
     \begin{itemize}
         \item Deep-copy of complex object is expensive.
-        \item Performing deep-copy many times may lead significant overhead.
+        \item Performing deep-copy many times may lead to significant overhead.
     \end{itemize}
 
 \end{frame}
@@ -649,7 +726,7 @@ struct CustomerRc {
 
     \textbf{Question}
     \begin{itemize}
-        \item What are better memory management strategies for common Machine Learning Algorithms?
+        \item - What is performance hit of Machine learning algorithms using Arc vs. deep-copy?
     \end{itemize}
 
     \vspace{0.5cm}
@@ -658,8 +735,8 @@ struct CustomerRc {
     \begin{itemize}
         \item Document classification on Wikipedia page dataset
         \begin{itemize}
-            \item train set: \(100 \times 10^3 \) pages
-            \item test set: \(18 \times  10^3\) pages
+            \item training set: \(100 \times 10^3 \) pages
+            \item testing set: \(18 \times  10^3\) pages
         \end{itemize}
         \item Preprocessing phase: calculating \blueb{Term-Frequencies (TFs)}
         \item String manipulation
@@ -732,22 +809,30 @@ struct CustomerRc {
 
 
 \begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors}
-    
+    \vspace{-0.5cm}
+    \begin{figure}[hp]
+        \centering
+        \begin{center}
+                \includegraphics[width=0.8\textwidth]{images/deepcopy_vs_arc.eps}
+                \captionsetup{labelformat=empty}
+                % \caption{\textbf{}}
+        \end{center}
+    \end{figure} 
+    \vspace{-0.7cm}
     \textbf{Result}
     \begin{itemize}
-        \item \blueb{Arc} is \blueb{at most 38\% slower} than deep-copy.
+        \item \blueb{Arc} is \blueb{at most 27\% slower} than deep-copy.
         % \item Removing intermediate objects is \blueb{at most 85\% slower} than keeping the objects.
     \end{itemize}
-
-    \vspace{0.5cm}
 
     \textbf{Discussion}
     \begin{itemize}
         \item Deep-copying String is cheaper operation than Arc: 
         \begin{itemize}
-            \item reference checking
-            \item atomic operation
+            \item Relatively simple object
+            \item Contiguously allocated
         \end{itemize}
+        \item Overhead using Arc may become more significant as size of dat increases
         % \item More frequent deallocation of intermediate objects may lead to overhead.
     \end{itemize} 
 \end{frame}
@@ -759,7 +844,6 @@ struct CustomerRc {
 \begin{frame}[fragile]{Findings}
     \begin{itemize}
         \item Use normal reference rather than Reference Counting whenever it is possible.
-        \item Trade-off between \blueb{runtime performance} and \blueb{lifetime tracking}.
         \item \blueb{Avoid using Arc} when we can use reference.
         \item Use Arc instead of deep-copy, when \blueb{complexity of objects is large}.
         \item Use deep-copy, when \blueb{complexity of objects is small}, like String.
@@ -772,10 +856,10 @@ struct CustomerRc {
 \begin{frame}[fragile]{Conclusion}
     \begin{itemize}
         \item We have seen that impact of memory memory Management is very large, 
-              Specially when working on High Complex Object structures and Large Volume of Data Set. 
+              especially when working on High Complex Object structures and large volume of data set. 
 
         \item Using a System Language like Rust is very promising to avoid using large CPU computation for memory management. 
-        \item By using Rust, writing memory-safe code in multithreading is fairly easy.
+        \item When using Rust, writing memory-safe multithreaded code is fairly easy.
          
     \end{itemize}
 \end{frame}

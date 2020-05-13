@@ -243,13 +243,11 @@ let u = Rc::clone(&s);
 \vspace{-0.5cm}
 \begin{minipage}{0.7\linewidth}
 \begin{lstlisting}[language=Rust]
-let s = Rc::new(vec!["lemon".to_string(), 
-                    "orange".to_string(), 
-                    "apple".to_string()]);
+let s = Rc::new("app".to_string());
 let t = Rc::clone(&s);
 let u = Rc::clone(&s); 
 \end{lstlisting}
-\end{minipage}     
+\end{minipage}      
 
     \begin{minipage}{0.3\linewidth}
         \begin{figure}[hp]

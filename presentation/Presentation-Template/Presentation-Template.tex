@@ -300,15 +300,21 @@ let u = Rc::clone(&s);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Problem Description}
-    Our goal is to determine the magnitude of performance change regarding the following aspects. 
+    
+    In this thesis, our goal is to determine the magnitude of performance change regarding the following aspects on overall performance of Big Data processing.
+     
     \vspace{0.5cm}
     \begin{itemize}
-        \item \blue{Memory Management for High Complex Nested Objects}
-        \item \blue{Different Rust Memory Management Strategies}
-        \item \blue{Automated Reference Counting (Rc) vs. Reference}
-        \item \blue{Multithreading using Atomic Reference Counting (Arc)}
-        \item \blue{Arc vs. Deep Copy on Overall Performance of Big Data Processing}
+        
+        \item \blue{High Complex Nested Objects vs. Simple Objects/Primitive Types}
+        \item \blue{Different Rust Memory Management Strategies: Ownership vs. Borrowing vs. Slicing}
+        \item \blue{Automated Reference Counting (Rc) vs. Normal Reference}
+        \item \blue{Multithreading using Atomic Reference Counting (Arc) vs. Normal Reference}
+        \item \blue{Arc vs. Deep Copy}
     \end{itemize}
+    
+    We have specified 5 different experiments. 
+    
 \end{frame}
 
 

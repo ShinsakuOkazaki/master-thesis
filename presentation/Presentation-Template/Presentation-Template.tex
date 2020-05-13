@@ -133,14 +133,66 @@ let reference = &owner;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t, fragile]{Ownership}
+    \vspace{-0.5cm}
+    \begin{minipage}{0.7\linewidth}
+    \begin{lstlisting}[language=Rust]
+    let s = "app".to_string();
+    let t = s;
+    let u = s;
+    \end{lstlisting}
+    \end{minipage}     
+    
+        \begin{minipage}{0.3\linewidth}
+            \begin{figure}[hp]
+                \centering
+                \begin{center}
+                        \includegraphics[width=1.0\textwidth]{images/owner1.pdf}
+                        \captionsetup{labelformat=empty}
+                        % \caption{\textbf{}}
+                \end{center}
+                
+            \end{figure}
+        \end{minipage}     
+        \begin{minipage}{0.3\linewidth}
+            \begin{figure}[hp]
+                \centering
+                \begin{center}
+                        \includegraphics[width=1.0\textwidth]{images/owner2.pdf}
+                        \captionsetup{labelformat=empty}
+                        % \caption{\textbf{}}
+                \end{center}
+                
+            \end{figure}
+        \end{minipage}
+        % \begin{minipage}{0.3\linewidth}
+        %     \begin{figure}[hp]
+        %         \centering
+        %         \begin{center}
+        %                 \includegraphics[width=1.0\textwidth]{images/owner3.pdf}
+        %                 \captionsetup{labelformat=empty}
+        %                 % \caption{\textbf{}}
+        %         \end{center}
+                
+        %     \end{figure}
+        % \end{minipage}
+
+        \vspace{0.5cm}
+        \begin{itemize}
+            \item Each value is owned by single owner variable in Rust.
+            \item Compile error: value "s" is dropped already.
+        \end{itemize}
+
+ \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[t, fragile]{Reference Counting}
 \vspace{-0.5cm}
 \begin{minipage}{0.7\linewidth}
 \begin{lstlisting}[language=Rust]
-let s = Rc::new(vec!["lemon".to_string(), 
-                    "orange".to_string(), 
-                    "apple".to_string()]);
+let s = Rc::new("app".to_string());
 let t = Rc::clone(&s);
 let u = Rc::clone(&s); 
 \end{lstlisting}
@@ -298,6 +350,7 @@ struct CustomerBorrowed<'a> {
 \begin{itemize}
     \item \blue{All fields are references.}
     \item \blue{'a} is lifetime specifier.
+    \item Rust compiler cannot determine \blue{lifetime} automatically.
 \end{itemize}
 \end{minipage}
 \end{frame}
@@ -416,7 +469,7 @@ struct CustomerRc {
     \begin{itemize}
         \item Text document preprocessing 
         \item String manipulations
-        \item An example of Big Data processing for Machine Learning algorithms.
+        \item An example of Machine Learning algorithm that requires Big Data processing.
         \item We are interested only in preprocessing phase.
         \item It is just matrix read operation after preprocessing phase.
     \end{itemize}    
@@ -442,7 +495,7 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Experimental Setting}
+\begin{frame}[t, fragile]{Experimental Setting}
     
     \textbf{Machine Specification}
     \begin{itemize}
@@ -466,6 +519,11 @@ struct CustomerRc {
             \item testing set: \(18 \times  10^3\) pages
         \end{itemize} 
     \end{itemize} 
+    \textbf{Other Setting}
+    \begin{itemize}
+        \item Run 5 times for each experiment
+        \item Take average of runtime
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -306,8 +306,7 @@ let u = Rc::clone(&s);
     \vspace{0.5cm}
     \begin{itemize}
         
-        \item \blue{High Complex Nested Objects vs. Simple Objects/Primitive Types}
-        \item \blue{Different Rust Memory Management Strategies: Ownership vs. Borrowing vs. Slicing}
+        \item \blue{High Complex Nested Objects vs. Simple Objects/Primitive Types using  different memory strategies: Ownership vs. Borrowing vs. Slicing vs. Reference Counting}
         \item \blue{Automated Reference Counting (Rc) vs. Normal Reference}
         \item \blue{Multithreading using Atomic Reference Counting (Arc) vs. Normal Reference}
         \item \blue{Arc vs. Deep Copy}
@@ -371,7 +370,7 @@ struct CustomerBorrowed<'a> {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[t,fragile]{Complex Object - Slicing and Reference Counting }
+\begin{frame}[t,fragile]{Complex Object - Slicing and Reference Counting}
 
 %Memory Slicing and Atomic Reference Counting 
 \begin{minipage}{0.5\linewidth}

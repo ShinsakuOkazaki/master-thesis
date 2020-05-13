@@ -658,7 +658,6 @@ struct CustomerRc {
     \begin{itemize}
         \item Dropping Reference Counting is about \blueb{60 times slower} than normal reference.
     \end{itemize}
-
     \textbf{Discussion}
     \begin{itemize}
         \item Reference Counting needs some CPU cycles to check reference count.
@@ -669,11 +668,11 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Experiment 3: Merge-sort}
+\begin{frame}[fragile]{Experiment 3: Merge-Sort}
 
     \textbf{Question}
     \begin{itemize}
-        \item What is performance hit of Merge-sort algorithm using Arc vs, normal reference?
+        \item What is performance hit of Merge-Sort algorithm using Arc vs, normal reference?
     \end{itemize}
 
     \vspace{0.5cm}
@@ -706,7 +705,7 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 3: Merge-sort}
-    \vspace{-0.5cm}
+    \vspace{-0.55cm}
     \begin{figure}[hp]
         \centering
         \begin{center}
@@ -715,7 +714,7 @@ struct CustomerRc {
                 % \caption{\textbf{}}
         \end{center}
     \end{figure}
-    \vspace{-0.5cm}
+    \vspace{-0.95cm}
     \textbf{Result}
     \begin{itemize}
         \item Arc are about \blueb{21\%  slower} than normal reference.
@@ -777,8 +776,7 @@ struct CustomerRc {
                 % \caption{\textbf{}}
         \end{center}
     \end{figure}
-
-    \vspace{-0.5cm}
+    \vspace{-1.1cm}
     \textbf{Result}
     \begin{itemize}
         \item Deep-copies are from \blueb{40\% to 50\% slower} than Arc.
@@ -807,8 +805,8 @@ struct CustomerRc {
     \begin{itemize}
         \item Document classification on Wikipedia page dataset
         \begin{itemize}
-            \item training set: \(100 \times 10^3 \) pages
-            \item testing set: \(18 \times  10^3\) pages
+            \item Training set: \(100 \times 10^3 \) wiki pages
+            \item Testing set: \(18 \times  10^3\) wiki pages
         \end{itemize}
         \item Preprocessing phase: calculating \blueb{Term-Frequencies (TFs)}
         \item String manipulation
@@ -880,8 +878,8 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors}
-    \vspace{-0.5cm}
+\begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors - Preprocessing Time}
+    \vspace{-0.4cm}
     \begin{figure}[hp]
         \centering
         \begin{center}
@@ -890,7 +888,7 @@ struct CustomerRc {
                 % \caption{\textbf{}}
         \end{center}
     \end{figure} 
-    \vspace{-0.7cm}
+    \vspace{-0.9cm}
     \textbf{Result}
     \begin{itemize}
         \item \blueb{Arc} is \blueb{at most 27\% slower} than deep-copy.

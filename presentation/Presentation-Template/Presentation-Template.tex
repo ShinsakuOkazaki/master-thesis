@@ -41,14 +41,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Motivation}
-
-
 Many of existing data-flow based Big Data Processing systems like Apache Spark and Flink have the following weaknesses! 
     \vspace{0.5cm}
     \begin{itemize}
         \item \textcolor{blue}{Using Java Virtual Machine (JVM)}
         \begin{itemize}
-            \item Using additional computation 
+            \item Abstracting hardware usage sacrificing additional computation
         \end{itemize}
         \item \textcolor{blue}{Automated Memory Management}
         \begin{itemize}
@@ -68,13 +66,14 @@ Many of existing data-flow based Big Data Processing systems like Apache Spark a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[t, fragile]{Rust}
+\begin{frame}[fragile]{Rust}
     \textcolor{blue}{Rust} is a \blueb{"system language"} which has unique memory management concept.
     \vspace{0.5cm}
     \begin{itemize}
         \item \blue{A system language does not have Garbage Collection.} 
         \item \blue{Rust ensures memory safety.}
-        \item \blue{It is easy to write safe threaded code in Rust.}
+        \item \blue{It is easier to write safe threaded code in Rust.}
+        \item \blue{Rust is a relatively new language.}
         \item \blue{Rust uses LLVM compiler infrastructure and provides high performance.} 
     \end{itemize}
 \end{frame}
@@ -97,41 +96,153 @@ Many of existing data-flow based Big Data Processing systems like Apache Spark a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \begin{frame}[fragile]{Different Rust Memory Management Strategies}
 
     Each one has \textcolor{blue}{different memory representation.}
-    \begin{itemize}
-        \item \blue{Owner} 
-        \item \blue{Reference}
-        \item \blue{Slice}
-    \end{itemize}
 
-    \pause
+\begin{minipage}{0.3\linewidth}
+\centering
+\begin{itemize}
+\item \blue{Owner} 
+\item \blue{Reference}
+\item \blue{Slice}
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}{0.6\linewidth}
+\centering
+\begin{lstlisting}[language=Rust]
+let owner = String::from("hello world");
+let slice = owner[7:10];
+let reference = &owner;
+\end{lstlisting}
+\end{minipage}     
 
-    \begin{figure}[hp]
-        \centering
-        \begin{center}
-                \includegraphics[width=0.5\textwidth]{images/own_ref_slice.eps}
-                \captionsetup{labelformat=empty}
-                % \caption{\textbf{}}
-        \end{center}
-    \end{figure}
-
+    \begin{minipage}{1.0\linewidth}
+        \begin{figure}[hp]
+            \centering
+            \begin{center}
+                    \includegraphics[width=0.5\textwidth]{images/own_ref_slice.eps}
+                    \captionsetup{labelformat=empty}
+                    % \caption{\textbf{}}
+            \end{center}
+        \end{figure}
+    \end{minipage}      
+    
     Each one may have \textcolor{blue}{different memory access time.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Reference Counting}
+\begin{frame}[t, fragile]{Reference Counting}
+\vspace{-0.5cm}
+\begin{minipage}{0.7\linewidth}
+\begin{lstlisting}[language=Rust]
+let s = Rc::new(vec!["lemon".to_string(), 
+                    "orange".to_string(), 
+                    "apple".to_string()]);
+let t = Rc::clone(&s);
+let u = Rc::clone(&s); 
+\end{lstlisting}
+\end{minipage}     
+
+    \begin{minipage}{0.3\linewidth}
+        \begin{figure}[hp]
+            \centering
+            \begin{center}
+                    \includegraphics[width=1.0\textwidth]{images/rc1.pdf}
+                    \captionsetup{labelformat=empty}
+                    % \caption{\textbf{}}
+            \end{center}
+            
+        \end{figure}
+    \end{minipage}     
+    \begin{minipage}{0.3\linewidth}
+        \begin{figure}[hp]
+            \centering
+            \begin{center}
+                    \includegraphics[width=1.0\textwidth]{images/rc2.pdf}
+                    \captionsetup{labelformat=empty}
+                    % \caption{\textbf{}}
+            \end{center}
+            
+        \end{figure}
+    \end{minipage}
+    \begin{minipage}{0.3\linewidth}
+        \begin{figure}[hp]
+            \centering
+            \begin{center}
+                    \includegraphics[width=1.0\textwidth]{images/rc3.pdf}
+                    \captionsetup{labelformat=empty}
+                    % \caption{\textbf{}}
+            \end{center}
+            
+        \end{figure}
+    \end{minipage}
+    \vspace{0.5cm}
 
     \textbf{Advantage}
     \begin{itemize}
         \item \blue{Sharing ownership} 
-        \item \blue{Dinamic memory de/allocation}
+        \begin{itemize}
+            \item Each value is owned by single owner variable in Rust.
+        \end{itemize}
+        \item \blue{Dynamic memory de/allocation}
+        \begin{itemize}
+            \item Rust usually determine lifetime of variable at compile time. 
+        \end{itemize}
     \end{itemize}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Reference Counting}
+    
+\vspace{-0.5cm}
+\begin{minipage}{0.7\linewidth}
+\begin{lstlisting}[language=Rust]
+let s = Rc::new(vec!["lemon".to_string(), 
+                    "orange".to_string(), 
+                    "apple".to_string()]);
+let t = Rc::clone(&s);
+let u = Rc::clone(&s); 
+\end{lstlisting}
+\end{minipage}     
+
+    \begin{minipage}{0.3\linewidth}
+        \begin{figure}[hp]
+            \centering
+            \begin{center}
+                    \includegraphics[width=1.0\textwidth]{images/rc1.pdf}
+                    \captionsetup{labelformat=empty}
+                    % \caption{\textbf{}}
+            \end{center}
+            
+        \end{figure}
+    \end{minipage}     
+    \begin{minipage}{0.3\linewidth}
+        \begin{figure}[hp]
+            \centering
+            \begin{center}
+                    \includegraphics[width=1.0\textwidth]{images/rc2.pdf}
+                    \captionsetup{labelformat=empty}
+                    % \caption{\textbf{}}
+            \end{center}
+            
+        \end{figure}
+    \end{minipage}
+    \begin{minipage}{0.3\linewidth}
+        \begin{figure}[hp]
+            \centering
+            \begin{center}
+                    \includegraphics[width=1.0\textwidth]{images/rc3.pdf}
+                    \captionsetup{labelformat=empty}
+                    % \caption{\textbf{}}
+            \end{center}
+            
+        \end{figure}
+    \end{minipage}
     \vspace{0.5cm}
 
     \textbf{Disadvantage}
@@ -143,81 +254,98 @@ Many of existing data-flow based Big Data Processing systems like Apache Spark a
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Complex Object - Memory Ownership and Borrowing}
 
 A Complex Object like a nested Customer Object like those defined in the complete Web-based shop. 
  
-
+\begin{minipage}{0.5\linewidth}
 \centering
-\begin{minipage}{0.8\linewidth}
-\begin{lstlisting}[title={Memory Ownership},language=Rust]
+\begin{lstlisting}[language=Rust]
 struct CustomerOwned {
-		key: i32,
-		total_purchase: f64,
-		zip_code: String,
-		order: OrderOwned
-		... 10 more 
-        }
+    key: i32,
+    total_purchase: f64,
+    zip_code: String,
+    order: OrderOwned,
+    ... 10 more
+    }
 \end{lstlisting}
-\end{minipage}    
+\end{minipage}\hfill  
+\begin{minipage}{0.5\linewidth}
+\centering
+\begin{itemize}
+    \item \blue{All fields are owners.} 
+\end{itemize}
+\end{minipage}
 
-
-\begin{minipage}{0.8\linewidth}
-\begin{lstlisting}[title={Memory Borrowing},language=Rust]
-
+\begin{minipage}{0.5\linewidth}
+\centering
+\begin{lstlisting}[language=Rust]
 struct CustomerBorrowed<'a> {
-		key: &'a i32,
-		total_purchase: &'a f64,
-		zip_code: &'a String,
-		order: &'a OrderBorrowed<'a>
-		... 10 more 
-        }
+    key: &'a i32,
+    total_purchase: &'a f64,
+    zip_code: &'a String,
+    order: &'a OrderBorrowed<'a>,
+    ... 10 more 
+    }
 \end{lstlisting}
-\end{minipage}    
+\end{minipage}\hfill  
+\begin{minipage}{0.5\linewidth}
+\centering
+\begin{itemize}
+    \item \blue{All fields are references.}
+    \item \blue{'a} is lifetime specifier.
+\end{itemize}
+\end{minipage}
 \end{frame}
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[t,fragile]{Complex Object - Slicing and Reference Counting }
 
 %Memory Slicing and Atomic Reference Counting 
-CustomerSlice has slices of String instead of reference of String
+\begin{minipage}{0.5\linewidth}
 \centering
-    
-\begin{minipage}{0.8\linewidth}
-\begin{lstlisting}[title={Memory Slicing},language=Rust]
-
+\begin{lstlisting}[language=Rust]
 struct CustomerSlice<'a> {
-		key: &'a i32,
-		total_purchase: &'a f64,
-		zip_code: &'a str,
-		order: &'a OrderSlice<'a>
-        		... 10 more 
-         }
+    key: &'a i32,
+    total_purchase: &'a f64,
+    zip_code: &'a str,
+    order: &'a OrderSlice<'a>
+    ... 10 more 
+    }
 \end{lstlisting}
-\end{minipage}    
+\end{minipage}\hfill  
+\begin{minipage}{0.5\linewidth}
+\centering
+\begin{itemize}
+    \item \blue{Fields are mix of references and slices.} 
+    \item Slice is obtained only for \blue{contiguously allocated data structure}, such as String and Vec.
+\end{itemize}
+\end{minipage}
 
-\begin{minipage}{0.8\linewidth}
-\begin{lstlisting}[title={Atomic Reference Counting },language=Rust]
-
+\begin{minipage}{0.5\linewidth}
+\centering
+\begin{lstlisting}[language=Rust]
 struct CustomerRc {
-		key: Rc<i32>,
-		total_purchase: Rc<f64>,
-		zip_code: Rc<String>,
-		order: Rc<OrderRc>
-		      		... 10 more 
-        }
+    key: Rc<i32>,
+    total_purchase: Rc<f64>,
+    zip_code: Rc<String>,
+    order: Rc<OrderRc>
+    ... 10 more 
+    }
 \end{lstlisting}
-\end{minipage}   
-
+\end{minipage}\hfill  
+\begin{minipage}{0.5\linewidth}
+\centering
+\begin{itemize}
+    \item \blue{All fields are Reference Counting}
+\end{itemize}
+\end{minipage}
+    
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -230,7 +358,7 @@ struct CustomerRc {
     \textbf{Advantage}
     \begin{itemize}
         \item \blue{Sharing ownership} 
-        \item \blue{Dinamic memory de/allocation}
+        \item \blue{Dynamic memory de/allocation}
         \item \blue{Sharing among multithreads}
     \end{itemize}
 
@@ -250,23 +378,65 @@ struct CustomerRc {
 
 \begin{frame}[fragile]{Impact of Memory Management on performance of Big Data Processing}
 
+    
+\blueb{Merge-sort}
+\begin{itemize}
+    \item Many contiguous memory de/allocations
+    \item Common memory usage pattern in sorting algorithms for Big Data Processing.
     \begin{itemize}
-        \item \blueb{Merge-sort}
-        \begin{itemize}
-            \item Many contiguous memory de/allocations
-        \end{itemize}
-        \vspace{0.5cm}
-        \item \blueb{Tree-aggtegate}
-        \begin{itemize}
-            \item Many intermediate HashMap like data structures
-        \end{itemize}
-        \vspace{0.5cm}
-        \item \blueb{K-Nearest-Neighbors (KNN)}
-        \begin{itemize}
-            \item Document preprocessing 
-        \end{itemize}    
+        \item  ex. External-sort
     \end{itemize}
+\end{itemize}
 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Impact of Memory Management on performance of Big Data Processing}
+\blueb{Tree-aggtegate}
+\begin{itemize}
+    \item Many intermediate HashMap like data structures
+    \item Many de/allocations of intermediate data
+    \item Common memory and network usage pattern in Big Data Processing
+\end{itemize}
+
+\begin{figure}[htb]
+    \begin{minipage}[t]{0.5\linewidth}\centering
+        \includegraphics[width=7cm]{images/tree_agg.eps} 
+    \end{minipage}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Impact of Memory Management on performance of Big Data Processing}
+    \blueb{K-Nearest-Neighbors (KNN)}
+    \begin{itemize}
+        \item Text document preprocessing 
+        \item String manipulations
+        \item An example of Big Data processing for Machine Learning algorithms.
+        \item We are interested only in preprocessing phase.
+        \item It is just matrix read operation after preprocessing phase.
+    \end{itemize}    
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]{Problem Description}
+    Our goal is to determine the magnitude of performance change regarding the following aspects. 
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item \blue{Memory Management for High Complex Nested Objects}
+        \item \blue{Different Rust Memory Management Strategies}
+        \item \blue{Automated Reference Counting (Rc) vs. Reference}
+        \item \blue{Multithreading using Atomic Reference Counting (Arc)}
+        \item \blue{Arc vs. Deep Copy on Overall Performance of Big Data Processing}
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -15,9 +15,9 @@
 \title[]{An Experimental Study of Memory Management in Rust Programming for Big Data Processing}
 % \subtitle{Gradient Descent}
 % \date{\today}
-\date{May, 2020}
-\author[Shinsaku Okazaki]{Shinsaku Okazaki}
-\institute{Boston University}
+\date{May 14th, 2020}
+\author[Shinsaku Okazaki]{Shinsaku Okazaki\\ Master Thesis Defense}
+\institute[]{Supervised by: Kia Teymourian \\ Boston University}
 % \institute{}
 
 \begin{document}
@@ -41,10 +41,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Motivation}
-Many of existing data-flow based Big Data Processing systems like Apache Spark and Flink have the following weaknesses! 
+Many of existing data-flow based Big Data Processing systems like Apache Spark and Flink are using! 
+
     \vspace{0.5cm}
     \begin{itemize}
-        \item \textcolor{blue}{Using Java Virtual Machine (JVM)}
+        \item \textcolor{blue}{Java Virtual Machine (JVM)}
         \begin{itemize}
             \item Abstracting hardware usage sacrificing additional computation
         \end{itemize}
@@ -56,7 +57,8 @@ Many of existing data-flow based Big Data Processing systems like Apache Spark a
         \end{itemize}
     \end{itemize}
     \vspace{0.5cm}
-\textcolor{blue}{Rust} is a promising candidate for development of Big Data processing tools.
+
+\textcolor{blue}{Rust Programing Language} is a promising candidate for development of Big Data analysis tools and libraries.
 
 
 
@@ -73,25 +75,12 @@ Many of existing data-flow based Big Data Processing systems like Apache Spark a
         \item \blue{A system language does not have Garbage Collection.} 
         \item \blue{Rust ensures memory safety.}
         \item \blue{It is easier to write safe threaded code in Rust.}
-        \item \blue{Rust is a relatively new language.}
+        \item \blue{Rust is a relatively new language (first appeared 2010).}
         \item \blue{Rust uses LLVM compiler infrastructure and provides high performance.} 
+        \item \blue{It is safer and easier to write code in Rust than C++}
     \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]{Problem Description}
-    Our goal is to determine the magnitude of performance change regarding the following aspects. 
-    \vspace{0.5cm}
-    \begin{itemize}
-        \item \blue{Memory Management for High Complex Nested Objects}
-        \item \blue{Different Rust Memory Management Strategies}
-        \item \blue{Automated Reference Counting (Rc) vs. Reference}
-        \item \blue{Multithreading using Atomic Reference Counting (Arc)}
-        \item \blue{Arc vs. Deep Copy on Overall Performance of Big Data Processing}
-    \end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -306,6 +295,25 @@ let u = Rc::clone(&s);
 
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Problem Description}
+    Our goal is to determine the magnitude of performance change regarding the following aspects. 
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item \blue{Memory Management for High Complex Nested Objects}
+        \item \blue{Different Rust Memory Management Strategies}
+        \item \blue{Automated Reference Counting (Rc) vs. Reference}
+        \item \blue{Multithreading using Atomic Reference Counting (Arc)}
+        \item \blue{Arc vs. Deep Copy on Overall Performance of Big Data Processing}
+    \end{itemize}
+\end{frame}
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -479,18 +487,18 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\begin{frame}[fragile]{Problem Description}
-    Our goal is to determine the magnitude of performance change regarding the following aspects. 
-    \vspace{0.5cm}
-    \begin{itemize}
-        \item \blue{Memory Management for High Complex Nested Objects}
-        \item \blue{Different Rust Memory Management Strategies}
-        \item \blue{Automated Reference Counting (Rc) vs. Reference}
-        \item \blue{Multithreading using Atomic Reference Counting (Arc)}
-        \item \blue{Arc vs. Deep Copy on Overall Performance of Big Data Processing}
-    \end{itemize}
-\end{frame}
+% 
+% \begin{frame}[fragile]{Problem Description}
+%     Our goal is to determine the magnitude of performance change regarding the following aspects. 
+%     \vspace{0.5cm}
+%     \begin{itemize}
+%         \item \blue{Memory Management for High Complex Nested Objects}
+%         \item \blue{Different Rust Memory Management Strategies}
+%         \item \blue{Automated Reference Counting (Rc) vs. Reference}
+%         \item \blue{Multithreading using Atomic Reference Counting (Arc)}
+%         \item \blue{Arc vs. Deep Copy on Overall Performance of Big Data Processing}
+%     \end{itemize}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -519,10 +527,10 @@ struct CustomerRc {
             \item testing set: \(18 \times  10^3\) pages
         \end{itemize} 
     \end{itemize} 
-    \textbf{Other Setting}
+    \textbf{Execution}
     \begin{itemize}
-        \item Run 5 times for each experiment
-        \item Take average of runtime
+        \item Run each experiment 5 time 
+        \item Take average of the 5 runs 
     \end{itemize}
 \end{frame}
 
@@ -533,7 +541,8 @@ struct CustomerRc {
 
     \textbf{Question}
     \begin{itemize}
-        \item How much does selection of different memory management strategies differ memory access time?
+        % \item How much does selection of different memory management strategies differ memory access time?
+        \item What is the proformance differences among different memory management strategies?
     \end{itemize}
 
     \vspace{0.5cm}
@@ -541,7 +550,7 @@ struct CustomerRc {
     \textbf{Evaluation}
     \begin{itemize}
         \item \blueb{Construct Complex objects}
-        \item With different memory management strategies: \blueb{Owner, Reference, Slice}
+        \item With different memory management strategies like \blueb{Owner, Reference, Slice}
         \item \textbf{CustomerOwned} vs. \textbf{CustomerBorrowed} vs. \textbf{CustomerSlice}
         \item Measure access time of different \blueb{fields of complex objects}
     \end{itemize}
@@ -577,7 +586,7 @@ struct CustomerRc {
                 % \caption{\textbf{}}
         \end{center}
     \end{figure}
-    \vspace{-0.5cm}
+    \vspace{-1cm}
     \textbf{Result}
     \begin{itemize}
         \item No differences of memory access time among Customer objects using different memory management strategies.
@@ -900,11 +909,20 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Findings}
+
+\textbf{Arc vs. Deep-Copy}
+
     \begin{itemize}
+        \item Use Arc instead of deep-copy, when \blueb{complexity of objects is large}.
+        \item Use deep-copy when dealing with \blueb{low complex objects/primitive types} like String.
+    \end{itemize}
+
+\textbf{Arc vs. Normal Reference}
+
+    \begin{itemize}
+
         \item Use normal reference rather than Reference Counting whenever it is possible.
         \item \blueb{Avoid using Arc} when we can use reference.
-        \item Use Arc instead of deep-copy, when \blueb{complexity of objects is large}.
-        \item Use deep-copy, when \blueb{complexity of objects is small}, like String.
     \end{itemize}
 \end{frame}
 

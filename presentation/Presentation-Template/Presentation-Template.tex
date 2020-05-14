@@ -169,7 +169,7 @@ let reference = &owner;
         \vspace{0.5cm}
         \begin{itemize}
             \item Each value is owned by single owner variable in Rust.
-            \item Compile error: value "s" is dropped already.
+            \item Compiler error: \brownb{value "s" is dropped already.}
         \end{itemize}
 
  \end{frame}
@@ -177,7 +177,7 @@ let reference = &owner;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[t, fragile]{Reference Counting}
+\begin{frame}[t, fragile]{Advantage of Reference Counting}
 \vspace{-0.5cm}
 \begin{minipage}{0.7\linewidth}
 \begin{lstlisting}[language=Rust]
@@ -238,7 +238,7 @@ let u = Rc::clone(&s);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Reference Counting}
+\begin{frame}[fragile]{Disadvantge of Reference Counting}
     
 \vspace{-0.5cm}
 \begin{minipage}{0.7\linewidth}
@@ -298,15 +298,20 @@ let u = Rc::clone(&s);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Problem Description}
-    Our goal is to determine the magnitude of performance change regarding the following aspects. 
+    
+    In this thesis, our goal is to determine the magnitude of performance change regarding the following aspects on overall performance of Big Data processing.
+     
     \vspace{0.5cm}
     \begin{itemize}
-        \item \blue{Memory Management for High Complex Nested Objects}
-        \item \blue{Different Rust Memory Management Strategies}
-        \item \blue{Automated Reference Counting (Rc) vs. Reference}
-        \item \blue{Multithreading using Atomic Reference Counting (Arc)}
-        \item \blue{Arc vs. Deep Copy on Overall Performance of Big Data Processing}
+        
+        \item \blue{High Complex Nested Objects vs. Simple Objects/Primitive Types using  different memory strategies: Ownership vs. Borrowing vs. Slicing vs. Reference Counting}
+        \item \blue{Automated Reference Counting (Rc) vs. Normal Reference}
+        \item \blue{Multithreading using Atomic Reference Counting (Arc) vs. Normal Reference}
+        \item \blue{Arc vs. Deep Copy}
     \end{itemize}
+    
+    We have specified 5 different experiments. 
+    
 \end{frame}
 
 
@@ -363,7 +368,7 @@ struct CustomerBorrowed<'a> {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[t,fragile]{Complex Object - Slicing and Reference Counting }
+\begin{frame}[t,fragile]{Complex Object - Slicing and Reference Counting}
 
 %Memory Slicing and Atomic Reference Counting 
 \begin{minipage}{0.5\linewidth}
@@ -473,10 +478,10 @@ struct CustomerRc {
 \begin{frame}[fragile]{Impact of Memory Management on performance of Big Data Processing}
     \blueb{K-Nearest-Neighbors (KNN)}
     \begin{itemize}
-        \item Text document preprocessing 
-        \item String manipulations
         \item An example of Machine Learning algorithm that requires Big Data processing.
+        \item Text document classification 
         \item We are interested only in preprocessing phase.
+        \item String manipulations
         \item It is just matrix read operation after preprocessing phase.
     \end{itemize}    
 
@@ -512,17 +517,17 @@ struct CustomerRc {
     \end{itemize}
     \textbf{Data Set}
     \begin{itemize}
-        \item Customer object
+        \item Randomized generated data of \textbf{Customer objects} (Synthetic Data)
         \begin{itemize}
             \item CustomerOwned
             \item CustomerBorrowed
             \item CustomerSlice
             \item CustomerRc
         \end{itemize} 
-        \item Wikipedia page data set
+        \item \textbf{Wikipedia Text data} set (Real-World Data)
         \begin{itemize}
-            \item training set: \(100 \times 10^3 \) pages
-            \item testing set: \(18 \times  10^3\) pages
+            \item Training set: \(100 \times 10^3 \) wiki pages
+            \item Testing set: \(18 \times  10^3\) wiki pages
         \end{itemize} 
     \end{itemize} 
     \textbf{Execution}
@@ -651,7 +656,6 @@ struct CustomerRc {
     \begin{itemize}
         \item Dropping Reference Counting is about \blueb{60 times slower} than normal reference.
     \end{itemize}
-
     \textbf{Discussion}
     \begin{itemize}
         \item Reference Counting needs some CPU cycles to check reference count.
@@ -662,11 +666,11 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Experiment 3: Merge-sort}
+\begin{frame}[fragile]{Experiment 3: Merge-Sort}
 
     \textbf{Question}
     \begin{itemize}
-        \item What is performance hit of Merge-sort algorithm using Arc vs, normal reference?
+        \item What is performance hit of Merge-Sort algorithm using Arc vs, normal reference?
     \end{itemize}
 
     \vspace{0.5cm}
@@ -699,7 +703,7 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Experiment 3: Merge-sort}
-    \vspace{-0.5cm}
+    \vspace{-0.55cm}
     \begin{figure}[hp]
         \centering
         \begin{center}
@@ -708,7 +712,7 @@ struct CustomerRc {
                 % \caption{\textbf{}}
         \end{center}
     \end{figure}
-    \vspace{-0.5cm}
+    \vspace{-0.95cm}
     \textbf{Result}
     \begin{itemize}
         \item Arc are about \blueb{21\%  slower} than normal reference.
@@ -770,8 +774,7 @@ struct CustomerRc {
                 % \caption{\textbf{}}
         \end{center}
     \end{figure}
-
-    \vspace{-0.5cm}
+    \vspace{-1.1cm}
     \textbf{Result}
     \begin{itemize}
         \item Deep-copies are from \blueb{40\% to 50\% slower} than Arc.
@@ -800,8 +803,8 @@ struct CustomerRc {
     \begin{itemize}
         \item Document classification on Wikipedia page dataset
         \begin{itemize}
-            \item training set: \(100 \times 10^3 \) pages
-            \item testing set: \(18 \times  10^3\) pages
+            \item Training set: \(100 \times 10^3 \) wiki pages
+            \item Testing set: \(18 \times  10^3\) wiki pages
         \end{itemize}
         \item Preprocessing phase: calculating \blueb{Term-Frequencies (TFs)}
         \item String manipulation
@@ -873,8 +876,8 @@ struct CustomerRc {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors}
-    \vspace{-0.5cm}
+\begin{frame}[fragile]{Experiment 5: K-Nearest-Neighbors - Preprocessing Time}
+    \vspace{-0.4cm}
     \begin{figure}[hp]
         \centering
         \begin{center}
@@ -883,7 +886,7 @@ struct CustomerRc {
                 % \caption{\textbf{}}
         \end{center}
     \end{figure} 
-    \vspace{-0.7cm}
+    \vspace{-0.9cm}
     \textbf{Result}
     \begin{itemize}
         \item \blueb{Arc} is \blueb{at most 27\% slower} than deep-copy.
@@ -897,7 +900,7 @@ struct CustomerRc {
             \item Relatively simple object
             \item Contiguously allocated
         \end{itemize}
-        \item Overhead using Arc may become more significant as size of dat increases
+        \item Overhead using Arc may become more significant as size of data increases
         % \item More frequent deallocation of intermediate objects may lead to overhead.
     \end{itemize} 
 \end{frame}
@@ -911,7 +914,7 @@ struct CustomerRc {
 \textbf{Arc vs. Deep-Copy}
 
     \begin{itemize}
-        \item Use Arc instead of deep-copy, when \blueb{complexity of objects is large}.
+        \item Use Arc instead of deep-copy when \blueb{complexity of objects is large}.
         \item Use deep-copy when dealing with \blueb{low complex objects/primitive types} like String.
     \end{itemize}
 

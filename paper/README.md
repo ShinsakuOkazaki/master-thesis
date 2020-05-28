@@ -1,1 +1,5 @@
-Paper
+
+
+# Build pdf paper 
+
+```make all ```

@@ -6,4 +6,4 @@ create:
 	pdflatex  paper-main.tex
 
 clean:
-	rm -rf *.aux  *.nav  *.vrb  *.log  *.out *.snm *.toc *.gz *.bbl  *.blg
+	rm -rf *.aux  *.nav  *.vrb  *.log  *.out *.snm *.toc *.gz *.bbl  *.blg *.fdb_latexmk *.fls

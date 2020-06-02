@@ -190,7 +190,7 @@ impl Customer for CustomerRc{
 }
 
 // Function to create a vector of CustomerOwned objects.
-pub fn create_customer_onwed_vector(file_name: &str, orders_map: HashMap<i32, Vec<OrderOwned>>) -> (u128, Vec<CustomerOwned>) {
+pub fn create_customer_onwed_vector(file_name: &str, orders_map: &HashMap<i32, Vec<OrderOwned>>) -> (u128, Vec<CustomerOwned>) {
     let start = Instant::now();
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
@@ -218,34 +218,26 @@ pub fn create_customer_onwed_vector(file_name: &str, orders_map: HashMap<i32, Ve
     (elapsed, customers)
 }
 
-pub fn create_customer_borrowed_vector<'a>(size: usize, keys: &'a Vec<i32>, ages: &'a Vec<i32>, num_purchases: &'a Vec<i32>, 
-                total_purchases: &'a Vec<f64>, duration_spents: &'a Vec<f64>, duration_sinces: &'a Vec<f64>,
-                zip_codes: &'a Vec<String>, addresses: &'a Vec<String> , countries: &'a Vec<String>,
-                states: &'a Vec<String>, first_names: &'a Vec<String>, last_names: &'a Vec<String>,
-                provinces: &'a Vec<String>, comments: &'a Vec<String>, orders: &'a Vec<OrderBorrowed>) -> (u128, Vec<CustomerBorrowed<'a>>) {
-    let start = Instant::now();
-    let mut customers: Vec<CustomerBorrowed> = Vec::new();
+
+pub fn create_customer_borrowed_vector<'a>(customers: [CustomerOwned], orders_map: &HashMap<i32, Vec<OrderBorrowed>>) -> (u128, Vec<CustomerBorrowed<'a>>) {
+    let start = Instant::now()
+    let size = customers.len();
+    let mut customers_borrowed: Vec<&CustomerBorrowed> = Vec::new();
     for i in 0..size {
-        // Get reference by acceesing String in vector and create CustomerBorrowed.
-        let key = &keys[i];
-        let age = &ages[i];
-        let num_purchase = &num_purchases[i];
-        let total_purchase = &total_purchases[i];
-        let duration_spent = &duration_spents[i];
-        let duration_since = &duration_sinces[i];
-        let zip_code = &zip_codes[i];
-        let address = &addresses[i];
-        let country = &countries[i];
-        let state = &states[i];
-        let first_name = &first_names[i];
-        let last_name = &last_names[i];
-        let province = &provinces[i];
-        let comment = &comments[i];
-        let order = &orders[i];
-        let customer = CustomerBorrowed::new(key, age, num_purchase, total_purchase, duration_spent, duration_since, 
-                        zip_code, address, country, state, first_name, last_name, province, comment, order);
-        customers.push(customer);
-    }
+        let customer = customers[i];
+        let custkey: i32 = &customer.custkey;
+        let name: String = &customer.name;
+        let address: String = &customer.address;
+        let nationkey: i32 = &customer.nationkey; 
+        let phone: String = &customer.phone;
+        let acctbal: f64 = &customer.acctbal; 
+        let mktsegment: String = &customer.mktsegment;
+        let comment: String = &customer.comment;
+        let orders: &Vec<OrderBorrowed> = orders_map.get(custkey).unwrap();
+        let customer_borrowed = CustomerBorrowed::new(custkey, name, address, nationkey, phone, 
+                                          acctbal, mktsegment, comment, orders);
+        customers_borrowed.push()
+   }
     let elapsed = start.elapsed().as_micros();
     (elapsed, customers)
 }

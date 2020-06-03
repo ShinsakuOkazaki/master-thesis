@@ -1,62 +1,84 @@
 use std::rc::Rc;
 use serde::ser::{Serialize, Serializer, SerializeStruct};
+use std::path::Path;
+use std::io::{BufRead, BufReader};
+use std::fs::File;
+use crate::objects::lineitem::*;
 
 pub struct OrderOwned {
-    order_id: i32,
-    num_items: i32, 
-    payment: f64,
-    order_time: f64,
-    title: String,
-    comment: String
+    order_key: i32,
+    custkey: i32,
+    order_status: String,
+    total_price: f64,
+    order_date: String,
+    order_priority: String, 
+    clerk: String,
+    shippriority: i32,
+    comment: String, 
 }
 
 
 pub struct OrderBorrowed<'a> {
-    order_id: &'a i32,
-    num_items: &'a i32, 
-    payment: &'a f64,
-    order_time: &'a f64,
-    title: &'a String,
-    comment: &'a String
+    order_key: &'a i32,
+    custkey: &'a i32,
+    order_status: &'a String,
+    total_price: &'a f64,
+    order_date: &'a String,
+    order_priority: &'a String, 
+    clerk: &'a String,
+    shippriority: &'a i32,
+    comment: &'a String, 
 }
 
 pub struct OrderRc {
-    order_id: Rc<i32>,
-    num_items: Rc<i32>, 
-    payment: Rc<f64>,
-    order_time: Rc<f64>,
-    title: Rc<String>,
-    comment: Rc<String>
+    order_key: Rc<i32>,
+    custkey: Rc<i32>,
+    order_status: Rc<String>,
+    total_price: Rc<f64>,
+    order_date: Rc<String>,
+    order_priority: Rc<String>,  
+    clerk: Rc<String>,
+    shippriority: Rc<i32>,
+    comment: Rc<String> ,
 }
 
 impl OrderOwned {
-    pub fn new(order_id: i32, num_items: i32, payment: f64, order_time: f64, title: String, comment: String) -> OrderOwned {
+    pub fn new(order_key: i32, custkey: i32, order_status: String, total_price: f64, order_date: String, 
+               order_priority: String, clerk: String, shippriority: i32, comment: String) -> OrderOwned {
         OrderOwned {
-            order_id: order_id, 
-            num_items: num_items, 
-            payment: payment,
-            order_time: order_time,
-            title: title,
-            comment: comment
+            order_key: order_key,
+            custkey: custkey,
+            order_status: order_status,
+            total_price: total_price,
+            order_date: order_date,
+            order_priority: order_priority, 
+            clerk: clerk,
+            shippriority: shippriority,
+            comment: comment, 
         }
     }
 }
 
 impl OrderBorrowed<'_> {
-    pub fn new<'a>(order_id: &'a i32, num_items: &'a i32, payment: &'a f64, order_time: &'a f64, title: &'a String, comment: &'a String) -> OrderBorrowed<'a> {
+    pub fn new<'a>(order_key: &'a i32, custkey: &'a i32, order_status: &'a String, total_price: &'a f64, order_date: &'a String, 
+                   order_priority: &'a String, clerk: &'a String, shippriority: &'a i32, comment: &'a String) -> OrderBorrowed<'a> { 
         OrderBorrowed {
-            order_id: order_id, 
-            num_items: num_items, 
-            payment: payment,
-            order_time: order_time,
-            title: title,
-            comment: comment
+           order_key: order_key,
+            custkey: custkey,
+            order_status: order_status,
+            total_price: total_price,
+            order_date: order_date,
+            order_priority: order_priority, 
+            clerk: clerk,
+            shippriority: shippriority,
+            comment: comment, 
         }
     }
 }
 
 impl OrderRc {
-    pub fn new(order_id: Rc<i32>, num_items: Rc<i32>, payment: Rc<f64>, order_time: Rc<f64>, title: Rc<String>, comment: Rc<String>) -> OrderRc {
+    pub fn new(order_key: Rc<i32>, custkey: Rc<i32>, order_status: Rc<String>, total_price: Rc<f64>, order_date: Rc<String>,
+    order_priority: Rc<String>,  clerk: Rc<String>, shippriority: Rc<i32>, comment: Rc<String>) -> OrderRc {
         OrderRc {
             order_id: order_id, 
             num_items: num_items, 

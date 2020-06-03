@@ -1,9 +1,11 @@
 use std::rc::Rc;
+use std::time::Instant;
 use serde::ser::{Serialize, Serializer, SerializeStruct};
 use std::path::Path;
 use std::io::{BufRead, BufReader};
 use std::fs::File;
 use crate::objects::lineitem::*;
+use std::collections::HashMap;
 
 pub struct OrderOwned {
     order_key: i32,
@@ -15,6 +17,7 @@ pub struct OrderOwned {
     clerk: String,
     shippriority: i32,
     comment: String, 
+    line_items: Vec<LineItemOwned>, 
 }
 
 
@@ -28,6 +31,7 @@ pub struct OrderBorrowed<'a> {
     clerk: &'a String,
     shippriority: &'a i32,
     comment: &'a String, 
+    line_items: &'a Vec<LineItemBorrowed<'a>>,
 }
 
 pub struct OrderRc {
@@ -40,11 +44,12 @@ pub struct OrderRc {
     clerk: Rc<String>,
     shippriority: Rc<i32>,
     comment: Rc<String> ,
+    line_items: Rc<Vec<LineItemRc>>, 
 }
 
 impl OrderOwned {
     pub fn new(order_key: i32, custkey: i32, order_status: String, total_price: f64, order_date: String, 
-               order_priority: String, clerk: String, shippriority: i32, comment: String) -> OrderOwned {
+               order_priority: String, clerk: String, shippriority: i32, comment: String, line_items: Vec<LineItemOwned>) -> OrderOwned {
         OrderOwned {
             order_key: order_key,
             custkey: custkey,
@@ -54,14 +59,15 @@ impl OrderOwned {
             order_priority: order_priority, 
             clerk: clerk,
             shippriority: shippriority,
-            comment: comment, 
+            comment: comment,
+            line_items: line_items,
         }
     }
 }
 
 impl OrderBorrowed<'_> {
     pub fn new<'a>(order_key: &'a i32, custkey: &'a i32, order_status: &'a String, total_price: &'a f64, order_date: &'a String, 
-                   order_priority: &'a String, clerk: &'a String, shippriority: &'a i32, comment: &'a String) -> OrderBorrowed<'a> { 
+                   order_priority: &'a String, clerk: &'a String, shippriority: &'a i32, comment: &'a String, line_items: &'a Vec<LineItemBorrowed>) -> OrderBorrowed<'a> { 
         OrderBorrowed {
            order_key: order_key,
             custkey: custkey,
@@ -72,83 +78,133 @@ impl OrderBorrowed<'_> {
             clerk: clerk,
             shippriority: shippriority,
             comment: comment, 
+            line_items: line_items, 
         }
     }
 }
 
 impl OrderRc {
     pub fn new(order_key: Rc<i32>, custkey: Rc<i32>, order_status: Rc<String>, total_price: Rc<f64>, order_date: Rc<String>,
-    order_priority: Rc<String>,  clerk: Rc<String>, shippriority: Rc<i32>, comment: Rc<String>) -> OrderRc {
+    order_priority: Rc<String>,  clerk: Rc<String>, shippriority: Rc<i32>, comment: Rc<String>, line_items: Rc<Vec<LineItemRc>>) -> OrderRc {
         OrderRc {
-            order_id: order_id, 
-            num_items: num_items, 
-            payment: payment,
-            order_time: order_time,
-            title: title,
-            comment: comment
+            order_key: order_key,
+            custkey: custkey,
+            order_status: order_status,
+            total_price: total_price,
+            order_date: order_date,
+            order_priority: order_priority, 
+            clerk: clerk,
+            shippriority: shippriority,
+            comment: comment, 
+            line_items: line_items,
         }
     }
 }
 
-pub fn get_order_owned_vector(size: usize, mut order_ids: Vec<i32>, mut num_itemss: Vec<i32>, 
-        mut payments: Vec<f64>, mut order_times: Vec<f64>, mut titles: Vec<String>, mut comments: Vec<String>) -> Vec<OrderOwned> {
-    let mut orders = Vec::with_capacity(size);
-    for _ in 0..size {
-        let order_id = order_ids.pop().unwrap();
-        let num_items = num_itemss.pop().unwrap();
-        let payment = payments.pop().unwrap();
-        let order_time = order_times.pop().unwrap();
-        let title = titles.pop().unwrap();
-        let comment = comments.pop().unwrap();
-        let order = OrderOwned::new(order_id, num_items, payment, order_time, title, comment);
+pub fn get_order_owned_vector(file_name: &str, line_items_map: HashMap<i32, Vec<LineItemOwned>>) -> (u128, Vec<OrderOwned>) {
+    
+    let start = Instant::now();
+    let path= Path::new(&file_name);
+    let file = File::open(path).unwrap();
+    let buf_reader = BufReader::new(file);
+    let mut lines = buf_reader.lines();
+    let mut orders = Vec::new();
+    for line in lines {
+        let l = line.unwrap();
+        let row: Vec<&str> = l.split('|').collect();
+        let order_key: i32 = row[0].parse::<i32>().unwrap();
+        let custkey: i32 = row[1].parse::<i32>().unwrap();
+        let order_status: String = row[2].to_string();
+        let total_price: f64 = row[3].parse::<f64>().unwrap();
+        let order_date: String = row[4].to_string() ;
+        let order_priority: String = row[5].to_string();
+        let clerk: String = row[6].to_string();
+        let shippriority: i32 = row[7].parse::<i32>().unwrap(); 
+        let comment: String = row[8].parse::<String>().unwrap();
+        let line_items: Vec<LineItemOwned> = line_items_map.remove(&order_key).unwrap();
+
+        let order = OrderOwned::new(order_key, custkey, order_status, total_price,
+                                    order_date, order_priority, clerk, shippriority, comment, line_items);
+        
         orders.push(order);
     }
-    orders
+    let elapsed = start.elapsed().as_micros();
+    (elapsed, orders)
 }
 
-pub fn get_order_borrowed_vector<'a>(size: usize, order_ids: &'a Vec<i32>, num_itemss: &'a Vec<i32>, 
-            payments: &'a Vec<f64>, order_times: &'a Vec<f64>, titles: &'a Vec<String>, comments: &'a Vec<String>) -> Vec<OrderBorrowed<'a>> {
-    let mut orders = Vec::with_capacity(size);
+pub fn get_order_borrowed_vector<'a>(orders_owned: &'a [OrderOwned], line_items_map: &'a HashMap<i32, Vec<LineItemBorrowed<'a>>>) -> (u128, Vec<OrderBorrowed<'a>>) {
+    let size = orders_owned.len();
+    let start = Instant::now();
+    let mut orders_borrowed = Vec::with_capacity(size);
+
     for i in 0..size {
-        let order_id = &order_ids[i];
-        let num_items = &num_itemss[i];
-        let payment = &payments[i];
-        let order_time = &order_times[i];
-        let title = &titles[i];
-        let comment = &comments[i];
-        let order = OrderBorrowed::new(order_id, num_items, payment, order_time, title, comment);
+        let order_owned: &'a OrderOwned = orders_owned.get(i).unwrap();
+        let order_key = &order_owned.order_key;
+        let custkey = &order_owned.custkey;
+        let order_status = &order_owned.order_status;
+        let total_price = &order_owned.total_price;
+        let order_date = &order_owned.order_date;
+        let order_priority = &order_owned.order_priority;
+        let clerk = &order_owned.clerk;
+        let shippriority = &order_owned.shippriority;
+        let comment = &order_owned.comment;
+        let line_items = line_items_map.get(&order_key).unwrap();
+        
+        let order_borrowed = OrderBorrowed::new(order_key, custkey, order_status, total_price,
+                                    order_date, order_priority, clerk, shippriority, comment, line_items);
+
+        orders_borrowed.push(order_borrowed);
+    }
+    let elapsed = start.elapsed().as_micros();
+    (elapsed, orders_borrowed)
+}
+
+pub fn get_order_rc_vector(file_name: &str, line_items_map: HashMap<i32, Vec<LineItemRc>>) -> (u128, Vec<OrderRc>) {
+    
+    let start = Instant::now();
+    let path= Path::new(&file_name);
+    let file = File::open(path).unwrap();
+    let buf_reader = BufReader::new(file);
+    let mut lines = buf_reader.lines();
+    let mut orders = Vec::new();
+    for line in lines {
+        let l = line.unwrap();
+        let row: Vec<&str> = l.split('|').collect();
+        let order_key: Rc<i32> = Rc::new(row[0].parse::<i32>().unwrap());
+        let custkey: Rc<i32> = Rc::new(row[1].parse::<i32>().unwrap());
+        let order_status: Rc<String> = Rc::new(row[2].to_string());
+        let total_price: Rc<f64> = Rc::new(row[3].parse::<f64>().unwrap());
+        let order_date: Rc<String> = Rc::new(row[4].to_string() );
+        let order_priority: Rc<String> = Rc::new(row[5].to_string());
+        let clerk: Rc<String> = Rc::new(row[6].to_string());
+        let shippriority: Rc<i32> = Rc::new(row[7].parse::<i32>().unwrap()); 
+        let comment: Rc<String> = Rc::new(row[8].parse::<String>().unwrap());
+        let line_items: Rc<Vec<LineItemRc>> = Rc::new(line_items_map.remove(&order_key).unwrap());
+
+        let order = OrderRc::new(order_key, custkey, order_status, total_price,
+                                    order_date, order_priority, clerk, shippriority, comment, line_items);
+        
         orders.push(order);
     }
-    orders
-}
-
-pub fn get_order_rc_vector<'a>(size: usize, order_ids: &'a Vec<Rc<i32>>, num_itemss: &'a Vec<Rc<i32>>, 
-    payments: &'a Vec<Rc<f64>>, order_times: &'a Vec<Rc<f64>>, titles: &'a Vec<Rc<String>>, comments: &'a Vec<Rc<String>>) -> Vec<Rc<OrderRc>> {
-    let mut orders = Vec::with_capacity(size);
-    for i in 0..size {
-        let order_id = Rc::clone(&order_ids[i]);
-        let num_items = Rc::clone(&num_itemss[i]);
-        let payment = Rc::clone(&payments[i]);
-        let order_time = Rc::clone(&order_times[i]);
-        let title = Rc::clone(&titles[i]);
-        let comment = Rc::clone(&comments[i]);
-        let order = OrderRc::new(order_id, num_items, payment, order_time, title, comment);
-        orders.push(Rc::new(order));
-    }
-    orders
+    let elapsed = start.elapsed().as_micros();
+    (elapsed, orders)
 }
 
 impl Serialize for OrderOwned {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where S: Serializer,
     {
-        let mut state = serializer.serialize_struct("OrderOwned", 6)?;
-        state.serialize_field("order_id", &self.order_id)?;
-        state.serialize_field("num_items", &self.num_items)?;
-        state.serialize_field("payment", &self.payment)?;
-        state.serialize_field("order_time", &self.order_time)?;
-        state.serialize_field("title", &self.title)?;
+        let mut state = serializer.serialize_struct("OrderOwned", 10)?;
+        state.serialize_field("order_key", &self.order_key)?;
+        state.serialize_field("custkey", &self.custkey)?;
+        state.serialize_field("order_status", &self.order_status)?;
+        state.serialize_field("total_price", &self.total_price)?;
+        state.serialize_field("order_date", &self.order_date)?;
+        state.serialize_field("order_priority", &self.order_priority)?;
+        state.serialize_field("clerk", &self.clerk)?;
+        state.serialize_field("shippriority", &self.shippriority)?;
         state.serialize_field("comment", &self.comment)?;
+        state.serialize_field("line_items", &self.line_items)?;
         state.end()
     }
 }
@@ -158,13 +214,17 @@ impl Serialize for OrderBorrowed<'_> {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where S: Serializer,
     {
-        let mut state = serializer.serialize_struct("OrderBorrowed", 6)?;
-        state.serialize_field("order_id", self.order_id)?;
-        state.serialize_field("num_items", self.num_items)?;
-        state.serialize_field("payment", self.payment)?;
-        state.serialize_field("order_time", &self.order_time)?;
-        state.serialize_field("title", self.title)?;
-        state.serialize_field("comment", self.comment)?;
+        let mut state = serializer.serialize_struct("OrderOwned", 10)?;
+        state.serialize_field("order_key", &self.order_key)?;
+        state.serialize_field("custkey", &self.custkey)?;
+        state.serialize_field("order_status", &self.order_status)?;
+        state.serialize_field("total_price", &self.total_price)?;
+        state.serialize_field("order_date", &self.order_date)?;
+        state.serialize_field("order_priority", &self.order_priority)?;
+        state.serialize_field("clerk", &self.clerk)?;
+        state.serialize_field("shippriority", &self.shippriority)?;
+        state.serialize_field("comment", &self.comment)?;
+        state.serialize_field("line_items", &self.line_items)?;
         state.end()
     }
 }
@@ -173,13 +233,17 @@ impl Serialize for OrderRc {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where S: Serializer,
     {
-        let mut state = serializer.serialize_struct("OrderRc", 6)?;
-        state.serialize_field("order_id", &self.order_id)?;
-        state.serialize_field("num_items", &self.num_items)?;
-        state.serialize_field("payment", &self.payment)?;
-        state.serialize_field("order_time", &self.order_time)?;
-        state.serialize_field("title", &self.title)?;
+        let mut state = serializer.serialize_struct("OrderOwned", 10)?;
+        state.serialize_field("order_key", &self.order_key)?;
+        state.serialize_field("custkey", &self.custkey)?;
+        state.serialize_field("order_status", &self.order_status)?;
+        state.serialize_field("total_price", &self.total_price)?;
+        state.serialize_field("order_date", &self.order_date)?;
+        state.serialize_field("order_priority", &self.order_priority)?;
+        state.serialize_field("clerk", &self.clerk)?;
+        state.serialize_field("shippriority", &self.shippriority)?;
         state.serialize_field("comment", &self.comment)?;
+        state.serialize_field("line_items", &self.line_items)?;
         state.end()
     }
 }

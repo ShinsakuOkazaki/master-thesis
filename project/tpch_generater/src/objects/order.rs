@@ -101,7 +101,7 @@ impl OrderRc {
     }
 }
 
-pub fn get_order_owned_vector(file_name: &str, line_items_map: HashMap<i32, Vec<LineItemOwned>>) -> (u128, Vec<OrderOwned>) {
+pub fn get_order_owned_vector(file_name: &str, mut line_items_map: &HashMap<i32, Vec<LineItemOwned>>) -> (u128, Vec<OrderOwned>) {
     
     let start = Instant::now();
     let path= Path::new(&file_name);
@@ -159,7 +159,7 @@ pub fn get_order_borrowed_vector<'a>(orders_owned: &'a [OrderOwned], line_items_
     (elapsed, orders_borrowed)
 }
 
-pub fn get_order_rc_vector(file_name: &str, line_items_map: HashMap<i32, Vec<LineItemRc>>) -> (u128, Vec<OrderRc>) {
+pub fn get_order_rc_vector(file_name: &str, mut line_items_map: &HashMap<i32, Vec<LineItemRc>>) -> (u128, Vec<OrderRc>) {
     
     let start = Instant::now();
     let path= Path::new(&file_name);

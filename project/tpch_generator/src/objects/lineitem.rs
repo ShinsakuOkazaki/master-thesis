@@ -350,7 +350,7 @@ pub fn craete_lineitem_borrowed_vector<'a>(lineitems_owned: &'a [LineItemOwned])
 }
 
 
-pub fn craete_lineitem_rc(file_name: &str) -> (u128, Vec<LineItemRc>){
+pub fn craete_lineitem_rc_vector(file_name: &str) -> (u128, Vec<LineItemRc>){
     let start = Instant::now();
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();

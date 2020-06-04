@@ -7,6 +7,10 @@ use std::fs::File;
 use crate::objects::lineitem::*;
 use std::collections::HashMap;
 
+pub trait Order {
+    fn get_custkey(&mut self) -> i32;
+}
+
 pub struct OrderOwned {
     order_key: i32,
     custkey: i32,
@@ -98,6 +102,27 @@ impl OrderRc {
             comment: comment, 
             line_items: line_items,
         }
+    }
+}
+
+
+impl Order for OrderOwned {
+    fn get_custkey(&mut self) -> i32 {
+        self.custkey
+    }
+}
+
+impl Order for OrderBorrowed<'_> {
+    fn get_custkey(&mut self) -> i32 {
+        let res = *self.custkey;
+        res
+    }
+}
+
+impl Order for OrderRc {
+    fn get_custkey(&mut self) -> i32 {
+        let res = *Rc::get_mut(&mut self.custkey).unwrap();
+        res
     }
 }
 
@@ -246,4 +271,21 @@ impl Serialize for OrderRc {
         state.serialize_field("line_items", &self.line_items)?;
         state.end()
     }
+}
+
+
+pub fn agg_order_by_custkey<T: Order>(mut orders: Vec<T>) -> HashMap<i32, Vec<T>> {
+    let size = orders.len();
+    let mut aggregation: HashMap<i32, Vec<T>> = HashMap::new();
+    
+    for _ in 0..size {
+        let mut order = orders.pop().unwrap();
+        let key = order.get_custkey();
+        if !aggregation.contains_key(&key) {
+            aggregation.insert(key, Vec::new());
+        } 
+        aggregation.get_mut(&key).unwrap().push(order);
+    }
+
+    aggregation
 }

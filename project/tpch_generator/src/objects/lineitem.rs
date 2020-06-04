@@ -4,8 +4,10 @@ use serde::ser::{Serialize, Serializer, SerializeStruct};
 use std::path::Path;
 use std::io::{BufRead, BufReader};
 use std::fs::File;
+use std::collections::HashMap;
 
 pub trait LineItem{
+    fn get_order_key(&mut self) -> i32;
     fn return_flag_byte(&self) -> &[u8];
     fn line_status_byte(&self) -> &[u8];
     fn ship_date_byte(&self) -> &[u8];
@@ -158,6 +160,11 @@ impl LineItemRc {
 }
 
 impl LineItem for LineItemOwned {
+
+    fn get_order_key(&mut self) -> i32 {
+        self.order_key
+    }
+
     fn return_flag_byte(&self) -> &[u8] {
         self.return_flag.as_bytes()
     }
@@ -192,7 +199,12 @@ impl LineItem for LineItemOwned {
 }
 
 impl LineItem for LineItemBorrowed<'_>{
-    
+
+    fn get_order_key(&mut self) -> i32 {
+        let res = *self.order_key;
+        res
+    }
+
     fn return_flag_byte(&self) -> &[u8] {
         self.return_flag.as_bytes()
     }
@@ -229,6 +241,10 @@ impl LineItem for LineItemBorrowed<'_>{
 
 impl LineItem for LineItemRc { 
     
+    fn get_order_key(&mut self) -> i32 {
+        let res = *Rc::get_mut(&mut self.order_key).unwrap();
+        res
+    }
     fn return_flag_byte(&self) -> &[u8] {
         self.return_flag.as_bytes()
     }
@@ -267,7 +283,7 @@ pub fn create_lineitem_onwed_vector(file_name: &str) -> (u128, Vec<LineItemOwned
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
-    let mut lines = buf_reader.lines();
+    let lines = buf_reader.lines();
     let mut lineitems = Vec::new();
     for line in lines {
         let l = line.unwrap();
@@ -339,7 +355,7 @@ pub fn craete_lineitem_rc(file_name: &str) -> (u128, Vec<LineItemRc>){
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
-    let mut lines = buf_reader.lines();
+    let lines = buf_reader.lines();
     let mut lineitems_rc = Vec::new();
     for line in lines {
         let l = line.unwrap();
@@ -402,7 +418,7 @@ impl Serialize for LineItemBorrowed<'_> {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where S: Serializer,
     {
-        let mut state = serializer.serialize_struct("LineItemOwned", 16)?;
+        let mut state = serializer.serialize_struct("LineItemBorrowed", 16)?;
         state.serialize_field("order_key", &self.order_key)?;
         state.serialize_field("part_key", &self.part_key)?;
         state.serialize_field("suppkey", &self.suppkey)?;
@@ -428,7 +444,7 @@ impl Serialize for LineItemRc {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where S: Serializer,
     {
-        let mut state = serializer.serialize_struct("LineItemOwned", 16)?;
+        let mut state = serializer.serialize_struct("LineItemRc", 16)?;
         state.serialize_field("order_key", &self.order_key)?;
         state.serialize_field("part_key", &self.part_key)?;
         state.serialize_field("suppkey", &self.suppkey)?;
@@ -447,4 +463,53 @@ impl Serialize for LineItemRc {
         state.serialize_field("comment", &self.comment)?;
         state.end()
     }
+}
+
+
+// pub fn agg_lineitem_owned_by_order_key(mut linitems: Vec<LineItemOwned>) -> HashMap<i32, Vec<LineItemOwned>> {
+//     let size = linitems.len();
+//     let mut aggregation: HashMap<i32, Vec<LineItemOwned>> = HashMap::new();
+    
+//     for _ in 0..size {
+//         let lineitem = linitems.pop().unwrap();
+//         let key = lineitem.order_key;
+//         if !aggregation.contains_key(&key) {
+//             aggregation.insert(key, Vec::new());
+//         } 
+//         aggregation.get_mut(&key).unwrap().push(lineitem);
+//     }
+
+//     aggregation
+// }
+
+// pub fn agg_lineitem_borrowed_by_order_key(mut linitems: Vec<LineItemBorrowed>) -> HashMap<i32, Vec<LineItemBorrowed>> {
+//     let size = linitems.len();
+//     let mut aggregation: HashMap<i32, Vec<LineItemBorrowed>> = HashMap::new();
+    
+//     for _ in 0..size {
+//         let lineitem = linitems.pop().unwrap();
+//         let key = lineitem.order_key;
+//         if !aggregation.contains_key(key) {
+//             aggregation.insert(*key, Vec::new());
+//         } 
+//         aggregation.get_mut(&key).unwrap().push(lineitem);
+//     }
+
+//     aggregation
+// }
+
+pub fn agg_lineitem_by_order_key<T: LineItem>(mut linitems: Vec<T>) -> HashMap<i32, Vec<T>> {
+    let size = linitems.len();
+    let mut aggregation: HashMap<i32, Vec<T>> = HashMap::new();
+    
+    for _ in 0..size {
+        let mut lineitem = linitems.pop().unwrap();
+        let key = lineitem.get_order_key();
+        if !aggregation.contains_key(&key) {
+            aggregation.insert(key, Vec::new());
+        } 
+        aggregation.get_mut(&key).unwrap().push(lineitem);
+    }
+
+    aggregation
 }

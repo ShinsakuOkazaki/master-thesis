@@ -190,12 +190,12 @@ impl Customer for CustomerRc{
 }
 
 // Function to create a vector of CustomerOwned objects.
-pub fn create_customer_onwed_vector(file_name: &str, mut orders_map: &HashMap<i32, Vec<OrderOwned>>) -> (u128, Vec<CustomerOwned>) {
+pub fn create_customer_onwed_vector(file_name: &str, orders_map: &mut HashMap<i32, Vec<OrderOwned>>) -> (u128, Vec<CustomerOwned>) {
     let start = Instant::now();
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
-    let mut lines = buf_reader.lines();
+    let lines = buf_reader.lines();
     let mut customers = Vec::new();
     for line in lines {
         let l = line.unwrap();
@@ -203,9 +203,9 @@ pub fn create_customer_onwed_vector(file_name: &str, mut orders_map: &HashMap<i3
         let custkey: i32 = row[0].parse::<i32>().unwrap();
         let name: String = row[1].to_string();
         let address: String = row[2].to_string();
-        let nationkey: i32 = row[3].parse::<i32>().unwrap();;
+        let nationkey: i32 = row[3].parse::<i32>().unwrap();
         let phone: String = row[4].to_string();
-        let acctbal: f64 = row[5].parse::<f64>().unwrap();;
+        let acctbal: f64 = row[5].parse::<f64>().unwrap();
         let mktsegment: String = row[6].to_string();
         let comment: String = row[7].to_string();
         let orders: Vec<OrderOwned> = orders_map.remove(&custkey).unwrap();
@@ -224,7 +224,7 @@ pub fn create_customer_borrowed_vector<'a>(customers: &'a [CustomerOwned], order
     let size = customers.len();
     let mut customers_borrowed: Vec<CustomerBorrowed> = Vec::new();
     for i in 0..size {
-        let customer = customers[i];
+        let customer = customers.get(i).unwrap();
         let custkey = &customer.custkey;
         let name = &customer.name;
         let address = &customer.address;
@@ -243,12 +243,12 @@ pub fn create_customer_borrowed_vector<'a>(customers: &'a [CustomerOwned], order
 }
 
 // Function to create a vector of CustomerOwned objects.
-pub fn create_customer_rc_vector(file_name: &str, mut orders_map: &HashMap<i32, Vec<OrderRc>>) -> (u128, Vec<CustomerRc>) {
+pub fn create_customer_rc_vector(file_name: &str, orders_map: &mut HashMap<i32, Vec<OrderRc>>) -> (u128, Vec<CustomerRc>) {
     let start = Instant::now();
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
-    let mut lines = buf_reader.lines();
+    let lines = buf_reader.lines();
     let mut customers = Vec::new();
     for line in lines {
         let l = line.unwrap();
@@ -295,7 +295,6 @@ impl Serialize for CustomerBorrowed<'_> {
     where S: Serializer,
     {
         let mut state = serializer.serialize_struct("CustomerBorrowed", 6).unwrap();
-        let mut state = serializer.serialize_struct("CustomerOwned", 6).unwrap();
         state.serialize_field("custkey", &self.custkey)?;
         state.serialize_field("name", &self.name)?;
         state.serialize_field("address", &self.address)?;
@@ -313,7 +312,7 @@ impl Serialize for CustomerRc {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where S: Serializer,
     {
-        let mut state = serializer.serialize_struct("CustomerOwned", 6).unwrap();
+        let mut state = serializer.serialize_struct("CustomerRc", 6).unwrap();
         state.serialize_field("custkey", &self.custkey)?;
         state.serialize_field("name", &self.name)?;
         state.serialize_field("address", &self.address)?;

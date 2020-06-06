@@ -10,5 +10,5 @@ fn main() {
     let customers_owned = customer::create_objects_owned(&lineitem_file, &order_file, &customer_file);
     let customers_borrowed = customer::create_customer_borrowed_vector(&customers_owned);
     let customers_rc = customer::create_objects_rc(&lineitem_file, &order_file, &customer_file);
-
+    
 }

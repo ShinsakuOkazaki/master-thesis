@@ -35,7 +35,7 @@ pub struct OrderBorrowed<'a> {
     clerk: &'a String,
     shippriority: &'a i32,
     comment: &'a String, 
-    line_items: &'a Vec<LineItemBorrowed<'a>>,
+    line_items: Vec<LineItemBorrowed<'a>>,
 }
 
 pub struct OrderRc {
@@ -71,7 +71,7 @@ impl OrderOwned {
 
 impl OrderBorrowed<'_> {
     pub fn new<'a>(order_key: &'a i32, custkey: &'a i32, order_status: &'a String, total_price: &'a f64, order_date: &'a String, 
-                   order_priority: &'a String, clerk: &'a String, shippriority: &'a i32, comment: &'a String, line_items: &'a Vec<LineItemBorrowed>) -> OrderBorrowed<'a> { 
+                   order_priority: &'a String, clerk: &'a String, shippriority: &'a i32, comment: &'a String, line_items: Vec<LineItemBorrowed<'a>>) -> OrderBorrowed<'a> { 
         OrderBorrowed {
            order_key: order_key,
             custkey: custkey,
@@ -157,32 +157,32 @@ pub fn get_order_owned_vector(file_name: &str, line_items_map: &mut HashMap<i32,
     (elapsed, orders)
 }
 
-pub fn get_order_borrowed_vector<'a>(orders_owned: &'a [OrderOwned], line_items_map: &'a HashMap<i32, Vec<LineItemBorrowed<'a>>>) -> (u128, Vec<OrderBorrowed<'a>>) {
-    let size = orders_owned.len();
-    let start = Instant::now();
-    let mut orders_borrowed = Vec::with_capacity(size);
+// pub fn get_order_borrowed_vector<'a>(orders_owned: &'a [OrderOwned], line_items_map: &'a HashMap<i32, Vec<LineItemBorrowed<'a>>>) -> (u128, Vec<OrderBorrowed<'a>>) {
+//     let size = orders_owned.len();
+//     let start = Instant::now();
+//     let mut orders_borrowed = Vec::with_capacity(size);
 
-    for i in 0..size {
-        let order_owned: &'a OrderOwned = orders_owned.get(i).unwrap();
-        let order_key = &order_owned.order_key;
-        let custkey = &order_owned.custkey;
-        let order_status = &order_owned.order_status;
-        let total_price = &order_owned.total_price;
-        let order_date = &order_owned.order_date;
-        let order_priority = &order_owned.order_priority;
-        let clerk = &order_owned.clerk;
-        let shippriority = &order_owned.shippriority;
-        let comment = &order_owned.comment;
-        let line_items = line_items_map.get(&order_key).unwrap();
+//     for i in 0..size {
+//         let order_owned: &'a OrderOwned = orders_owned.get(i).unwrap();
+//         let order_key = &order_owned.order_key;
+//         let custkey = &order_owned.custkey;
+//         let order_status = &order_owned.order_status;
+//         let total_price = &order_owned.total_price;
+//         let order_date = &order_owned.order_date;
+//         let order_priority = &order_owned.order_priority;
+//         let clerk = &order_owned.clerk;
+//         let shippriority = &order_owned.shippriority;
+//         let comment = &order_owned.comment;
+//         let line_items = line_items_map.get(&order_key).unwrap();
         
-        let order_borrowed = OrderBorrowed::new(order_key, custkey, order_status, total_price,
-                                    order_date, order_priority, clerk, shippriority, comment, line_items);
+//         let order_borrowed = OrderBorrowed::new(order_key, custkey, order_status, total_price,
+//                                     order_date, order_priority, clerk, shippriority, comment, line_items);
 
-        orders_borrowed.push(order_borrowed);
-    }
-    let elapsed = start.elapsed().as_micros();
-    (elapsed, orders_borrowed)
-}
+//         orders_borrowed.push(order_borrowed);
+//     }
+//     let elapsed = start.elapsed().as_micros();
+//     (elapsed, orders_borrowed)
+// }
 
 pub fn get_order_rc_vector(file_name: &str, line_items_map: &mut HashMap<i32, Vec<LineItemRc>>) -> (u128, Vec<OrderRc>) {
     
@@ -213,6 +213,24 @@ pub fn get_order_rc_vector(file_name: &str, line_items_map: &mut HashMap<i32, Ve
     }
     let elapsed = start.elapsed().as_micros();
     (elapsed, orders)
+}
+
+pub fn get_order_borrowed_from_owned<'a>(order_owned: &'a OrderOwned) -> OrderBorrowed<'a> {
+    let lineitems_borrowed = get_lineitems_borrowed(&order_owned.line_items);
+    let order_borrowed = OrderBorrowed::new(&order_owned.order_key, &order_owned.custkey, &order_owned.order_status, &order_owned.total_price,
+                                    &order_owned.order_date, &order_owned.order_priority, &order_owned.clerk, &order_owned.shippriority, &order_owned.comment, lineitems_borrowed);
+    order_borrowed
+}
+
+pub fn get_order_borrowed_vector<'a>(orders_owned: &'a [OrderOwned]) -> Vec<OrderBorrowed<'a>>{
+    let size = orders_owned.len();
+    let mut orders_borrowed = Vec::with_capacity(size);
+
+    for i in 0..size {
+        let order_borrowed = get_order_borrowed_from_owned(&orders_owned[i]);
+        orders_borrowed.push(order_borrowed);
+    }
+    orders_borrowed
 }
 
 impl Serialize for OrderOwned {

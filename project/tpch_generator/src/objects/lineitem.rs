@@ -5,6 +5,8 @@ use std::path::Path;
 use std::io::{BufRead, BufReader};
 use std::fs::File;
 use std::collections::HashMap;
+use crate::objects::customer::*;
+use crate::objects::order::*;
 
 pub trait LineItem{
     fn get_order_key(&mut self) -> i32;
@@ -349,6 +351,24 @@ pub fn craete_lineitem_borrowed_vector<'a>(lineitems_owned: &'a [LineItemOwned])
     (elapsed, lineitems_borrowed)
 }
 
+pub fn get_lineitem_borrow_from_owned<'a>(lineitem_owned: &'a LineItemOwned) -> LineItemBorrowed<'a> {
+    let lineitem_borrowed = LineItemBorrowed::new(&lineitem_owned.order_key, &lineitem_owned.part_key, &lineitem_owned.suppkey, &lineitem_owned.line_number, &lineitem_owned.quantity, &lineitem_owned.extended_price, 
+                                     &lineitem_owned.discount, &lineitem_owned.tax, &lineitem_owned.return_flag, &lineitem_owned.line_status, &lineitem_owned.ship_date, &lineitem_owned.commit_date,
+                                     &lineitem_owned.receipt_date, &lineitem_owned.shipin_struct, &lineitem_owned.ship_mode, &lineitem_owned.comment);
+
+    lineitem_borrowed
+}
+
+pub fn get_lineitems_borrowed<'a>(lineitems_owed: &'a [LineItemOwned]) -> Vec::<LineItemBorrowed<'a>>{
+    let size = lineitems_owed.len();
+    let mut lineitems_borrowed = Vec::with_capacity(size);
+    
+    for i in 0..size {
+        let lineitem_borrowed = get_lineitem_borrow_from_owned(&lineitems_owed[i]);
+        lineitems_borrowed.push(lineitem_borrowed);
+    }
+    lineitems_borrowed
+}
 
 pub fn craete_lineitem_rc_vector(file_name: &str) -> (u128, Vec<LineItemRc>){
     let start = Instant::now();

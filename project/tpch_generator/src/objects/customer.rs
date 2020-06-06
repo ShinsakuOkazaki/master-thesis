@@ -1,4 +1,5 @@
 use crate::objects::order::*;
+use crate::objects::lineitem::*;
 use std::rc::Rc;
 use std::time::Instant;
 use serde::ser::{Serialize, Serializer, SerializeStruct};
@@ -40,7 +41,7 @@ pub struct CustomerBorrowed<'a> {
     acctbal: &'a f64, 
     mktsegment: &'a String, 
     comment: &'a String,
-    orders: &'a Vec<OrderBorrowed<'a>>, 
+    orders: Vec<OrderBorrowed<'a>>, 
 }
 
 
@@ -81,7 +82,7 @@ impl CustomerOwned  {
 impl CustomerBorrowed<'_>  {
     pub fn new<'a>(custkey: &'a i32, name: &'a String, address: &'a String, 
                nationkey: &'a i32, phone: &'a String, acctbal: &'a f64, 
-               mktsegment: &'a String, comment: &'a String, orders: &'a Vec<OrderBorrowed>) -> CustomerBorrowed<'a> {
+               mktsegment: &'a String, comment: &'a String, orders: Vec<OrderBorrowed<'a>>) -> CustomerBorrowed<'a> {
 
 
             CustomerBorrowed {
@@ -219,28 +220,28 @@ pub fn create_customer_onwed_vector(file_name: &str, orders_map: &mut HashMap<i3
 }
 
 
-pub fn create_customer_borrowed_vector<'a>(customers: &'a [CustomerOwned], orders_map: &'a HashMap<i32, Vec<OrderBorrowed>>) -> (u128, Vec<CustomerBorrowed<'a>>) {
-    let start = Instant::now();
-    let size = customers.len();
-    let mut customers_borrowed: Vec<CustomerBorrowed> = Vec::new();
-    for i in 0..size {
-        let customer = customers.get(i).unwrap();
-        let custkey = &customer.custkey;
-        let name = &customer.name;
-        let address = &customer.address;
-        let nationkey= &customer.nationkey; 
-        let phone= &customer.phone;
-        let acctbal= &customer.acctbal; 
-        let mktsegment= &customer.mktsegment;
-        let comment= &customer.comment;
-        let orders= orders_map.get(custkey).unwrap();
-        let customer_borrowed = CustomerBorrowed::new(custkey, name, address, nationkey, phone, 
-                                          acctbal, mktsegment, comment, orders);
-        customers_borrowed.push(customer_borrowed);
-   }
-    let elapsed = start.elapsed().as_micros();
-    (elapsed, customers_borrowed)
-}
+// pub fn create_customer_borrowed_vector<'a>(customers: &'a [CustomerOwned], orders_map: &'a HashMap<i32, Vec<OrderBorrowed>>) -> (u128, Vec<CustomerBorrowed<'a>>) {
+//     let start = Instant::now();
+//     let size = customers.len();
+//     let mut customers_borrowed: Vec<CustomerBorrowed> = Vec::new();
+//     for i in 0..size {
+//         let customer = customers.get(i).unwrap();
+//         let custkey = &customer.custkey;
+//         let name = &customer.name;
+//         let address = &customer.address;
+//         let nationkey= &customer.nationkey; 
+//         let phone= &customer.phone;
+//         let acctbal= &customer.acctbal; 
+//         let mktsegment= &customer.mktsegment;
+//         let comment= &customer.comment;
+//         let orders= orders_map.get(custkey).unwrap();
+//         let customer_borrowed = CustomerBorrowed::new(custkey, name, address, nationkey, phone, 
+//                                           acctbal, mktsegment, comment, orders);
+//         customers_borrowed.push(customer_borrowed);
+//    }
+//     let elapsed = start.elapsed().as_micros();
+//     (elapsed, customers_borrowed)
+// }
 
 // Function to create a vector of CustomerOwned objects.
 pub fn create_customer_rc_vector(file_name: &str, orders_map: &mut HashMap<i32, Vec<OrderRc>>) -> (u128, Vec<CustomerRc>) {
@@ -325,3 +326,46 @@ impl Serialize for CustomerRc {
         state.end()
     }
 }
+
+
+
+pub fn create_customer_borrowed_from_owned<'a>(customer_owned: &'a CustomerOwned) -> CustomerBorrowed<'a> {
+    let orders_borrowed = get_order_borrowed_vector(&customer_owned.orders);
+    let customer_borrowed = CustomerBorrowed::new(&customer_owned.custkey, &customer_owned.name, &customer_owned.address, &customer_owned.nationkey, &customer_owned.phone, &customer_owned.acctbal, 
+                                     &customer_owned.mktsegment, &customer_owned.comment, orders_borrowed);
+    customer_borrowed
+}
+
+pub fn create_customer_borrowed_vector<'a>(customers_owned: &'a [CustomerOwned]) -> Vec<CustomerBorrowed<'a>>{
+    let size = customers_owned.len();
+    let mut customers_borrowed = Vec::with_capacity(size);
+
+    for i in 0..size {
+        let customer_borrowed = create_customer_borrowed_from_owned(&customers_owned[i]);
+        customers_borrowed.push(customer_borrowed);
+    }
+    customers_borrowed
+}
+
+pub fn create_objects_owned(lineitem_file: &str, order_file: &str, customer_file: &str) -> Vec<CustomerOwned>{
+    let (_, lineitem_owned_vector) = create_lineitem_onwed_vector(lineitem_file);
+    let mut agg_lineitems = agg_lineitem_by_order_key(lineitem_owned_vector);
+    
+    let (_, order_owned_vector) = get_order_owned_vector(order_file, &mut agg_lineitems);
+    let mut agg_orders = agg_order_by_custkey(order_owned_vector);
+
+    let (_, customer_owned_vector) = create_customer_onwed_vector(customer_file, &mut agg_orders);
+    customer_owned_vector
+}
+
+pub fn create_objects_rc(lineitem_file: &str, order_file: &str, customer_file: &str) -> Vec<CustomerRc>{
+    let (_, lineitem_rc_vector) = craete_lineitem_rc_vector(lineitem_file);
+    let mut agg_lineitems = agg_lineitem_by_order_key(lineitem_rc_vector);
+    
+    let (_, order_rc_vector) = get_order_rc_vector(order_file, &mut agg_lineitems);
+    let mut agg_orders = agg_order_by_custkey(order_rc_vector);
+
+    let (_, customer_rc_vector) = create_customer_rc_vector(customer_file, &mut agg_orders);
+    customer_rc_vector
+}
+

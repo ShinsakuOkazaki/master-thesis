@@ -1,12 +1,9 @@
 use std::rc::Rc;
-use std::time::Instant;
 use serde::ser::{Serialize, Serializer, SerializeStruct};
 use std::path::Path;
 use std::io::{BufRead, BufReader};
 use std::fs::File;
 use std::collections::HashMap;
-use crate::objects::customer::*;
-use crate::objects::order::*;
 
 pub trait LineItem{
     fn get_order_key(&mut self) -> i32;
@@ -280,8 +277,7 @@ impl LineItem for LineItemRc {
 
 }
 
-pub fn create_lineitem_onwed_vector(file_name: &str) -> (u128, Vec<LineItemOwned>) {
-    let start = Instant::now();
+pub fn create_lineitem_onwed_vector(file_name: &str) -> Vec<LineItemOwned>{
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
@@ -313,13 +309,11 @@ pub fn create_lineitem_onwed_vector(file_name: &str) -> (u128, Vec<LineItemOwned
         
         lineitems.push(lineitem);
     }
-    let elapsed = start.elapsed().as_micros();
-    (elapsed, lineitems)
+    lineitems
 }
 
-pub fn craete_lineitem_borrowed_vector<'a>(lineitems_owned: &'a [LineItemOwned]) -> (u128, Vec<LineItemBorrowed<'a>>) {
+pub fn craete_lineitem_borrowed_vector<'a>(lineitems_owned: &'a [LineItemOwned]) -> Vec<LineItemBorrowed<'a>>{
     let size = lineitems_owned.len();
-    let start = Instant::now();
     let mut lineitems_borrowed = Vec::with_capacity(size);
 
     for i in 0..size {
@@ -347,8 +341,7 @@ pub fn craete_lineitem_borrowed_vector<'a>(lineitems_owned: &'a [LineItemOwned])
 
         lineitems_borrowed.push(lineitem_borrowed);
     }
-    let elapsed = start.elapsed().as_micros();
-    (elapsed, lineitems_borrowed)
+    lineitems_borrowed
 }
 
 pub fn get_lineitem_borrow_from_owned<'a>(lineitem_owned: &'a LineItemOwned) -> LineItemBorrowed<'a> {
@@ -370,8 +363,7 @@ pub fn get_lineitems_borrowed<'a>(lineitems_owed: &'a [LineItemOwned]) -> Vec::<
     lineitems_borrowed
 }
 
-pub fn craete_lineitem_rc_vector(file_name: &str) -> (u128, Vec<LineItemRc>){
-    let start = Instant::now();
+pub fn craete_lineitem_rc_vector(file_name: &str) -> Vec<LineItemRc> {
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
@@ -403,8 +395,7 @@ pub fn craete_lineitem_rc_vector(file_name: &str) -> (u128, Vec<LineItemRc>){
         
         lineitems_rc.push(lineitem_rc);
     }
-    let elapsed = start.elapsed().as_micros();
-    (elapsed, lineitems_rc)
+    lineitems_rc
 }
 
 impl Serialize for LineItemOwned {

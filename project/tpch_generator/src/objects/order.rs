@@ -126,9 +126,8 @@ impl Order for OrderRc {
     }
 }
 
-pub fn get_order_owned_vector(file_name: &str, line_items_map: &mut HashMap<i32, Vec<LineItemOwned>>) -> (u128, Vec<OrderOwned>) {
+pub fn get_order_owned_vector(file_name: &str, line_items_map: &mut HashMap<i32, Vec<LineItemOwned>>) -> Vec<OrderOwned>{
     
-    let start = Instant::now();
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
@@ -153,8 +152,7 @@ pub fn get_order_owned_vector(file_name: &str, line_items_map: &mut HashMap<i32,
         
         orders.push(order);
     }
-    let elapsed = start.elapsed().as_micros();
-    (elapsed, orders)
+    orders
 }
 
 // pub fn get_order_borrowed_vector<'a>(orders_owned: &'a [OrderOwned], line_items_map: &'a HashMap<i32, Vec<LineItemBorrowed<'a>>>) -> (u128, Vec<OrderBorrowed<'a>>) {
@@ -184,9 +182,8 @@ pub fn get_order_owned_vector(file_name: &str, line_items_map: &mut HashMap<i32,
 //     (elapsed, orders_borrowed)
 // }
 
-pub fn get_order_rc_vector(file_name: &str, line_items_map: &mut HashMap<i32, Vec<LineItemRc>>) -> (u128, Vec<OrderRc>) {
+pub fn get_order_rc_vector(file_name: &str, line_items_map: &mut HashMap<i32, Vec<LineItemRc>>) -> Vec<OrderRc> {
     
-    let start = Instant::now();
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
@@ -211,8 +208,7 @@ pub fn get_order_rc_vector(file_name: &str, line_items_map: &mut HashMap<i32, Ve
         
         orders.push(order);
     }
-    let elapsed = start.elapsed().as_micros();
-    (elapsed, orders)
+    orders
 }
 
 pub fn get_order_borrowed_from_owned<'a>(order_owned: &'a OrderOwned) -> OrderBorrowed<'a> {

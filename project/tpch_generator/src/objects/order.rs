@@ -1,5 +1,4 @@
 use std::rc::Rc;
-use std::time::Instant;
 use serde::ser::{Serialize, Serializer, SerializeStruct};
 use std::path::Path;
 use std::io::{BufRead, BufReader};
@@ -8,7 +7,12 @@ use crate::objects::lineitem::*;
 use std::collections::HashMap;
 
 pub trait Order {
-    fn get_custkey(&mut self) -> i32;
+    fn get_custkey(&mut self) -> i32; 
+    fn get_order_date(&mut self) -> &[u8];
+    fn get_order_priority(&mut self) -> &[u8];
+    fn get_order_status(&mut self) -> &[u8];
+    fn get_clerk(&mut self) -> &[u8];
+    fn comment(&mut self) -> &[u8];
 }
 
 pub struct OrderOwned {
@@ -110,6 +114,25 @@ impl Order for OrderOwned {
     fn get_custkey(&mut self) -> i32 {
         self.custkey
     }
+    fn get_order_date(&mut self) -> &[u8] {
+        self.order_date.as_bytes()
+    }
+
+    fn get_order_priority(&mut self) -> &[u8] {
+        self.order_priority.as_bytes()
+    }
+    fn get_order_status(&mut self) -> &[u8] {
+        self.order_status.as_bytes()
+    }
+    
+    fn get_clerk(&mut self) -> &[u8] {
+        self.clerk.as_bytes()
+    }
+
+    fn comment(&mut self) -> &[u8] {
+        self.comment.as_bytes()
+    }
+    
 }
 
 impl Order for OrderBorrowed<'_> {
@@ -117,12 +140,50 @@ impl Order for OrderBorrowed<'_> {
         let res = *self.custkey;
         res
     }
+
+    fn get_order_date(&mut self) -> &[u8] {
+        self.order_date.as_bytes()
+    }
+
+    fn get_order_priority(&mut self) -> &[u8] {
+        self.order_priority.as_bytes()
+    }
+    fn get_order_status(&mut self) -> &[u8] {
+        self.order_status.as_bytes()
+    }
+    
+    fn get_clerk(&mut self) -> &[u8] {
+        self.clerk.as_bytes()
+    }
+
+    fn comment(&mut self) -> &[u8] {
+        self.comment.as_bytes()
+    }
 }
 
 impl Order for OrderRc {
     fn get_custkey(&mut self) -> i32 {
         let res = *Rc::get_mut(&mut self.custkey).unwrap();
         res
+    }
+
+    fn get_order_date(&mut self) -> &[u8] {
+        self.order_date.as_bytes()
+    }
+
+    fn get_order_priority(&mut self) -> &[u8] {
+        self.order_priority.as_bytes()
+    }
+    fn get_order_status(&mut self) -> &[u8] {
+        self.order_status.as_bytes()
+    }
+    
+    fn get_clerk(&mut self) -> &[u8] {
+        self.clerk.as_bytes()
+    }
+
+    fn comment(&mut self) -> &[u8] {
+        self.comment.as_bytes()
     }
 }
 
@@ -145,7 +206,10 @@ pub fn get_order_owned_vector(file_name: &str, line_items_map: &mut HashMap<i32,
         let clerk: String = row[6].to_string();
         let shippriority: i32 = row[7].parse::<i32>().unwrap(); 
         let comment: String = row[8].parse::<String>().unwrap();
-        let line_items: Vec<LineItemOwned> = line_items_map.remove(&order_key).unwrap();
+        let line_items: Vec<LineItemOwned> = match line_items_map.remove(&order_key) {
+            Some(x) => x, 
+            None => Vec::new(),
+        };
 
         let order = OrderOwned::new(order_key, custkey, order_status, total_price,
                                     order_date, order_priority, clerk, shippriority, comment, line_items);
@@ -201,7 +265,10 @@ pub fn get_order_rc_vector(file_name: &str, line_items_map: &mut HashMap<i32, Ve
         let clerk: Rc<String> = Rc::new(row[6].to_string());
         let shippriority: Rc<i32> = Rc::new(row[7].parse::<i32>().unwrap()); 
         let comment: Rc<String> = Rc::new(row[8].parse::<String>().unwrap());
-        let line_items: Rc<Vec<LineItemRc>> = Rc::new(line_items_map.remove(&order_key).unwrap());
+        let line_items: Rc<Vec<LineItemRc>> = match line_items_map.remove(&order_key) {
+            Some(x) => Rc::new(x),
+            None => Rc::new(Vec::new()),
+        };
 
         let order = OrderRc::new(order_key, custkey, order_status, total_price,
                                     order_date, order_priority, clerk, shippriority, comment, line_items);

@@ -208,7 +208,10 @@ pub fn create_customer_onwed_vector(file_name: &str, orders_map: &mut HashMap<i3
         let acctbal: f64 = row[5].parse::<f64>().unwrap();
         let mktsegment: String = row[6].to_string();
         let comment: String = row[7].to_string();
-        let orders: Vec<OrderOwned> = orders_map.remove(&custkey).unwrap();
+        let orders: Vec<OrderOwned> = match orders_map.remove(&custkey) {
+            Some(x) => x, 
+            None => Vec::new(),
+        };
 
         let customer = CustomerOwned::new(custkey, name, address, nationkey, phone, 
                                           acctbal, mktsegment, comment, orders);
@@ -259,7 +262,10 @@ pub fn create_customer_rc_vector(file_name: &str, orders_map: &mut HashMap<i32, 
         let acctbal= Rc::new(row[5].parse::<f64>().unwrap());
         let mktsegment= Rc::new(row[6].to_string());
         let comment= Rc::new(row[7].to_string());
-        let orders= Rc::new(orders_map.remove(&custkey).unwrap());
+        let orders: Rc<Vec<OrderRc>> = match orders_map.remove(&custkey) {
+            Some(x) => Rc::new(x),
+            None => Rc::new(Vec::new()),
+        };
 
         let customer = CustomerRc::new(custkey, name, address, nationkey, phone, 
                                           acctbal, mktsegment, comment, orders);
@@ -332,7 +338,8 @@ pub fn create_customer_borrowed_from_owned<'a>(customer_owned: &'a CustomerOwned
     customer_borrowed
 }
 
-pub fn create_customer_borrowed_vector<'a>(customers_owned: &'a [CustomerOwned]) -> Vec<CustomerBorrowed<'a>>{
+pub fn create_customer_borrowed_vector<'a>(customers_owned: &'a [CustomerOwned]) -> (u128, Vec<CustomerBorrowed<'a>>){
+    let start = Instant::now(); 
     let size = customers_owned.len();
     let mut customers_borrowed = Vec::with_capacity(size);
 
@@ -340,7 +347,8 @@ pub fn create_customer_borrowed_vector<'a>(customers_owned: &'a [CustomerOwned])
         let customer_borrowed = create_customer_borrowed_from_owned(&customers_owned[i]);
         customers_borrowed.push(customer_borrowed);
     }
-    customers_borrowed
+    let elapsed = start.elapsed().as_micros();
+    (elapsed, customers_borrowed)
 }
 
 pub fn create_objects_owned(lineitem_file: &str, order_file: &str, customer_file: &str) -> (u128, Vec<CustomerOwned>){

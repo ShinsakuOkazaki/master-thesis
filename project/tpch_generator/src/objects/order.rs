@@ -187,14 +187,17 @@ impl Order for OrderRc {
     }
 }
 
-pub fn get_order_owned_vector(file_name: &str, line_items_map: &mut HashMap<i32, Vec<LineItemOwned>>) -> Vec<OrderOwned>{
+pub fn get_order_owned_vector(file_name: &str, line_items_map: &mut HashMap<i32, Vec<LineItemOwned>>, size: usize) -> Vec<OrderOwned>{
     
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
     let lines = buf_reader.lines();
     let mut orders = Vec::new();
-    for line in lines {
+    for (i, line) in lines.enumerate() {
+        if i == size {
+            break;
+        }
         let l = line.unwrap();
         let row: Vec<&str> = l.split('|').collect();
         let order_key: i32 = row[0].parse::<i32>().unwrap();
@@ -246,14 +249,17 @@ pub fn get_order_owned_vector(file_name: &str, line_items_map: &mut HashMap<i32,
 //     (elapsed, orders_borrowed)
 // }
 
-pub fn get_order_rc_vector(file_name: &str, line_items_map: &mut HashMap<i32, Vec<LineItemRc>>) -> Vec<OrderRc> {
+pub fn get_order_rc_vector(file_name: &str, line_items_map: &mut HashMap<i32, Vec<LineItemRc>>, size: usize) -> Vec<OrderRc> {
     
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
     let lines = buf_reader.lines();
     let mut orders = Vec::new();
-    for line in lines {
+    for (i, line) in lines.enumerate() {
+        if i == size {
+            break;
+        }
         let l = line.unwrap();
         let row: Vec<&str> = l.split('|').collect();
         let order_key: Rc<i32> = Rc::new(row[0].parse::<i32>().unwrap());

@@ -191,13 +191,16 @@ impl Customer for CustomerRc{
 }
 
 // Function to create a vector of CustomerOwned objects.
-pub fn create_customer_onwed_vector(file_name: &str, orders_map: &mut HashMap<i32, Vec<OrderOwned>>) -> Vec<CustomerOwned>{
+pub fn create_customer_onwed_vector(file_name: &str, orders_map: &mut HashMap<i32, Vec<OrderOwned>>, size: usize) -> Vec<CustomerOwned>{
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
     let lines = buf_reader.lines();
     let mut customers = Vec::new();
-    for line in lines {
+    for (i, line) in lines.enumerate() {
+        if i == size {
+            break;
+        }
         let l = line.unwrap();
         let row: Vec<&str> = l.split('|').collect();
         let custkey: i32 = row[0].parse::<i32>().unwrap();
@@ -245,13 +248,16 @@ pub fn create_customer_onwed_vector(file_name: &str, orders_map: &mut HashMap<i3
 // }
 
 // Function to create a vector of CustomerOwned objects.
-pub fn create_customer_rc_vector(file_name: &str, orders_map: &mut HashMap<i32, Vec<OrderRc>>) -> Vec<CustomerRc>{
+pub fn create_customer_rc_vector(file_name: &str, orders_map: &mut HashMap<i32, Vec<OrderRc>>, size: usize) -> Vec<CustomerRc>{
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
     let lines = buf_reader.lines();
     let mut customers = Vec::new();
-    for line in lines {
+    for (i, line) in lines.enumerate() {
+        if i == size {
+            break;
+        }
         let l = line.unwrap();
         let row: Vec<&str> = l.split('|').collect();
         let custkey= Rc::new(row[0].parse::<i32>().unwrap());
@@ -351,28 +357,30 @@ pub fn create_customer_borrowed_vector<'a>(customers_owned: &'a [CustomerOwned])
     (elapsed, customers_borrowed)
 }
 
-pub fn create_objects_owned(lineitem_file: &str, order_file: &str, customer_file: &str) -> (u128, Vec<CustomerOwned>){
+pub fn create_objects_owned(lineitem_file: &str, order_file: &str, customer_file: &str, 
+                            lineitem_size: usize, order_size: usize, customer_size: usize) -> (u128,Vec<CustomerOwned>){
     let start = Instant::now();
-    let lineitem_owned_vector = create_lineitem_onwed_vector(lineitem_file);
+    let lineitem_owned_vector = create_lineitem_onwed_vector(lineitem_file, lineitem_size);
     let mut agg_lineitems = agg_lineitem_by_order_key(lineitem_owned_vector);
     
-    let order_owned_vector = get_order_owned_vector(order_file, &mut agg_lineitems);
+    let order_owned_vector = get_order_owned_vector(order_file, &mut agg_lineitems, order_size);
     let mut agg_orders = agg_order_by_custkey(order_owned_vector);
 
-    let customer_owned_vector = create_customer_onwed_vector(customer_file, &mut agg_orders);
+    let customer_owned_vector = create_customer_onwed_vector(customer_file, &mut agg_orders, customer_size);
     let elapsed = start.elapsed().as_micros();
     (elapsed, customer_owned_vector)
 }
 
-pub fn create_objects_rc(lineitem_file: &str, order_file: &str, customer_file: &str) -> (u128, Vec<CustomerRc>){
+pub fn create_objects_rc(lineitem_file: &str, order_file: &str, customer_file: &str,
+                         lineitem_size: usize, order_size: usize, customer_size: usize) -> (u128, Vec<CustomerRc>){
     let start = Instant::now();
-    let lineitem_rc_vector= craete_lineitem_rc_vector(lineitem_file);
+    let lineitem_rc_vector= craete_lineitem_rc_vector(lineitem_file, lineitem_size);
     let mut agg_lineitems = agg_lineitem_by_order_key(lineitem_rc_vector);
     
-    let order_rc_vector = get_order_rc_vector(order_file, &mut agg_lineitems);
+    let order_rc_vector = get_order_rc_vector(order_file, &mut agg_lineitems, order_size);
     let mut agg_orders = agg_order_by_custkey(order_rc_vector);
 
-    let customer_rc_vector = create_customer_rc_vector(customer_file, &mut agg_orders);
+    let customer_rc_vector = create_customer_rc_vector(customer_file, &mut agg_orders, customer_size);
     let elapsed = start.elapsed().as_micros();
     (elapsed, customer_rc_vector)
 }

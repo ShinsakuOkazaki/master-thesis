@@ -277,16 +277,13 @@ impl LineItem for LineItemRc {
 
 }
 
-pub fn create_lineitem_onwed_vector(file_name: &str, size: usize) -> Vec<LineItemOwned>{
+pub fn create_lineitem_onwed_vector(file_name: &str) -> Vec<LineItemOwned>{
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
     let lines = buf_reader.lines();
     let mut lineitems = Vec::new();
-    for (i, line) in lines.enumerate() {
-        if i == size {
-            break;
-        }
+    for line in lines {
         let l = line.unwrap();
         let row: Vec<&str> = l.split('|').collect();
         let order_key: i32 = row[0].parse::<i32>().unwrap();
@@ -366,16 +363,13 @@ pub fn get_lineitems_borrowed<'a>(lineitems_owed: &'a [LineItemOwned]) -> Vec::<
     lineitems_borrowed
 }
 
-pub fn craete_lineitem_rc_vector(file_name: &str, size: usize) -> Vec<LineItemRc> {
+pub fn craete_lineitem_rc_vector(file_name: &str) -> Vec<LineItemRc> {
     let path= Path::new(&file_name);
     let file = File::open(path).unwrap();
     let buf_reader = BufReader::new(file);
     let lines = buf_reader.lines();
     let mut lineitems_rc = Vec::new();
-    for (i, line) in lines.enumerate() {
-        if i == size {
-            break;
-        }
+    for line in lines {
         let l = line.unwrap();
         let row: Vec<&str> = l.split('|').collect();
         let order_key: Rc<i32> = Rc::new(row[0].parse::<i32>().unwrap());

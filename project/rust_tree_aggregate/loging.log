@@ -39,3 +39,5 @@ datastructure#size#partnumber#method#aggtime#accesstime
 [RustVector]#8000000#64#"copy"#90240291#90987
 [RustVector]#8000000#64#"copy"#89780900#90491
 [RustVector]#8000000#64#"copy"#88994888#99084
+[RustVector]#8000000#8#"shared"#62031222#90908
+[RustVector]#8000000#8#"copy"#88668065#83824

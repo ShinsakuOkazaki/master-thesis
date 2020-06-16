@@ -4,3 +4,4 @@ vectorSize.txt
 serialized
 *.fdb_latexmk
 *.fls
+data

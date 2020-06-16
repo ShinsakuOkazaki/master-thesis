@@ -1,6 +1,7 @@
 target
-/project/data/*
 string.log
 vectorSize.txt
-data
 serialized
+*.fdb_latexmk
+*.fls
+data

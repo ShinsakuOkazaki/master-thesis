@@ -1,34 +1,45 @@
 % ABSTRACT
 
-
-% Motivation 
-% - Faster computation and  saving computer resource is important 
+% Motivation
+% - Faster computation and  saving computer resource is important
 % - introduce Big Data tool can be improve
 % Problem description
 % - introduce Spark, MapReduce is implemented in Application Language.
 % - some problems
-% Concept 
-% - use of rust 
+% Concept
+% - use of rust
 % - what is core concept of experiment
 % Evaluation
 % - how to evaluate that
 % - some notable result
 
-Planning optimized memory management is critical for Big Data analysis tools to perform faster runtime and efficient use of computation resources.
-Modern Big Data analysis tools are developed with application languages that abstract their memory management, so that developers do not have to pay extreme attention to memory management strategies.
+Planning optimized memory management is critical for Big Data analysis tools to
+perform faster runtime and efficient use of computation resources.
+Modern Big Data analysis tools use application languages that abstract their
+memory management so that developers do not have to pay extreme attention
+to memory management strategies.
 
-Many existing Big Data processing tools are developed on Java Virtual Machine (JVM). 
-Memory strategies in JVM, such as Garbage Collection (GC), may lead significant overhead in Big Data processing. 
-Apache Spark and Apache Flink use complex objects to manipulate and transfer tremendous amount of data. 
-Generating many of these complex objects in memory forces GC to rearrange the objects in memory frequently waisting computation. 
+Many existing modern cloud-based data processing systems such as Hadoop, Spark or Flink use
+Java Virtual Machine (JVM) and taking full advantage of features such as automated memory management in JVM
+including Garbage Collection (GC) which may lead to a significant overhead.
+Dataflow-based systems like Spark allow programmers to define complex objects in a
+host language like Java to manipulate and transfer tremendous amount of data.
 
-Considered the problems in memory management in JVM, developing Big Data processing tools with system languages can be the solution.
-By using a system language, a developer has control on memory management, so that one can implement systems with better optimized memory management strategies.
-We selects Rust as good candidate for development of Big Data processing tools, due to its ability to write memory-safe and fearless concurrent codes with its concept of ownership.
+% Generating many of these complex objects in memory forces GC to rearrange the objects in memory frequently waisting computation.
+% Considered performance overhead in memory management in JVM makes system languages to be a better choice to
+% develop systems for Big Data processing.
 
-There may be many possible strategies to optimize memory management for Big Data processing in Rust programming: 
+System languages like C++ or Rust seems to be a better choice to
+develop systems for Big Data processing because they do not relay on JVM.
+By using a system language, a developer has full control on the memory management.
+% Therefore, one can implement systems with more optimized memory management strategies.
+We found Rust programming language to be a good candidate due to its ability to write memory-safe and
+fearless concurrent codes with its concept of memory ownership and borrowing.
+Rust programming language includes many possible strategies to optimize memory management for Big Data processing including
 selection of different variable types, use of Reference Counting, and multithreading with Atomic Reference Counting.
-We conduct several experiments to assess how much these different memory management strategies differ runtime performance of algorithms.
 
-Our experiments focus complex object manipulation and common algorithms for Big Data processing with various memory management.
-The results show significant difference among the algorithms using these different memory strategies.
+In this thesis, we conducted an experimental study to assess how much these different memory management
+strategies differ regarding overall runtime performance.
+Our experiments focus on complex object manipulation and common Big Data processing patterns
+with various memory management. Our experimental results indicate a significant
+difference among these different memory strategies regarding data processing performance.

@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # cargo clean
-cargo build --release
+# cargo build --release
 # for size in 3900000 3910000 3920000 3930000 3940000
 
 
 # for size in 10000000  20000000  30000000 40000000 
-line_sizes=(10000000 20000000 30000000)
-order_sizes=(2500000 5000000 7500000)
-customer_sizes=(250000 500000 750000)
+line_sizes=(30000000 35000000 37500000)
+order_sizes=(5000000 7500000 10000000)
+customer_sizes=(500000 750000 100000)
 
 line_file=../data/tables_scale_0.1/lineitem-large.tbl
 order_file=../data/tables_scale_0.1/orders-large.tbl

@@ -13,7 +13,6 @@ use std::path::Path;
 use std::time::Instant;
 use std::fs::{OpenOptions, File};
 use std::io::prelude::*;
-use std::io::LineWriter;
 fn main() {
     let args: Vec<String> = env::args().collect();
     let part_file: &str = args.get(1).unwrap();
@@ -68,127 +67,87 @@ fn write_to_file(method: &str, t_serialize: u128, t_deserialize: u128) {
     file.write_all(output.as_bytes()).expect("Fail to write file.");
 }
 
-fn write_serialized(vec_serialized: Vec<Vec<u8>>, method: &str) {
-    let file = File::create(format!("serialized_with_{}.txt", method)).unwrap();
-    let mut file = LineWriter::new(file);
-    for serialized in vec_serialized {
-        file.write_all(&serialized[..]).unwrap();
-        file.write_all(b"\n").unwrap();
-    }
+fn write_serialized(serialized: &[u8], method: &str) {
+    let mut file = OpenOptions::new()
+        .append(true)
+        .create(true)
+        .open(format!("serialized_with_{}.txt", method))
+        .unwrap();
+     file.write_all(&serialized[..]).unwrap();
 }
 
-fn read_serialized(file_name: &str) -> Vec<String> {
+fn read_serialized(file_name: &str) -> Vec<u8> {
     let path= Path::new(&file_name);
-    let file = File::open(path).unwrap();
-    let buf_reader = BufReader::new(file);
-    let lines: Vec<String> = buf_reader.lines().collect::<Result<Vec<String>, std::io::Error>>().unwrap();
-    lines
+    let mut file = File::open(path).unwrap();
+    let mut buffer = Vec::new();
+    let n= file.read_to_end(&mut buffer);
+    buffer
 }
 
 fn do_serialize_handcoded(part_file: &str, size: usize) -> u128 {
     let parts = create_part_vector(part_file, size);
-    let mut vec_serialized = Vec::with_capacity(size);
     let start = Instant::now();
-    for i in 0..size {
-        let part = &parts[i];
-        let serialized_with_handcoded = part.write_byte_buffer();
-        vec_serialized.push(serialized_with_handcoded.as_ref().to_vec());
-    }
-    write_serialized(vec_serialized, "handcoded");
+    let serialized = Part::write_byte_buffer_for_vec(&parts[..]);
+    write_serialized(serialized.as_ref(), "handcoded");
     let end = start.elapsed().as_millis();
     end
 }
 
 fn do_deserialize_handcoded(file_name: &str) -> u128 {
-    let vec_serialized = read_serialized(file_name);
-    let size = vec_serialized.len();
-    let mut vec_deserialized = Vec::with_capacity(size);
+    let serialized = read_serialized(file_name);
     let start = Instant::now();
-    for i in 0..size {
-        let deserialized_with_handcoded = Part::read_byte_buffer(&vec_serialized[i].as_bytes());
-        vec_deserialized.push(deserialized_with_handcoded);
-    }
+    let deserialized = Part::read_byte_buffer_for_vec(&serialized[..]);
     let end = start.elapsed().as_millis();
     end
 }
 
 fn do_serialize_json(part_file: &str, size: usize) -> u128 {
     let parts = create_part_vector(part_file, size);
-    let mut vec_serialized = Vec::with_capacity(size);
     let start = Instant::now();
-    for i in 0..size {
-        let part = &parts[i];
-        let serialized_with_json = part.serialize_to_json();
-        vec_serialized.push(serialized_with_json.into_bytes());
-    }
-    write_serialized(vec_serialized, "json");
+    let serialized = Part::serialize_to_json_for_vec(&parts[..]);
+    write_serialized(serialized.as_bytes(), "json");
     let end = start.elapsed().as_millis();
     end
 }
 
 fn do_deserialize_json(file_name: &str) -> u128 {
-    let vec_serialized = read_serialized(file_name);
-    let size = vec_serialized.len();
-    let mut vec_deserialized = Vec::with_capacity(size);
+    let serialized = read_serialized(file_name);
     let start = Instant::now();
-    for i in 0..size {
-        let deserialized_with_json = Part::deserialze_from_json(&vec_serialized[i]);
-        vec_deserialized.push(deserialized_with_json);
-    }
+    let deserialized = Part::deserialize_from_json_for_vec(&str::from_utf8(&serialized[..]).unwrap());
     let end = start.elapsed().as_millis();
     end
 }
 
 fn do_serialize_bincode(part_file: &str, size: usize) -> u128 {
     let parts = create_part_vector(part_file, size);
-    let mut vec_serialized = Vec::with_capacity(size);
     let start = Instant::now();
-    for i in 0..size {
-        let part = &parts[i];
-        let serialized_with_bincode = part.serialize_to_bincode();
-        vec_serialized.push(serialized_with_bincode);
-    }
-    write_serialized(vec_serialized, "bincode");
+    let serialized = Part::serialize_to_bincode_for_vec(&parts[..]);
+    write_serialized(&serialized[..], "bincode");
     let end = start.elapsed().as_millis();
     end
 }
 
 fn do_deserialize_bincode(file_name: &str) -> u128 {
-    let vec_serialized = read_serialized(file_name);
-    let size = vec_serialized.len();
-    let mut vec_deserialized = Vec::with_capacity(size);
+    let serialized = read_serialized(file_name);
     let start = Instant::now();
-    for i in 0..size {
-        let deserialized_with_bincode = Part::deserialized_from_bincode(&vec_serialized[i].as_bytes());
-        vec_deserialized.push(deserialized_with_bincode);
-    }
+    let deserialized = Part::deserialized_from_bincode_for_vec(&serialized[..]);
     let end = start.elapsed().as_millis();
     end
 }
 
 fn do_serialize_avro(part_file: &str, size: usize) -> u128 {
     let parts = create_part_vector(part_file, size);
-    let mut vec_serialized = Vec::with_capacity(size);
     let start = Instant::now();
-    for i in 0..size {
-        let part = &parts[i];
-        let serialized_with_avro = part.serialize_to_avro();
-        vec_serialized.push(serialized_with_avro);
-    }
-    write_serialized(vec_serialized, "avro");
+    let serialized = Part::serialize_to_avro_for_vec(&parts[..]);
+    write_serialized(&serialized[..], "avro");
     let end = start.elapsed().as_millis();
     end
 }
 
 fn do_deserialize_avro(file_name: &str) -> u128 {
-    let vec_serialized = read_serialized(file_name);
-    let size = vec_serialized.len();
-    let mut vec_deserialized = Vec::with_capacity(size);
+    let serialized = read_serialized(file_name);
     let start = Instant::now();
-    for i in 0..size {
-        let deserialized_with_avro = Part::deserialize_from_avro(&vec_serialized[i].as_bytes(),);
-        vec_deserialized.push(deserialized_with_avro);
-    }
+    let deserialized = Part::deserialize_from_avro(&serialized[..]);
     let end = start.elapsed().as_millis();
     end
 }
@@ -228,8 +187,8 @@ impl Part {
     pub fn get_schema() -> Schema {
         let raw_schema = r#"
         {
-            "type: "record,
-            "name: "part",
+            "type": "record",
+            "name": "part",
             "fields": [
                 {"name": "part_id", "type": "int"}, 
                 {"name": "name", "type": "string"}, 
@@ -238,8 +197,8 @@ impl Part {
                 {"name": "style", "type": "string"}, 
                 {"name": "size", "type": "int"}, 
                 {"name": "container", "type": "string"}, 
-                {"name": "retail_price", "type": "float"}, 
-                {"name": "comment", "type": "string"}, 
+                {"name": "retail_price", "type": "double"}, 
+                {"name": "comment", "type": "string"} 
             ]
         }"#;
 
@@ -249,11 +208,17 @@ impl Part {
 
     pub fn write_byte_buffer(&self) -> Bytes {
         let container_bytes = self.container.as_bytes();
+        // println!("Container bytes: {:?}", container_bytes);
         let name_bytes = self.name.as_bytes();
+        // println!("Name bytes: {:?}", name_bytes);
         let mfgr_bytes = self.mfgr.as_bytes();
+        // println!("Mfgr bytes: {:?}", mfgr_bytes);
         let brand_bytes = self.brand.as_bytes();
+        // println!("Brand bytes: {:?}", brand_bytes);
         let style_bytes = self.style.as_bytes();
+        // println!("Style bytes: {:?}", style_bytes);
         let comment_bytes = self.comment.as_bytes();
+        // println!("Comment bytes: {:?}", comment_bytes);
         
         let mut byte_buffer = BytesMut::with_capacity(40 + container_bytes.len() + name_bytes.len()
                                                          + mfgr_bytes.len() + brand_bytes.len()
@@ -263,24 +228,37 @@ impl Part {
         byte_buffer.put_f64(self.retail_price);
 
         byte_buffer.put_i32(container_bytes.len() as i32);
-        byte_buffer.put_slice(container_bytes);
+        byte_buffer.put(container_bytes);
 
         byte_buffer.put_i32(name_bytes.len() as i32);
-        byte_buffer.put_slice(name_bytes);
+        byte_buffer.put(name_bytes);
 
         byte_buffer.put_i32(mfgr_bytes.len() as i32);
-        byte_buffer.put_slice(mfgr_bytes);
+        byte_buffer.put(mfgr_bytes);
 
         byte_buffer.put_i32(brand_bytes.len() as i32);
-        byte_buffer.put_slice(brand_bytes);
+        byte_buffer.put(brand_bytes);
 
         byte_buffer.put_i32(style_bytes.len() as i32);
-        byte_buffer.put_slice(style_bytes);
+        byte_buffer.put(style_bytes);
 
         byte_buffer.put_i32(comment_bytes.len() as i32);
-        byte_buffer.put_slice(comment_bytes);
+        byte_buffer.put(comment_bytes);
 
+        //println!("Byte: {:?}", byte_buffer);
         return byte_buffer.freeze()
+    }
+
+    pub fn write_byte_buffer_for_vec(parts: &[Part]) -> Bytes {
+        let mut byte_buffer = BytesMut::new();
+        let size = parts.len();
+        for i in 0..size {
+            let part = &parts[i];
+            let temp_buf = part.write_byte_buffer();
+            byte_buffer.put(&temp_buf[..]);
+        }
+
+        return byte_buffer.freeze();
     }
 
     pub fn read_byte_buffer(buf: &[u8]) -> std::io::Result<Part> {
@@ -318,6 +296,47 @@ impl Part {
         Ok(object)
     }
 
+    pub fn read_byte_buffer_for_vec(buf: &[u8]) -> std::io::Result<Vec<Part>> {
+        let mut byte_buffer_init = BytesMut::with_capacity(buf.len());
+        byte_buffer_init.extend_from_slice(buf);
+        let mut byte_buffer = byte_buffer_init.freeze();
+        let mut parts: Vec<Part> = Vec::new();
+
+        while byte_buffer.has_remaining() {
+            let temp_part_id = byte_buffer.get_i32();
+            let temp_size = byte_buffer.get_i32();
+            let temp_retail_price = byte_buffer.get_f64();
+
+            let mut string_size;
+
+            string_size = byte_buffer.get_i32();
+            let temp_container = extract_string(&mut byte_buffer, string_size as usize).unwrap();
+
+            string_size = byte_buffer.get_i32();
+            let temp_name = extract_string(&mut byte_buffer, string_size as usize).unwrap();
+
+            string_size = byte_buffer.get_i32();
+            let temp_mfgr = extract_string(&mut byte_buffer, string_size as usize).unwrap();
+
+            string_size = byte_buffer.get_i32();
+            let temp_brand = extract_string(&mut byte_buffer, string_size as usize).unwrap();
+
+            string_size = byte_buffer.get_i32();
+            let temp_style = extract_string(&mut byte_buffer, string_size as usize).unwrap();
+
+            string_size = byte_buffer.get_i32();
+            let temp_comment = extract_string(&mut byte_buffer, string_size as usize).unwrap();
+
+            let object = Part::new(temp_part_id, temp_name, temp_mfgr, 
+                                temp_brand, temp_style, temp_size, 
+                                temp_container, temp_retail_price, temp_comment);
+            
+            parts.push(object);
+        }
+
+        Ok(parts)
+    }
+
     pub fn serialize_to_json(&self) -> String {
         let serialized = serde_json::to_string(&self).unwrap();
         serialized
@@ -327,6 +346,11 @@ impl Part {
         //     .open("part.json")
         //     .unwrap();
         // file.write_all(serialized.as_bytes()).expect("Fail to write file.");
+    }
+
+    pub fn serialize_to_json_for_vec(parts :&[Part]) -> String {
+        let serialized = serde_json::to_string(parts).unwrap();
+        serialized
     }
 
     pub fn deserialze_from_json(serialized: &str) -> Part {
@@ -339,14 +363,29 @@ impl Part {
         deserialized
     }
 
+    pub fn deserialize_from_json_for_vec(serialized: &str) -> Vec<Part> {
+        let deserialized = serde_json::from_str(&serialized).unwrap();
+        deserialized 
+    }
+
     pub fn serialize_to_bincode(&self) -> Vec<u8> {
         let serialized = bincode::serialize(&self).unwrap();
+        serialized
+    }
+
+    pub fn serialize_to_bincode_for_vec(parts: &[Part]) -> Vec<u8>{
+        let serialized = bincode::serialize(parts).unwrap();
         serialized
     }
 
     pub fn deserialized_from_bincode(serialized: &[u8]) -> Part {
         let deserialized = bincode::deserialize(&serialized).unwrap();
         deserialized
+    }
+
+    pub fn deserialized_from_bincode_for_vec(serialized: &[u8]) -> Vec<Part> {
+        let deserialized = bincode::deserialize(&serialized).unwrap();
+        deserialized 
     }
 
     pub fn serialize_to_avro(&self) -> Vec<u8> {
@@ -356,7 +395,28 @@ impl Part {
         let serialized = writer.into_inner();
         serialized
     }
-    pub fn deserialize_from_avro(input: &[u8]) -> Vec<Part> {
+
+    pub fn serialize_to_avro_for_vec(parts: &[Part]) -> Vec<u8>{
+        let schema = Part::get_schema();
+        let mut writer = Writer::new(&schema, Vec::new());
+        for part in parts {
+            writer.append_ser(part).unwrap();
+        }
+        let serialized = writer.into_inner();
+        serialized
+    }
+
+    pub fn deserialize_from_avro(input: &[u8]) -> Part {
+        let schema = Part::get_schema();
+        let reader = Reader::with_schema(&schema, input).unwrap();
+        let mut deserialized = Vec::new();
+        for value in reader {
+            deserialized.push(from_value::<Part>(&value.unwrap()).unwrap());
+        }
+        deserialized.pop().unwrap()
+    }
+
+    pub fn deserialize_from_avro_for_vec(input: &[u8]) -> Vec<Part> {
         let schema = Part::get_schema();
         let reader = Reader::with_schema(&schema, input).unwrap();
         let mut deserialized = Vec::new();

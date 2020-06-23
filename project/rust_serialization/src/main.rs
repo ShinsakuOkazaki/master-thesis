@@ -34,30 +34,30 @@ fn run_experiment(part_file: &str, size: usize, method: i32) {
 fn run_handcoded(part_file: &str, size: usize) {
     let t_serialize = do_serialize_handcoded(part_file, size);
     let t_deserialize = do_deserialize_handcoded("serialized_with_handcoded.txt");
-    write_to_file("handcoded", t_serialize, t_deserialize);
+    write_to_file("handcoded", size, t_serialize, t_deserialize);
 }
 
 fn run_json(part_file: &str, size: usize) {
     let t_serialize = do_serialize_json(part_file, size);
     let t_deserialize = do_deserialize_json("serialized_with_json.txt");
-    write_to_file("json", t_serialize, t_deserialize);
+    write_to_file("json", size, t_serialize, t_deserialize);
 }
 
 fn run_bincode(part_file: &str, size: usize) {
     let t_serialize = do_serialize_bincode(part_file, size);
     let t_deserialize = do_deserialize_bincode("serialized_with_bincode.txt");
-    write_to_file("bincode", t_serialize, t_deserialize);
+    write_to_file("bincode", size, t_serialize, t_deserialize);
 }
 
 fn run_avro(part_file: &str, size: usize) {
     let t_serialize = do_serialize_avro(part_file, size);
     let t_deserialize = do_deserialize_avro("serialized_with_avro.txt");
-    write_to_file("avro", t_serialize, t_deserialize);
+    write_to_file("avro", size, t_serialize, t_deserialize);
 }
 
 
-fn write_to_file(method: &str, t_serialize: u128, t_deserialize: u128) {
-    let output = format!("[RustVector]#{:?}#{:?}#{:?}\n", method, t_serialize, t_deserialize);
+fn write_to_file(method: &str, size: usize, t_serialize: u128, t_deserialize: u128) {
+    let output = format!("[RustVector]#{:?}#{:?}#{:?}#{:?}\n", method, size, t_serialize, t_deserialize);
     println!("{}",output);
     let mut file = OpenOptions::new()
         .append(true)
@@ -80,7 +80,7 @@ fn read_serialized(file_name: &str) -> Vec<u8> {
     let path= Path::new(&file_name);
     let mut file = File::open(path).unwrap();
     let mut buffer = Vec::new();
-    let n= file.read_to_end(&mut buffer);
+    let _n= file.read_to_end(&mut buffer);
     buffer
 }
 
@@ -96,7 +96,7 @@ fn do_serialize_handcoded(part_file: &str, size: usize) -> u128 {
 fn do_deserialize_handcoded(file_name: &str) -> u128 {
     let serialized = read_serialized(file_name);
     let start = Instant::now();
-    let deserialized = Part::read_byte_buffer_for_vec(&serialized[..]);
+    let _deserialized = Part::read_byte_buffer_for_vec(&serialized[..]);
     let end = start.elapsed().as_millis();
     end
 }
@@ -113,7 +113,7 @@ fn do_serialize_json(part_file: &str, size: usize) -> u128 {
 fn do_deserialize_json(file_name: &str) -> u128 {
     let serialized = read_serialized(file_name);
     let start = Instant::now();
-    let deserialized = Part::deserialize_from_json_for_vec(&str::from_utf8(&serialized[..]).unwrap());
+    let _deserialized = Part::deserialize_from_json_for_vec(&str::from_utf8(&serialized[..]).unwrap());
     let end = start.elapsed().as_millis();
     end
 }
@@ -130,7 +130,7 @@ fn do_serialize_bincode(part_file: &str, size: usize) -> u128 {
 fn do_deserialize_bincode(file_name: &str) -> u128 {
     let serialized = read_serialized(file_name);
     let start = Instant::now();
-    let deserialized = Part::deserialized_from_bincode_for_vec(&serialized[..]);
+    let _deserialized = Part::deserialized_from_bincode_for_vec(&serialized[..]);
     let end = start.elapsed().as_millis();
     end
 }
@@ -147,7 +147,7 @@ fn do_serialize_avro(part_file: &str, size: usize) -> u128 {
 fn do_deserialize_avro(file_name: &str) -> u128 {
     let serialized = read_serialized(file_name);
     let start = Instant::now();
-    let deserialized = Part::deserialize_from_avro(&serialized[..]);
+    let _deserialized = Part::deserialize_from_avro_for_vec(&serialized[..]);
     let end = start.elapsed().as_millis();
     end
 }

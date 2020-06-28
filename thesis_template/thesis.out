@@ -27,7 +27,7 @@
 \BOOKMARK [1][-]{section.2.10}{Summary}{chapter.2}% 27
 \BOOKMARK [0][-]{chapter.3}{Conceptual Design of Experiments}{}% 28
 \BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 29
-\BOOKMARK [1][-]{section.3.2}{Type of Variable}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.2}{Types of Variables}{chapter.3}% 30
 \BOOKMARK [1][-]{section.3.3}{Reference Count}{chapter.3}% 31
 \BOOKMARK [1][-]{section.3.4}{Multithread}{chapter.3}% 32
 \BOOKMARK [1][-]{section.3.5}{Tree-aggregate}{chapter.3}% 33
@@ -39,7 +39,7 @@
 \BOOKMARK [1][-]{section.4.2}{Experimental Set and Detail}{chapter.4}% 39
 \BOOKMARK [2][-]{subsection.4.2.1}{Wikipedia Data Sets}{section.4.2}% 40
 \BOOKMARK [2][-]{subsection.4.2.2}{Experimental Details}{section.4.2}% 41
-\BOOKMARK [1][-]{section.4.3}{Experiment 1: Accessing Object with Different Variable Type}{chapter.4}% 42
+\BOOKMARK [1][-]{section.4.3}{Experiment 1: Accessing Objects with Different Variable Types}{chapter.4}% 42
 \BOOKMARK [2][-]{subsection.4.3.1}{Result}{section.4.3}% 43
 \BOOKMARK [2][-]{subsection.4.3.2}{Discussion}{section.4.3}% 44
 \BOOKMARK [1][-]{section.4.4}{Experiment 2: Assessment of different reference methods in Rust}{chapter.4}% 45

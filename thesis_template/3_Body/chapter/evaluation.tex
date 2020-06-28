@@ -1,19 +1,19 @@
 \section{Introduction}
 \label{sec:eval_intro}
-In this chapter, detail experiment settings, executions and results are discussed.
-Section~\ref{sec:eval_setdetail} details hardware configurations and data set we use. 
+In this chapter, detailed experiment settings, executions and results are discussed.
+Section~\ref{sec:eval_setdetail} details hardware configurations and datasets we use. 
 There are 5 experiments conducted. In Section~\ref{sec:eval_diffval}, we discuss the experiment 
-where we assess runtime to access object's field with different variable types. 
+where we assess runtime to access object's fields with different variable types. 
 Section~\ref{sec:eval_refcount} shows details to examine how behaviors of normal reference and Reference Count are different. 
 Section~\ref{sec:eval_sort} describes our Merge-sort experiment to examine behavior of Atomic Reference Counting.
-Two algorithms are discussed used in Big Data processing and examined in our experiments: 
+Two algorithms are used in Big Data processing and examined in our experiments: 
 Tree-aggregate in Section~\ref{sec:concept_treeagg} and K-Nearest-Neighbors in Section~\ref{sec:concept_knn}.
 
 \section{Experimental Set and Detail}
 \label{sec:eval_setdetail}
 \input{3_Body/model/experimental_set_detail}
 
-\section{Experiment 1: Accessing Object with Different Variable Type}
+\section{Experiment 1: Accessing Objects with Different Variable Types}
 \label{sec:eval_diffval}
 \input{3_Body/model/access_own_reference_slice}
 
@@ -36,10 +36,10 @@ Tree-aggregate in Section~\ref{sec:concept_treeagg} and K-Nearest-Neighbors in S
 
 \section{Summary}
 \label{sec:eval_summary}
-In this chapter, we examines various memory management strategies for different algorithms in Rust programming.
+In this chapter, we examine various memory management strategies for different algorithms in Rust programming.
 There are many factors that might differ performance of algorithms: different variable type, Reference Counting, Atomic Reference Counting, and frequency of memory de/allocation.
 We should select the best memory management strategies when developing Big Data processing tools. 
-Some of tips for the development are proved in our experiments. We conclude this thesis in Chapter~\ref{chapter:Conclusions}.
+Some tips for the development are proven in our experiments. We conclude this thesis in Chapter~\ref{chapter:Conclusions}.
 
 % \section{Elements Copy and Insertion into Size-initialized Vector in Rust.}
 % \label{sec:history}

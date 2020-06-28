@@ -20,7 +20,7 @@ memory management so that developers do not have to pay extreme attention
 to memory management strategies.
 
 Many existing modern cloud-based data processing systems such as Hadoop, Spark or Flink use
-Java Virtual Machine (JVM) and taking full advantage of features such as automated memory management in JVM
+Java Virtual Machine (JVM) and take full advantage of features such as automated memory management in JVM
 including Garbage Collection (GC) which may lead to a significant overhead.
 Dataflow-based systems like Spark allow programmers to define complex objects in a
 host language like Java to manipulate and transfer tremendous amount of data.
@@ -29,14 +29,14 @@ host language like Java to manipulate and transfer tremendous amount of data.
 % Considered performance overhead in memory management in JVM makes system languages to be a better choice to
 % develop systems for Big Data processing.
 
-System languages like C++ or Rust seems to be a better choice to
+System languages like C++ or Rust seem to be a better choice to
 develop systems for Big Data processing because they do not relay on JVM.
 By using a system language, a developer has full control on the memory management.
 % Therefore, one can implement systems with more optimized memory management strategies.
 We found Rust programming language to be a good candidate due to its ability to write memory-safe and
 fearless concurrent codes with its concept of memory ownership and borrowing.
 Rust programming language includes many possible strategies to optimize memory management for Big Data processing including
-selection of different variable types, use of Reference Counting, and multithreading with Atomic Reference Counting.
+a selection of different variable types, use of Reference Counting, and multithreading with Atomic Reference Counting.
 
 In this thesis, we conducted an experimental study to assess how much these different memory management
 strategies differ regarding overall runtime performance.

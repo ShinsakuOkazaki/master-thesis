@@ -21,8 +21,8 @@ However, acquisition of owner out of the scope where it was constructed is avail
 
 
 \subsection{Move}
-In Rust, for most types operations like assigning a value to a variable, passing it to a function, or returning it from a function do not copy the value: they move it. 
-With move, a value can be transferred from one owner to another. The previous variable does not have ownership of the value; it is moved to a newly assigned variable. 
+In Rust, for most types of operations like assigning a value to a variable, passing it to a function, or returning it from a function does not copy the value: it moves it. 
+With each move, a value can be transferred from one owner to another. The previous variable does not have ownership of the value; it is moved to a newly assigned variable. 
 To understand how this assignment implementation is unique from other programing languages, Java, C++, and Rust code example of assigning list or vector of strings are shown.
 
 Below a few lines of code are initialization of list of string and reassigning it to other variables. 

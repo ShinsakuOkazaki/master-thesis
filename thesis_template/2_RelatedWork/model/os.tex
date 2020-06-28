@@ -2,29 +2,29 @@
 \label{sec:os_mem_process}
 A process is a subsection of computation job. A process can work on a CPU core, we can divide process as well.
 Basically, each process does not share their memory. However, for multiprocessing, we could avoid this restriction.
-Processes can be represented as tree structure, because a process may create other child processes.
-Process has 4 states, new, running, waiting, and ready. 
-Process is represented in process control block (PCB) with state type, process ID, registers, and so on.
-The scheduling for process assigning to CPU core is implemented in queues containing PCB. There are two main queues in this scheduler: 
+Processes can be represented as tree structures, because a process may create other child processes.
+Processes have 4 states, new, running, waiting, and ready. 
+Processes are represented in process control block (PCB) with state type, process ID, registers, and so on.
+The scheduling for processes assigning to CPU core is implemented in queues containing PCB. There are two main queues in this scheduler: 
 ready queue and wait queue. The head of process in ready queue is selected for execution and once the process requested I/O request or 
-production of child process, the running process will be stored n wait queue. Once the request that the process waiting for end, 
+production of child process, the running process will be stored n wait queue. Once the request that the process is waiting for its end, 
 the waiting process will be pushed tail of ready queue. 
 
 Processes executing concurrently in the operating system may be either independent processes or cooperating processes executing in the system.
-A process is independent if it does not share data with any other processes. A process cooperating if it can affect or be affected by the 
-other processed executing in the system. In cooperating process, there are two kinds, shared memory and message passing. 
+A process is independent if it does not share data with any other processes. A process is cooperating if it can affect or be affected by the 
+other processed executing in the system. In cooperating processes, there are two kinds, shared memory and message passing. 
 In shared memory, it removes restriction of not interfering memory region. Message passing can be useful for distribution systems as well.
 
 For a pair of processes to communicate through message, a socket is needed to be established. 
 A socket is identified by an IP address concatenated with a port number. When two process communicate, each process will have socket. 
-If another process of the same machine wants to communicate, we need new socket to be established. The protocol used in the socket connection
+If another process of the same machine wants to communicate, we need a new socket to be established. The protocol used in the socket connection
 can be TPC and UDP.
 
 \subsection{Multi-threading and Parallelism}
 \label{sec:os_thread}
 A thread is a basic unit of CPU utilization, so that a process can have multiple thread. Threads share mainly code and data. 
 Multi-threading is increasingly popular as the multicore programming becomes in common, because we can run multiple thread on different core.
-Creating thread is much cheaper than creating process and it shares resources so that we do not need additional methods to allow threads to 
+Creating threads is much cheaper than creating processes and it shares resources so that we do not need additional methods to allow threads to 
 communicate each other, such as sharing memory and message passing.
 
 \subsection{Memory management in Operating System}
@@ -36,13 +36,13 @@ The remedy is to add fast memory between the CPU and main memory, typically on t
 For the layout of main memory, it must be ensured that each process has a separate memory space, including operation system. 
 The base register and limit register, whose roles are lower bound of memory region and specific size of range respectively, can achieve that goal. 
 
-Usually a program resides on a disk as binary executable file. To run, the program must be brought into memory and placed within the context of a process.
-The process is bound to corresponding parts of the physical memory. Binding program to memory address is staging process. 
+Usually, a program resides on a disk as binary executable file. To run, the program must be brought into memory and placed within the context of a process.
+The process is bound to corresponding parts of the physical memory. Starting processes binds programs to the memory address. 
 There three stages: compile time, load time execution time. The source program is compiled by compiler producing object file. 
 After the compilation, the object file is linked with other object file by linker creating executable file . 
 Finally, the executable file will be loaded to run execute. At this run time dynamic library link can be done.
 
-If where the process will reside in memory at compile time, absolute code is generated. If this is unknown at the time, 
+If the process will reside in memory at compile time, absolute code is generated. If this is unknown at the time, 
 the binding will be done at load time. At this time, the compiler must generate relocatable code. Otherwise, the binding will be done at 
 execution time.
 
@@ -68,14 +68,14 @@ The page table specifies whether pages are valid or invalid, which means are in 
 Access to a page marked invalid causes page fault and some steps to resolve the error will be required. 
 
 The first part of process of demand paging would be that we check an internal table to check whether the reference is valid or invalid.
-If the reference is valid, the process reads the content from the memory. Otherwise, we terminates the process and find the free frame in 
+If the reference is valid, the process reads the content from the memory. Otherwise, we terminate the process and find the free frame in 
 physical memory. Then, we schedule a secondary storage operation to read the desired page into newly allocated frame. 
-When the storage complete reading the page, we modify the internal table to indicate the page is now in memory. 
+When the storage finished reading the page, we modify the internal table to indicate that the page is now in memory. 
 Finally, we restart the instruction that was interrupted. 
 
-However, there would be a case where the memory does not have any free frame. In this case, a victim frame that will be replaced with new coming frame should be selected. 
+However, there could be a case where the memory does not have any free frame. In this case, a victim frame that will be replaced with new coming frame should be selected. 
 To perform this selection efficiently, a modify bit is tracked for each frame or page. The modify bit represents whether the page is modified since it is loaded from secondary storage. 
-If the page or frame is modified, when we swap page we need to update the content in the secondary storage. However, it is not modified, we can simply delete the frame and replace with new frame.
+If the page or frame is modified, when we swap page we need to update the content in the secondary storage. However, if it is not modified, we can simply delete the frame and replace it with new frame.
 
 
 

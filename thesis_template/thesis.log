@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  11 MAY 2020 23:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  29 JUN 2020 00:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -492,10 +492,10 @@ Chapter 2.
 
 ] [5] [6]) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/linalg.tex [7] [8] [9]) [10] (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/hadoop_to_spark.tex [11]) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/spark.tex [12] [13]
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_heap.eps>
-(epstopdf)                    date: 2019-11-14 18:46:46
+(epstopdf)                    date: 2019-11-15 08:46:46
 (epstopdf)                    size: 12541 bytes
 (epstopdf)             Output file: <2_RelatedWork/Figures/java_heap-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-11-14 18:50:12
+(epstopdf)                    date: 2019-11-15 08:50:12
 (epstopdf)                    size: 5658 bytes
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_heap-eps-converted-to.pdf 2_RelatedWork/Figures/java_heap.eps>
 (epstopdf)             \includegraphics on input line 49.
@@ -506,10 +506,10 @@ File: 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf Graphic file (type pd
 Package pdftex.def Info: 2_RelatedWork/Figures/java_heap-eps-converted-to.pdf  used on input line 49.
 (pdftex.def)             Requested size: 426.79134pt x 124.79453pt.
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_gc.eps>
-(epstopdf)                    date: 2020-04-03 14:20:16
+(epstopdf)                    date: 2020-04-04 03:20:16
 (epstopdf)                    size: 210047 bytes
 (epstopdf)             Output file: <2_RelatedWork/Figures/java_gc-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-03 14:21:05
+(epstopdf)                    date: 2020-04-04 03:21:05
 (epstopdf)                    size: 37831 bytes
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_gc-eps-converted-to.pdf 2_RelatedWork/Figures/java_gc.eps>
 (epstopdf)             \includegraphics on input line 55.
@@ -521,10 +521,10 @@ Package pdftex.def Info: 2_RelatedWork/Figures/java_gc-eps-converted-to.pdf  use
 (pdftex.def)             Requested size: 426.79134pt x 306.59302pt.
 ) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/gctuning.tex [14]) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/application_to_system_language.tex [15 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_heap-eps-converted-to.pdf>] [16 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_gc-eps-converted-to.pdf>]) (/Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/model/rust_memory_management.tex [17]
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_vec.eps>
-(epstopdf)                    date: 2020-04-08 14:29:38
+(epstopdf)                    date: 2020-04-09 03:29:38
 (epstopdf)                    size: 13762 bytes
 (epstopdf)             Output file: <2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-08 14:32:44
+(epstopdf)                    date: 2020-04-09 03:32:44
 (epstopdf)                    size: 5771 bytes
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf 2_RelatedWork/Figures/rust_vec.eps>
 (epstopdf)             \includegraphics on input line 17.
@@ -542,10 +542,10 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 30.
  [18 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/rust_vec-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/java_array.eps>
-(epstopdf)                    date: 2020-04-22 23:43:20
+(epstopdf)                    date: 2020-04-23 12:43:20
 (epstopdf)                    size: 25289 bytes
 (epstopdf)             Output file: <2_RelatedWork/Figures/java_array-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-22 23:45:02
+(epstopdf)                    date: 2020-04-23 12:45:02
 (epstopdf)                    size: 7904 bytes
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/java_array-eps-converted-to.pdf 2_RelatedWork/Figures/java_array.eps>
 (epstopdf)             \includegraphics on input line 39.
@@ -556,10 +556,10 @@ File: 2_RelatedWork/Figures/java_array-eps-converted-to.pdf Graphic file (type p
 Package pdftex.def Info: 2_RelatedWork/Figures/java_array-eps-converted-to.pdf  used on input line 39.
 (pdftex.def)             Requested size: 284.52756pt x 342.03926pt.
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/python_list.eps>
-(epstopdf)                    date: 2020-04-11 14:58:21
+(epstopdf)                    date: 2020-04-12 03:58:21
 (epstopdf)                    size: 27461 bytes
 (epstopdf)             Output file: <2_RelatedWork/Figures/python_list-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-11 15:00:10
+(epstopdf)                    date: 2020-04-12 04:00:10
 (epstopdf)                    size: 8141 bytes
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/python_list-eps-converted-to.pdf 2_RelatedWork/Figures/python_list.eps>
 (epstopdf)             \includegraphics on input line 45.
@@ -571,10 +571,10 @@ Package pdftex.def Info: 2_RelatedWork/Figures/python_list-eps-converted-to.pdf 
 (pdftex.def)             Requested size: 284.52756pt x 384.97183pt.
  [19 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/java_array-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/cplusplus_vector.eps>
-(epstopdf)                    date: 2020-04-11 14:57:38
+(epstopdf)                    date: 2020-04-12 03:57:38
 (epstopdf)                    size: 22270 bytes
 (epstopdf)             Output file: <2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-11 15:04:20
+(epstopdf)                    date: 2020-04-12 04:04:20
 (epstopdf)                    size: 7309 bytes
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf 2_RelatedWork/Figures/cplusplus_vector.eps>
 (epstopdf)             \includegraphics on input line 60.
@@ -585,10 +585,10 @@ File: 2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf Graphic file (
 Package pdftex.def Info: 2_RelatedWork/Figures/cplusplus_vector-eps-converted-to.pdf  used on input line 60.
 (pdftex.def)             Requested size: 426.79134pt x 231.14285pt.
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/cplusplus_vector_copied.eps>
-(epstopdf)                    date: 2020-04-11 14:57:51
+(epstopdf)                    date: 2020-04-12 03:57:51
 (epstopdf)                    size: 39165 bytes
 (epstopdf)             Output file: <2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-11 15:04:20
+(epstopdf)                    date: 2020-04-12 04:04:20
 (epstopdf)                    size: 9424 bytes
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/cplusplus_vector_copied-eps-converted-to.pdf 2_RelatedWork/Figures/cplusplus_vector_copied.eps>
 (epstopdf)             \includegraphics on input line 67.
@@ -605,10 +605,10 @@ Overfull \hbox (59.13513pt too wide) in paragraph at lines 75--76
 
 [20 </Users/sinsakuokazaki/master-thesis/thesis_template/2_RelatedWork/Figures/python_list-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <2_RelatedWork/Figures/rust_vec_moved.eps>
-(epstopdf)                    date: 2020-04-11 14:57:34
+(epstopdf)                    date: 2020-04-12 03:57:34
 (epstopdf)                    size: 22118 bytes
 (epstopdf)             Output file: <2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-11 15:05:18
+(epstopdf)                    date: 2020-04-12 04:05:18
 (epstopdf)                    size: 7206 bytes
 (epstopdf)             Command: <repstopdf --outfile=2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.pdf 2_RelatedWork/Figures/rust_vec_moved.eps>
 (epstopdf)             \includegraphics on input line 84.
@@ -625,10 +625,10 @@ Package pdftex.def Info: 2_RelatedWork/Figures/rust_vec_moved-eps-converted-to.p
 Chapter 3.
 (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/chapter/concept.tex
 Package epstopdf Info: Source file: <3_Body/Figures/own_ref_slice.eps>
-(epstopdf)                    date: 2020-04-16 18:33:28
+(epstopdf)                    date: 2020-04-17 07:33:28
 (epstopdf)                    size: 23832 bytes
 (epstopdf)             Output file: <3_Body/Figures/own_ref_slice-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-16 18:49:42
+(epstopdf)                    date: 2020-04-17 07:49:42
 (epstopdf)                    size: 7237 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/own_ref_slice-eps-converted-to.pdf 3_Body/Figures/own_ref_slice.eps>
 (epstopdf)             \includegraphics on input line 25.
@@ -646,10 +646,10 @@ Package pdftex.def Info: 3_Body/Figures/own_ref_slice-eps-converted-to.pdf  used
 
 ] [26 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/own_ref_slice-eps-converted-to.pdf>] [27]
 Package epstopdf Info: Source file: <3_Body/Figures/normal_agg.eps>
-(epstopdf)                    date: 2020-04-18 16:39:53
+(epstopdf)                    date: 2020-04-19 05:39:53
 (epstopdf)                    size: 8443 bytes
 (epstopdf)             Output file: <3_Body/Figures/normal_agg-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-18 16:46:41
+(epstopdf)                    date: 2020-04-19 05:46:41
 (epstopdf)                    size: 4134 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/normal_agg-eps-converted-to.pdf 3_Body/Figures/normal_agg.eps>
 (epstopdf)             \includegraphics on input line 76.
@@ -660,10 +660,10 @@ File: 3_Body/Figures/normal_agg-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: 3_Body/Figures/normal_agg-eps-converted-to.pdf  used on input line 76.
 (pdftex.def)             Requested size: 142.26378pt x 226.66081pt.
 Package epstopdf Info: Source file: <3_Body/Figures/tree_agg.eps>
-(epstopdf)                    date: 2020-04-18 16:39:54
+(epstopdf)                    date: 2020-04-19 05:39:54
 (epstopdf)                    size: 8421 bytes
 (epstopdf)             Output file: <3_Body/Figures/tree_agg-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-18 16:46:41
+(epstopdf)                    date: 2020-04-19 05:46:41
 (epstopdf)                    size: 4161 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/tree_agg-eps-converted-to.pdf 3_Body/Figures/tree_agg.eps>
 (epstopdf)             \includegraphics on input line 81.
@@ -949,12 +949,17 @@ Chapter 4.
 
 
 
-] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/access_own_reference_slice.tex [34]
+] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/access_own_reference_slice.tex
+Overfull \hbox (1.73135pt too wide) in paragraph at lines 6--10
+[]\OT1/cmr/m/n/10.95 To eval-u-ate this as-sump-tion, we use the three types of com-plex ob-jects: Cus-tomerOwned,
+ []
+
+[34]
 Package epstopdf Info: Source file: <3_Body/Figures/rust_access_different_poniter_init.eps>
-(epstopdf)                    date: 2020-05-03 14:18:03
+(epstopdf)                    date: 2020-05-04 03:18:03
 (epstopdf)                    size: 33156 bytes
 (epstopdf)             Output file: <3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-05-03 14:18:05
+(epstopdf)                    date: 2020-05-04 03:18:05
 (epstopdf)                    size: 16939 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf 3_Body/Figures/rust_access_different_poniter_init.eps>
 (epstopdf)             \includegraphics on input line 28.
@@ -965,10 +970,10 @@ File: 3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf Gra
 Package pdftex.def Info: 3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf  used on input line 28.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
 Package epstopdf Info: Source file: <3_Body/Figures/rust_access_different_poniter_noinit.eps>
-(epstopdf)                    date: 2020-05-03 14:18:10
+(epstopdf)                    date: 2020-05-04 03:18:10
 (epstopdf)                    size: 33174 bytes
 (epstopdf)             Output file: <3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-05-03 14:18:11
+(epstopdf)                    date: 2020-05-04 03:18:11
 (epstopdf)                    size: 16952 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf 3_Body/Figures/rust_access_different_poniter_noinit.eps>
 (epstopdf)             \includegraphics on input line 34.
@@ -980,10 +985,10 @@ Package pdftex.def Info: 3_Body/Figures/rust_access_different_poniter_noinit-eps
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
 ) [35 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_different_poniter_init-eps-converted-to.pdf>] (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/drop_ref_rc.tex [36 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_access_different_poniter_noinit-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <3_Body/Figures/rust_droptime_borring_rc.eps>
-(epstopdf)                    date: 2020-05-03 14:27:12
+(epstopdf)                    date: 2020-05-04 03:27:12
 (epstopdf)                    size: 35752 bytes
 (epstopdf)             Output file: <3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-05-03 14:27:14
+(epstopdf)                    date: 2020-05-04 03:27:14
 (epstopdf)                    size: 18168 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf 3_Body/Figures/rust_droptime_borring_rc.eps>
 (epstopdf)             \includegraphics on input line 30.
@@ -995,10 +1000,10 @@ Package pdftex.def Info: 3_Body/Figures/rust_droptime_borring_rc-eps-converted-t
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
  [37 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_droptime_borring_rc-eps-converted-to.pdf>]) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/merge_sort_experiment.tex [38] [39]
 Package epstopdf Info: Source file: <3_Body/Figures/rust_merge_sort.eps>
-(epstopdf)                    date: 2020-05-03 14:28:46
+(epstopdf)                    date: 2020-05-04 03:28:46
 (epstopdf)                    size: 30288 bytes
 (epstopdf)             Output file: <3_Body/Figures/rust_merge_sort-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-05-03 14:28:47
+(epstopdf)                    date: 2020-05-04 03:28:47
 (epstopdf)                    size: 17748 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_merge_sort-eps-converted-to.pdf 3_Body/Figures/rust_merge_sort.eps>
 (epstopdf)             \includegraphics on input line 47.
@@ -1020,10 +1025,10 @@ Overfull \hbox (59.13513pt too wide) in paragraph at lines 65--66
 
 [42]
 Package epstopdf Info: Source file: <3_Body/Figures/rust_tree_aggregate.eps>
-(epstopdf)                    date: 2020-05-03 14:31:46
+(epstopdf)                    date: 2020-05-04 03:31:46
 (epstopdf)                    size: 31390 bytes
 (epstopdf)             Output file: <3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-05-03 14:31:47
+(epstopdf)                    date: 2020-05-04 03:31:47
 (epstopdf)                    size: 19376 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf 3_Body/Figures/rust_tree_aggregate.eps>
 (epstopdf)             \includegraphics on input line 83.
@@ -1035,10 +1040,10 @@ Package pdftex.def Info: 3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
  [43] [44 </Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/Figures/rust_tree_aggregate-eps-converted-to.pdf>]) (/Users/sinsakuokazaki/master-thesis/thesis_template/3_Body/model/knn.tex [45] [46] [47]
 Package epstopdf Info: Source file: <3_Body/Figures/total.eps>
-(epstopdf)                    date: 2020-04-29 13:28:38
+(epstopdf)                    date: 2020-04-30 02:28:38
 (epstopdf)                    size: 42063 bytes
 (epstopdf)             Output file: <3_Body/Figures/total-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-29 18:26:39
+(epstopdf)                    date: 2020-04-30 07:26:39
 (epstopdf)                    size: 17046 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/total-eps-converted-to.pdf 3_Body/Figures/total.eps>
 (epstopdf)             \includegraphics on input line 94.
@@ -1049,10 +1054,10 @@ File: 3_Body/Figures/total-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: 3_Body/Figures/total-eps-converted-to.pdf  used on input line 94.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
 Package epstopdf Info: Source file: <3_Body/Figures/preprocessing.eps>
-(epstopdf)                    date: 2020-04-29 13:28:23
+(epstopdf)                    date: 2020-04-30 02:28:23
 (epstopdf)                    size: 42414 bytes
 (epstopdf)             Output file: <3_Body/Figures/preprocessing-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-29 18:23:58
+(epstopdf)                    date: 2020-04-30 07:23:58
 (epstopdf)                    size: 16910 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/preprocessing-eps-converted-to.pdf 3_Body/Figures/preprocessing.eps>
 (epstopdf)             \includegraphics on input line 100.
@@ -1063,10 +1068,10 @@ File: 3_Body/Figures/preprocessing-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: 3_Body/Figures/preprocessing-eps-converted-to.pdf  used on input line 100.
 (pdftex.def)             Requested size: 426.79134pt x 284.53154pt.
 Package epstopdf Info: Source file: <3_Body/Figures/query.eps>
-(epstopdf)                    date: 2020-04-29 13:28:31
+(epstopdf)                    date: 2020-04-30 02:28:31
 (epstopdf)                    size: 42582 bytes
 (epstopdf)             Output file: <3_Body/Figures/query-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-04-29 18:25:14
+(epstopdf)                    date: 2020-04-30 07:25:14
 (epstopdf)                    size: 17224 bytes
 (epstopdf)             Command: <repstopdf --outfile=3_Body/Figures/query-eps-converted-to.pdf 3_Body/Figures/query.eps>
 (epstopdf)             \includegraphics on input line 107.
@@ -1107,10 +1112,10 @@ Overfull \hbox (17.6728pt too wide) in paragraph at lines 15--16
  []
 
 Package epstopdf Info: Source file: <Appendix/Figures/cblas_with_jni.eps>
-(epstopdf)                    date: 2019-10-18 15:27:35
+(epstopdf)                    date: 2019-10-19 04:27:35
 (epstopdf)                    size: 100013 bytes
 (epstopdf)             Output file: <Appendix/Figures/cblas_with_jni-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-03-02 15:19:58
+(epstopdf)                    date: 2020-03-03 05:19:58
 (epstopdf)                    size: 19412 bytes
 (epstopdf)             Command: <repstopdf --outfile=Appendix/Figures/cblas_with_jni-eps-converted-to.pdf Appendix/Figures/cblas_with_jni.eps>
 (epstopdf)             \includegraphics on input line 22.
@@ -1141,7 +1146,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 111.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: BD6CD7C019ACD4C021A8CDA8A44436D4;4191.
+(rerunfilecheck)             Checksum: 54627B835EA802691B82F8540D1C84A1;4195.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1151,13 +1156,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
 Here is how much of TeX's memory you used:
  10619 strings out of 492616
  166732 string characters out of 6129482
- 485022 words of memory out of 5000000
+ 485026 words of memory out of 5000000
  13874 multiletter control sequences out of 15000+600000
  11015 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,13n,53p,547b,1754s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (73 pages, 480183 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.pdf (73 pages, 480428 bytes).
 PDF statistics:
  1520 PDF objects out of 1728 (max. 8388607)
  1074 compressed objects within 11 object streams

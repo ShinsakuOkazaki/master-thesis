@@ -1,23 +1,23 @@
 
-Considered overhead produced by Memory Management in JVM, use of system language for development of Big Data tool can be one of solutions rather than application language, such as Java and Scala. 
-System languages, such as C and C++, are languages that give developer total control over the hardware and de/allocation of memory without GC. 
-These features enable program written in system languages to optimized performance taking full advantage of hardware. 
+Considering the overhead produced by Memory Management in JVM, use of system language for development of Big Data tools can be a better solution rather than application languages, such as Java and Scala. 
+System languages, such as C and C++, are languages that give developers total control over the hardware and de/allocation of memory without GC. 
+These features enable programs written in system languages to optimize performance taking full advantage of hardware. 
 
-To take example, one can build Big Data tool with C++. C++ is one of the most popular system languages which has Object-oriented features. 
-C++ has functions which provide control over memory to developers. In another word, it is responsibility for one to manage memory properly and safely. 
+For example, one can build Big Data tools with C++. C++ is one of the most popular system languages which has Object-oriented features. 
+C++ has functions which provide control over memory to developers. In another words, it is responsible for managing memory properly and safely. 
 The functions, malloc() and free(), take roll for memory allocation and deallocation in respectively. The manual memory de/allocation may cause several problems and require developers 
-attention to the problems with significant effort for debugging and testing. Here, we explain two of the most common problems regarding to memory management in existing system languages.
+attention to the problems with significant effort for debugging and testing. Here, we explain two of the most common problems regarding memory management in existing system languages.
 
 Dangling pointer or reference is a pointer or reference pointing to object that no longer exists. The situation of dangling pointer happens 
 because of deallocation of memory without modification of value of the pointer. 
-If the memory region is reallocated for other object and the dangling pointer tries to access the original object, the unpredictable behavior may result. 
+If the memory region is reallocated for other objects and the dangling pointer tries to access the original object, the unpredictable behavior may result. 
 
-Memory leak occurs when memory is allocated and no longer referenced so that the object in the memory location cannot be reached and released.
-This is result of dereferencing object without deallocation. Memory leak consumes more memory than necessary by making unreachable location.
+Memory leaks occur when memory is allocated and no longer referenced so that the object in the memory location cannot be reached and released.
+This is result of dereferencing object without deallocation. Memory leaks consume more memory than necessary by making unreachable location.
 
-Some solutions are established to address these problems. Actually GC is a high-level solution that guarantees memory safety. 
+Some solutions are established to address these problems. Actually, GC is a high-level solution that guarantees memory safety. 
 C++ has a different solution called Resource Acquisition is Initialization (RAII). In RAII, objects can live within the scope where they are created. 
 The memory is released when the object goes out of scope. This solution is more predictable and deterministic than GC. 
 However, it is problematic when we need the object out of the scope, returning a value from a function. 
 There are several ways to go around this problems, such as smart pointers, copy constructors, and move semantics. 
-Nevertheless, these non-orthogonal concepts makes code in disorganize and leads to error prone implementation. 
+Nevertheless, these non-orthogonal concepts may disorganize code and lead to error prone implementation. 

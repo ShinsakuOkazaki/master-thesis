@@ -27,19 +27,19 @@
 \contentsline {section}{\numberline {2.10}Summary}{23}{section.2.10}% 
 \contentsline {chapter}{\numberline {3}Conceptual Design of Experiments}{25}{chapter.3}% 
 \contentsline {section}{\numberline {3.1}Introduction}{25}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Type of Variable}{25}{section.3.2}% 
+\contentsline {section}{\numberline {3.2}Types of Variables}{25}{section.3.2}% 
 \contentsline {section}{\numberline {3.3}Reference Count}{26}{section.3.3}% 
 \contentsline {section}{\numberline {3.4}Multithread}{27}{section.3.4}% 
 \contentsline {section}{\numberline {3.5}Tree-aggregate}{27}{section.3.5}% 
 \contentsline {section}{\numberline {3.6}K-Nearest-Neighbors}{28}{section.3.6}% 
-\contentsline {section}{\numberline {3.7}Complex Objects}{29}{section.3.7}% 
+\contentsline {section}{\numberline {3.7}Complex Objects}{30}{section.3.7}% 
 \contentsline {section}{\numberline {3.8}Summary}{30}{section.3.8}% 
 \contentsline {chapter}{\numberline {4}Evaluation Result}{33}{chapter.4}% 
 \contentsline {section}{\numberline {4.1}Introduction}{33}{section.4.1}% 
 \contentsline {section}{\numberline {4.2}Experimental Set and Detail}{33}{section.4.2}% 
 \contentsline {subsection}{\numberline {4.2.1}Wikipedia Data Sets}{33}{subsection.4.2.1}% 
 \contentsline {subsection}{\numberline {4.2.2}Experimental Details}{34}{subsection.4.2.2}% 
-\contentsline {section}{\numberline {4.3}Experiment 1: Accessing Object with Different Variable Type}{34}{section.4.3}% 
+\contentsline {section}{\numberline {4.3}Experiment 1: Accessing Objects with Different Variable Types}{34}{section.4.3}% 
 \contentsline {subsection}{\numberline {4.3.1}Result}{34}{subsection.4.3.1}% 
 \contentsline {subsection}{\numberline {4.3.2}Discussion}{35}{subsection.4.3.2}% 
 \contentsline {section}{\numberline {4.4}Experiment 2: Assessment of different reference methods in Rust}{36}{section.4.4}% 

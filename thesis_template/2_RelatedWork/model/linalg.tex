@@ -21,7 +21,7 @@ Therefore, this method can be applied to distributed matrix operations required 
 
 \subsection{Netlib-Java}
 \label{sec:linalg_netlib}
-Netlib-java \cite{netlib} is a Java wrapper of BLAS, LAPACK, and ARPACK. Netlib-java choose  implementation of linear algebra depending on installation of the libraries. 
+Netlib-java \cite{netlib} is a Java wrapper of BLAS, LAPACK, and ARPACK. Netlib-java chooses  implementation of linear algebra depending on installation of the libraries. 
 First, if we have installed machine optimized system libraries, such as Intel MKL and OpenBLAS, netlib-java will use these as the implementation to use. 
 Next, it try to load netlib references which netlib-java use CBLAS and LAPCKE interface to perform BLAS and LAPACK native call. 
 The last option is to use f2j which is intended to translate the BLAS and LAPACK libraries from their Fortran77 reference source code to Java class files, 

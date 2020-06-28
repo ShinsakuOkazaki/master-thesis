@@ -5,14 +5,14 @@
 
 \section{Motivation}
 \label{sec:motivation}
-Cluster computing tool for Big Data Analysis has been more important as magnitude and quality of data that we can obtain increases. 
+Cluster computing tools for Big Data Analysis have been more important as magnitude and quality of data that we can obtain increases. 
 Recently, almost all businesses stand on data, from web marketing analysis to factory automations. The leverage of data is ubiquitous, because 
 there are many open source tools to analyze data and cloud computer infrastructure which can support computation for massive amount of data. 
 The improvement of accessibility to these technologies has democratized data driven businesses by 
 eliminating significant amount of initial investment. 
 
-However these computation resources do not come for free; we need to pay money to use these resources. Usually, user needs to pay depending on usage of computational resources. 
-If your process of data analysis is too long or need to use number of clusters with high speck specification, the cost may end up significantly hight.
+However these computation resources do not come for free; we need to pay money to use these resources. Usually, users need to pay depending on usage of computational resources. 
+If your process of data analysis is too long or needs to use number of clusters with high speck specification, the cost may end up significantly hight.
 To address these problems, the quality of analysis tool is critical. If the tool can optimize the runtime performance and usage of computational resources, 
 the cost for running the businesses can become efficient.
 
@@ -23,16 +23,16 @@ These has become widely popular, in which data-parallel computations are execute
 fault tolerance, and load balancing. 
 
 These tools are constructed on top of Java Virtual Machine (JVM). JVM abstracts hardware and memory management from the developer so that the development is fairly easy. 
-In addition, Java or Scala compiled code is platform-independent, which can run on any machine with JVM. However, these advantages may be really critical weakness when it comes to 
+In addition, Java or Scala compiled code is platform-independent, which can run on any machine with JVM. However, these advantages may be really critical weaknesses when it comes to 
 processing big data. JVM abstract away most detail regarding memory management from the system designer, including memory deallocation, reuse, and movement, as well as pointers, 
 object serialization and deserialization. Since managing and utilizing memory is one of the most important factors determining Big Data systems' performance, 
-reliance on a managed environment can mean an order-of-magnitude increase in CPU cost for some computations. This cost may be unacceptable for high-performance tool development by an expert.
+reliance on a managed environment can mean an order-of-magnitude increase in CPU cost for some computations. This cost may be unacceptable for a high-performance tool development by an expert.
 
 To overcome these problems, one can use programming languages with more control on hardware, system languages, for development of Big Data tools. For example, C++ is a general-purpose, statically typed, 
 compiled programming language which supports multiple programming paradigm. It is also a system language which gives full control over hardware. 
 There are several researches or projects \cite{DBLP:conf/sigmod/0001BLLMSTYJ18} where developers and 
 researchers implement Big Data tools with this language. These tools shows significantly better performances than those developed with application languages. 
-Although the evidence of the advantage of building high speed computational tools with C++ has been discovered, the steep learning curve and difficulty of writing memory safe codes are barrier to technology diffusion.
+Although the evidence of the advantage of building high speed computational tools with C++ has been discovered, the steep learning curve and difficulty of writing memory safe codes are barriers to technology diffusion.
 
 Rust is a system language which gives the similar performance and control of hardware to C++ or C and safety of runtime. The memory-safety, and fearless concurrently in Rust programming 
 make the language one of the ideal candidate for development of Big Data tools. 
@@ -61,18 +61,18 @@ In this thesis, we focus on memory management strategy for Big Data processing a
 % The functions, malloc/free consume most of the memory management. Proper implementation of system language for big data processing can be overperform the implementation in host language.
 % Nevertheless, implementing C++ performing proper memory management and guaranteeing security can be unproductive and complicated. 
 
-Even though Rust can be a great candidate to develop Big Data processing tools, there are few study for development on such tools with Rust programming. 
+Even though Rust can be a great candidate to develop Big Data processing tools, there are few studies for development on such tools with Rust programming. 
 
 Rust has various ways to manage memory. Rust has different variable types for values allocated in sequence of memory region. 
 Each variables take different memory representation that can produce variation of operation time on the variable types.
 
-In addition, Reference Counting takes important role in Rust ownership concept. By using Reference Counting, a value is able to have multiple owners.
+In addition, Reference Counting takes an important role in Rust ownership concept. By using Reference Counting, a value is able to have multiple owners.
 This situation may happen quite often, when we want to acquire complex values from contiguous memory regions. 
 Reference Counting has both advantage and disadvantage. 
 Reference count can share data which might decrease unnecessary copy of data, but checking reference count might be a overhead. 
 
 Atomic Reference Counting is ubiquitous in Rust multithreading program. Atomic Reference Count also has similar features to Reference Counting. 
-In addition, it is allowed to use among different threads. This may lead additional overhead from atomic operation.
+In addition, it can be used among different threads. This may lead additional overhead from atomic operation.
 
 As we can see, we can choose various memory management strategies in Rust programming.
 Therefore, we assess following research question in this thesis.

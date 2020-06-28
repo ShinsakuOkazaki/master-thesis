@@ -13,32 +13,32 @@
 In this thesis, we have presented a number of experiments to assess better implementation of algorithms 
 when one develops Big Data analysis tools with Rust programming. 
 
-Difference of variable types does not have impact on operation to access memory address where a value is located. 
-This result gives us freedom of choices for variable types to construct complex objects in terms of runtime performance. 
-When we however use borrowed types, such as references and slices, their lifetime should be explicitly defined. 
-Therefore, we may use owner type variables to construct construct complex objects in order to facilitate lifetime tracking.
+Differences between variable types do not have an impact on operations to access memory address where a value is located. 
+This result gives us freedom of choice for variable types to construct complex objects in terms of runtime performance. 
+However when we use borrowed types, such as references and slices, their lifetime should be explicitly defined. 
+Therefore, we may use owner type variables to construct complex objects in order to facilitate lifetime tracking.
 
-Runtime to drop Rc is much 60 times slower than normal reference. This is because Rc needs to check reference count to determine whether to deallocate its value. 
+Runtime to drop Rc is 60 times slower than normal reference. This is because Rc needs to check reference count to determine whether to deallocate its value. 
 This result may say that we should use normal reference whenever it is possible. 
 Again, tracking lifetime of references used in complex objects can be cumbersome. 
-Choice of Rc and reference is dependent on complexity of object implemented.
+Choice of Rc and reference is dependent on complexity of objects implemented.
 
-In Rust, we can implement multithread programming with sharing data using Arc. In simple multithread algorithms, 
-one can write code where shares data with Arc and simple reference among different threads.
+In Rust, we can implement multithread programming by sharing data using Arc. In simple multithread algorithms, 
+one can write code that shares data with Arc and simple reference among different threads.
 Merge-sort algorithms sharing data with Arc is 21\% slower than normal reference. 
 In this situation, sharing data with normal reference require relatively easy lifetime tracking, 
 so we should use normal reference to share data among different thread whenever it is possible.
 
 For more complex algorithms, like tree-aggregate and preprocess phase in KNN, one can implement algorithms sharing data with Arc or simply deep-copy the values.
-The algorithms with deep-copy is about 40 to 50\% slower than the algorithm with Arc for complex objects.
-When we however deal with String, the algorithms with deep-copy is faster than Arc. 
-Therefore, the decision which to use deep-copy or Arc method should be determined based on complexity of objects.
+The algorithms with deep-copy are about 40 to 50\% slower than the algorithms with Arc for complex objects.
+However when we deal with String, the algorithms with deep-copy are faster than Arc. 
+Therefore, the decision on whether to use deep-copy or Arc method should be determined based on the complexity of objects.
 
 Decreasing frequency of memory de/allocation may be an effective solution to improve runtime performance of Big Data processing algorithms. 
 There is a trade-off between memory usage and frequency of memory de/allocation. 
 That is why developers should conduct careful analysis of algorithms' memory usage pattern and timing of memory de/allocation.
 
-As we can see in the results of experiment, different memory strategy varies the performance of algorithms in Rust programming.
+As we can see in the results of our experiments, different memory strategies vary the performance of algorithms in Rust programming.
 Which memory management strategy to take depends on what objects to deal with. 
 Therefore, development of Big Data analysis tools in Rust programming should be started with objects implementation used in the systems.
 Next, one can select suitable memory management strategies. 

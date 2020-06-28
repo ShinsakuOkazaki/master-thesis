@@ -1,27 +1,27 @@
-This experiment is conducted to provide answers to the following two questions. One is how different variable types have impact to runtime performance.
-The other is how initialization of Vec size has impact to runtime performance. 
-In this experiment, we focus on owner, reference, and slice as a variable of sequence values. 
+This experiment is conducted to provide answers to the following two questions. One is how different variable types impact runtime performance.
+The other is how initialization of Vec size impacts runtime performance. 
+In this experiment, we focus on owner, reference, and slice as variables of sequence values. 
 Since these variables have different memory representation, there might be differences among time for access to actual values of each variables.
 
-To evaluate this assumption, we use the three types of complex object: CustomerOwned, CustomerBorrowed and CustomerSlice. 
+To evaluate this assumption, we use the three types of complex objects: CustomerOwned, CustomerBorrowed and CustomerSlice. 
 At first, we generate source Vecs for all fields, Vecs which contain all elements used for corresponding fields of objects.
 For example, all of i32 elements used for key field in 1 million Customer object are stored in Vec$<$i32$>$ with 1 million i32 elements. 
-Later, these i32 elements are moved to be owned or borrowed by the object's fields.
+Later, these i32 elements are moved to be owned or borrowed by the objects' fields.
 
-Next, 3, 13, 23, 33 million of Customer objects are created and stored in Vec. 
+Next, 3, 13, 23, 33 million Customer objects are created and stored in Vec. 
 When a Customer Vec is created, whether size of Vec is initialized is controlled. 
-Finally, serialization of Customer object is performed as an operation forcing program to access all of fields in the object.
-This serialization is performed each Customer objects in the Vec. We measure total runtime to serialize all of Customer objects 
+Finally, serialization of Customer object is performed as an operation forcing the program to access all of fields in the object.
+This serialization is performed for each Customer objects in the Vec. We measure total runtime to serialize all of Customer objects 
 stored in Vec. 
 
 \subsection{Result}
 \label{sec:history}
 The result is shown in Figure~\ref{fig:rustaccessinit} and Figure~\ref{fig:rustaccessnoinit}.
-Figure~\ref{fig:rustaccessinit} is comparison of the runtime performance among different Customer object types with Vec size initialization.
-Figure~\ref{fig:rustaccessnoinit} is comparison in the same set of experiment except Vec size is not initialized. 
-The blue, yellow, and green chats represent runtime of access to fields of CustomerOwned, CustomerBorrowed, and CustomerSlice objects respectively.
+Figure~\ref{fig:rustaccessinit} is a comparison of the runtime performance among different Customer object types with Vec size initialization.
+Figure~\ref{fig:rustaccessnoinit} is a comparison in the same set of experiment except Vec size is not initialized. 
+The blue, yellow, and green bars represent runtime of access to fields of CustomerOwned, CustomerBorrowed, and CustomerSlice objects respectively.
 
-No matter Vec size initialized or not, differences of runtime for accessing objects are not remarkable among different object types. 
+Whether Vec size is initialized or not, differences of runtime for accessing objects are not remarkable among different object types. 
 The memory usage for algorithms with 33 million of Customer objects are about 26G bytes for any type of variable.
 
 \begin{figure}[htb]
@@ -46,7 +46,7 @@ The memory usage for algorithms with 33 million of Customer objects are about 26
 \subsection{Discussion}
 \label{sec:history}
 Difference of variable types does not have huge impact to runtime of accessing to actual value.
-Even thought owner, reference , and slice have different memory representations, the access time to its value is 
+Even though owner, reference , and slice have different memory representations, the access time to its value is 
 close to each other. As shown in Figure~\ref{fig:own_ref_slice}, the representations of owner and slice are almost identical except slice does not have capacity for values.
 Reference is pointer pointing to owner, so it has an additional step to access actual value. 
 However, the result shows this additional step does not have huge impact for runtime to access memory region of the value.

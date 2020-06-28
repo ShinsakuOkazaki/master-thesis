@@ -1,24 +1,24 @@
 \section{Introduction}
 \label{sec::concept_intro}
 This chapter discusses the concepts studied in our experiments. 
-Section~\ref{sec:concept_diffval} explains different variable type we can use in Rust programming.
-In Section~\ref{sec:concept_refcount}, we explain the advantage and disadvantage of Reference Count in Rust. 
+Section~\ref{sec:concept_diffval} explains different variable types we can use in Rust programming.
+In Section~\ref{sec:concept_refcount}, we explain the advantages and disadvantages of Reference Count in Rust. 
 Multithread programming in Rust is studied in Section~\ref{sec:concenpt_multithreading}. 
 Two algorithms are discussed used in Big Data processing and examined in our experiments: 
 Tree-aggregate in Section~\ref{sec:concept_treeagg} and K-Nearest-Neighbors in Section~\ref{sec:concept_knn}.
 Finally, Section~\ref{sec:concept_compobj} shows complex object representations used in our experiments. 
 
-\section{Type of Variable}
+\section{Types of Variables}
 \label{sec:concept_diffval}
 In Rust, there are three variable types: owner, reference, and slice (only for sequence of values). 
 A developer is sometimes forced to use specific variable types. For example, some of methods are only implemented to specific variable types.
-However, one can select any variable types for operation in most case.
+However, one can select any variable type for operation in most cases.
 
 These variables have different memory representation shown in Figure~\ref{fig:own_ref_slice}.
 The owner has a pointer pointing to the memory address of sequence values, length of the values, and capacity allocated to store additional values. 
 Reference and Slice are variables borrowing value owned by other variable. The reference is a pointer that points to the owner. 
-The slice is a pointer that points to memory address of sequence values. It has value such as length of sequence values stored in the memory. 
-Since they have different memory representation, an assumption is that it takes different time to access to the contents of the memory among these pointer types.
+The slice is a pointer that points to memory addresses of sequence values. It has values such as length of sequence values stored in the memory. 
+Since they have different memory representations, an assumption is that it takes different time to access the contents of the memory among these pointer types.
 We examine this by constructing complex objects whose fields are these variable types. The details are explained in Section~\ref{sec:eval_diffval}.
 
 \begin{figure}[htb]
@@ -29,13 +29,13 @@ We examine this by constructing complex objects whose fields are these variable 
 
 \section{Reference Count}
 \label{sec:concept_refcount}
-Reference is useful to avoid movement of ownership. However, one needs to track its lifetime and explicitly includes it in code, 
+References are useful to avoid movement of ownership. However, one needs to track its lifetime and explicitly includes it in code, 
 because Rust compiler cannot infer it. This can be another encumbrance. We can instead acquire multiple owners to single value by using Reference Counting (Rc). 
 By leveraging Rc, a value can be shared like what borrowing plays the role in Rust programming. 
 
-The difference is that Rc checks number of owner pointing to the actual data and makes sure the data is not deleted 
-until all the owners are dereferenced. Using Rc is sometimes preferable approach for developers especially when lifetime planning is extremely difficult.
-However, the possible problems regarding to Rc are the cost for tracking the number of references and allocating memory on heap instead of stack.
+The difference is that Rc checks the number of owners pointing to the actual data and makes sure the data is not deleted 
+until all the owners are dereferenced. Using Rc is sometimes the preferred approach for developers especially when lifetime planning is extremely difficult.
+However, the possible problems regarding Rc are the cost for tracking the number of references and allocating memory on heaps instead of stacks.
 Having these assumption, an experiment is conducted to examine difference of runtime performance of dropping reference and Rc. 
 This is explained in section 3.2.
 
@@ -48,27 +48,27 @@ The most ubiquitous tool used in Rust concurrent code is Atomic Reference Counti
 
 Arc is a simple interface that allows threads to share data. Arc allows multiple variable to have ownerships of a particular value similarly to Rc, 
 but also supports atomic feature enabling the ownerships exist in different threads. 
-In many situation where developer write a multithreading code, the deletion of Arc happens significant amount of times. 
-Similarly to Rc, our assumption is that deletion of Arc has also overhead when we compare to normal reference. 
-To assess runtime performances of algorithm with Arc vs normal reference, we implement merge-sort algorithm in two different ways. 
+In many situation where developers write a multithreading code, the deletion of Arc happens a significant amount of times. 
+Similarly to Rc, our assumption is that deletion of Arc also has overhead when we compare to normal references. 
+To assess runtime performances of algorithm with Arc vs normal references, we implement merge-sort algorithm in two different ways. 
 
 \section{Tree-aggregate}
 \label{sec:concept_treeagg}
-Finally, we implement some of algorithm common in Big Data processing. One of them is tree-aggregate.
+Finally, we implement some of common algorithms in Big Data processing. One of them is tree-aggregate.
 
-Tree-aggregate is a communication patten heavily used for Machine Learning algorithm in Spark (MLlib \cite{DBLP:journals/jmlr/MengBYSVLFTAOXX16}). 
+Tree-aggregate is a communication patten heavily used for Machine Learning algorithms in Spark (MLlib \cite{DBLP:journals/jmlr/MengBYSVLFTAOXX16}). 
 The topology of aggregation patterns in Apache Spark are shown in Figure~\ref{fig:aggregationk_patttern}. 
-In the traditional aggregation function in Spark, results of aggregation in all executor clusters are sent to the driver. 
+In the traditional aggregation functions in Spark, results of aggregation in all executor clusters are sent to the driver. 
 That is why this operation suffers from the CPU cost in merging partial results and the network bandwidth limit.
 Tree-aggregate is a communication pattern which overcomes these problems by breaking aggregate operation in multi-level represented like tree structure.
 
 Spark generates intermediate objects from RDDs. In Tree-aggregation, aggregated HashMap like data structure is created in each thread or node. 
-When it aggregates objects in RDD, copy of objects should be performed to construct intermediate aggregated data structure.
-In another possible way that might be implemented, one can use reference to the objects to perform aggregation instead of copying the values themselves.
+When it aggregates objects in RDD, copies of objects should be performed to construct intermediate aggregated data structure.
+In another possible way that might be implemented, one can use references to the objects to perform aggregation instead of copying the values themselves.
 In Rust, we can clone or get Arc (Rc if in single thread) of objects to implement these operations.
 
-Since Tree-aggregation algorithm generates and deletes a lot of intermediate data structures, 
-how the data structures are constructed and how they are deallocated is important concern in memory management in this algorithm.
+Since Tree-aggregation algorithms generate and delete a lot of intermediate data structures, 
+how the data structures are constructed and how they are deallocated is an important concern in memory management in this algorithm.
 In our experiment, tree-aggregation algorithms are examined in multi-threading. The detail is described in section 3.2.
 
 \begin{figure}[htb]
@@ -88,43 +88,43 @@ In our experiment, tree-aggregation algorithms are examined in multi-threading. 
 
 \section{K-Nearest-Neighbors}
 \label{sec:concept_knn}
-The other algorithm common in Big Data processing is K-nearest-neighbors (KNN). KNN is a traditional Machine Learning algorithm which classify targets into categories. 
+The other algorithm common in Big Data processing is K-nearest-neighbors (KNN). KNN is a traditional Machine Learning algorithm which classifies targets into categories. 
 In training KNN, it simply stores all available training data without calculation. At prediction phase, targets are given and similarity measures are calculated. 
-Based on these similarities, the algorithm selects \(K\) (user-defined number) training observations similar to the each target. 
-Then, it checks corresponding categories of the \(K\) observations to determine predicted category. 
+Based on these similarities, the algorithm selects \(K\) (user-defined number) training observations similar to each target. 
+Then, it checks corresponding categories of the \(K\) observations to determine predicted categories. 
 
 In brute force algorithm, KNN calculates similarity measures for all combinations among training and testing observations. 
 If training data has \(N\) observations and test data has \(M\) observations, KNN needs to calculate \(N \times M\) similarity measures. 
-Sort or binary heap can be used to select the \(K\) most similar training observations.
+Sort or binary heaps can be used to select the \(K\) most similar training observations.
 
 In our experiment, KNN algorithms performs document classification and implemented in multithread. 
 There are three phases in our algorithm: preprocessing, query, and combine phase. 
-In preprocessing phase, the algorithm calculates Term-frequencies (Tfs) to generate numeric feature vectors and matrices. 
-In query phase, similarity measures are calculated and \(K\) nearest neighbors are selected. 
+The preprocessing phase, the algorithm calculates Term-frequencies (Tfs) to generate numeric feature vectors and matrices. 
+In the query phase, similarity measures are calculated and \(K\) nearest neighbors are selected. 
 For similarity measure, our choice is cosine similarity(~\ref{eq:cosine}). 
-In combine phase, results of query phase are gathered and combined from each threads.
+In the combine phase, results of query phase are gathered and combined from each threads.
 
 \begin{equation} \label{eq:cosine}
     Cos(\vec{x}, \vec{t})
      = \frac{\sum_{i=0}^{n} (x_i t_i)}{\sqrt{\sum_{i=0}^{n} x_i^2}\sqrt{\sum_{i=0}^{n} t_i^2}}
 \end{equation}
 
-Even though preprocessing phase is not specific process for KNN algorithm, 
+Even though the preprocessing phase is not specific process for KNN algorithm, 
 it is common in algorithms used in Natural Language Processing. Therefore, better memory management strategy should be applied in this preprocessing phase.
 This preprocessing generates many intermediate data structures and copies of String elements are used in these data structure again and again. 
 We can again either clone or get Arc of String. 
 
 Our KNN algorithms are implemented with batch processing. In query phase, we control batch size to examine how size of objects allocated simultaneously in memory has impact to algorithm's runtime performance.
-The detail implementation is explained in section3.2.
+The detailed implementation is explained in section 3.2.
 
 \section{Complex Objects}
 \label{sec:concept_compobj}
-To conduct experiments for above concepts, we use the 4 types of complex object: CustomerOwned, CustomerBorrowed, CustomerSlice, and CustomerRc. 
-These object contains other type of object: OrderOwned, OrderBorrowed, OrderSlice, and OrderRc.
+To conduct experiments for the above concepts, we use 4 types of complex objects: CustomerOwned, CustomerBorrowed, CustomerSlice, and CustomerRc. 
+These objects contain other type of objects: OrderOwned, OrderBorrowed, OrderSlice, and OrderRc.
 The representation of these objects are shown in Figure~\ref{fig:customer} and Figure~\ref{fig:order}. 
 Three Customer objects have 15 fields: 3 fields for i32, 3 fields for f64, 8 fields for String, and 1 field for Order object.
-All of fields of CustomerOwned and OrderOwned are owned by the object. On the other hand, fields of CustomerBorrowed, CustomerSlice, OrderBorrowed, and OrderSlice are borrowed. 
-Reference of slice of values are used as the fields and owner of actual values are stored differently in source Vec. 
+All fields of CustomerOwned and OrderOwned are owned by the object. On the other hand, fields of CustomerBorrowed, CustomerSlice, OrderBorrowed, and OrderSlice are borrowed. 
+References of slices of values are used as the fields and owners of actual values are stored differently in source Vec. 
 CustomerRc acquires Rc of values used for its fields from the source Vec.
 
 \begin{figure}[htb]
@@ -289,9 +289,9 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
 
 \section{Summary}
 \label{sec:concept_summary}
-We discussed some of concepts to understand goals of our experiments. 
+We discussed some concepts to understand goals of our experiments. 
 Theoretical discussions are noted in this chapter, such as assumptions where behavior of different variable types differ from each other, the impact of use of Reference Counting and Atomic Reference Counting, 
-and the best practice to implement algorithms used in Big Data processing. In Chapter\ref{chapter:evaluation}, it discusses details setting of our experiments, their results and analysis.
+and the best practice to implement algorithms used in Big Data processing. In Chapter\ref{chapter:evaluation}, we discuss detailed settings of our experiments, their results and analysis.
 
 
 \clearpage

@@ -18,7 +18,7 @@ In the CustomerRc and OrderRc struct, all fields take Rc (Rc$<$T$>$). Similarly 
 sets of integer, float, and String vector are created and their elements are borrowed or reference counted to create CustomerBorrowed or CustomerRc objects.
 The dropping of objects deletes references or Rcs used for fields of the objects. However, it does not deallocate values to which they are pointing. 
 Therefore, the evaluated runtime of dropping objects only consists of dropping time of reference or Rc, but deallocation time.
-We generated 10, 20, 30, and 40 million of CustomerBorrowed and CustomerRc objects and performed drop one by one. 
+We generated 10, 20, 30, and 40 million CustomerBorrowed and CustomerRc objects and performed drop one by one. 
 
 \subsection{Result}
 Figure\ref{fig:rc_ref} shows comparison of runtime dropping CustomerBorrowed and CustomerRc objects. 
@@ -36,18 +36,18 @@ The memory usage for algorithms with 40 million of Customer objects are about 26
 \subsection{Discussion}
 In this experiment, an assessment is conducted to verify whether there is difference between behavior of reference and Rc.
 The reason why dropping Rc is much slower than dropping reference is that Rc requires runtime overhead to check some states of the variable, 
-but when to drop reference is already determined at compile time. When dropping Rc, Rc has to check the number of variable pointing to the actual content and decide 
-deallocate the memory or not. However, memory management and lifetime strategy of reference is already determined at compile time.
+but when to drop reference is already determined at compile time. When dropping Rc, Rc has to check the number of variables pointing to the actual content and decide 
+whether to deallocate the memory or not. However, memory management and lifetime strategy of reference is already determined at compile time.
 This determination of memory management strategy at compile increases runtime performance of dropping complex object constructed with reference type variable.
 This may say that we should use reference whenever high performance computation is critical.
 
 However, dealing with reference is sometimes cumbersome. Tracking lifetime of reference can be done easily in simple situation. 
-But, if we have complex objects constructed with fields of reference, the lifetime tracking become extremely difficult. 
-For example, constructing nested objects with reference fields require a developer to plan memory management with many lifetime symbols. 
-Using reference counting eliminates developer's responsibility to specify lifetime of variables. 
+But, if we have complex objects constructed with fields of reference, the lifetime tracking becomes extremely difficult. 
+For example, constructing nested objects with reference fields requires a developer to plan memory management with many lifetime symbols. 
+Using reference counting eliminates the developer's responsibility to specify lifetime of variables. 
 This may ease and speed up development process, and increase understandability of codes.
 
 Even though we have stack allocated values, such as i32 and f64, in Rc in our experiment, 
-one should avoid wrapping stack allocated values in Rc. Wrapping value in Rc allocates heap memory so that allocating Rc$<$i32$>$ or Rc$<$f64$>$ unnecessarily use space of 
+one should avoid wrapping stack allocated values in Rc. Wrapping value in Rc allocates heap memory so that allocating Rc$<$i32$>$ or Rc$<$f64$>$ unnecessarily uses space of 
 heap. Additionally, stack allocated values are usually easy to be copied. Therefore, developer does not have to even use reference; one can just copy the value. 
 Copying value in Rust is to copy the original value and to assign the copy to new owner variable. 

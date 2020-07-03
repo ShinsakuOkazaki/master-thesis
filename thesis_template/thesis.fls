@@ -155,9 +155,6 @@ INPUT /usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/quote.tex
-INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/quote.tex
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/ack.tex
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/ack.tex
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/abs.tex
@@ -438,6 +435,7 @@ INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/Appendix/Figures/cblas_with_jni-eps-converted-to.pdf
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.bbl
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/thesis.aux
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/prelim.aux
 INPUT /Users/sinsakuokazaki/master-thesis/thesis_template/0_Prelim/prelim.aux

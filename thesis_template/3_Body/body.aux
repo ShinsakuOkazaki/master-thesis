@@ -8,8 +8,8 @@
 \newlabel{sec::concept_intro}{{3.1}{25}{Introduction}{section.3.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Types of Variables}{25}{section.3.2}\protected@file@percent }
 \newlabel{sec:concept_diffval}{{3.2}{25}{Types of Variables}{section.3.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3$\cdot $1}{\ignorespaces Memory Representation of Owner, Reference, and Slice Type\relax }}{26}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:own_ref_slice}{{3$\cdot $1}{26}{Memory Representation of Owner, Reference, and Slice Type\relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3$\cdot $1}{\ignorespaces Memory Representation of Owner, Reference, and Slice Type\relax }}{26}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:own_ref_slice}{{3$\cdot $1}{26}{Memory Representation of Owner, Reference, and Slice Type\relax }{figure.caption.13}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.3}Reference Count}{26}{section.3.3}\protected@file@percent }
 \newlabel{sec:concept_refcount}{{3.3}{26}{Reference Count}{section.3.3}{}}
 \citation{DBLP:journals/jmlr/MengBYSVLFTAOXX16}
@@ -17,8 +17,8 @@
 \newlabel{sec:concenpt_multithreading}{{3.4}{27}{Multithread}{section.3.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.5}Tree-aggregate}{27}{section.3.5}\protected@file@percent }
 \newlabel{sec:concept_treeagg}{{3.5}{27}{Tree-aggregate}{section.3.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3$\cdot $2}{\ignorespaces Representation of aggregation strategies in Apache Spark: (a) Traditional Aggregation, (b) Tree Aggregation\relax }}{28}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:aggregationk_patttern}{{3$\cdot $2}{28}{Representation of aggregation strategies in Apache Spark: (a) Traditional Aggregation, (b) Tree Aggregation\relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3$\cdot $2}{\ignorespaces Representation of aggregation strategies in Apache Spark: (a) Traditional Aggregation, (b) Tree Aggregation\relax }}{28}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:aggregationk_patttern}{{3$\cdot $2}{28}{Representation of aggregation strategies in Apache Spark: (a) Traditional Aggregation, (b) Tree Aggregation\relax }{figure.caption.14}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.6}K-Nearest-Neighbors}{28}{section.3.6}\protected@file@percent }
 \newlabel{sec:concept_knn}{{3.6}{28}{K-Nearest-Neighbors}{section.3.6}{}}
 \newlabel{eq:cosine}{{3.1}{29}{K-Nearest-Neighbors}{equation.3.6.1}{}}
@@ -26,10 +26,10 @@
 \newlabel{sec:concept_compobj}{{3.7}{30}{Complex Objects}{section.3.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.8}Summary}{30}{section.3.8}\protected@file@percent }
 \newlabel{sec:concept_summary}{{3.8}{30}{Summary}{section.3.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3$\cdot $3}{\ignorespaces Representation of Customer objects Whose fields are different variable type: (a) CustomerOwned struct whose fields are all owned (b) CustomerBorrowed struct whose fields are borrowed with reference (c) CustomerSlice struct whose fields are borrowed with slice for sequence value, otherwise reference\relax }}{31}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:customer}{{3$\cdot $3}{31}{Representation of Customer objects Whose fields are different variable type: (a) CustomerOwned struct whose fields are all owned (b) CustomerBorrowed struct whose fields are borrowed with reference (c) CustomerSlice struct whose fields are borrowed with slice for sequence value, otherwise reference\relax }{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3$\cdot $4}{\ignorespaces Representation of Order objects Whose fields are different variable type: (a) OrderOwned struct whose fields are all owned (b) OrderBorrowed struct whose fields are borrowed with reference (c) OrderSlice struct whose fields are borrowed with slice for sequence value, otherwise reference\relax }}{32}{figure.caption.17}\protected@file@percent }
-\newlabel{fig:order}{{3$\cdot $4}{32}{Representation of Order objects Whose fields are different variable type: (a) OrderOwned struct whose fields are all owned (b) OrderBorrowed struct whose fields are borrowed with reference (c) OrderSlice struct whose fields are borrowed with slice for sequence value, otherwise reference\relax }{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3$\cdot $3}{\ignorespaces Representation of Customer objects Whose fields are different variable type: (a) CustomerOwned struct whose fields are all owned (b) CustomerBorrowed struct whose fields are borrowed with reference (c) CustomerSlice struct whose fields are borrowed with slice for sequence value, otherwise reference (d) CustomerRc struct whose fields are reference counting\relax }}{31}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:customer}{{3$\cdot $3}{31}{Representation of Customer objects Whose fields are different variable type: (a) CustomerOwned struct whose fields are all owned (b) CustomerBorrowed struct whose fields are borrowed with reference (c) CustomerSlice struct whose fields are borrowed with slice for sequence value, otherwise reference (d) CustomerRc struct whose fields are reference counting\relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3$\cdot $4}{\ignorespaces Representation of Order objects Whose fields are different variable type: (a) OrderOwned struct whose fields are all owned (b) OrderBorrowed struct whose fields are borrowed with reference (c) OrderSlice struct whose fields are borrowed with slice for sequence value, otherwise reference (d) OrderRc struct whose fields are reference counting\relax }}{32}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:order}{{3$\cdot $4}{32}{Representation of Order objects Whose fields are different variable type: (a) OrderOwned struct whose fields are all owned (b) OrderBorrowed struct whose fields are borrowed with reference (c) OrderSlice struct whose fields are borrowed with slice for sequence value, otherwise reference (d) OrderRc struct whose fields are reference counting\relax }{figure.caption.16}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Evaluation Result}{33}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -46,53 +46,53 @@
 \newlabel{sec:eval_diffval}{{4.3}{34}{Experiment 1: Accessing Objects with Different Variable Types}{section.4.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Result}{34}{subsection.4.3.1}\protected@file@percent }
 \newlabel{sec:history}{{4.3.1}{34}{Result}{subsection.4.3.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $1}{\ignorespaces Runtime of Access to Different Pointer Types with Vec Size Initialization\relax }}{35}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:rustaccessinit}{{4$\cdot $1}{35}{Runtime of Access to Different Pointer Types with Vec Size Initialization\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $1}{\ignorespaces Runtime of Access to Different Pointer Types with Vec Size Initialization\relax }}{35}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:rustaccessinit}{{4$\cdot $1}{35}{Runtime of Access to Different Pointer Types with Vec Size Initialization\relax }{figure.caption.17}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Discussion}{35}{subsection.4.3.2}\protected@file@percent }
 \newlabel{sec:history}{{4.3.2}{35}{Discussion}{subsection.4.3.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $2}{\ignorespaces Runtime of Access to Different Pointer Types without Vec Size Initialization\relax }}{36}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:rustaccessnoinit}{{4$\cdot $2}{36}{Runtime of Access to Different Pointer Types without Vec Size Initialization\relax }{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $2}{\ignorespaces Runtime of Access to Different Pointer Types without Vec Size Initialization\relax }}{36}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:rustaccessnoinit}{{4$\cdot $2}{36}{Runtime of Access to Different Pointer Types without Vec Size Initialization\relax }{figure.caption.18}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.4}Experiment 2: Assessment of different reference methods in Rust}{36}{section.4.4}\protected@file@percent }
 \newlabel{sec:eval_refcount}{{4.4}{36}{Experiment 2: Assessment of different reference methods in Rust}{section.4.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Result}{37}{subsection.4.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $3}{\ignorespaces Runtime for dropping Customer Object\relax }}{37}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:rc_ref}{{4$\cdot $3}{37}{Runtime for dropping Customer Object\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $3}{\ignorespaces Runtime for dropping Customer Object\relax }}{37}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:rc_ref}{{4$\cdot $3}{37}{Runtime for dropping Customer Object\relax }{figure.caption.19}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Discussion}{37}{subsection.4.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.5}Experiment 3: Merge-sort}{38}{section.4.5}\protected@file@percent }
 \newlabel{sec:eval_sort}{{4.5}{38}{Experiment 3: Merge-sort}{section.4.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Result}{39}{subsection.4.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $4}{\ignorespaces Representation of Source Vector\relax }}{40}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:source_merge_sort}{{4$\cdot $4}{40}{Representation of Source Vector\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $5}{\ignorespaces Runtime of Sorting Elements of Customer Vector\relax }}{40}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:merge_sort}{{4$\cdot $5}{40}{Runtime of Sorting Elements of Customer Vector\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $4}{\ignorespaces Representation of Source Vector\relax }}{40}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:source_merge_sort}{{4$\cdot $4}{40}{Representation of Source Vector\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $5}{\ignorespaces Runtime of Sorting Elements of Customer Vector\relax }}{40}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:merge_sort}{{4$\cdot $5}{40}{Runtime of Sorting Elements of Customer Vector\relax }{figure.caption.21}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Discussion}{40}{subsection.4.5.2}\protected@file@percent }
 \citation{RustArcPage}
 \@writefile{toc}{\contentsline {section}{\numberline {4.6}Experiment 4: Tree-aggregation}{41}{section.4.6}\protected@file@percent }
 \newlabel{sec:eval_treeagg}{{4.6}{41}{Experiment 4: Tree-aggregation}{section.4.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $6}{\ignorespaces Aggregation function with Arc\relax }}{43}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:arc_tree}{{4$\cdot $6}{43}{Aggregation function with Arc\relax }{figure.caption.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $7}{\ignorespaces Aggregation function with deep-copy\relax }}{43}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:deep_tree}{{4$\cdot $7}{43}{Aggregation function with deep-copy\relax }{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $6}{\ignorespaces Aggregation function with Arc\relax }}{43}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:arc_tree}{{4$\cdot $6}{43}{Aggregation function with Arc\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $7}{\ignorespaces Aggregation function with deep-copy\relax }}{43}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:deep_tree}{{4$\cdot $7}{43}{Aggregation function with deep-copy\relax }{figure.caption.23}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Result}{43}{subsection.4.6.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $8}{\ignorespaces Runtime of Tree-aggregate algorithm\relax }}{44}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:ex_tree_agg}{{4$\cdot $8}{44}{Runtime of Tree-aggregate algorithm\relax }{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $8}{\ignorespaces Runtime of Tree-aggregate algorithm\relax }}{44}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:ex_tree_agg}{{4$\cdot $8}{44}{Runtime of Tree-aggregate algorithm\relax }{figure.caption.24}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Discussion}{44}{subsection.4.6.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.7}Experiment 5: K-Nearest-Neighbors}{45}{section.4.7}\protected@file@percent }
 \newlabel{sec:eval_knn}{{4.7}{45}{Experiment 5: K-Nearest-Neighbors}{section.4.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Parameter of KNN algorithms\relax }}{46}{table.caption.26}\protected@file@percent }
-\newlabel{tab:parameter}{{4.1}{46}{Parameter of KNN algorithms\relax }{table.caption.26}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Parameter of KNN algorithms\relax }}{46}{table.caption.25}\protected@file@percent }
+\newlabel{tab:parameter}{{4.1}{46}{Parameter of KNN algorithms\relax }{table.caption.25}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.7.1}Result}{47}{subsection.4.7.1}\protected@file@percent }
 \newlabel{sec:history}{{4.7.1}{47}{Result}{subsection.4.7.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Index of Algorithm\relax }}{48}{table.caption.27}\protected@file@percent }
-\newlabel{tab:algorithm}{{4.2}{48}{Index of Algorithm\relax }{table.caption.27}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Index of Algorithm\relax }}{48}{table.caption.26}\protected@file@percent }
+\newlabel{tab:algorithm}{{4.2}{48}{Index of Algorithm\relax }{table.caption.26}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.7.2}Discussion}{48}{subsection.4.7.2}\protected@file@percent }
 \newlabel{sec:history}{{4.7.2}{48}{Discussion}{subsection.4.7.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $9}{\ignorespaces Total runtime whole KNN algorithm (seconds)\relax }}{49}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:total}{{4$\cdot $9}{49}{Total runtime whole KNN algorithm (seconds)\relax }{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $10}{\ignorespaces Total runtime of preprocessing phase in KNN (seconds)\relax }}{50}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:preprocess}{{4$\cdot $10}{50}{Total runtime of preprocessing phase in KNN (seconds)\relax }{figure.caption.29}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $11}{\ignorespaces Total runtime of query phase in KNN (seconds)\relax }}{51}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:query}{{4$\cdot $11}{51}{Total runtime of query phase in KNN (seconds)\relax }{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $9}{\ignorespaces Total runtime whole KNN algorithm (seconds)\relax }}{49}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:total}{{4$\cdot $9}{49}{Total runtime whole KNN algorithm (seconds)\relax }{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $10}{\ignorespaces Total runtime of preprocessing phase in KNN (seconds)\relax }}{50}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:preprocess}{{4$\cdot $10}{50}{Total runtime of preprocessing phase in KNN (seconds)\relax }{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4$\cdot $11}{\ignorespaces Total runtime of query phase in KNN (seconds)\relax }}{51}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:query}{{4$\cdot $11}{51}{Total runtime of query phase in KNN (seconds)\relax }{figure.caption.29}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.8}Summary}{51}{section.4.8}\protected@file@percent }
 \newlabel{sec:eval_summary}{{4.8}{51}{Summary}{section.4.8}{}}
 \@setckpt{3_Body/body}{

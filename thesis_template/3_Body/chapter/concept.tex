@@ -218,10 +218,11 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
             }
         \end{lstlisting}
       \medskip
-      \centerline{(c)}
+      \centerline{(d)}
     \end{minipage}\hfill
     \caption{Representation of Customer objects Whose fields are different variable type: (a) CustomerOwned struct whose fields are all owned 
-    (b) CustomerBorrowed struct whose fields are borrowed with reference (c) CustomerSlice struct whose fields are borrowed with slice for sequence value, otherwise reference}
+    (b) CustomerBorrowed struct whose fields are borrowed with reference (c) CustomerSlice struct whose fields are borrowed with slice for sequence value, otherwise reference 
+    (d) CustomerRc struct whose fields are reference counting}
     \label{fig:customer}
  \end{figure}
 
@@ -280,10 +281,11 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
             }
         \end{lstlisting}
       \medskip
-      \centerline{(c)}
+      \centerline{(d)}
     \end{minipage}\hfill
     \caption{Representation of Order objects Whose fields are different variable type: (a) OrderOwned struct whose fields are all owned 
-    (b) OrderBorrowed struct whose fields are borrowed with reference (c) OrderSlice struct whose fields are borrowed with slice for sequence value, otherwise reference}
+    (b) OrderBorrowed struct whose fields are borrowed with reference (c) OrderSlice struct whose fields are borrowed with slice for sequence value, otherwise reference 
+    (d) OrderRc struct whose fields are reference counting}
     \label{fig:order}
  \end{figure}
 

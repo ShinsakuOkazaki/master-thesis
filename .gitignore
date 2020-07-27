@@ -5,3 +5,4 @@ serialized
 *.fdb_latexmk
 *.fls
 data
+docs

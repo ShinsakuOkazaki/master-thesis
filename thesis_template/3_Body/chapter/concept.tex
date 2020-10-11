@@ -128,8 +128,10 @@ References of slices of values are used as the fields and owners of actual value
 CustomerRc acquires Rc of values used for its fields from the source Vec.
 
 \begin{figure}[htb]
-    \begin{minipage}[t]{0.2\linewidth}\centering
-        \begin{lstlisting}
+    \begin{subfigure}{.5\textwidth}\centering
+        \begin{lstlisting}[
+            basicstyle=\tiny, %or \small or \footnotesize etc.
+        ]
             struct CustomerOwned {
                 key: i32,
                 age: i32,
@@ -150,9 +152,11 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
         \end{lstlisting}
       \medskip
       \centerline{(a)}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.6\linewidth}\centering
-        \begin{lstlisting}
+    \end{subfigure}\hfill
+    \begin{subfigure}{.5\textwidth}\centering
+        \begin{lstlisting}[
+            basicstyle=\tiny, %or \small or \footnotesize etc.
+        ]
             struct CustomerBorrowed<'a> {
                 key: &'a i32,
                 age: &'a i32,
@@ -173,9 +177,14 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
         \end{lstlisting}
       \medskip
       \centerline{(b)}
-    \end{minipage}
-    \begin{minipage}[t]{0.2\linewidth}\centering
-        \begin{lstlisting}
+    \end{subfigure}\hfill
+
+    \medskip
+
+    \begin{subfigure}{.5\textwidth}\centering
+        \begin{lstlisting}[
+            basicstyle=\tiny, %or \small or \footnotesize etc.
+        ]
             struct CustomerSlice<'a> {
                 key: &'a i32,
                 age: &'a i32,
@@ -196,9 +205,11 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
         \end{lstlisting}
       \medskip
       \centerline{(c)}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{0.6\linewidth}\centering
-        \begin{lstlisting}
+    \end{subfigure}\hfill
+    \begin{subfigure}{.5\linewidth}\centering
+        \begin{lstlisting}[
+            basicstyle=\tiny, %or \small or \footnotesize etc.
+        ]
             struct CustomerRc {
                 key: Rc<i32>,
                 age: Rc<i32>,
@@ -219,7 +230,7 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
         \end{lstlisting}
       \medskip
       \centerline{(d)}
-    \end{minipage}\hfill
+    \end{subfigure}\hfill
     \caption{Representation of Customer objects Whose fields are different variable type: (a) CustomerOwned struct whose fields are all owned 
     (b) CustomerBorrowed struct whose fields are borrowed with reference (c) CustomerSlice struct whose fields are borrowed with slice for sequence value, otherwise reference 
     (d) CustomerRc struct whose fields are reference counting}
@@ -227,8 +238,10 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
  \end{figure}
 
  \begin{figure}[htb]
-    \begin{minipage}[t]{0.2\linewidth}\centering
-        \begin{lstlisting}
+    \begin{minipage}[t]{0.5\linewidth}\centering
+        \begin{lstlisting}[
+            basicstyle=\tiny, %or \small or \footnotesize etc.
+        ]
             struct OrderOwned {
                 order_id: i32,
                 num_items: i32, 
@@ -241,8 +254,10 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
       \medskip
       \centerline{(a)}
     \end{minipage}\hfill
-    \begin{minipage}[t]{0.6\linewidth}\centering
-        \begin{lstlisting}
+    \begin{minipage}[t]{0.5\linewidth}\centering
+        \begin{lstlisting}[
+            basicstyle=\tiny, %or \small or \footnotesize etc.
+        ]
             struct OrderBorrowed<'a> {
                 order_id: &'a i32,
                 num_items: &'a i32, 
@@ -255,8 +270,10 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
       \medskip
       \centerline{(b)}
     \end{minipage}
-    \begin{minipage}[t]{0.2\linewidth}\centering
-        \begin{lstlisting}
+    \begin{minipage}[t]{0.5\linewidth}\centering
+        \begin{lstlisting}[
+            basicstyle=\tiny, %or \small or \footnotesize etc.
+        ]
             struct OrderSlice<'a> {
                 order_id: &'a i32,
                 num_items: &'a i32, 
@@ -269,8 +286,10 @@ CustomerRc acquires Rc of values used for its fields from the source Vec.
       \medskip
       \centerline{(c)}
     \end{minipage}\hfill
-    \begin{minipage}[t]{0.6\linewidth}\centering
-        \begin{lstlisting}
+    \begin{minipage}[t]{0.5\linewidth}\centering
+        \begin{lstlisting}[
+            basicstyle=\tiny, %or \small or \footnotesize etc.
+        ]
             struct OrderRc {
                 order_id: Rc<i32>,
                 num_items: Rc<i32>,

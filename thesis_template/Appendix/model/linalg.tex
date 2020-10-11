@@ -5,15 +5,24 @@
     \item Download CBLAS and build using make file (I am not sure whether we should build archive file or shared library). In figure, the build file would be libcblas.a or libcblas.dylib and header file is cblas.h.
     \item Create java file which will be the Java interface of CBLAS.
     \item Compile java file with -h header flag to create class file (CBLASJ.class) and header file (CBLASJ.h).
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[
+    language=bash, 
+    basicstyle=\tiny, %or \small or \footnotesize etc.
+    ]
     $ javac -h . CBLASJ.java
 \end{lstlisting}
     \item Create C file (CBLASJ.c) which will bind Java interface and CBLAS library. And compile it with JNI to create object file (CBLASJ.o).
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[
+    language=bash, 
+    basicstyle=\tiny, %or \small or \footnotesize etc.
+    ]
     $ gcc -c-fPIC -I${JAVA_HOME}/include -I${JAVA_HOME}/include/darwin CBLASJ.c
 \end{lstlisting}
-    \item Compile shared library linking library (libcblas.a or libcblas.dylib) object file (CBLASJ.o).
-\begin{lstlisting}[language=bash]
+    \item Compile shared library linking library (libcblas.a or libcblas.dylib) to object file (CBLASJ.o).
+\begin{lstlisting}[
+    language=bash, 
+    basicstyle=\tiny, %or \small or \footnotesize etc.
+    ]
     $ gcc -o libcblas.dylib (or libcblas.a) CBLASJ.o 
 \end{lstlisting}
 \end{enumerate}

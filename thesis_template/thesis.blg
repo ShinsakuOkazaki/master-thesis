@@ -13,15 +13,15 @@ Database file #1: thesis.bib
 Warning--entry type for "netlib" isn't style-file defined
 --line 1 of file thesis.bib
 Warning--entry type for "ApacheHadoopHomePage" isn't style-file defined
---line 252 of file thesis.bib
+--line 254 of file thesis.bib
 Warning--entry type for "nd4j" isn't style-file defined
---line 258 of file thesis.bib
+--line 261 of file thesis.bib
 Warning--entry type for "ApacheSparkHomePage" isn't style-file defined
---line 264 of file thesis.bib
+--line 268 of file thesis.bib
 Warning--entry type for "ApacheFlinkHomePage" isn't style-file defined
---line 290 of file thesis.bib
-Warning--entry type for "RustArcPage" isn't style-file defined
 --line 296 of file thesis.bib
+Warning--entry type for "RustArcPage" isn't style-file defined
+--line 303 of file thesis.bib
 Warning--to sort, need author or key in ApacheHadoopHomePage
 Warning--to sort, need author or key in ApacheSparkHomePage
 Warning--to sort, need author or key in ApacheFlinkHomePage
@@ -30,16 +30,16 @@ Warning--to sort, need author or key in nd4j
 Warning--to sort, need author or key in RustArcPage
 You've used 22 entries,
             2118 wiz_defined-function locations,
-            642 strings with 10151 characters,
-and the built_in function-call counts, 9852 in all, are:
-= -- 892
+            649 strings with 10463 characters,
+and the built_in function-call counts, 9915 in all, are:
+= -- 906
 > -- 697
 < -- 8
 + -- 272
 - -- 249
 * -- 805
-:= -- 1593
-add.period$ -- 62
+:= -- 1607
+add.period$ -- 69
 call.type$ -- 22
 change.case$ -- 179
 chr.to.int$ -- 0
@@ -47,17 +47,17 @@ cite$ -- 28
 duplicate$ -- 304
 empty$ -- 657
 format.name$ -- 249
-if$ -- 2041
+if$ -- 2055
 int.to.chr$ -- 0
 int.to.str$ -- 22
 missing$ -- 19
-newline$ -- 101
+newline$ -- 108
 num.names$ -- 44
-pop$ -- 226
+pop$ -- 225
 preamble$ -- 1
 purify$ -- 159
 quote$ -- 0
-skip$ -- 240
+skip$ -- 234
 stack$ -- 0
 substring$ -- 477
 swap$ -- 92
@@ -68,5 +68,5 @@ type$ -- 82
 warning$ -- 6
 while$ -- 71
 width$ -- 24
-write$ -- 222
+write$ -- 236
 (There were 12 warnings)

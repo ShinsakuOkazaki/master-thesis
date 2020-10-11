@@ -34,7 +34,9 @@ Therefore, there are few difference between the two kinds of tree-aggregate algo
 Numbers of CustomerOwned objects aggregated in our experiment are 2, 4, 6, 8 million. 
 
 \begin{figure}[htb]
-    \begin{lstlisting}
+    \begin{lstlisting}[
+            basicstyle=\tiny, %or \small or \footnotesize etc.
+        ]
         fn aggregate_local(arr :&[Arc<CustomerOwned>]) 
         {   
             let mut agg = HashMap::new();
@@ -54,7 +56,9 @@ Numbers of CustomerOwned objects aggregated in our experiment are 2, 4, 6, 8 mil
 
 
 \begin{figure}[htb]
-    \begin{lstlisting}
+    \begin{lstlisting}[
+            basicstyle=\tiny, %or \small or \footnotesize etc.
+        ]
         fn aggregate_local_copy(arr :&[CustomerOwned]) 
         {   
             let mut agg = HashMap::new();

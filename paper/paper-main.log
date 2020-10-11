@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  1 JUN 2020 16:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  26 JUL 2020 00:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -996,22 +996,26 @@ Package epstopdf Info: Source file: <images/rust_vec.eps>
 (epstopdf)                    date: 2020-05-29 17:31:57
 (epstopdf)                    size: 5771 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/rust_vec-eps-converted-to.pdf images/rust_vec.eps>
-(epstopdf)             \includegraphics on input line 235.
+(epstopdf)             \includegraphics on input line 240.
 Package epstopdf Info: Output file is already uptodate.
 <images/rust_vec-eps-converted-to.pdf, id=78, 321.2pt x 176.66pt>
 File: images/rust_vec-eps-converted-to.pdf Graphic file (type pdf)
 <use images/rust_vec-eps-converted-to.pdf>
-Package pdftex.def Info: images/rust_vec-eps-converted-to.pdf  used on input line 235.
+Package pdftex.def Info: images/rust_vec-eps-converted-to.pdf  used on input line 240.
 (pdftex.def)             Requested size: 142.26378pt x 78.2455pt.
 
 
-Class acmart Warning: A possible image without description on input line 238.
+Class acmart Warning: A possible image without description on input line 243.
 
 
-Class acmart Warning: \vspace should only be used to provide space above/below surrounding objects on input line 246.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Class acmart Warning: \vspace should only be used to provide space above/below surrounding objects on input line 252.
+
+Class acmart Warning: \vspace should only be used to provide space above/below surrounding objects on input line 251.
+
+
+Class acmart Warning: \vspace should only be used to provide space above/below surrounding objects on input line 257.
 
 Package epstopdf Info: Source file: <images/rust_vec_moved.eps>
 (epstopdf)                    date: 2020-05-29 17:30:05
@@ -1020,24 +1024,24 @@ Package epstopdf Info: Source file: <images/rust_vec_moved.eps>
 (epstopdf)                    date: 2020-05-29 17:31:57
 (epstopdf)                    size: 7206 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/rust_vec_moved-eps-converted-to.pdf images/rust_vec_moved.eps>
-(epstopdf)             \includegraphics on input line 258.
+(epstopdf)             \includegraphics on input line 263.
 Package epstopdf Info: Output file is already uptodate.
 <images/rust_vec_moved-eps-converted-to.pdf, id=80, 370.38374pt x 168.63pt>
 File: images/rust_vec_moved-eps-converted-to.pdf Graphic file (type pdf)
 <use images/rust_vec_moved-eps-converted-to.pdf>
-Package pdftex.def Info: images/rust_vec_moved-eps-converted-to.pdf  used on input line 258.
+Package pdftex.def Info: images/rust_vec_moved-eps-converted-to.pdf  used on input line 263.
 (pdftex.def)             Requested size: 142.26378pt x 64.76964pt.
 
-Class acmart Warning: A possible image without description on input line 261.
-
-
-LaTeX Warning: Reference `sec:eval_diffval' on page 2 undefined on input line 281.
+Class acmart Warning: A possible image without description on input line 266.
 
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 282.
+(Font)              scaled to size 9.0pt on input line 280.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 282.
+(Font)              scaled to size 7.0pt on input line 280.
 [2.2 </Users/sinsakuokazaki/master-thesis/paper/images/rust_vec-eps-converted-to.pdf> </Users/sinsakuokazaki/master-thesis/paper/images/rust_vec_moved-eps-converted-to.pdf>]
+
+LaTeX Warning: Reference `sec:eval_diffval' on page 3 undefined on input line 286.
+
 Package epstopdf Info: Source file: <images/own_ref_slice.eps>
 (epstopdf)                    date: 2020-05-31 18:05:32
 (epstopdf)                    size: 23832 bytes
@@ -1045,16 +1049,15 @@ Package epstopdf Info: Source file: <images/own_ref_slice.eps>
 (epstopdf)                    date: 2020-05-31 18:06:05
 (epstopdf)                    size: 7237 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/own_ref_slice-eps-converted-to.pdf images/own_ref_slice.eps>
-(epstopdf)             \includegraphics on input line 284.
+(epstopdf)             \includegraphics on input line 289.
 Package epstopdf Info: Output file is already uptodate.
-<images/own_ref_slice-eps-converted-to.pdf, id=108, 305.14pt x 284.06125pt>
+<images/own_ref_slice-eps-converted-to.pdf, id=107, 305.14pt x 284.06125pt>
 File: images/own_ref_slice-eps-converted-to.pdf Graphic file (type pdf)
 <use images/own_ref_slice-eps-converted-to.pdf>
-Package pdftex.def Info: images/own_ref_slice-eps-converted-to.pdf  used on input line 284.
+Package pdftex.def Info: images/own_ref_slice-eps-converted-to.pdf  used on input line 289.
 (pdftex.def)             Requested size: 142.26378pt x 132.43819pt.
 
-
-Class acmart Warning: A possible image without description on input line 287.
+Class acmart Warning: A possible image without description on input line 292.
 
 (/Users/sinsakuokazaki/master-thesis/paper/paper-main.bbl
 LaTeX Info: Redefining \tempurl on input line 57.
@@ -1070,11 +1073,11 @@ Package balance Warning: You have called \balance in second column
 (balance)                Columns might not be balanced.
 
 [3.3 </Users/sinsakuokazaki/master-thesis/paper/images/own_ref_slice-eps-converted-to.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 323.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 323.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 328.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 328.
  (/Users/sinsakuokazaki/master-thesis/paper/paper-main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 323.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 323.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 328.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 328.
 Package rerunfilecheck Info: File `paper-main.out' has not changed.
 (rerunfilecheck)             Checksum: 56551BF50F78CAF1E1826A137E0CE2F1;1330.
 
@@ -1085,13 +1088,13 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  19696 strings out of 492616
  295420 string characters out of 6129482
- 414246 words of memory out of 5000000
+ 413246 words of memory out of 5000000
  22849 multiletter control sequences out of 15000+600000
  133211 words of font info for 248 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  60i,11n,94p,843b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}</usr/local/texlive/2019/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on /Users/sinsakuokazaki/master-thesis/paper/paper-main.pdf (3 pages, 383201 bytes).
+Output written on /Users/sinsakuokazaki/master-thesis/paper/paper-main.pdf (3 pages, 383576 bytes).
 PDF statistics:
  171 PDF objects out of 1000 (max. 8388607)
  140 compressed objects within 2 object streams

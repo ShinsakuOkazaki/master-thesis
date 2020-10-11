@@ -8,6 +8,7 @@ A level-1 auxiliary file: 3_Body/body.aux
 A level-1 auxiliary file: 4_Conclusion/conclusion.aux
 A level-1 auxiliary file: Appendix/Appendix.aux
 The style file: plain.bst
+A level-1 auxiliary file: 0_Prelim/cv.aux
 Database file #1: thesis.bib
 Warning--entry type for "netlib" isn't style-file defined
 --line 1 of file thesis.bib
@@ -29,7 +30,7 @@ Warning--to sort, need author or key in nd4j
 Warning--to sort, need author or key in RustArcPage
 You've used 22 entries,
             2118 wiz_defined-function locations,
-            641 strings with 10136 characters,
+            642 strings with 10151 characters,
 and the built_in function-call counts, 9852 in all, are:
 = -- 892
 > -- 697

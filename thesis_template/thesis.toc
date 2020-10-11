@@ -59,3 +59,4 @@
 \contentsline {chapter}{\numberline {A}Linear Algebra Computation}{55}{Appendix.a.A}% 
 \contentsline {section}{\numberline {A.1}Create Java interface of CBLAS with JNI}{55}{section.a.A.1}% 
 \contentsline {chapter}{References}{57}{chapter*.31}% 
+\contentsline {chapter}{Curriculum Vitae}{60}{chapter*.31}% 

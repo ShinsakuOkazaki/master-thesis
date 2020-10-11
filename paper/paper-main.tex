@@ -211,6 +211,11 @@ Therefore, we assess following research question in this thesis.
     \item How much can algorithms runtime be improved or degraded, if we use Reference Count?
     \item What are better memory management strategies for faster Big Data processing in Rust multithreading?
     \item How can we improve runtime performance of common Big Data algorithms by Rust memory management?
+    \item How columnar format (or row-based format, serialized format) speeds up big data processing with system language
+    \begin{itemize}
+      \item Relational object format reduces number of intermediate objects and copies of objects
+      \item Reduction of objects reduces number of GCs triggered, but not in system languages.
+    \end{itemize}      
 \end{itemize}
 
 
